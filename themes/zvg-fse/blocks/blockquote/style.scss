@@ -1,0 +1,57 @@
+@use "../../assets/css/vars" as *;
+
+.wp-block-zvg-fse-blockquote {
+	position: relative;
+	margin: 0;
+	padding: var(--wp--preset--spacing--40);
+	padding-top: var(--wp--preset--spacing--60);
+	background-color: $color-surface-alt;
+	border-radius: $radius-large;
+
+	&::before {
+		content: "\201C";
+		position: absolute;
+		top: var(--wp--preset--spacing--20);
+		left: var(--wp--preset--spacing--40);
+		font-family: var(--wp--preset--font-family--heading);
+		font-size: 4rem;
+		font-weight: 600;
+		line-height: 1;
+		color: $color-accent;
+	}
+
+	&__quote {
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+
+	&__text {
+		margin: 0;
+		font-size: var(--wp--preset--font-size--x-large);
+		font-style: normal;
+		line-height: 1.45;
+		color: $color-text;
+	}
+
+	&__author {
+		display: flex;
+		flex-direction: column;
+		gap: var(--wp--preset--spacing--10);
+		margin-top: var(--wp--preset--spacing--40);
+		text-align: left;
+	}
+
+	&__name {
+		font-size: var(--wp--preset--font-size--medium);
+		font-style: normal;
+		font-weight: 600;
+		color: $color-text;
+	}
+
+	&__role {
+		font-family: var(--wp--preset--font-family--mono);
+		font-size: var(--wp--preset--font-size--small);
+		color: $color-muted;
+	}
+}

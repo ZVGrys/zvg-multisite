@@ -1,0 +1,44 @@
+$bp-small: 600px;
+$bp-medium: 782px;
+$bp-large: 960px;
+$bp-xlarge: 1080px;
+$bp-huge: 1439px;
+
+@mixin up($bp) {
+	$min: $bp + 0.02px;
+
+	@media (min-width: $min) {
+		@content;
+	}
+}
+
+@mixin down($bp) {
+	@media (max-width: $bp) {
+		@content;
+	}
+}
+
+$color-surface: var(--wp--preset--color--surface);
+$color-surface-alt: var(--wp--preset--color--surface-alt);
+$color-text: var(--wp--preset--color--text);
+$color-muted: var(--wp--preset--color--muted);
+$color-accent: var(--wp--preset--color--accent);
+$color-accent-ink: var(--wp--preset--color--accent-ink);
+$color-border: var(--wp--preset--color--border);
+$color-border-strong: var(--wp--preset--color--border-strong);
+$color-danger: var(--wp--preset--color--danger);
+
+$radius-small: var(--wp--custom--radius--small);
+$radius-medium: var(--wp--custom--radius--medium);
+$radius-large: var(--wp--custom--radius--large);
+
+$shadow-sm: var(--wp--preset--shadow--sm);
+$shadow-md: var(--wp--preset--shadow--md);
+
+$measure-content: var(--wp--custom--measure--content);
+$measure-wide: var(--wp--custom--measure--wide);
+
+$backdrop: var(--wp--custom--backdrop);
+
+$transition-fast: var(--wp--custom--transition--fast);
+$transition-base: var(--wp--custom--transition--base);

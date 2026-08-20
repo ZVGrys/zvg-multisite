@@ -1,0 +1,41 @@
+@use "../vars" as *;
+
+.wp-block-search {
+	&__inside-wrapper {
+		gap: var(--wp--preset--spacing--20);
+	}
+
+	&__input {
+		padding: 12px 14px;
+		font-family: inherit;
+		font-size: var(--wp--preset--font-size--large);
+		color: $color-text;
+		background-color: $color-surface-alt;
+		border: 1px solid $color-border-strong;
+		border-radius: $radius-medium;
+		transition: border-color $transition-fast;
+
+		&::placeholder {
+			color: $color-muted;
+		}
+
+		&:focus-visible {
+			border-color: $color-accent;
+		}
+	}
+
+	&__button {
+		font-family: var(--wp--preset--font-family--mono);
+		font-size: var(--wp--preset--font-size--medium);
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		border: 0;
+		border-radius: $radius-medium;
+		transition: opacity $transition-fast;
+
+		&:hover,
+		&:focus-visible {
+			opacity: 0.88;
+		}
+	}
+}

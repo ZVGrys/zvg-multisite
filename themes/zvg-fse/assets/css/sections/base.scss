@@ -1,0 +1,14 @@
+@use "../vars" as *;
+
+.zvg-fse-section {
+	padding-block: var(--wp--preset--spacing--70);
+	border-top: 1px solid $color-border;
+
+	@include down($bp-medium) {
+		padding-block: var(--wp--preset--spacing--60);
+	}
+
+	&.zvg-fse-section {
+		margin-block-start: 0;
+	}
+}

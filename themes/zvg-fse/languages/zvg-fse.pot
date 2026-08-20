@@ -1,0 +1,1359 @@
+# Copyright (C) 2026 ZVGrys
+# This file is distributed under the © 2026 ZVGrys. All rights reserved. Code is published for review purposes only..
+msgid ""
+msgstr ""
+"Project-Id-Version: ZVG FSE 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/zvg-fse\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-08-14T10:33:37+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: zvg-fse\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "ZVG FSE"
+msgstr ""
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://github.com/ZVGrys/zvg-multisite"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "A minimal WordPress block theme for Full Site Editing. All design tokens live in theme.json; templates, parts and patterns are pure block markup. WCAG 2.1 AA, no third-party dependencies."
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "ZVGrys"
+msgstr ""
+
+#. Author URI of the theme
+#: style.css
+msgid "https://github.com/ZVGrys"
+msgstr ""
+
+#: blocks/build-chooser/block.php:23
+#: blocks/build-chooser/block.php:68
+msgctxt "Chooser button"
+msgid "Next"
+msgstr ""
+
+#: blocks/build-chooser/block.php:24
+msgctxt "Chooser button"
+msgid "See recommendation"
+msgstr ""
+
+#. translators: 1: current question number, 2: how many questions there are.
+#: blocks/build-chooser/block.php:38
+#, php-format
+msgctxt "Chooser progress"
+msgid "Step %1$d of %2$d"
+msgstr ""
+
+#: blocks/build-chooser/block.php:65
+msgctxt "Chooser button"
+msgid "Back"
+msgstr ""
+
+#: blocks/build-chooser/block.php:73
+msgctxt "Chooser result"
+msgid "Suggested build"
+msgstr ""
+
+#: blocks/build-chooser/block.php:77
+msgctxt "Chooser result"
+msgid "The other two"
+msgstr ""
+
+#: blocks/build-chooser/block.php:91
+msgctxt "Chooser button"
+msgid "Start over"
+msgstr ""
+
+#: blocks/build-chooser/block.php:97
+msgctxt "Chooser aside"
+msgid "The three options"
+msgstr ""
+
+#: blocks/build-chooser/index.php:56
+msgctxt "Chooser question"
+msgid "Who edits the content after launch?"
+msgstr ""
+
+#: blocks/build-chooser/index.php:60
+msgctxt "Chooser answer"
+msgid "A developer"
+msgstr ""
+
+#: blocks/build-chooser/index.php:67
+msgctxt "Chooser answer"
+msgid "A marketing team"
+msgstr ""
+
+#: blocks/build-chooser/index.php:74
+msgctxt "Chooser answer"
+msgid "The client, occasionally"
+msgstr ""
+
+#: blocks/build-chooser/index.php:83
+msgctxt "Chooser question"
+msgid "How much of the design is fixed?"
+msgstr ""
+
+#: blocks/build-chooser/index.php:87
+msgctxt "Chooser answer"
+msgid "Pixel-exact from a mockup"
+msgstr ""
+
+#: blocks/build-chooser/index.php:94
+msgctxt "Chooser answer"
+msgid "A design system with room to move"
+msgstr ""
+
+#: blocks/build-chooser/index.php:101
+msgctxt "Chooser answer"
+msgid "It will change often"
+msgstr ""
+
+#: blocks/build-chooser/index.php:110
+msgctxt "Chooser question"
+msgid "What is the budget shape?"
+msgstr ""
+
+#: blocks/build-chooser/index.php:114
+msgctxt "Chooser answer"
+msgid "Fixed and tight"
+msgstr ""
+
+#: blocks/build-chooser/index.php:121
+msgctxt "Chooser answer"
+msgid "Room for a proper build"
+msgstr ""
+
+#: blocks/build-chooser/index.php:128
+msgctxt "Chooser answer"
+msgid "Ongoing retainer"
+msgstr ""
+
+#: blocks/build-chooser/index.php:149
+#: blocks/build-chooser/index.php:174
+msgctxt "Build name"
+msgid "Full Site Editing"
+msgstr ""
+
+#: blocks/build-chooser/index.php:150
+msgctxt "Chooser verdict"
+msgid "Editors get native block controls and the styling stays in theme.json, so content changes rarely need a developer. The trade-off is less control over markup than a hand-written theme."
+msgstr ""
+
+#: blocks/build-chooser/index.php:153
+#: blocks/build-chooser/index.php:178
+#: blocks/build-switcher/index.php:66
+#: patterns/section-measured.php:20
+msgctxt "Build name"
+msgid "Elementor"
+msgstr ""
+
+#: blocks/build-chooser/index.php:154
+msgctxt "Chooser verdict"
+msgid "Assembly is fast and a non-technical team can keep changing layouts after launch. The trade-off is heavier markup and a dependency on the builder."
+msgstr ""
+
+#: blocks/build-chooser/index.php:157
+#: blocks/build-chooser/index.php:182
+#: patterns/section-measured.php:21
+msgctxt "Build name"
+msgid "ACF theme"
+msgstr ""
+
+#: blocks/build-chooser/index.php:158
+msgctxt "Chooser verdict"
+msgid "Templates are hand-written, so the output matches the design exactly and custom logic is straightforward. The trade-off is that most layout changes go back through a developer."
+msgstr ""
+
+#: blocks/build-chooser/index.php:175
+msgctxt "Build definition"
+msgid "Editors work in native blocks; styling stays in theme.json."
+msgstr ""
+
+#: blocks/build-chooser/index.php:179
+msgctxt "Build definition"
+msgid "Fast assembly and open layout control, at the cost of markup weight."
+msgstr ""
+
+#: blocks/build-chooser/index.php:183
+msgctxt "Build definition"
+msgid "Hand-written templates and custom logic; changes go via a developer."
+msgstr ""
+
+#: blocks/build-switcher/block.php:26
+msgid "Build version"
+msgstr ""
+
+#. translators: %s: build name, such as FSE.
+#: blocks/build-switcher/block.php:31
+#, php-format
+msgctxt "Build name in a text menu"
+msgid "%s build"
+msgstr ""
+
+#: blocks/build-switcher/index.php:65
+#: patterns/section-measured.php:19
+msgctxt "Build name"
+msgid "FSE"
+msgstr ""
+
+#: blocks/build-switcher/index.php:67
+msgctxt "Build name"
+msgid "ACF"
+msgstr ""
+
+#. translators: an em dash, standing in for a measurement that has not been taken yet.
+#: blocks/compare-table/block.php:24
+#: blocks/stat-list/block.php:34
+msgctxt "Unmeasured statistic"
+msgid "—"
+msgstr ""
+
+#: blocks/member-dialog/block.php:24
+msgctxt "Team dialog button"
+msgid "Close"
+msgstr ""
+
+#: blocks/member-dialog/block.php:34
+msgctxt "Team dialog link"
+msgid "Get in touch"
+msgstr ""
+
+#: blocks/member-trigger/block.php:32
+#: blocks/member-trigger/index.js:15
+msgctxt "Team member button"
+msgid "Read profile"
+msgstr ""
+
+#: blocks/post-share/block.php:51
+msgctxt "Share links label"
+msgid "Share this post"
+msgstr ""
+
+#: blocks/post-share/block.php:66
+msgctxt "Share link"
+msgid "(opens in a new tab)"
+msgstr ""
+
+#: blocks/post-share/block.php:73
+msgctxt "Share links"
+msgid "Link copied"
+msgstr ""
+
+#: blocks/post-share/block.php:77
+#: blocks/post-share/index.php:38
+msgctxt "Share links"
+msgid "Copy link"
+msgstr ""
+
+#: blocks/post-share/index.php:90
+msgctxt "Share network"
+msgid "Email"
+msgstr ""
+
+#: include/block-styles.php:21
+msgid "Outline (dark)"
+msgstr ""
+
+#: include/block-styles.php:27
+#: include/block-styles.php:55
+msgid "Eyebrow"
+msgstr ""
+
+#: include/block-styles.php:31
+msgid "Lead"
+msgstr ""
+
+#: include/block-styles.php:35
+#: include/block-styles.php:49
+msgid "Arrow link"
+msgstr ""
+
+#: include/block-styles.php:39
+msgid "Section intro"
+msgstr ""
+
+#: include/block-styles.php:43
+msgid "Note"
+msgstr ""
+
+#: include/helper-functions.php:22
+msgctxt "Scrollable region"
+msgid "Editor screenshots, scroll horizontally"
+msgstr ""
+
+#: include/patterns.php:18
+msgid "ZVG: Sections"
+msgstr ""
+
+#: include/post-types.php:22
+msgctxt "Post type general name"
+msgid "Team members"
+msgstr ""
+
+#: include/post-types.php:23
+msgctxt "Post type singular name"
+msgid "Team member"
+msgstr ""
+
+#: include/post-types.php:24
+msgctxt "Admin menu text"
+msgid "Team"
+msgstr ""
+
+#: include/post-types.php:25
+msgid "Add team member"
+msgstr ""
+
+#: include/post-types.php:26
+msgid "Edit team member"
+msgstr ""
+
+#: include/post-types.php:27
+msgid "View team member"
+msgstr ""
+
+#: include/post-types.php:28
+msgid "Search team members"
+msgstr ""
+
+#: include/post-types.php:29
+msgid "No team members found."
+msgstr ""
+
+#: include/post-types.php:30
+msgid "No team members found in Trash."
+msgstr ""
+
+#: include/post-types.php:31
+msgid "Portrait"
+msgstr ""
+
+#: include/post-types.php:32
+msgid "Set portrait"
+msgstr ""
+
+#: include/post-types.php:33
+msgid "Remove portrait"
+msgstr ""
+
+#: include/post-types.php:34
+msgid "Use as portrait"
+msgstr ""
+
+#: include/post-types.php:35
+msgid "Team member archives"
+msgstr ""
+
+#: include/post-types.php:36
+msgid "Team member published."
+msgstr ""
+
+#: include/post-types.php:37
+msgid "Team member updated."
+msgstr ""
+
+#: include/post-types.php:44
+msgid "Fictional profiles that demonstrate a custom post type across the three builds."
+msgstr ""
+
+#: include/post-types.php:65
+msgctxt "Taxonomy general name"
+msgid "Roles"
+msgstr ""
+
+#: include/post-types.php:66
+msgctxt "Taxonomy singular name"
+msgid "Role"
+msgstr ""
+
+#: include/post-types.php:67
+msgid "Roles"
+msgstr ""
+
+#: include/post-types.php:68
+msgid "Add role"
+msgstr ""
+
+#: include/post-types.php:69
+msgid "Edit role"
+msgstr ""
+
+#: include/post-types.php:70
+msgid "Search roles"
+msgstr ""
+
+#: include/post-types.php:71
+msgid "No roles found."
+msgstr ""
+
+#: include/post-types.php:166
+msgid "Team members are not readable over the REST API."
+msgstr ""
+
+#: patterns/page-not-found.php
+msgctxt "Pattern title"
+msgid "Page not found"
+msgstr ""
+
+#: patterns/page-not-found.php
+msgctxt "Pattern description"
+msgid "What the 404 template says, with links resolved from the site rather than written by hand."
+msgstr ""
+
+#: patterns/page-not-found.php:20
+msgctxt "Not found eyebrow"
+msgid "Error 404"
+msgstr ""
+
+#: patterns/page-not-found.php:28
+msgctxt "Not found lead"
+msgid "This page does not exist on any of the three builds."
+msgstr ""
+
+#: patterns/page-not-found.php:32
+msgctxt "Not found body"
+msgid "Either the address has a typo in it, or the link that brought you here points at something that has since moved."
+msgstr ""
+
+#: patterns/page-not-found.php:38
+msgctxt "Not found button"
+msgid "Back to the homepage"
+msgstr ""
+
+#: patterns/page-not-found.php:43
+msgctxt "Not found button"
+msgid "Read the blog"
+msgstr ""
+
+#: patterns/section-blog.php
+msgctxt "Pattern title"
+msgid "Section: Blog"
+msgstr ""
+
+#: patterns/section-blog.php
+msgctxt "Pattern description"
+msgid "The three most recent posts, each linking to the full article."
+msgstr ""
+
+#: patterns/section-blog.php:21
+msgctxt "Section title"
+msgid "From the blog"
+msgstr ""
+
+#: patterns/section-blog.php:37
+msgctxt "Blog card link"
+msgid "Read more"
+msgstr ""
+
+#: patterns/section-builds.php
+msgctxt "Pattern title"
+msgid "Section: The three builds"
+msgstr ""
+
+#: patterns/section-builds.php
+msgctxt "Pattern description"
+msgid "Three cards, one per build, each closing with the same set of measurements."
+msgstr ""
+
+#: patterns/section-builds.php:17
+msgctxt "Build card title"
+msgid "Full Site Editing"
+msgstr ""
+
+#: patterns/section-builds.php:18
+msgctxt "Build card text"
+msgid "Built entirely in the block editor: theme.json for styling, native block patterns for layout, no custom PHP templates."
+msgstr ""
+
+#: patterns/section-builds.php:23
+msgctxt "Build card title"
+msgid "Elementor"
+msgstr ""
+
+#: patterns/section-builds.php:24
+msgctxt "Build card text"
+msgid "Built with Elementor’s page builder, styled with an Elementor kit generated from the same design tokens."
+msgstr ""
+
+#: patterns/section-builds.php:29
+msgctxt "Build card title"
+msgid "ACF theme"
+msgstr ""
+
+#: patterns/section-builds.php:30
+msgctxt "Build card text"
+msgid "A classic theme: hand-written PHP templates, with ACF fields for anything an editor needs to change."
+msgstr ""
+
+#: patterns/section-builds.php:37
+msgctxt "Statistic"
+msgid "Lines of code"
+msgstr ""
+
+#: patterns/section-builds.php:38
+msgctxt "Statistic"
+msgid "Page weight"
+msgstr ""
+
+#: patterns/section-builds.php:39
+msgctxt "Statistic"
+msgid "DOM nodes"
+msgstr ""
+
+#: patterns/section-builds.php:61
+msgctxt "Section title"
+msgid "The three builds"
+msgstr ""
+
+#: patterns/section-builds.php:65
+msgctxt "Section intro"
+msgid "Same design, same content. Different WordPress approach under the hood."
+msgstr ""
+
+#: patterns/section-builds.php:82
+msgctxt "Build card link"
+msgid "View live build"
+msgstr ""
+
+#: patterns/section-chooser.php
+msgctxt "Pattern title"
+msgid "Section: When to choose what"
+msgstr ""
+
+#: patterns/section-chooser.php
+msgctxt "Pattern description"
+msgid "Three questions that weigh the answers and suggest one of the builds."
+msgstr ""
+
+#: patterns/section-chooser.php:21
+msgctxt "Section title"
+msgid "When to choose what"
+msgstr ""
+
+#: patterns/section-chooser.php:25
+msgctxt "Section intro"
+msgid "A short questionnaire — three questions, then one of the three builds is suggested."
+msgstr ""
+
+#: patterns/section-contact.php
+msgctxt "Pattern title"
+msgid "Section: Contact"
+msgstr ""
+
+#: patterns/section-contact.php
+msgctxt "Pattern description"
+msgid "Closing section: the contact form beside the direct ways to reach me."
+msgstr ""
+
+#: patterns/section-contact.php:23
+msgctxt "Section title"
+msgid "Get in touch"
+msgstr ""
+
+#: patterns/section-contact.php:27
+msgctxt "Section intro"
+msgid "Questions about the experiment, or work enquiries — whichever’s easier for you."
+msgstr ""
+
+#: patterns/section-contact.php:39
+msgctxt "Contact label"
+msgid "Or reach me directly"
+msgstr ""
+
+#: patterns/section-editors.php
+msgctxt "Pattern title"
+msgid "Section: Three editors"
+msgstr ""
+
+#: patterns/section-editors.php
+msgctxt "Pattern description"
+msgid "The same section opened for editing in each build, on a track that scrolls sideways."
+msgstr ""
+
+#: patterns/section-editors.php:17
+msgctxt "Editor screenshot placeholder"
+msgid "Screenshot — block editor"
+msgstr ""
+
+#: patterns/section-editors.php:19
+msgctxt "Editor screenshot"
+msgid "The landing page open in the WordPress block editor, with a measurements block selected and its settings in the sidebar"
+msgstr ""
+
+#: patterns/section-editors.php:20
+msgctxt "Editor caption"
+msgid "Editing means selecting blocks in place; styling choices are limited to what theme.json allows."
+msgstr ""
+
+#: patterns/section-editors.php:23
+msgctxt "Editor screenshot placeholder"
+msgid "Screenshot — Elementor canvas"
+msgstr ""
+
+#: patterns/section-editors.php:24
+msgctxt "Editor caption"
+msgid "Editing is drag-and-drop with every setting exposed, which is fast but easy to drift from the tokens."
+msgstr ""
+
+#: patterns/section-editors.php:27
+msgctxt "Editor screenshot placeholder"
+msgid "Screenshot — WP admin with ACF fields"
+msgstr ""
+
+#: patterns/section-editors.php:28
+msgctxt "Editor caption"
+msgid "Editing is filling labelled fields; the layout itself is not editable, which keeps the design intact."
+msgstr ""
+
+#: patterns/section-editors.php:38
+msgctxt "Section title"
+msgid "Three editors, one page"
+msgstr ""
+
+#: patterns/section-editors.php:42
+msgctxt "Section intro"
+msgid "The same section, opened for editing in each of the three builds."
+msgstr ""
+
+#: patterns/section-flow.php
+msgctxt "Pattern title"
+msgid "Section: From Figma to three builds"
+msgstr ""
+
+#: patterns/section-flow.php
+msgctxt "Pattern description"
+msgid "The route design tokens take out of Figma and into each build, drawn as a diagram."
+msgstr ""
+
+#: patterns/section-flow.php:21
+msgctxt "Section title"
+msgid "From Figma to three builds"
+msgstr ""
+
+#: patterns/section-flow.php:25
+msgctxt "Section intro"
+msgid "Variables leave Figma once, as a tokens file. From there each build takes its own route into the values it will actually use."
+msgstr ""
+
+#: patterns/section-hero.php
+msgctxt "Pattern title"
+msgid "Section: Hero"
+msgstr ""
+
+#: patterns/section-hero.php
+msgctxt "Pattern description"
+msgid "Opening section of the landing page: eyebrow, title, lead, byline and two buttons."
+msgstr ""
+
+#. translators: %s: author name, wrapped so it can be highlighted.
+#: patterns/section-hero.php:17
+#, php-format
+msgctxt "Hero byline"
+msgid "Built by %s, WordPress Full-Stack Engineer."
+msgstr ""
+
+#: patterns/section-hero.php:18
+msgctxt "Author name"
+msgid "Zoriana Grys"
+msgstr ""
+
+#: patterns/section-hero.php:27
+msgctxt "Hero eyebrow"
+msgid "Same design, three stacks"
+msgstr ""
+
+#: patterns/section-hero.php:31
+msgctxt "Hero title"
+msgid "One landing page. Three WordPress builds."
+msgstr ""
+
+#: patterns/section-hero.php:35
+msgctxt "Hero lead"
+msgid "The same page — same content, same design tokens — built three ways: Full Site Editing, Elementor, and a classic ACF theme. This site compares how each build turned out."
+msgstr ""
+
+#: patterns/section-hero.php:45
+msgctxt "Hero button"
+msgid "See the comparison"
+msgstr ""
+
+#: patterns/section-hero.php:49
+msgctxt "Hero button"
+msgid "View the code"
+msgstr ""
+
+#: patterns/section-measured.php
+msgctxt "Pattern title"
+msgid "Section: What I measured"
+msgstr ""
+
+#: patterns/section-measured.php
+msgctxt "Pattern description"
+msgid "The same checks run against each build, side by side in a table."
+msgstr ""
+
+#: patterns/section-measured.php:17
+msgctxt "Table caption"
+msgid "Four checks compared across the three builds."
+msgstr ""
+
+#: patterns/section-measured.php:25
+msgctxt "Measurement"
+msgid "Lines of code"
+msgstr ""
+
+#: patterns/section-measured.php:29
+msgctxt "Measurement"
+msgid "Page weight"
+msgstr ""
+
+#: patterns/section-measured.php:33
+msgctxt "Measurement"
+msgid "DOM nodes"
+msgstr ""
+
+#: patterns/section-measured.php:37
+msgctxt "Measurement"
+msgid "Lighthouse mobile"
+msgstr ""
+
+#: patterns/section-measured.php:50
+msgctxt "Section title"
+msgid "What I measured"
+msgstr ""
+
+#: patterns/section-measured.php:54
+msgctxt "Section intro"
+msgid "The same four checks, run against each finished build."
+msgstr ""
+
+#: patterns/section-team.php
+msgctxt "Pattern title"
+msgid "Section: Team"
+msgstr ""
+
+#: patterns/section-team.php
+msgctxt "Pattern description"
+msgid "Six fictional profiles from the team member post type, each opening in a dialog."
+msgstr ""
+
+#: patterns/section-team.php:21
+msgctxt "Section title"
+msgid "The team that did not build this"
+msgstr ""
+
+#: patterns/section-team.php:25
+msgctxt "Section intro"
+msgid "A demonstration of the same custom post type rendered in all three builds."
+msgstr ""
+
+#: patterns/section-team.php:29
+msgctxt "Team disclaimer"
+msgid "Fictional profiles — this section demonstrates a custom post type."
+msgstr ""
+
+#: blocks/blockquote/index.js:24
+msgid "Write the quote…"
+msgstr ""
+
+#: blocks/blockquote/index.js:35
+msgid "Author name"
+msgstr ""
+
+#: blocks/blockquote/index.js:43
+msgid "Role, company"
+msgstr ""
+
+#. translators: %d: position of the question in the questionnaire.
+#: blocks/build-chooser/index.js:61
+#, js-format
+msgid "Question %d"
+msgstr ""
+
+#. translators: %d: position of the question in the questionnaire.
+#: blocks/build-chooser/index.js:66
+#, js-format
+msgid "Question %d: text"
+msgstr ""
+
+#. translators: 1: question number, 2: answer number.
+#: blocks/build-chooser/index.js:77
+#, js-format
+msgid "Question %1$d · answer %2$d: label"
+msgstr ""
+
+#. translators: 1: answer number, 2: build name.
+#: blocks/build-chooser/index.js:90
+#, js-format
+msgid "Answer %1$d: points for %2$s"
+msgstr ""
+
+#: blocks/build-chooser/index.js:106
+msgid "Verdicts"
+msgstr ""
+
+#. translators: %s: build name.
+#: blocks/build-chooser/index.js:113
+#, js-format
+msgid "%s: title"
+msgstr ""
+
+#. translators: %s: build name.
+#: blocks/build-chooser/index.js:119
+#, js-format
+msgid "%s: verdict"
+msgstr ""
+
+#: blocks/build-chooser/index.js:129
+msgid "The three options"
+msgstr ""
+
+#. translators: %d: position of the option in the list.
+#: blocks/build-chooser/index.js:136
+#, js-format
+msgid "Option %d: name"
+msgstr ""
+
+#. translators: %d: position of the option in the list.
+#: blocks/build-chooser/index.js:142
+#, js-format
+msgid "Option %d: description"
+msgstr ""
+
+#: blocks/build-switcher/index.js:25
+msgid "Layout"
+msgstr ""
+
+#: blocks/build-switcher/index.js:27
+msgid "Variant"
+msgstr ""
+
+#: blocks/build-switcher/index.js:30
+msgid "Segmented"
+msgstr ""
+
+#: blocks/build-switcher/index.js:31
+msgid "List"
+msgstr ""
+
+#: blocks/compare-table/index.js:41
+msgid "Table"
+msgstr ""
+
+#: blocks/compare-table/index.js:43
+msgid "Caption for screen readers"
+msgstr ""
+
+#. translators: %d: position of the column in the table.
+#: blocks/compare-table/index.js:51
+#, js-format
+msgid "Column %d"
+msgstr ""
+
+#. translators: 1: position of the row in the table, 2: row label.
+#: blocks/compare-table/index.js:60
+#, js-format
+msgctxt "Row panel title"
+msgid "Row %1$d: %2$s"
+msgstr ""
+
+#. translators: %d: position of the row in the table.
+#: blocks/compare-table/index.js:65
+#, js-format
+msgid "Row %d"
+msgstr ""
+
+#. translators: %d: position of the row in the table.
+#: blocks/compare-table/index.js:76
+#, js-format
+msgid "Row %d: label"
+msgstr ""
+
+#. translators: 1: position of the row in the table, 2: column name.
+#: blocks/compare-table/index.js:85
+#, js-format
+msgctxt "Row value field label"
+msgid "Row %1$d: %2$s"
+msgstr ""
+
+#: blocks/member-dialog/index.js:12
+msgctxt "Editor placeholder"
+msgid "Team member dialog"
+msgstr ""
+
+#: blocks/post-share/index.js:24
+msgid "Share links"
+msgstr ""
+
+#: blocks/post-share/index.js:26
+#: blocks/stat-list/index.js:104
+msgid "Label"
+msgstr ""
+
+#: blocks/post-share/index.js:28
+#: blocks/post-share/index.js:47
+msgid "Share this post"
+msgstr ""
+
+#: blocks/stat-list/index.js:52
+msgid "Stats"
+msgstr ""
+
+#. translators: %d: position of the stat in the list.
+#: blocks/stat-list/index.js:59
+#, js-format
+msgid "Stat %d: label"
+msgstr ""
+
+#. translators: %d: position of the stat in the list.
+#: blocks/stat-list/index.js:65
+#, js-format
+msgid "Stat %d: value"
+msgstr ""
+
+#. translators: %d: position of the stat in the list.
+#: blocks/stat-list/index.js:79
+#, js-format
+msgid "Remove stat %d"
+msgstr ""
+
+#: blocks/stat-list/index.js:90
+msgid "Add stat"
+msgstr ""
+
+#: blocks/token-flow/index.js:36
+msgid "Source"
+msgstr ""
+
+#: blocks/token-flow/index.js:37
+msgid "Source: name"
+msgstr ""
+
+#: blocks/token-flow/index.js:40
+msgid "Source: detail"
+msgstr ""
+
+#: blocks/token-flow/index.js:46
+msgid "Outputs"
+msgstr ""
+
+#. translators: %d: position of the output in the diagram.
+#: blocks/token-flow/index.js:53
+#, js-format
+msgid "Output %d: name"
+msgstr ""
+
+#. translators: %d: position of the output in the diagram.
+#: blocks/token-flow/index.js:59
+#, js-format
+msgid "Output %d: detail"
+msgstr ""
+
+#: blocks/blockquote/block.json
+msgctxt "block title"
+msgid "ZVG Blockquote"
+msgstr ""
+
+#: blocks/blockquote/block.json
+msgctxt "block description"
+msgid "A quote card with an oversized quote mark, the quote itself and an optional author name and role."
+msgstr ""
+
+#: blocks/blockquote/block.json
+msgctxt "block keyword"
+msgid "quote"
+msgstr ""
+
+#: blocks/blockquote/block.json
+msgctxt "block keyword"
+msgid "blockquote"
+msgstr ""
+
+#: blocks/blockquote/block.json
+msgctxt "block keyword"
+msgid "testimonial"
+msgstr ""
+
+#: blocks/blockquote/block.json
+msgctxt "block keyword"
+msgid "citation"
+msgstr ""
+
+#: blocks/build-chooser/block.json
+msgctxt "block title"
+msgid "ZVG Build Chooser"
+msgstr ""
+
+#: blocks/build-chooser/block.json
+msgctxt "block description"
+msgid "Three questions that weigh the answers and suggest one of the builds. Without JavaScript it stays a readable form with all three verdicts."
+msgstr ""
+
+#: blocks/build-chooser/block.json
+msgctxt "block keyword"
+msgid "chooser"
+msgstr ""
+
+#: blocks/build-chooser/block.json
+msgctxt "block keyword"
+msgid "quiz"
+msgstr ""
+
+#: blocks/build-chooser/block.json
+msgctxt "block keyword"
+msgid "questionnaire"
+msgstr ""
+
+#: blocks/build-chooser/block.json
+msgctxt "block keyword"
+msgid "recommendation"
+msgstr ""
+
+#: blocks/build-switcher/block.json
+msgctxt "block title"
+msgid "ZVG Build Switcher"
+msgstr ""
+
+#: blocks/build-switcher/block.json
+msgctxt "block description"
+msgid "Links to the same landing built on each stack. The current site is marked automatically."
+msgstr ""
+
+#: blocks/build-switcher/block.json
+msgctxt "block keyword"
+msgid "build"
+msgstr ""
+
+#: blocks/build-switcher/block.json
+msgctxt "block keyword"
+msgid "switcher"
+msgstr ""
+
+#: blocks/build-switcher/block.json
+msgctxt "block keyword"
+msgid "version"
+msgstr ""
+
+#: blocks/build-switcher/block.json
+msgctxt "block keyword"
+msgid "multisite"
+msgstr ""
+
+#: blocks/compare-table/block.json
+msgctxt "block title"
+msgid "ZVG Compare Table"
+msgstr ""
+
+#: blocks/compare-table/block.json
+msgctxt "block description"
+msgid "A comparison table whose row labels are headers and stay in place while the columns scroll."
+msgstr ""
+
+#: blocks/compare-table/block.json
+msgctxt "block keyword"
+msgid "table"
+msgstr ""
+
+#: blocks/compare-table/block.json
+msgctxt "block keyword"
+msgid "comparison"
+msgstr ""
+
+#: blocks/compare-table/block.json
+#: blocks/stat-list/block.json
+msgctxt "block keyword"
+msgid "measurements"
+msgstr ""
+
+#: blocks/member-dialog/block.json
+msgctxt "block title"
+msgid "ZVG Member Dialog"
+msgstr ""
+
+#: blocks/member-dialog/block.json
+msgctxt "block description"
+msgid "The dialog the team cards open, filled from the card that opened it."
+msgstr ""
+
+#: blocks/member-dialog/block.json
+#: blocks/member-trigger/block.json
+msgctxt "block keyword"
+msgid "team"
+msgstr ""
+
+#: blocks/member-dialog/block.json
+#: blocks/member-trigger/block.json
+msgctxt "block keyword"
+msgid "member"
+msgstr ""
+
+#: blocks/member-dialog/block.json
+#: blocks/member-trigger/block.json
+msgctxt "block keyword"
+msgid "profile"
+msgstr ""
+
+#: blocks/member-dialog/block.json
+#: blocks/member-trigger/block.json
+msgctxt "block keyword"
+msgid "dialog"
+msgstr ""
+
+#: blocks/member-trigger/block.json
+msgctxt "block title"
+msgid "ZVG Member Profile"
+msgstr ""
+
+#: blocks/member-trigger/block.json
+msgctxt "block description"
+msgid "Carries the member profile and the button that opens it in the dialog. Without JavaScript the profile stays on the card."
+msgstr ""
+
+#: blocks/post-share/block.json
+msgctxt "block title"
+msgid "ZVG Share Links"
+msgstr ""
+
+#: blocks/post-share/block.json
+msgctxt "block description"
+msgid "Hands the current post to LinkedIn, Facebook or X. Plain links, no third-party scripts."
+msgstr ""
+
+#: blocks/post-share/block.json
+msgctxt "block keyword"
+msgid "share"
+msgstr ""
+
+#: blocks/post-share/block.json
+msgctxt "block keyword"
+msgid "social"
+msgstr ""
+
+#: blocks/post-share/block.json
+msgctxt "block keyword"
+msgid "linkedin"
+msgstr ""
+
+#: blocks/post-share/block.json
+msgctxt "block keyword"
+msgid "facebook"
+msgstr ""
+
+#: blocks/post-share/block.json
+msgctxt "block keyword"
+msgid "x"
+msgstr ""
+
+#: blocks/stat-list/block.json
+msgctxt "block title"
+msgid "ZVG Stat List"
+msgstr ""
+
+#: blocks/stat-list/block.json
+msgctxt "block description"
+msgid "A short list of measurements. Each value reads above its label, while the markup keeps the dt-then-dd order the content model requires."
+msgstr ""
+
+#: blocks/stat-list/block.json
+msgctxt "block keyword"
+msgid "stats"
+msgstr ""
+
+#: blocks/stat-list/block.json
+msgctxt "block keyword"
+msgid "numbers"
+msgstr ""
+
+#: blocks/token-flow/block.json
+msgctxt "block title"
+msgid "ZVG Token Flow"
+msgstr ""
+
+#: blocks/token-flow/block.json
+msgctxt "block description"
+msgid "One source of tokens fanning out into three builds. The connectors are drawn in CSS, so the diagram holds exactly three outputs."
+msgstr ""
+
+#: blocks/token-flow/block.json
+msgctxt "block keyword"
+msgid "tokens"
+msgstr ""
+
+#: blocks/token-flow/block.json
+msgctxt "block keyword"
+msgid "diagram"
+msgstr ""
+
+#: blocks/token-flow/block.json
+msgctxt "block keyword"
+msgid "flow"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Surface"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Surface alt"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Text"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Muted"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent ink"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Border"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Border strong"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Danger"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Body"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Heading"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Mono"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "XS"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "S"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Base"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "M"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "L"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "XL"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "2XL"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "1"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "2"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "3"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "4"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "5"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "6"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "7"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "8"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer"
+msgstr ""

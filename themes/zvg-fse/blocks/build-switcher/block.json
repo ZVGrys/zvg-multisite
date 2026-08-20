@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zvg-fse/build-switcher",
+	"title": "ZVG Build Switcher",
+	"category": "design",
+	"icon": "randomize",
+	"description": "Links to the same landing built on each stack. The current site is marked automatically.",
+	"keywords": [ "build", "switcher", "version", "multisite" ],
+	"textdomain": "zvg-fse",
+	"style": "file:./style.css",
+	"render": "file:./block.php",
+	"attributes": {
+		"variant": {
+			"type": "string",
+			"default": "segmented",
+			"enum": [ "segmented", "list" ]
+		},
+		"longLabels": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"html": false,
+		"reusable": false,
+		"spacing": {
+			"margin": true
+		}
+	}
+}

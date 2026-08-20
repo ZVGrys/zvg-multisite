@@ -1,0 +1,40 @@
+@use "../../assets/css/vars" as *;
+
+.wp-block-zvg-fse-stat-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wp--preset--spacing--30);
+	padding-top: var(--wp--preset--spacing--30);
+	border-top: 1px solid $color-border;
+
+	&.wp-block-zvg-fse-stat-list {
+		margin-block: auto 0;
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column-reverse;
+		min-width: 70px;
+	}
+
+	&__value {
+		margin: 0;
+		font-family: var(--wp--preset--font-family--mono);
+		font-size: var(--wp--preset--font-size--xx-large);
+		font-weight: 600;
+		line-height: 1.2;
+	}
+
+	&__unit {
+		margin-left: 0.12em;
+		font-size: 0.6em;
+		color: $color-muted;
+	}
+
+	&__label {
+		font-size: var(--wp--preset--font-size--small);
+		color: $color-muted;
+		text-transform: uppercase;
+		letter-spacing: 0.03em;
+	}
+}

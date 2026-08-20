@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zvg-fse/token-flow",
+	"title": "ZVG Token Flow",
+	"category": "media",
+	"icon": "networking",
+	"description": "One source of tokens fanning out into three builds. The connectors are drawn in CSS, so the diagram holds exactly three outputs.",
+	"keywords": [ "tokens", "diagram", "flow" ],
+	"textdomain": "zvg-fse",
+	"style": "file:./style.css",
+	"render": "file:./block.php",
+	"attributes": {
+		"source": {
+			"type": "object",
+			"role": "content",
+			"default": {
+				"name": "Figma variables",
+				"meta": "colour · type · spacing · radius · shadow"
+			}
+		},
+		"outputs": {
+			"type": "array",
+			"role": "content",
+			"default": [
+				{ "name": "theme.json", "meta": "FSE" },
+				{ "name": "Elementor kit", "meta": "Elementor" },
+				{ "name": "SCSS variables", "meta": "ACF theme" }
+			],
+			"items": {
+				"type": "object"
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"spacing": {
+			"margin": true
+		}
+	}
+}

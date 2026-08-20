@@ -1,0 +1,50 @@
+@use "../vars" as *;
+
+.zvg-fse-404 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 70vh;
+	text-align: center;
+
+	&__code {
+		margin: var(--wp--preset--spacing--20) 0 var(--wp--preset--spacing--30);
+		font-family: var(--wp--preset--font-family--mono);
+		font-size: 120px;
+		font-weight: 600;
+		line-height: 1;
+		color: $color-accent;
+
+		@include down($bp-large) {
+			font-size: 90px;
+		}
+
+		@include down($bp-small) {
+			font-size: 68px;
+		}
+	}
+
+	&__lead {
+		max-width: $measure-content;
+		margin: 0 auto var(--wp--preset--spacing--30);
+		font-family: var(--wp--preset--font-family--body);
+		font-size: var(--wp--preset--font-size--x-large);
+		font-weight: 400;
+		letter-spacing: 0;
+	}
+
+	&__hint {
+		margin: 0;
+	}
+
+	.wp-block-buttons {
+		justify-content: center;
+	}
+
+	&__search {
+		width: 100%;
+		max-width: $measure-content;
+		margin-inline: auto;
+		text-align: start;
+	}
+}

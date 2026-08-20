@@ -1,0 +1,104 @@
+@use "../vars" as *;
+
+.wp-block-navigation {
+	color: $color-muted;
+
+	a:where(:not(.wp-element-button)) {
+		color: inherit;
+		text-decoration: none;
+		transition: color $transition-fast;
+	}
+
+	.wp-block-navigation-item__content.wp-block-navigation-item__content {
+		&:hover,
+		&:focus {
+			color: $color-accent;
+			text-decoration: none;
+		}
+	}
+
+	.wp-block-navigation__responsive-container-open,
+	.wp-block-navigation__responsive-container-close {
+		color: $color-text;
+		transition: color $transition-fast;
+
+		&:hover,
+		&:focus {
+			color: $color-accent;
+		}
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open {
+		.wp-block-navigation-item__content {
+			font-size: var(--wp--preset--font-size--x-large);
+		}
+
+		.zvg-fse-header__switcher {
+			order: -1;
+		}
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open:not(.disable-default-overlay) .wp-block-navigation__responsive-container-content {
+		padding-top: 0;
+	}
+
+	.wp-block-navigation__responsive-container-close {
+		top: 8px;
+	}
+}
+
+.wp-block-navigation .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+	@media (min-width: $bp-small) and (max-width: $bp-medium) {
+		display: none;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: auto;
+	}
+}
+
+.wp-block-navigation .wp-block-navigation__responsive-container-open:not(.always-shown) {
+	@media (min-width: $bp-small) and (max-width: $bp-medium) {
+		display: flex;
+	}
+}
+
+.zvg-fse-header__nav .zvg-fse-header__switcher {
+	@include up($bp-medium) {
+		margin-inline-start: auto;
+	}
+}
+
+html:not(.zvg-fse-js) {
+	.wp-block-navigation .wp-block-navigation__responsive-container-open:not(.always-shown),
+	.wp-block-navigation .wp-block-navigation__responsive-container-close {
+		display: none;
+	}
+
+	.wp-block-navigation {
+		min-width: 0;
+		max-width: 100%;
+	}
+
+	.wp-block-navigation .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+		position: relative;
+		display: block;
+		width: 100%;
+		padding: 0;
+		background-color: inherit;
+	}
+
+	.wp-block-navigation__responsive-container-content {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--wp--preset--spacing--30);
+		align-items: center;
+		padding-top: 0;
+	}
+
+	.wp-block-navigation__container {
+		flex-wrap: wrap;
+	}
+}

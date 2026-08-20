@@ -1,0 +1,52 @@
+@use "../vars" as *;
+
+.zvg-fse-single {
+	&__meta {
+		gap: var(--wp--preset--spacing--30);
+		color: $color-muted;
+	}
+
+	.wp-block-post-terms a,
+	&__nav a {
+		transition: opacity $transition-fast;
+
+		&:hover,
+		&:focus {
+			text-decoration: none;
+			opacity: 0.8;
+		}
+	}
+
+	&__nav a {
+		font-family: var(--wp--preset--font-family--mono);
+		font-size: var(--wp--preset--font-size--small);
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	&__nav .post-navigation-link-previous a::before,
+	&__nav .post-navigation-link-next a::after {
+		display: inline-block;
+		transition: transform $transition-fast;
+	}
+
+	&__nav .post-navigation-link-previous a::before {
+		margin-right: 0.35em;
+		content: "\2190";
+	}
+
+	&__nav .post-navigation-link-next a::after {
+		margin-left: 0.35em;
+		content: "\2192";
+	}
+
+	&__nav .post-navigation-link-previous a:hover::before,
+	&__nav .post-navigation-link-previous a:focus::before {
+		transform: translateX(-2px);
+	}
+
+	&__nav .post-navigation-link-next a:hover::after,
+	&__nav .post-navigation-link-next a:focus::after {
+		transform: translateX(2px);
+	}
+}

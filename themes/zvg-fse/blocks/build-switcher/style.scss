@@ -1,0 +1,63 @@
+@use "../../assets/css/vars" as *;
+
+.wp-block-zvg-fse-build-switcher {
+	display: flex;
+
+	&__link {
+		font-family: var(--wp--preset--font-family--mono);
+		font-size: var(--wp--preset--font-size--small);
+		font-weight: 600;
+		letter-spacing: 0.03em;
+		color: $color-muted;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: color $transition-fast, background-color $transition-fast;
+
+		&:hover,
+		&:focus {
+			color: $color-text;
+			text-decoration: none;
+		}
+
+		&[aria-current="page"] {
+			color: $color-accent-ink;
+			background-color: $color-accent;
+		}
+	}
+
+	&.is-variant-segmented {
+		gap: 2px;
+		padding: 3px;
+		background-color: $color-surface-alt;
+		border: 1px solid $color-border;
+		border-radius: $radius-large;
+
+		.wp-block-zvg-fse-build-switcher__link {
+			padding: 7px 12px;
+			border-radius: $radius-medium;
+		}
+	}
+
+	&.is-variant-list {
+		flex-wrap: wrap;
+		gap: var(--wp--preset--spacing--40);
+
+		.wp-block-zvg-fse-build-switcher__link {
+			font-family: inherit;
+			font-size: inherit;
+			font-weight: inherit;
+			letter-spacing: normal;
+			text-transform: none;
+
+			&:hover,
+			&:focus {
+				color: $color-accent;
+			}
+
+			&[aria-current="page"] {
+				color: $color-accent;
+				background-color: transparent;
+			}
+		}
+	}
+}

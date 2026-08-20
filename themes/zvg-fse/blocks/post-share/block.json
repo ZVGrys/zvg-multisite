@@ -1,0 +1,56 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zvg-fse/post-share",
+	"title": "ZVG Share Links",
+	"category": "design",
+	"icon": "share",
+	"description": "Hands the current post to LinkedIn, Facebook or X. Plain links, no third-party scripts.",
+	"keywords": [ "share", "social", "linkedin", "facebook", "x" ],
+	"textdomain": "zvg-fse",
+	"style": "file:./style.css",
+	"render": "file:./block.php",
+	"usesContext": [ "postId" ],
+	"attributes": {
+		"label": {
+			"type": "string",
+			"role": "content",
+			"default": ""
+		},
+		"linkedin": {
+			"type": "boolean",
+			"default": true
+		},
+		"facebook": {
+			"type": "boolean",
+			"default": true
+		},
+		"x": {
+			"type": "boolean",
+			"default": true
+		},
+		"telegram": {
+			"type": "boolean",
+			"default": false
+		},
+		"whatsapp": {
+			"type": "boolean",
+			"default": false
+		},
+		"email": {
+			"type": "boolean",
+			"default": false
+		},
+		"copy": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"html": false,
+		"reusable": false,
+		"spacing": {
+			"margin": true
+		}
+	}
+}

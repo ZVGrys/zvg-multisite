@@ -1,0 +1,35 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zvg-fse/blockquote",
+	"title": "ZVG Blockquote",
+	"category": "text",
+	"icon": "format-quote",
+	"description": "A quote card with an oversized quote mark, the quote itself and an optional author name and role.",
+	"keywords": [ "quote", "blockquote", "testimonial", "citation" ],
+	"textdomain": "zvg-fse",
+	"editorStyle": "file:./style.css",
+	"style": "file:./style.css",
+	"render": "file:./block.php",
+	"attributes": {
+		"text": {
+			"type": "string",
+			"default": ""
+		},
+		"authorName": {
+			"type": "string",
+			"default": ""
+		},
+		"authorRole": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": true
+		}
+	}
+}

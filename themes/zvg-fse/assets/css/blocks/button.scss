@@ -1,0 +1,19 @@
+@use "../vars" as *;
+
+.wp-block-button__link {
+	transition: opacity $transition-fast, color $transition-fast, border-color $transition-fast;
+
+	&:hover,
+	&:focus {
+		opacity: 0.88;
+	}
+
+	&:active {
+		opacity: 0.75;
+	}
+
+	&[disabled] {
+		cursor: default;
+		opacity: 0.45;
+	}
+}
