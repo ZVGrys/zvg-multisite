@@ -188,7 +188,7 @@ function zvg_fse_block_stylesheets() {
 /**
  * Styles keyed to a class, loaded only when a block carrying it renders.
  *
- * @return array<string, array<string, string>> Stylesheet => block name and class.
+ * @return array<string, array<string, mixed>> Stylesheet => block name and the class, or classes, that trigger it.
  */
 function zvg_fse_class_stylesheets() {
 	return array(
@@ -227,7 +227,7 @@ function zvg_fse_class_stylesheets() {
 		),
 		'sections/blog'         => array(
 			'block' => 'core/group',
-			'class' => 'zvg-fse-post',
+			'class' => array( 'zvg-fse-blog', 'zvg-fse-post' ),
 		),
 		'sections/contact'      => array(
 			'block' => 'core/group',
@@ -298,9 +298,9 @@ function zvg_fse_enqueue_class_styles() {
 		}
 
 		$by_block[ $args['block'] ][] = array(
-			'class'  => $args['class'],
-			'handle' => $handle,
-			'script' => $script,
+			'classes' => (array) $args['class'],
+			'handle'  => $handle,
+			'script'  => $script,
 		);
 	}
 
@@ -315,14 +315,18 @@ function zvg_fse_enqueue_class_styles() {
 				}
 
 				foreach ( $assets as $asset ) {
-					if ( false === strpos( $class, $asset['class'] ) ) {
-						continue;
-					}
+					foreach ( $asset['classes'] as $trigger ) {
+						if ( false === strpos( $class, $trigger ) ) {
+							continue;
+						}
 
-					wp_enqueue_style( $asset['handle'] );
+						wp_enqueue_style( $asset['handle'] );
 
-					if ( '' !== $asset['script'] ) {
-						wp_enqueue_script( 'zvg-fse-' . $asset['script'] );
+						if ( '' !== $asset['script'] ) {
+							wp_enqueue_script( 'zvg-fse-' . $asset['script'] );
+						}
+
+						break;
 					}
 				}
 

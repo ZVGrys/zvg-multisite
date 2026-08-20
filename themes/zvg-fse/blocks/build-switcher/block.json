@@ -10,17 +10,6 @@
 	"textdomain": "zvg-fse",
 	"style": "file:./style.css",
 	"render": "file:./block.php",
-	"attributes": {
-		"variant": {
-			"type": "string",
-			"default": "segmented",
-			"enum": [ "segmented", "list" ]
-		},
-		"longLabels": {
-			"type": "boolean",
-			"default": false
-		}
-	},
 	"supports": {
 		"html": false,
 		"reusable": false,
