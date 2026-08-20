@@ -1,0 +1,140 @@
+@use '../../../assets/css/vars' as *;
+
+$card-basis: 380px;
+$card-gap: $space-40;
+
+.zvg-acf-builds {
+	&__grid {
+		display: flex;
+		flex-wrap: wrap;
+		gap: $card-gap;
+		justify-content: center;
+		margin-top: $space-50;
+	}
+}
+
+.zvg-acf-build {
+	background-color: $color-surface-alt;
+	border: 1px solid $color-border;
+	border-radius: $radius-large;
+	display: flex;
+	flex: 1 1 $card-basis;
+	flex-direction: column;
+	gap: $space-30;
+	padding: $space-40;
+	transition: border-color $transition-base, box-shadow $transition-base;
+
+	@include up($card-basis * 2 + $card-gap + $container-padding * 2) {
+		max-width: calc(50% - #{$card-gap * 0.5});
+	}
+
+	&:hover {
+		border-color: $color-accent;
+		box-shadow: $shadow-md;
+	}
+
+	&__title,
+	&__text,
+	&__link,
+	&__value {
+		margin: 0;
+	}
+
+	&__text {
+		color: $color-muted;
+		font-size: 15px;
+		line-height: 1.5;
+
+		@include down($bp-large) {
+			font-size: 14px;
+		}
+
+		@include down($bp-small) {
+			font-size: 13px;
+		}
+	}
+
+	&__link {
+		font-family: $font-mono;
+		font-size: 13px;
+		font-weight: 600;
+		line-height: 1.5;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
+
+		a {
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				text-decoration: none;
+			}
+
+			&::after {
+				content: "\2192";
+				display: inline-block;
+				margin-left: 0.35em;
+				transition: transform $transition-fast;
+
+				@media (prefers-reduced-motion: reduce) {
+					transition: none;
+				}
+			}
+
+			&:hover::after,
+			&:focus::after {
+				transform: translateX(2px);
+			}
+		}
+	}
+
+	&__stats {
+		border-top: 1px solid $color-border;
+		display: flex;
+		flex-wrap: wrap;
+		gap: $space-30;
+		margin: auto 0 0;
+		padding-top: $space-30;
+	}
+
+	&__stat {
+		display: flex;
+		flex-direction: column-reverse;
+		min-width: 70px;
+	}
+
+	&__value {
+		font-family: $font-mono;
+		font-size: 28px;
+		font-weight: 600;
+		line-height: 1.2;
+
+		@include down($bp-medium) {
+			font-size: 25px;
+		}
+
+		@include down($bp-small) {
+			font-size: 22px;
+		}
+	}
+
+	&__label {
+		color: $color-muted;
+		font-size: 13px;
+		letter-spacing: 0.03em;
+		line-height: 1.5;
+		text-transform: uppercase;
+	}
+
+	&__unit {
+		color: $color-muted;
+		font-size: 0.6em;
+		margin-left: 0.12em;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
+}

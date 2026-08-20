@@ -87,3 +87,20 @@ if ( ! function_exists( 'zvg_acf_content_width' ) ) :
 endif;
 
 add_action( 'after_setup_theme', 'zvg_acf_content_width', 0 );
+
+add_filter( 'use_block_editor_for_post_type', 'zvg_acf_classic_editor_for_pages', 10, 2 );
+
+if ( ! function_exists( 'zvg_acf_classic_editor_for_pages' ) ) :
+
+	/**
+	 * Edit pages with the classic editor.
+	 *
+	 * @param bool   $use_block_editor Whether the block editor is used.
+	 * @param string $post_type        Post type being edited.
+	 *
+	 * @return bool
+	 */
+	function zvg_acf_classic_editor_for_pages( $use_block_editor, $post_type ) {
+		return 'page' === $post_type ? false : $use_block_editor;
+	}
+endif;

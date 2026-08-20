@@ -139,7 +139,7 @@
                     "sub_fields": [
                         {
                             "key": "field_6a85bb6a318c0",
-                            "label": "Eyebrow",
+                            "label": "Label",
                             "name": "eyebrow",
                             "type": "text",
                             "instructions": "",
@@ -217,7 +217,7 @@
                         },
                         {
                             "key": "field_6a85bbdf318c4",
-                            "label": "Button 1 Label",
+                            "label": "First Button: Label",
                             "name": "button_1_label",
                             "type": "text",
                             "instructions": "",
@@ -236,7 +236,7 @@
                         },
                         {
                             "key": "field_6a85bbdf318c5",
-                            "label": "Button 1 Url",
+                            "label": "First Button: URL",
                             "name": "button_1_url",
                             "type": "url",
                             "instructions": "",
@@ -255,7 +255,7 @@
                         },
                         {
                             "key": "field_6a85bbdf318c6",
-                            "label": "Button 2 Label",
+                            "label": "Second Button: Label",
                             "name": "button_2_label",
                             "type": "text",
                             "instructions": "",
@@ -274,7 +274,7 @@
                         },
                         {
                             "key": "field_6a85bbdf318c7",
-                            "label": "Button 2 Url",
+                            "label": "Second Button: URL",
                             "name": "button_2_url",
                             "type": "url",
                             "instructions": "",
@@ -294,6 +294,234 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_zvg_acf_builds": {
+                    "key": "layout_zvg_acf_builds",
+                    "name": "builds",
+                    "label": "The three builds",
+                    "display": "block",
+                    "min": "",
+                    "max": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_zvg_acf_builds_title",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_zvg_acf_builds_intro",
+                            "label": "Text",
+                            "name": "intro",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "rows": 2,
+                            "default_value": "",
+                            "new_lines": "",
+                            "maxlength": "",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_zvg_acf_builds_items",
+                            "label": "Builds",
+                            "name": "items",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "button_label": "Add build",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "field_zvg_acf_builds_item_title",
+                            "sub_fields": [
+                                {
+                                    "key": "field_zvg_acf_builds_item_title",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": false,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_zvg_acf_builds_item_tag",
+                                    "label": "Title tag",
+                                    "name": "title_tag",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": false,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "h2": "h2",
+                                        "h3": "h3",
+                                        "h4": "h4",
+                                        "h5": "h5"
+                                    },
+                                    "default_value": "h3",
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "return_format": "value",
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_zvg_acf_builds_item_text",
+                                    "label": "Text",
+                                    "name": "text",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": false,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "rows": 3,
+                                    "default_value": "",
+                                    "new_lines": "",
+                                    "maxlength": "",
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_zvg_acf_builds_item_link_label",
+                                    "label": "Link: Label",
+                                    "name": "link_label",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": false,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_zvg_acf_builds_item_link_url",
+                                    "label": "Link: URL",
+                                    "name": "link_url",
+                                    "type": "url",
+                                    "instructions": "",
+                                    "required": false,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_zvg_acf_builds_stats",
+                                    "label": "Measurements",
+                                    "name": "stats",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": false,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "block",
+                                    "button_label": "Add measurement",
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_zvg_acf_builds_stat_label",
+                                            "label": "Label",
+                                            "name": "label",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": false,
+                                            "conditional_logic": false,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
+                                        },
+                                        {
+                                            "key": "field_zvg_acf_builds_stat_value",
+                                            "label": "Value",
+                                            "name": "value",
+                                            "type": "text",
+                                            "instructions": "A trailing unit is styled separately, e.g. 476 KB.",
+                                            "required": false,
+                                            "conditional_logic": false,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
                 }
             },
             "button_label": "Add section",
@@ -315,8 +543,14 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "custom_fields",
+        "discussion",
+        "comments"
+    ],
     "active": true,
     "description": "",
-    "modified": 1787149333
+    "modified": 1787233194
 }
