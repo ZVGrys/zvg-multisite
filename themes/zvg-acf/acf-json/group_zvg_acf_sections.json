@@ -667,6 +667,137 @@
                             ]
                         }
                     ]
+                },
+                "layout_zvg_acf_editors": {
+                    "key": "layout_zvg_acf_editors",
+                    "name": "editors",
+                    "label": "Three editors, one page",
+                    "display": "block",
+                    "min": "",
+                    "max": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_zvg_acf_editors_title",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_zvg_acf_editors_intro",
+                            "label": "Text",
+                            "name": "intro",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "rows": 2,
+                            "default_value": "",
+                            "new_lines": "",
+                            "maxlength": "",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_zvg_acf_editors_items",
+                            "label": "Editors",
+                            "name": "items",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "button_label": "Add editor",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "field_zvg_acf_editors_item_placeholder",
+                            "sub_fields": [
+                                {
+                                    "key": "field_zvg_acf_editors_item_image",
+                                    "label": "Screenshot",
+                                    "name": "image",
+                                    "type": "image",
+                                    "instructions": "Leave empty to show the placeholder text instead.",
+                                    "required": false,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "preview_size": "medium"
+                                },
+                                {
+                                    "key": "field_zvg_acf_editors_item_placeholder",
+                                    "label": "Placeholder text",
+                                    "name": "placeholder",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": false,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_zvg_acf_editors_item_caption",
+                                    "label": "Caption",
+                                    "name": "caption",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": false,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "rows": 3,
+                                    "default_value": "",
+                                    "new_lines": "",
+                                    "maxlength": "",
+                                    "placeholder": ""
+                                }
+                            ]
+                        }
+                    ]
                 }
             },
             "button_label": "Add section",
@@ -697,5 +828,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1787234578
+    "modified": 1787326800
 }

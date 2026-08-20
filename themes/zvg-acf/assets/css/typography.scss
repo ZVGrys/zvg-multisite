@@ -101,7 +101,7 @@ h6 {
 	}
 }
 
-p {
+p:where(:not(:last-child)) {
 	margin: 0 0 $space-30;
 }
 
