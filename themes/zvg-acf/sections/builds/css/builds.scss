@@ -111,7 +111,7 @@ $card-gap: $space-40;
 		font-weight: 600;
 		line-height: 1.2;
 
-		@include down($bp-medium) {
+		@include down($bp-large) {
 			font-size: 25px;
 		}
 
@@ -126,6 +126,10 @@ $card-gap: $space-40;
 		letter-spacing: 0.03em;
 		line-height: 1.5;
 		text-transform: uppercase;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
 	}
 
 	&__unit {
