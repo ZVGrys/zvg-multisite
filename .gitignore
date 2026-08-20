@@ -1,0 +1,30 @@
+# Ignore everything at the repository root...
+/*
+
+# ...and the contents of the folders reopened below.
+themes/*
+
+# ...and these at any depth.
+node_modules/
+*.map
+debug.log
+*.log
+*.sql
+*.zip
+.env
+.idea
+.vscode
+.DS_Store
+
+
+# But not these files...
+!/.gitignore
+!/README.md
+!/LICENSE
+
+# Reopen the folder first — /* above excluded it, and git cannot re-include a
+# file whose parent directory is still excluded.
+!/themes/
+!themes/zvg-fse
+!themes/zvg-acf
+!themes/zvg-elementor
