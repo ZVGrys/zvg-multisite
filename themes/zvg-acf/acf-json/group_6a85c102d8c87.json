@@ -3,11 +3,157 @@
     "title": "Site Options",
     "fields": [
         {
+            "key": "field_6a86a1c0e0a01",
+            "label": "Header",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6a86a1c0e0a02",
+            "label": "Logo type",
+            "name": "header_logo_type",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "image": "Image",
+                "text": "Text"
+            },
+            "default_value": "text",
+            "allow_null": 0,
+            "return_format": "value",
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_6a86a1c0e0a03",
+            "label": "Logo image",
+            "name": "header_logo_image",
+            "type": "image",
+            "instructions": "Synced with Appearance → Customize → Site Identity → Logo.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a86a1c0e0a02",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_6a86a1c0e0a04",
+            "label": "Logo text",
+            "name": "header_logo_text",
+            "type": "text",
+            "instructions": "Synced with the site title in Appearance → Customize → Site Identity.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a86a1c0e0a02",
+                        "operator": "==",
+                        "value": "text"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6a86a1c0e0a05",
+            "label": "Header menu",
+            "name": "header_menu",
+            "type": "menus",
+            "instructions": "Synced with Appearance → Menus → Manage Locations → Primary.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_6a86a1c0e0a06",
+            "label": "Show build switcher",
+            "name": "header_show_build_switcher",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_6a86a1c0e0b01",
+            "label": "Footer",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_6a85c11124f9e",
             "label": "Footer copyright",
             "name": "footer_copyright",
             "type": "text",
-            "instructions": "",
+            "instructions": "For a dynamic year use {{year}}. For example: © {{year}} Zoriana Grys.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -20,6 +166,20 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_6a86a1c0e0b02",
+            "label": "Footer menu",
+            "name": "footer_menu",
+            "type": "menus",
+            "instructions": "Synced with Appearance → Menus → Manage Locations → Footer.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
         }
     ],
     "location": [
@@ -39,5 +199,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1787150667
+    "modified": 1787226713
 }
