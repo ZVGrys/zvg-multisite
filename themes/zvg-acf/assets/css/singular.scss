@@ -1,0 +1,16 @@
+@use 'vars' as *;
+
+.zvg-acf-entry {
+	margin-inline: auto;
+	max-width: $measure-wide;
+	padding-block: $space-60;
+
+	&__meta {
+		color: $color-muted;
+		font-family: $font-mono;
+		font-size: 13px;
+		letter-spacing: 0.08em;
+		margin-bottom: $space-50;
+		text-transform: uppercase;
+	}
+}

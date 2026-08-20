@@ -1,0 +1,29 @@
+@use '../../../assets/css/vars' as *;
+
+.zvg-acf-section.zvg-acf-hero {
+	padding-block-start: $space-70;
+	padding-block-end: $space-60;
+	border-top: 0;
+}
+
+.zvg-acf-hero {
+	&__title {
+		max-width: $measure-wide;
+	}
+
+	&__byline {
+		color: $color-muted;
+
+		strong {
+			font-weight: 400;
+			color: $color-text;
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		flex-wrap: wrap;
+		gap: $space-30;
+		margin-top: $space-50;
+	}
+}

@@ -1,0 +1,44 @@
+@use '../vars' as *;
+
+.zvg-acf-archive {
+	&__title {
+		margin-block: $space-60 $space-50;
+	}
+
+	&__list {
+		display: grid;
+		gap: $space-50;
+	}
+
+	&__empty {
+		color: $color-muted;
+	}
+}
+
+.zvg-acf-card {
+	border-bottom: 1px solid $color-border;
+	padding-bottom: $space-50;
+
+	&:last-child {
+		border-bottom: 0;
+	}
+
+	&__title {
+		margin-bottom: $space-20;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				color: $color-accent;
+			}
+		}
+	}
+
+	&__excerpt {
+		color: $color-muted;
+		max-width: $measure-wide;
+	}
+}

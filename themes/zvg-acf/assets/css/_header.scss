@@ -1,0 +1,213 @@
+@use 'vars' as *;
+
+.zvg-acf-header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background-color: $color-surface;
+	border-bottom: 1px solid $color-border;
+	padding-inline: $container-padding;
+
+	&__inner {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		gap: $space-60;
+		justify-content: space-between;
+		margin-inline: auto;
+		max-width: $container-width;
+		padding-block: $space-30;
+		width: 100%;
+
+		@include down($bp-medium) {
+			gap: $space-30;
+		}
+	}
+
+	&__title {
+		font-size: 19px;
+		font-weight: 600;
+		margin: 0;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				color: $color-accent;
+			}
+		}
+	}
+
+	&__toggle,
+	&__close {
+		background: none;
+		border: 0;
+		color: $color-text;
+		cursor: pointer;
+		display: block;
+		height: 24px;
+		padding: 0;
+		width: 24px;
+
+		svg {
+			display: block;
+		}
+	}
+
+	&__toggle {
+		@include up($bp-medium) {
+			display: none;
+		}
+	}
+
+	&__close {
+		position: absolute;
+		right: $container-padding;
+		top: $space-30;
+
+		@include up($bp-medium) {
+			display: none;
+		}
+	}
+}
+
+.zvg-acf-menu {
+	display: flex;
+	flex-wrap: wrap;
+	gap: $space-40;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	a {
+		color: $color-muted;
+		font-size: 15px;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			color: $color-accent;
+		}
+	}
+
+	.sub-menu {
+		display: flex;
+		flex-direction: column;
+		gap: $space-20;
+		list-style: none;
+		margin: $space-20 0 0;
+		padding: 0;
+	}
+}
+
+.zvg-acf-header__nav {
+	align-items: center;
+	display: flex;
+	flex: 1;
+	flex-wrap: wrap;
+	gap: $space-40;
+	justify-content: space-between;
+
+	@include down($bp-medium) {
+		align-items: flex-start;
+		background-color: $color-surface;
+		display: none;
+		flex-direction: column;
+		gap: $space-40;
+		inset: var(--wp-admin--admin-bar--height, 0) 0 0;
+		justify-content: flex-start;
+		overflow-y: auto;
+		padding: $space-30 $container-padding;
+		position: fixed;
+		z-index: 100000;
+	}
+
+	.zvg-acf-menu {
+		@include down($bp-medium) {
+			flex-direction: column;
+			gap: $space-40;
+		}
+
+		a {
+			@include down($bp-medium) {
+				font-size: 17px;
+			}
+		}
+	}
+
+	.zvg-acf-build-switcher {
+		@include down($bp-medium) {
+			order: -1;
+		}
+	}
+
+	&.is-open {
+		@include down($bp-medium) {
+			display: flex;
+		}
+	}
+}
+
+.zvg-acf-build-switcher {
+	display: flex;
+
+	&__link {
+		font-family: $font-mono;
+		font-size: 13px;
+		font-weight: 600;
+		letter-spacing: 0.03em;
+		color: $color-muted;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: color $transition-fast;
+
+		&:hover,
+		&:focus {
+			color: $color-text;
+			text-decoration: none;
+		}
+
+		&[aria-current="page"] {
+			color: $color-accent-ink;
+			background-color: $color-accent;
+		}
+	}
+
+	&.is-variant-segmented {
+		gap: 2px;
+		padding: 3px;
+		background-color: $color-surface-alt;
+		border: 1px solid $color-border;
+		border-radius: $radius-large;
+
+		.zvg-acf-build-switcher__link {
+			padding: 7px 12px;
+			border-radius: $radius-medium;
+		}
+	}
+
+	&.is-variant-list {
+		flex-wrap: wrap;
+		gap: $space-40;
+
+		.zvg-acf-build-switcher__link {
+			font-family: inherit;
+			font-size: inherit;
+			font-weight: inherit;
+			letter-spacing: normal;
+			text-transform: none;
+
+			&:hover,
+			&:focus {
+				color: $color-accent;
+			}
+
+			&[aria-current="page"] {
+				color: $color-accent;
+				background-color: transparent;
+			}
+		}
+	}
+}

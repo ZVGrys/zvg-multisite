@@ -1,0 +1,40 @@
+@use 'vars' as *;
+
+.zvg-acf-404 {
+	margin-inline: auto;
+	max-width: $measure-wide;
+	padding-block: $space-70;
+
+	&__code {
+		color: $color-border-strong;
+		font-family: $font-mono;
+		font-size: 120px;
+		font-weight: 600;
+		margin: 0 0 $space-30;
+
+		@include down($bp-large) {
+			font-size: 90px;
+		}
+
+		@include down($bp-small) {
+			font-size: 68px;
+		}
+	}
+
+	&__lead {
+		margin-bottom: $space-30;
+	}
+
+	&__body {
+		color: $color-muted;
+		max-width: $measure-content;
+	}
+
+	&__links {
+		margin-top: $space-30;
+	}
+
+	.zvg-acf-search {
+		margin-top: $space-50;
+	}
+}

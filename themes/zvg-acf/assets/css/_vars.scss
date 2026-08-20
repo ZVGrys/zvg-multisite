@@ -1,0 +1,59 @@
+$bp-small: 600px;
+$bp-medium: 782px;
+$bp-large: 960px;
+$bp-xlarge: 1080px;
+$bp-huge: 1439px;
+
+@mixin up($bp) {
+	$min: $bp + 0.02px;
+
+	@media (min-width: $min) {
+		@content;
+	}
+}
+
+@mixin down($bp) {
+	@media (max-width: $bp) {
+		@content;
+	}
+}
+
+$font-body: "Space Grotesk", "Space Grotesk Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$font-mono: "IBM Plex Mono", "IBM Plex Mono Fallback", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+$color-surface: #14111a;
+$color-surface-alt: #1d1926;
+$color-text: #ece8f0;
+$color-muted: #a79fb5;
+$color-accent: #ff8a65;
+$color-accent-ink: #1a1420;
+$color-border: #2a2536;
+$color-border-strong: #6e618d;
+$color-danger: #ff6b6b;
+
+$space-10: 4px;
+$space-20: 8px;
+$space-30: 16px;
+$space-40: 24px;
+$space-50: 40px;
+$space-60: 64px;
+$space-70: 96px;
+$space-80: 144px;
+
+$radius-small: 2px;
+$radius-medium: 4px;
+$radius-large: 6px;
+
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+$shadow-md: 0 12px 32px rgba(0, 0, 0, 0.4);
+
+$measure-content: 560px;
+$measure-wide: 820px;
+
+$container-width: 1200px;
+$container-padding: 24px;
+
+$backdrop: rgba(10, 8, 14, 0.68);
+
+$transition-fast: 300ms ease;
+$transition-base: 400ms ease;
