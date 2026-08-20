@@ -1,0 +1,34 @@
+$bp-small: 600px;
+$bp-medium: 782px;
+$bp-large: 960px;
+$bp-xlarge: 1080px;
+$bp-huge: 1439px;
+
+@mixin up($bp) {
+	$min: $bp + 0.02px;
+
+	@media (min-width: $min) {
+		@content;
+	}
+}
+
+@mixin down($bp) {
+	@media (max-width: $bp) {
+		@content;
+	}
+}
+
+$font-body: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+$color-headings: var(--e-global-color-primary, #ece8f0);
+$color-muted: var(--e-global-color-secondary, #a79fb5);
+$color-text: var(--e-global-color-text, #ece8f0);
+$color-accent: var(--e-global-color-accent, #ff8a65);
+
+$color-surface: var(--e-global-color-b51d6e6, #14111a);
+$color-surface-alt: var(--e-global-color-832dc15, #1d1926);
+$color-accent-ink: var(--e-global-color-98d43c7, #1a1420);
+$color-border: var(--e-global-color-0349803, #2a2536);
+$color-border-strong: var(--e-global-color-5174142, #6e618d);
+$color-danger: var(--e-global-color-6159ae7, #ff6b6b);

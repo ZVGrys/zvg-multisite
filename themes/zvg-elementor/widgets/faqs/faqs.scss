@@ -1,0 +1,63 @@
+@use '../../assets/css/vars' as *;
+
+.zvg-elementor-faqs {
+	$item: &;
+
+	#{$item}__item {
+		border-bottom: 1px solid $color-muted;
+
+		&:last-child {
+			border-bottom: 0;
+		}
+	}
+
+	#{$item}__question {
+		margin: 0;
+	}
+
+	#{$item}__trigger {
+		align-items: center;
+		background: none;
+		border: 0;
+		color: $color-text;
+		cursor: pointer;
+		display: flex;
+		font: inherit;
+		gap: 24px;
+		justify-content: space-between;
+		padding: 16px 0;
+		text-align: left;
+		transition: color 300ms ease;
+		width: 100%;
+
+		&:hover,
+		&:focus-visible {
+			color: $color-accent;
+		}
+
+		&[aria-expanded='true'] {
+			color: $color-accent;
+
+			#{$item}__icon {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	#{$item}__icon {
+		align-items: center;
+		display: flex;
+		flex-shrink: 0;
+		justify-content: center;
+		transition: transform 300ms ease;
+	}
+
+	#{$item}__answer {
+		color: $color-muted;
+		padding: 0 64px 16px 0;
+
+		@include down($bp-medium) {
+			padding-right: 0;
+		}
+	}
+}

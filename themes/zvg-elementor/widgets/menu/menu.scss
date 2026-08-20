@@ -1,0 +1,160 @@
+@use '../../assets/css/vars' as *;
+
+.zvg-elementor-nav {
+	$root: &;
+
+	align-items: center;
+	display: flex;
+	gap: 24px;
+	width: 100%;
+
+	@include down($bp-medium) {
+		justify-content: flex-end;
+	}
+
+	#{$root}__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 24px;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		@include down($bp-medium) {
+			flex-direction: column;
+		}
+
+		a {
+			color: $color-muted;
+			font-size: 15px;
+			line-height: 1.5;
+			text-decoration: none;
+			transition: color 300ms ease;
+
+			&:hover,
+			&:focus {
+				color: $color-accent;
+			}
+
+			@include down($bp-large) {
+				font-size: 14px;
+			}
+
+			@include down($bp-medium) {
+				color: $color-text;
+				font-size: 18px;
+			}
+
+			@include down($bp-small) {
+				font-size: 17px;
+			}
+		}
+	}
+
+	#{$root}__panel {
+		align-items: center;
+		display: flex;
+		flex: 1;
+		gap: 24px;
+
+		@include down($bp-medium) {
+			align-items: flex-start;
+			background-color: $color-surface;
+			display: none;
+			flex-direction: column;
+			inset: 0;
+			overflow-y: auto;
+			padding: 22px 24px 16px;
+			position: fixed;
+			z-index: 100;
+		}
+
+		.admin-bar & {
+			@include down($bp-medium) {
+				top: 46px;
+			}
+		}
+
+		&.is-open {
+			@include down($bp-medium) {
+				animation: zvg-elementor-nav-fade-in 100ms ease-out forwards;
+				display: flex;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				animation-duration: 1ms;
+			}
+		}
+
+		.zvg-elementor-switcher {
+			margin-inline-start: auto;
+
+			@include down($bp-medium) {
+				margin-inline-start: 0;
+				order: -1;
+			}
+		}
+	}
+
+	#{$root}__toggle {
+		background: none;
+		border: 0;
+		color: $color-text;
+		cursor: pointer;
+		display: none;
+		height: 24px;
+		padding: 0;
+		position: relative;
+		width: 24px;
+		z-index: 101;
+
+		&:hover,
+		&:focus {
+			background: none;
+			border: 0;
+			color: $color-text;
+		}
+
+		@include down($bp-medium) {
+			display: block;
+		}
+
+		&[aria-expanded="true"] {
+			@include down($bp-medium) {
+				position: fixed;
+				right: 24px;
+				top: 30px;
+			}
+
+			.admin-bar & {
+				@include down($bp-medium) {
+					top: 76px;
+				}
+			}
+		}
+	}
+
+	#{$root}__icon {
+		display: block;
+		fill: currentColor;
+		height: 24px;
+		width: 24px;
+	}
+
+	#{$root}__toggle[aria-expanded="false"] #{$root}__icon--close,
+	#{$root}__toggle[aria-expanded="true"] #{$root}__icon--open {
+		display: none;
+	}
+}
+
+@keyframes zvg-elementor-nav-fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(0.5em);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

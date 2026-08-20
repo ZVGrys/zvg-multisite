@@ -1,0 +1,263 @@
+@use '../../assets/css/vars' as *;
+
+.zvg-elementor-chooser {
+	$root: &;
+
+	align-items: flex-start;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 40px;
+
+	&__form {
+		border: 1px solid $color-border;
+		border-radius: 6px;
+		flex: 1 1 560px;
+		max-width: 560px;
+		padding: 24px;
+
+		@include down($bp-large) {
+			flex-basis: 100%;
+			max-width: 100%;
+		}
+	}
+
+	&__step {
+		border: 0;
+		margin: 0 0 24px;
+		padding: 0;
+
+		legend {
+			margin-bottom: 16px;
+			padding: 0;
+		}
+	}
+
+	&__count {
+		color: $color-muted;
+		display: block;
+		font-family: $font-mono;
+		font-size: 13px;
+		letter-spacing: 0.06em;
+		line-height: 1.5;
+		margin-bottom: 8px;
+		text-transform: uppercase;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
+	}
+
+	&__question {
+		display: block;
+		font-size: 19px;
+		font-weight: 600;
+		line-height: 1.25;
+
+		@include down($bp-large) {
+			font-size: 18px;
+		}
+
+		@include down($bp-small) {
+			font-size: 17px;
+		}
+	}
+
+	&__choice {
+		align-items: center;
+		background-color: $color-surface-alt;
+		border: 1px solid $color-border-strong;
+		border-radius: 4px;
+		cursor: pointer;
+		display: flex;
+		gap: 16px;
+		margin-bottom: 8px;
+		padding: 16px;
+		transition: border-color 300ms ease;
+
+		&:hover {
+			border-color: $color-accent;
+		}
+
+		&:has(input:checked) {
+			border-color: $color-accent;
+			font-weight: 600;
+		}
+
+		input {
+			accent-color: $color-accent;
+			flex: 0 0 auto;
+			height: 16px;
+			margin: 0;
+			width: 16px;
+		}
+	}
+
+	&__actions {
+		display: flex;
+		gap: 8px;
+
+		&[hidden] {
+			display: none;
+		}
+	}
+
+	&__button {
+		cursor: pointer;
+		transition: opacity 300ms ease, color 300ms ease, border-color 300ms ease;
+
+		&:hover,
+		&:focus {
+			opacity: 0.88;
+		}
+
+		&[disabled] {
+			cursor: default;
+			opacity: 0.45;
+		}
+	}
+
+	& #{$root}__button--outline {
+		background-color: transparent;
+		border-color: $color-border-strong;
+		color: $color-text;
+
+		&:hover,
+		&:focus {
+			border-color: $color-accent;
+			color: $color-accent;
+			opacity: 1;
+		}
+	}
+
+	&__eyebrow {
+		color: $color-accent;
+		font-family: $font-mono;
+		font-size: 13px;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		line-height: 1.4;
+		margin: 0 0 8px;
+		text-transform: uppercase;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
+	}
+
+	&__result {
+		border-top: 1px solid $color-border;
+		margin-top: 24px;
+		padding-top: 24px;
+	}
+
+	&__form:has([data-chooser-actions][hidden]) &__result {
+		border-top: 0;
+		margin-top: 0;
+		padding-top: 0;
+	}
+
+	&__others {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+		margin-bottom: 24px;
+	}
+
+	&__verdict-title {
+		margin: 0 0 8px;
+	}
+
+	&__verdict-text {
+		color: $color-muted;
+		font-size: 15px;
+		line-height: 1.55;
+		margin: 0;
+
+		@include down($bp-large) {
+			font-size: 14px;
+		}
+
+		@include down($bp-small) {
+			font-size: 13px;
+		}
+	}
+
+	&__verdict[data-role="winner"] {
+		margin-bottom: 24px;
+
+		#{$root}__verdict-title {
+			font-size: 28px;
+
+			@include down($bp-large) {
+				font-size: 25px;
+			}
+
+			@include down($bp-small) {
+				font-size: 22px;
+			}
+		}
+	}
+
+	&__verdict[data-role="other"] {
+		background-color: $color-surface-alt;
+		border: 1px solid $color-border;
+		border-radius: 4px;
+		flex: 1 1 200px;
+		padding: 16px;
+
+		#{$root}__verdict-title {
+			font-family: $font-mono;
+			font-size: 13px;
+			letter-spacing: 0.04em;
+			text-transform: uppercase;
+
+			@include down($bp-large) {
+				font-size: 12px;
+			}
+		}
+
+		#{$root}__verdict-text {
+			font-size: 13px;
+		}
+	}
+
+	&__aside {
+		background-color: $color-surface-alt;
+		border: 1px solid $color-border;
+		border-radius: 6px;
+		flex: 1 1 300px;
+		padding: 24px;
+
+		@include down($bp-large) {
+			flex-basis: 100%;
+			max-width: 100%;
+		}
+	}
+
+	&__definitions {
+		margin: 0;
+
+		dt {
+			font-weight: 600;
+		}
+
+		dd {
+			color: $color-muted;
+			font-size: 15px;
+			line-height: 1.55;
+			margin: 4px 0 16px;
+
+			@include down($bp-large) {
+				font-size: 14px;
+			}
+
+			@include down($bp-small) {
+				font-size: 13px;
+			}
+		}
+
+		dd:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

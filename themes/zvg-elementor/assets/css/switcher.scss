@@ -1,0 +1,65 @@
+@use '../../assets/css/vars' as *;
+
+.zvg-elementor-switcher {
+	$root: &;
+
+	background-color: $color-surface-alt;
+	border: 1px solid $color-border;
+	border-radius: 6px;
+	display: flex;
+	flex-shrink: 0;
+	gap: 2px;
+	padding: 3px;
+
+	#{$root}__link {
+		border-radius: 4px;
+		color: $color-muted;
+		font-family: $font-mono;
+		font-size: 13px;
+		font-weight: 600;
+		letter-spacing: 0.03em;
+		line-height: 1.5;
+		padding: 7px 12px;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: background-color 300ms ease, color 300ms ease;
+
+		&:hover,
+		&:focus {
+			color: $color-text;
+		}
+
+		&[aria-current="page"] {
+			background-color: $color-accent;
+			color: $color-accent-ink;
+		}
+	}
+}
+
+.zvg-elementor-switcher--list {
+	background: none;
+	border: 0;
+	border-radius: 0;
+	flex-wrap: wrap;
+	gap: 24px;
+	padding: 0;
+
+	.zvg-elementor-switcher__link {
+		font-family: inherit;
+		font-size: inherit;
+		font-weight: inherit;
+		letter-spacing: normal;
+		padding: 0;
+		text-transform: none;
+
+		&:hover,
+		&:focus {
+			color: $color-accent;
+		}
+
+		&[aria-current="page"] {
+			background: none;
+			color: $color-accent;
+		}
+	}
+}

@@ -1,0 +1,24 @@
+@use '../vars' as *;
+
+.zvg-elementor-entry {
+	margin-inline: auto;
+	max-width: 820px;
+	padding-block: 64px 96px;
+
+	&__title {
+		margin-bottom: 40px;
+	}
+
+	&__content {
+		blockquote {
+			border-left: 2px solid $color-accent;
+			color: $color-muted;
+			margin: 40px 0;
+			padding-left: 24px;
+		}
+
+		figure {
+			margin: 40px 0;
+		}
+	}
+}

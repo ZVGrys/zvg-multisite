@@ -1,0 +1,10 @@
+@use '../../assets/css/vars' as *;
+
+.zvg-elementor-highlight-text {
+	color: $color-muted;
+	margin: 0;
+
+	&__mark {
+		color: $color-text;
+	}
+}
