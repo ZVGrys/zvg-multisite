@@ -1,0 +1,136 @@
+@use "../../assets/css/vars" as *;
+
+$table-stack: 700px;
+
+.wp-block-zvg-fse-compare-table {
+	border: 1px solid $color-border;
+	border-radius: $radius-large;
+
+	@include down($table-stack) {
+		border: 0;
+		border-radius: 0;
+	}
+
+	&__table {
+		width: 100%;
+		border-collapse: collapse;
+		text-align: left;
+
+		@include up($table-stack) {
+			min-width: 620px;
+		}
+
+		@include down($table-stack) {
+			display: block;
+		}
+
+		th,
+		td {
+			padding: var(--wp--preset--spacing--30);
+			border-bottom: 1px solid $color-border;
+
+			@include down($table-stack) {
+				display: block;
+			}
+		}
+
+		tbody tr:last-child th,
+		tbody tr:last-child td {
+			border-bottom: 0;
+		}
+
+		thead {
+			@include down($table-stack) {
+				display: none;
+			}
+		}
+
+		thead th,
+		thead td {
+			font-family: var(--wp--preset--font-family--mono);
+			font-size: var(--wp--preset--font-size--medium);
+			font-weight: 600;
+			background-color: $color-surface-alt;
+		}
+
+		thead td:first-child {
+			@include up($table-stack) {
+				position: sticky;
+				left: 0;
+			}
+		}
+
+		tbody {
+			@include down($table-stack) {
+				display: block;
+			}
+		}
+
+		tbody th {
+			font-size: var(--wp--preset--font-size--medium);
+			font-weight: 400;
+			color: $color-muted;
+			background-color: $color-surface;
+
+			@include up($table-stack) {
+				position: sticky;
+				left: 0;
+				min-width: 200px;
+			}
+
+			@include down($table-stack) {
+				color: $color-text;
+				font-weight: 600;
+				background-color: $color-surface-alt;
+				border-bottom: 1px solid $color-border;
+			}
+		}
+
+		tbody td {
+			font-family: var(--wp--preset--font-family--mono);
+			font-size: var(--wp--preset--font-size--large);
+			font-weight: 600;
+
+			@include down($table-stack) {
+				display: flex;
+				align-items: baseline;
+				justify-content: space-between;
+				gap: var(--wp--preset--spacing--30);
+			}
+		}
+
+		tbody tr {
+			@include down($table-stack) {
+				display: block;
+				margin-bottom: var(--wp--preset--spacing--30);
+				border: 1px solid $color-border;
+				border-radius: $radius-large;
+				overflow: hidden;
+			}
+		}
+
+		tbody tr:last-child {
+			@include down($table-stack) {
+				margin-bottom: 0;
+			}
+		}
+
+		tbody tr:last-child td:last-child {
+			@include down($table-stack) {
+				border-bottom: 0;
+			}
+		}
+	}
+
+	&__column {
+		display: none;
+
+		@include down($table-stack) {
+			display: block;
+			font-family: var(--wp--preset--font-family--heading);
+			font-size: var(--wp--preset--font-size--medium);
+			font-weight: 400;
+			color: $color-muted;
+		}
+	}
+}

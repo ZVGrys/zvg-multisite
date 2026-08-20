@@ -1,0 +1,18 @@
+@use "../vars" as *;
+
+.zvg-fse-flow {
+	background-image: linear-gradient($color-border 1px, transparent 1px),
+		linear-gradient(90deg, $color-border 1px, transparent 1px);
+	background-position: center top;
+	background-size: 32px 32px;
+
+	.zvg-fse-section__title {
+		text-align: center;
+	}
+
+	.is-style-section-intro {
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+}

@@ -1,0 +1,2 @@
+.wp-block-button__link{-webkit-transition:opacity var(--wp--custom--transition--fast),color var(--wp--custom--transition--fast),border-color var(--wp--custom--transition--fast);transition:opacity var(--wp--custom--transition--fast),color var(--wp--custom--transition--fast),border-color var(--wp--custom--transition--fast)}.wp-block-button__link:focus,.wp-block-button__link:hover{opacity:.88}.wp-block-button__link:active{opacity:.75}.wp-block-button__link[disabled]{cursor:default;opacity:.45}
+/*# sourceMappingURL=button.css.map */

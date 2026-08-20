@@ -1,0 +1,108 @@
+@use "vars" as *;
+
+:root {
+	@include down($bp-large) {
+		--wp--preset--font-size--small: 12px;
+		--wp--preset--font-size--medium: 14px;
+		--wp--preset--font-size--large: 16px;
+		--wp--preset--font-size--x-large: 18px;
+		--wp--preset--font-size--xx-large: 25px;
+		--wp--preset--font-size--display: 44px;
+	}
+
+	@include down($bp-small) {
+		--wp--preset--font-size--medium: 13px;
+		--wp--preset--font-size--large: 15px;
+		--wp--preset--font-size--x-large: 17px;
+		--wp--preset--font-size--xx-large: 22px;
+		--wp--preset--font-size--display: 36px;
+	}
+}
+
+.is-style-eyebrow {
+	margin-bottom: 0;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 600;
+	line-height: 1.4;
+	color: $color-accent;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+
+	a {
+		color: inherit;
+	}
+}
+
+.is-style-lead {
+	max-width: 60ch;
+	font-size: var(--wp--preset--font-size--x-large);
+	line-height: 1.5;
+	color: $color-muted;
+}
+
+.is-style-arrow-link {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 600;
+}
+
+.is-style-section-intro {
+	max-width: 48ch;
+	color: $color-muted;
+}
+
+.is-style-note {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--small);
+	color: $color-muted;
+}
+
+p.is-style-arrow-link:not(:has(a))::after {
+	display: inline-block;
+	margin-left: 0.35em;
+	content: "\2192";
+}
+
+.is-style-arrow-link a,
+a.is-style-arrow-link {
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
+
+	&::after {
+		display: inline-block;
+		margin-left: 0.35em;
+		content: "\2192";
+		transition: transform $transition-fast;
+	}
+
+	&:hover::after,
+	&:focus::after {
+		transform: translateX(2px);
+	}
+}
+
+h1,
+h2,
+h3 {
+	text-wrap: balance;
+}
+
+p {
+	text-wrap: pretty;
+}
+
+.wp-block-post-content {
+	> h2 {
+		margin-top: var(--wp--preset--spacing--50);
+	}
+
+	> h3,
+	> h4 {
+		margin-top: var(--wp--preset--spacing--40);
+	}
+}

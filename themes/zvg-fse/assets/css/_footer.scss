@@ -1,0 +1,21 @@
+@use "vars" as *;
+
+.zvg-fse-footer {
+	padding: var(--wp--preset--spacing--50) var(--wp--custom--container--padding);
+	border-top: 1px solid $color-border;
+
+	&__inner {
+		max-width: var(--wp--style--global--content-size);
+		margin-inline: auto;
+		gap: var(--wp--preset--spacing--40);
+	}
+
+	&__copy {
+		max-width: 360px;
+	}
+
+	&__nav.wp-block-navigation,
+	&__nav .wp-block-navigation__container {
+		row-gap: 5px;
+	}
+}

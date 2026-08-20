@@ -1,0 +1,81 @@
+@use "../../assets/css/vars" as *;
+
+.wp-block-zvg-fse-post-share {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--wp--preset--spacing--30);
+	padding-top: var(--wp--preset--spacing--40);
+	border-top: 1px solid $color-border;
+
+	&__label {
+		margin: 0;
+		font-family: var(--wp--preset--font-family--mono);
+		font-size: var(--wp--preset--font-size--small);
+		font-weight: 600;
+		color: $color-muted;
+		text-transform: uppercase;
+		letter-spacing: 0.03em;
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--wp--preset--spacing--20);
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	&__link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5em;
+		padding: 8px 14px;
+		font-family: var(--wp--preset--font-family--mono);
+		font-size: var(--wp--preset--font-size--small);
+		font-weight: 600;
+		color: $color-text;
+		text-decoration: none;
+		border: 1px solid $color-border;
+		border-radius: $radius-medium;
+		transition: color $transition-fast, border-color $transition-fast;
+
+		&:hover,
+		&:focus {
+			color: $color-accent;
+			text-decoration: none;
+			border-color: $color-accent;
+		}
+	}
+
+	&__copy {
+		display: none;
+		line-height: inherit;
+		cursor: pointer;
+		background: none;
+
+		&.is-copied {
+			color: $color-accent;
+			border-color: $color-accent;
+		}
+	}
+
+	&__icon {
+		width: 14px;
+		height: 14px;
+		fill: currentColor;
+
+		&.is-stroked {
+			fill: none;
+			stroke: currentColor;
+			stroke-width: 2;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+		}
+	}
+}
+
+.zvg-fse-js .wp-block-zvg-fse-post-share__copy {
+	display: inline-flex;
+}

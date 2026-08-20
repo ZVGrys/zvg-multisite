@@ -1,0 +1,127 @@
+@use "../vars" as *;
+
+.zvg-fse-contact {
+	&__direct {
+		flex: 0 1 260px;
+		font-size: var(--wp--preset--font-size--medium);
+		text-align: right;
+	}
+
+	& &__layout {
+		@include up($bp-medium) {
+			flex-wrap: nowrap;
+		}
+	}
+
+	&__layout > &__direct {
+		margin-left: auto;
+
+		@include down($bp-medium) {
+			flex: 1 1 100%;
+			margin-left: 0;
+			text-align: left;
+		}
+	}
+
+	&__direct a {
+		text-decoration: none;
+		transition: opacity $transition-fast;
+
+		&:hover,
+		&:focus {
+			opacity: 0.8;
+			text-decoration: none;
+		}
+	}
+
+}
+
+.zvg-fse-contact__layout .wpcf7 {
+	flex: 1 1 420px;
+	max-width: var(--wp--custom--measure--content);
+
+	@include down($bp-medium) {
+		flex: 1 1 100%;
+		max-width: none;
+	}
+}
+
+.zvg-fse-field {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin: 0 0 var(--wp--preset--spacing--30);
+	font-size: var(--wp--preset--font-size--medium);
+
+	input,
+	textarea {
+		width: 100%;
+		padding: 12px 14px;
+		font-family: inherit;
+		font-size: var(--wp--preset--font-size--large);
+		color: $color-text;
+		background-color: $color-surface-alt;
+		border: 1px solid $color-border-strong;
+		border-radius: $radius-medium;
+		transition: border-color $transition-fast;
+
+		&:focus-visible {
+			border-color: $color-accent;
+		}
+
+		&[aria-invalid="true"] {
+			border-color: $color-danger;
+		}
+	}
+
+	textarea {
+		resize: vertical;
+	}
+
+	.wpcf7-form-control-wrap {
+		display: block;
+	}
+
+	.wpcf7-not-valid-tip {
+		margin-top: 6px;
+		font-size: var(--wp--preset--font-size--small);
+		color: $color-danger;
+	}
+}
+
+.zvg-fse-form__actions {
+	margin: var(--wp--preset--spacing--50) 0 0;
+
+	.wp-element-button {
+		cursor: pointer;
+		transition: opacity $transition-fast;
+
+		&:hover,
+		&:focus {
+			opacity: 0.88;
+		}
+
+		&:active {
+			opacity: 0.75;
+		}
+	}
+}
+
+.zvg-fse-contact .wpcf7 form .wpcf7-response-output {
+	margin: var(--wp--preset--spacing--30) 0 0;
+	padding: 0;
+	font-size: var(--wp--preset--font-size--medium);
+	color: $color-accent;
+	border: 0;
+}
+
+.zvg-fse-contact .wpcf7 form.invalid .wpcf7-response-output,
+.zvg-fse-contact .wpcf7 form.failed .wpcf7-response-output,
+.zvg-fse-contact .wpcf7 form.aborted .wpcf7-response-output,
+.zvg-fse-contact .wpcf7 form.spam .wpcf7-response-output {
+	color: $color-danger;
+}
+
+.zvg-fse-contact .wpcf7-spinner {
+	background-color: $color-border-strong;
+}

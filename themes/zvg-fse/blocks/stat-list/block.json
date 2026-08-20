@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zvg-fse/stat-list",
+	"title": "ZVG Stat List",
+	"category": "text",
+	"icon": "chart-bar",
+	"description": "A short list of measurements. Each value reads above its label, while the markup keeps the dt-then-dd order the content model requires.",
+	"keywords": [ "stats", "measurements", "numbers" ],
+	"textdomain": "zvg-fse",
+	"style": "file:./style.css",
+	"render": "file:./block.php",
+	"attributes": {
+		"items": {
+			"type": "array",
+			"default": [],
+			"role": "content",
+			"items": {
+				"type": "object"
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"spacing": {
+			"margin": true
+		}
+	}
+}

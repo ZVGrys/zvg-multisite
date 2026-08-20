@@ -1,0 +1,47 @@
+@use "vars" as *;
+
+.zvg-fse-header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	padding: var(--wp--preset--spacing--30) var(--wp--custom--container--padding);
+	background-color: $color-surface;
+	border-bottom: 1px solid $color-border;
+
+	&__inner {
+		max-width: var(--wp--style--global--content-size);
+		margin-inline: auto;
+		gap: var(--wp--preset--spacing--60);
+
+		@include down($bp-medium) {
+			gap: var(--wp--preset--spacing--30);
+		}
+	}
+
+	&__inner > &__nav {
+		flex: 1;
+
+		@include down($bp-medium) {
+			flex: 0 0 auto;
+		}
+	}
+
+	&__inner > &__title {
+		@include down($bp-medium) {
+			margin-inline-end: auto;
+		}
+	}
+
+	&__title a {
+		color: $color-text;
+		text-decoration: none;
+		transition: color $transition-fast;
+
+		&:hover,
+		&:focus {
+			color: $color-accent;
+			text-decoration: none;
+		}
+	}
+
+}

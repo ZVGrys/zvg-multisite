@@ -1,0 +1,14 @@
+@use "../vars" as *;
+
+.wp-block-button.is-style-outline-dark > .wp-block-button__link {
+	color: $color-text;
+	background-color: transparent;
+	border-color: $color-border-strong;
+
+	&:hover,
+	&:focus {
+		color: $color-accent;
+		border-color: $color-accent;
+		opacity: 1;
+	}
+}

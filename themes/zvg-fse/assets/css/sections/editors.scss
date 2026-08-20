@@ -1,0 +1,100 @@
+@use "../vars" as *;
+
+.zvg-fse-placeholder {
+	display: flex;
+	align-items: flex-end;
+	padding: var(--wp--preset--spacing--20);
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--small);
+	color: $color-muted;
+	background-color: $color-surface;
+	border: 1px solid $color-border;
+	border-radius: $radius-medium;
+
+	&--wide {
+		aspect-ratio: 16 / 9;
+	}
+
+	p {
+		margin: 0;
+	}
+}
+
+.zvg-fse-editors {
+	&__track {
+		--zvg-fse-track-inset: max(
+			var(--wp--custom--container--padding),
+			calc((100% - var(--wp--style--global--content-size)) / 2 + var(--wp--custom--container--padding))
+		);
+		--zvg-fse-track-snap: max(
+			var(--wp--custom--container--padding),
+			calc((100% - var(--wp--style--global--content-size)) / 2)
+		);
+
+		padding-left: var(--zvg-fse-track-inset);
+		scroll-padding-left: var(--zvg-fse-track-snap);
+
+		padding-right: var(--wp--custom--container--padding);
+		padding-bottom: var(--wp--preset--spacing--30);
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scrollbar-color: $color-border-strong transparent;
+		scrollbar-width: thin;
+
+		&::-webkit-scrollbar {
+			height: 6px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: transparent;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: $color-border-strong;
+			border-radius: $radius-small;
+		}
+
+		&.has-custom-scrollbar {
+			padding-bottom: 0;
+			scrollbar-width: none;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
+	}
+
+	&__item {
+		flex: 0 0 min(62%, calc(var(--wp--style--global--content-size) * 0.62));
+		min-width: min(100%, var(--wp--custom--measure--content));
+		scroll-snap-align: start;
+	}
+
+	&__shot {
+		margin: 0;
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+			aspect-ratio: 16 / 9;
+			object-fit: cover;
+			border: 1px solid $color-border;
+			border-radius: $radius-medium;
+		}
+	}
+
+	&__scrollbar {
+		height: 6px;
+		margin-top: var(--wp--preset--spacing--30);
+		cursor: pointer;
+		background-color: $color-border;
+		border-radius: $radius-small;
+	}
+
+	&__thumb {
+		height: 100%;
+		background-color: $color-border-strong;
+		border-radius: $radius-small;
+	}
+}

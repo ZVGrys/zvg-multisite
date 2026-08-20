@@ -1,0 +1,18 @@
+
+@font-face {
+	font-family: "Space Grotesk Fallback";
+	src: local("Helvetica Neue"), local("Arial"), local("sans-serif");
+	size-adjust: 97%;
+	ascent-override: 92%;
+	descent-override: 24%;
+	line-gap-override: 0%;
+}
+
+@font-face {
+	font-family: "IBM Plex Mono Fallback";
+	src: local("Menlo"), local("Consolas"), local("monospace");
+	size-adjust: 100%;
+	ascent-override: 90%;
+	descent-override: 25%;
+	line-gap-override: 0%;
+}

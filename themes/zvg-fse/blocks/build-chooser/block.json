@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zvg-fse/build-chooser",
+	"title": "ZVG Build Chooser",
+	"category": "widgets",
+	"icon": "forms",
+	"description": "Three questions that weigh the answers and suggest one of the builds. Without JavaScript it stays a readable form with all three verdicts.",
+	"keywords": [ "chooser", "quiz", "questionnaire", "recommendation" ],
+	"textdomain": "zvg-fse",
+	"style": "file:./style.css",
+	"render": "file:./block.php",
+	"attributes": {
+		"steps": {
+			"type": "array",
+			"role": "content",
+			"default": [],
+			"items": {
+				"type": "object"
+			}
+		},
+		"verdicts": {
+			"type": "object",
+			"role": "content",
+			"default": {}
+		},
+		"definitions": {
+			"type": "array",
+			"role": "content",
+			"default": [],
+			"items": {
+				"type": "object"
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"reusable": false,
+		"spacing": {
+			"margin": true
+		}
+	}
+}

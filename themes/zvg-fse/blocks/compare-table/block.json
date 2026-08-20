@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zvg-fse/compare-table",
+	"title": "ZVG Compare Table",
+	"category": "text",
+	"icon": "editor-table",
+	"description": "A comparison table whose row labels are headers and stay in place while the columns scroll.",
+	"keywords": [ "table", "comparison", "measurements" ],
+	"textdomain": "zvg-fse",
+	"style": "file:./style.css",
+	"render": "file:./block.php",
+	"attributes": {
+		"caption": {
+			"type": "string",
+			"role": "content",
+			"default": ""
+		},
+		"columns": {
+			"type": "array",
+			"role": "content",
+			"default": [ "FSE", "Elementor", "ACF theme" ],
+			"items": {
+				"type": "string"
+			}
+		},
+		"rows": {
+			"type": "array",
+			"role": "content",
+			"default": [
+				{ "label": "Lines of code", "values": [ "", "", "" ] },
+				{ "label": "Page weight", "values": [ "", "", "" ] },
+				{ "label": "DOM nodes", "values": [ "", "", "" ] },
+				{ "label": "Lighthouse mobile", "values": [ "", "", "" ] }
+			],
+			"items": {
+				"type": "object"
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"spacing": {
+			"margin": true
+		}
+	}
+}

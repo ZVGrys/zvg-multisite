@@ -1,0 +1,20 @@
+@use "../vars" as *;
+
+.zvg-fse-section.zvg-fse-hero {
+	padding-block-start: var(--wp--preset--spacing--70);
+
+	padding-block-end: var(--wp--preset--spacing--60);
+
+	border-top: 0;
+}
+
+.zvg-fse-hero {
+	&__title {
+		max-width: var(--wp--custom--measure--wide);
+	}
+
+	&__byline strong {
+		font-weight: 400;
+		color: $color-text;
+	}
+}

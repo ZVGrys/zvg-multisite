@@ -1,0 +1,38 @@
+@use "../vars" as *;
+
+$card-basis: 380px;
+$card-gap: 24px;
+
+.zvg-fse-build {
+	flex: 1 1 $card-basis;
+	display: flex;
+	flex-direction: column;
+
+	gap: var(--wp--preset--spacing--30);
+	border: 1px solid $color-border;
+	border-radius: $radius-large;
+	transition: border-color $transition-base, box-shadow $transition-base;
+
+	&:hover {
+		border-color: $color-accent;
+		box-shadow: var(--wp--preset--shadow--md);
+	}
+
+	&__link {
+		font-family: var(--wp--preset--font-family--mono);
+		font-weight: 600;
+
+		a {
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				text-decoration: none;
+			}
+		}
+	}
+
+	@include up($card-basis * 2 + $card-gap + 48px) {
+		max-width: calc(50% - #{$card-gap * 0.5});
+	}
+}
