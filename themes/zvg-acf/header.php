@@ -26,13 +26,20 @@ defined( 'ABSPATH' ) || exit;
 
 	<header class="zvg-acf-header">
 		<div class="zvg-acf-header__inner">
-			<?php if ( has_custom_logo() ) { ?>
-				<?php the_custom_logo(); ?>
-			<?php } else { ?>
+			<?php
+			$zvg_acf_logo_type = zvg_acf_option( 'header_logo_type', 'text' );
+			$zvg_acf_site_name = (string) zvg_acf_option( 'header_logo_text', get_bloginfo( 'name', 'display' ) );
+
+			if ( 'image' === $zvg_acf_logo_type && has_custom_logo() ) {
+				the_custom_logo();
+			} elseif ( '' !== trim( $zvg_acf_site_name ) ) {
+				?>
 			<p class="zvg-acf-header__title">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo esc_html( $zvg_acf_site_name ); ?></a>
 			</p>
-			<?php } ?>
+				<?php
+			}
+			?>
 
 			<button class="zvg-acf-header__toggle" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="zvg-acf-nav" aria-label="<?php esc_attr_e( 'Open menu', 'zvg-acf' ); ?>">
 				<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -60,7 +67,9 @@ defined( 'ABSPATH' ) || exit;
 					);
 				}
 
-				zvg_acf_render_build_switcher();
+				if ( zvg_acf_option( 'header_show_build_switcher', true ) ) {
+					zvg_acf_render_build_switcher();
+				}
 				?>
 			</div>
 		</div>

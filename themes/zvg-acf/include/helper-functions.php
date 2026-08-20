@@ -163,30 +163,36 @@ if ( ! function_exists( 'zvg_acf_render_build_switcher' ) ) :
 
 	/**
 	 * Print the links to each build of this landing page.
-	 *
-	 * @param string $variant     'segmented' or 'list'.
-	 * @param bool   $long_labels Whether to print "FSE build" instead of "FSE".
 	 */
-	function zvg_acf_render_build_switcher( $variant = 'segmented', $long_labels = false ) {
+	function zvg_acf_render_build_switcher() {
 		$builds = zvg_acf_build_sites();
 
 		if ( count( $builds ) < 2 ) {
 			return;
 		}
 		?>
-		<nav class="zvg-acf-build-switcher is-variant-<?php echo esc_attr( $variant ); ?>" aria-label="<?php esc_attr_e( 'Build version', 'zvg-acf' ); ?>">
-			<?php
-			foreach ( $builds as $zvg_acf_build ) {
-				$zvg_acf_label = $long_labels
-					/* translators: %s: build name, such as FSE. */
-					? sprintf( _x( '%s build', 'Build name in a text menu', 'zvg-acf' ), $zvg_acf_build['label'] )
-					: $zvg_acf_build['label'];
-				?>
-			<a class="zvg-acf-build-switcher__link" href="<?php echo esc_url( $zvg_acf_build['url'] ); ?>"<?php echo $zvg_acf_build['current'] ? ' aria-current="page"' : ''; ?>><?php echo esc_html( $zvg_acf_label ); ?></a>
-				<?php
-			}
-			?>
+		<nav class="zvg-acf-build-switcher" aria-label="<?php esc_attr_e( 'Build version', 'zvg-acf' ); ?>">
+			<?php foreach ( $builds as $zvg_acf_build ) { ?>
+			<a class="zvg-acf-build-switcher__link" href="<?php echo esc_url( $zvg_acf_build['url'] ); ?>"<?php echo $zvg_acf_build['current'] ? ' aria-current="page"' : ''; ?>><?php echo esc_html( $zvg_acf_build['label'] ); ?></a>
+			<?php } ?>
 		</nav>
 		<?php
+	}
+endif;
+
+if ( ! function_exists( 'zvg_acf_option' ) ) :
+
+	/**
+	 * A site-wide option.
+	 *
+	 * @param string $name    Site Options field name.
+	 * @param mixed  $default Value to use while the field holds nothing of its own.
+	 *
+	 * @return mixed
+	 */
+	function zvg_acf_option( $name, $default = '' ) {
+		$value = function_exists( 'get_field' ) ? get_field( $name, 'option' ) : null;
+
+		return null === $value ? $default : $value;
 	}
 endif;
