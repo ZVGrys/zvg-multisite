@@ -1,0 +1,166 @@
+@use '../../../assets/css/vars' as *;
+
+.zvg-acf-measured {
+	.zvg-acf-compare-table {
+		margin-top: $space-50;
+	}
+}
+
+.zvg-acf-compare-table {
+	border: 1px solid $color-border;
+	border-radius: $radius-large;
+
+	@include down($bp-medium) {
+		border: 0;
+		border-radius: 0;
+	}
+
+	&__table {
+		width: 100%;
+		border-collapse: collapse;
+		line-height: 1.5;
+		text-align: left;
+
+		@include up($bp-medium) {
+			min-width: 620px;
+		}
+
+		@include down($bp-medium) {
+			display: block;
+		}
+
+		th,
+		td {
+			border-bottom: 1px solid $color-border;
+			padding: $space-30;
+
+			@include down($bp-medium) {
+				display: block;
+			}
+		}
+
+		thead {
+			@include down($bp-medium) {
+				display: none;
+			}
+		}
+
+		thead th,
+		thead td {
+			background-color: $color-surface-alt;
+		}
+
+		thead th {
+			font-family: $font-mono;
+			font-size: 15px;
+			font-weight: 600;
+
+			@include down($bp-large) {
+				font-size: 14px;
+			}
+
+			@include down($bp-small) {
+				font-size: 13px;
+			}
+		}
+
+		thead td:first-child {
+			@include up($bp-medium) {
+				position: sticky;
+				left: 0;
+			}
+		}
+
+		tbody {
+			@include down($bp-medium) {
+				display: block;
+			}
+		}
+
+		tbody th {
+			background-color: $color-surface;
+			color: $color-muted;
+			font-size: 15px;
+			font-weight: 400;
+
+			@include down($bp-large) {
+				font-size: 14px;
+			}
+
+			@include down($bp-small) {
+				font-size: 13px;
+			}
+
+			@include up($bp-medium) {
+				position: sticky;
+				left: 0;
+				min-width: 200px;
+			}
+
+			@include down($bp-medium) {
+				background-color: $color-surface-alt;
+				border-bottom: 1px solid $color-border;
+				color: $color-text;
+				font-weight: 600;
+			}
+		}
+
+		tbody td {
+			font-family: $font-mono;
+			font-size: 17px;
+			font-weight: 600;
+
+			@include down($bp-large) {
+				font-size: 16px;
+			}
+
+			@include down($bp-small) {
+				font-size: 15px;
+			}
+
+			@include down($bp-medium) {
+				display: flex;
+				align-items: baseline;
+				justify-content: space-between;
+				gap: $space-30;
+			}
+		}
+
+		tbody tr {
+			@include down($bp-medium) {
+				display: block;
+				border: 1px solid $color-border;
+				border-radius: $radius-large;
+				margin-bottom: $space-30;
+				overflow: hidden;
+			}
+		}
+
+		tbody tr:last-child th,
+		tbody tr:last-child td {
+			border-bottom: 0;
+		}
+
+		tbody tr:last-child {
+			@include down($bp-medium) {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__column {
+		display: none;
+
+		@include down($bp-medium) {
+			display: block;
+			color: $color-muted;
+			font-family: $font-body;
+			font-size: 14px;
+			font-weight: 400;
+		}
+
+		@include down($bp-small) {
+			font-size: 13px;
+		}
+	}
+}
