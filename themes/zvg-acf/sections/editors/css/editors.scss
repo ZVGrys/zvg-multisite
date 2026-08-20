@@ -1,0 +1,111 @@
+@use '../../../assets/css/vars' as *;
+
+$editors-inset: max(#{$container-padding}, calc((100% - #{$container-width}) / 2));
+$editors-basis: $container-width * 0.62;
+
+.zvg-acf-editors {
+	&__track {
+		display: flex;
+		gap: $space-40;
+		margin-top: $space-50;
+		overflow-x: auto;
+		padding-bottom: $space-30;
+		padding-left: $editors-inset;
+		padding-right: $container-padding;
+		scroll-padding-left: $editors-inset;
+		scroll-snap-type: x mandatory;
+		scrollbar-color: $color-border-strong transparent;
+		scrollbar-width: thin;
+
+		&::-webkit-scrollbar {
+			height: 6px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: transparent;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: $color-border-strong;
+			border-radius: $radius-small;
+		}
+
+		&.has-custom-scrollbar {
+			padding-bottom: 0;
+			scrollbar-width: none;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
+	}
+
+	&__item {
+		display: flex;
+		flex: 0 0 min(62%, #{$editors-basis});
+		flex-direction: column;
+		gap: $space-30;
+		margin: 0;
+		min-width: min(100%, #{$measure-content});
+		scroll-snap-align: start;
+	}
+
+	&__shot {
+		aspect-ratio: 16 / 9;
+		border: 1px solid $color-border;
+		border-radius: $radius-medium;
+		display: block;
+		height: auto;
+		object-fit: cover;
+		width: 100%;
+	}
+
+	&__placeholder {
+		align-items: flex-end;
+		aspect-ratio: 16 / 9;
+		background-color: $color-surface;
+		border: 1px solid $color-border;
+		border-radius: $radius-medium;
+		color: $color-muted;
+		display: flex;
+		font-family: $font-mono;
+		font-size: 13px;
+		line-height: 1.5;
+		margin: 0;
+		padding: $space-20;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
+	}
+
+	&__caption {
+		color: $color-muted;
+		font-size: 15px;
+		line-height: 1.55;
+		margin: 0;
+
+		@include down($bp-large) {
+			font-size: 14px;
+		}
+
+		@include down($bp-small) {
+			font-size: 13px;
+		}
+	}
+
+	&__scrollbar {
+		background-color: $color-border;
+		border-radius: $radius-small;
+		cursor: pointer;
+		height: 6px;
+		margin-inline: $editors-inset;
+		margin-top: $space-30;
+	}
+
+	&__thumb {
+		background-color: $color-border-strong;
+		border-radius: $radius-small;
+		height: 100%;
+	}
+}
