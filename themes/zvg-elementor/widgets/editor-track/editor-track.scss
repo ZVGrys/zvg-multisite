@@ -1,0 +1,108 @@
+@use '../../assets/css/vars' as *;
+
+$gutter: 24px;
+$card-measure: 560px;
+
+$track-inset: max(#{$gutter}, calc((100% - var(--container-max-width)) / 2));
+
+.zvg-elementor-editor-track {
+	$root: &;
+
+	display: flex;
+	gap: 24px;
+	overflow-x: auto;
+	padding-bottom: 16px;
+	padding-left: $track-inset;
+	padding-right: $gutter;
+	scroll-padding-left: $track-inset;
+	scroll-snap-type: x mandatory;
+	scrollbar-color: $color-border-strong transparent;
+	scrollbar-width: thin;
+
+	&::-webkit-scrollbar {
+		height: 6px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: $color-border-strong;
+		border-radius: 2px;
+	}
+
+	&.has-custom-scrollbar {
+		padding-bottom: 0;
+		scrollbar-width: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	#{$root}__item {
+		display: flex;
+		flex: 0 0 min(62%, calc(var(--container-max-width) * 0.62));
+		flex-direction: column;
+		gap: 16px;
+		margin: 0;
+		min-width: min(100%, #{$card-measure});
+		scroll-snap-align: start;
+	}
+
+	#{$root}__shot {
+		aspect-ratio: 16 / 9;
+		border: 1px solid $color-border;
+		border-radius: 4px;
+		display: block;
+		height: auto;
+		object-fit: cover;
+		width: 100%;
+	}
+
+	#{$root}__placeholder {
+		align-items: flex-end;
+		aspect-ratio: 16 / 9;
+		background-color: $color-surface;
+		border: 1px solid $color-border;
+		border-radius: 4px;
+		color: $color-muted;
+		display: flex;
+		font-family: $font-mono;
+		font-size: 13px;
+		line-height: 1.5;
+		margin: 0;
+		padding: 8px;
+	}
+
+	#{$root}__caption {
+		color: $color-muted;
+		font-size: 15px;
+		line-height: 1.5;
+		margin: 0;
+
+		@include down($bp-large) {
+			font-size: 14px;
+		}
+
+		@include down($bp-small) {
+			font-size: 13px;
+		}
+	}
+
+	&__scrollbar {
+		background-color: $color-border;
+		border-radius: 2px;
+		cursor: pointer;
+		height: 6px;
+		margin-inline: $track-inset;
+		margin-top: 16px;
+	}
+
+	&__thumb {
+		background-color: $color-border-strong;
+		border-radius: 2px;
+		height: 100%;
+	}
+}

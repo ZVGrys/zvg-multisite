@@ -1,0 +1,199 @@
+@use '../../assets/css/vars' as *;
+
+.zvg-elementor-team {
+	$root: &;
+
+	#{$root}__grid {
+		display: grid;
+		gap: 24px;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+	}
+
+	#{$root}__member {
+		background: $color-surface-alt;
+		border: 1px solid $color-border;
+		border-radius: 6px;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		padding: 16px;
+		position: relative;
+		transition: border-color 400ms ease, box-shadow 400ms ease;
+
+		&:hover,
+		&:has(:focus-visible) {
+			border-color: $color-accent;
+			box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+		}
+	}
+
+	#{$root}__portrait {
+		border: 1px solid $color-border;
+		border-radius: 4px;
+		display: block;
+		height: auto;
+		margin-bottom: 8px;
+		width: 100%;
+	}
+
+	#{$root}__name,
+	#{$root}__role,
+	#{$root}__bio {
+		margin: 0;
+	}
+
+	#{$root}__name {
+		font-size: 17px;
+		letter-spacing: -0.01em;
+	}
+
+	#{$root}__role {
+		color: $color-accent;
+		font-family: $font-mono;
+		font-size: 13px;
+		letter-spacing: 0.03em;
+		line-height: 1.5;
+	}
+
+	#{$root}__bio {
+		color: $color-muted;
+		font-size: 15px;
+		line-height: 1.5;
+
+		@include down($bp-large) {
+			font-size: 14px;
+		}
+	}
+
+	#{$root}__toggle {
+		align-self: flex-start;
+		background: none;
+		border: 0;
+		color: $color-accent;
+		cursor: pointer;
+		font-family: $font-mono;
+		font-size: 13px;
+		font-weight: 600;
+		line-height: normal;
+		padding: 0;
+
+		&:hover,
+		&:focus {
+			background: none;
+			border: 0;
+			color: $color-accent;
+		}
+
+		&::after {
+			border-radius: 6px;
+			content: "";
+			inset: 0;
+			position: absolute;
+		}
+	}
+
+	#{$root}__dialog {
+		background: $color-surface;
+		border: 1px solid $color-border-strong;
+		border-radius: 6px;
+		color: $color-text;
+		max-width: 560px;
+		padding: 24px;
+		width: calc(100% - 32px);
+
+		&::backdrop {
+			background: rgba(10, 8, 14, 0.68);
+		}
+
+		p {
+			color: $color-muted;
+			font-size: 15px;
+			line-height: 1.6;
+			margin: 0 0 16px;
+		}
+	}
+
+	#{$root}__dialog-head {
+		align-items: flex-start;
+		display: flex;
+		gap: 16px;
+		justify-content: space-between;
+	}
+
+	#{$root}__dialog-name {
+		font-size: 28px;
+		letter-spacing: -0.01em;
+		margin: 0 0 4px;
+	}
+
+	p#{$root}__dialog-role {
+		color: $color-accent;
+		font-family: $font-mono;
+		font-size: 13px;
+		letter-spacing: 0.03em;
+		margin: 0;
+	}
+
+	#{$root}__dialog-portrait {
+		border: 1px solid $color-border;
+		border-radius: 4px;
+		display: block;
+		height: auto;
+		margin: 24px 0;
+		max-width: 100%;
+		width: 200px;
+	}
+
+	#{$root}__dialog-close {
+		background: transparent;
+		border: 1px solid $color-border-strong;
+		border-radius: 4px;
+		color: $color-muted;
+		cursor: pointer;
+		font-family: $font-mono;
+		font-size: 15px;
+		font-weight: 400;
+		line-height: 1;
+		padding: 8px;
+		transition: color 200ms ease, border-color 200ms ease;
+
+		&:focus {
+			background: transparent;
+			border-color: $color-border-strong;
+			color: $color-muted;
+		}
+
+		&:hover {
+			background: transparent;
+			border-color: $color-accent;
+			color: $color-text;
+		}
+	}
+
+	#{$root}__dialog-link {
+		font-family: $font-mono;
+		font-size: 13px;
+		font-weight: 600;
+		text-decoration: none;
+
+		&::after {
+			content: "\2192";
+			display: inline-block;
+			margin-left: 0.35em;
+			transition: transform 300ms ease;
+		}
+
+		&:hover::after,
+		&:focus::after {
+			transform: translateX(2px);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		#{$root}__member,
+		#{$root}__dialog-close,
+		#{$root}__dialog-link::after {
+			transition: none;
+		}
+	}
+}

@@ -1,0 +1,301 @@
+@use '../../assets/css/vars' as *;
+
+$flow-card-basis: 180px;
+$flow-card-gap: 16px;
+$flow-collapse: $flow-card-basis * 3 + $flow-card-gap * 2 + 48px;
+
+.zvg-elementor-token-flow {
+	$root: &;
+
+	--zvg-elementor-wire: 1.5px;
+
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	margin-inline: auto;
+	max-width: 760px;
+
+	#{$root}__source {
+		background-color: $color-surface-alt;
+		border: var(--zvg-elementor-wire) solid $color-accent;
+		border-radius: 6px;
+		margin: 0;
+		padding: 16px 40px;
+		text-align: center;
+
+		#{$root}__name {
+			font-size: 17px;
+
+			@include down($bp-large) {
+				font-size: 16px;
+			}
+
+			@include down($bp-small) {
+				font-size: 15px;
+			}
+		}
+
+		#{$root}__meta {
+			margin-top: 4px;
+		}
+	}
+
+	#{$root}__name {
+		display: block;
+		font-family: $font-mono;
+		font-size: 15px;
+		font-weight: 600;
+		line-height: 1.5;
+
+		@include down($bp-large) {
+			font-size: 14px;
+		}
+
+		@include down($bp-small) {
+			font-size: 13px;
+		}
+	}
+
+	#{$root}__meta {
+		color: $color-muted;
+		display: block;
+		font-size: 13px;
+		line-height: 1.5;
+		margin-top: 2px;
+	}
+
+	#{$root}__trunk,
+	#{$root}__mid {
+		background-color: $color-border;
+	}
+
+	#{$root}__trunk::after,
+	#{$root}__mid::after,
+	#{$root}__elbow::before,
+	#{$root}__elbow::after {
+		content: "";
+		inset: 0;
+		position: absolute;
+	}
+
+	#{$root}__trunk::after,
+	#{$root}__mid::after {
+		background-color: $color-accent;
+		transform-origin: top center;
+	}
+
+	#{$root}__trunk {
+		height: 40px;
+		position: relative;
+		width: var(--zvg-elementor-wire);
+
+		&::after {
+			animation: zvg-elementor-flow-trunk 7s ease-in-out infinite;
+
+			@media (prefers-reduced-motion: reduce) {
+				opacity: 0;
+			}
+		}
+
+		@include down($flow-collapse) {
+			display: none;
+		}
+	}
+
+	#{$root}__elbows {
+		display: flex;
+		height: 40px;
+		position: relative;
+		width: 68%;
+
+		@include down($flow-collapse) {
+			display: none;
+		}
+	}
+
+	#{$root}__elbow {
+		flex: 1;
+		position: relative;
+
+		&::before,
+		&::after {
+			border: 0 solid $color-border;
+			border-top-width: var(--zvg-elementor-wire);
+		}
+
+		&::after {
+			border-color: $color-accent;
+		}
+
+		&--left::before,
+		&--left::after {
+			border-left-width: var(--zvg-elementor-wire);
+			border-top-left-radius: 10px;
+		}
+
+		&--right::before,
+		&--right::after {
+			border-right-width: var(--zvg-elementor-wire);
+			border-top-right-radius: 10px;
+		}
+
+		&--left::after {
+			animation: zvg-elementor-flow-elbow-left 7s ease-in-out infinite;
+		}
+
+		&--right::after {
+			animation: zvg-elementor-flow-elbow-right 7s ease-in-out infinite;
+		}
+
+		&::after {
+			@media (prefers-reduced-motion: reduce) {
+				opacity: 0;
+			}
+		}
+	}
+
+	#{$root}__mid {
+		bottom: 0;
+		left: 50%;
+		margin-left: calc(var(--zvg-elementor-wire) / -2);
+		position: absolute;
+		top: 0;
+		width: var(--zvg-elementor-wire);
+
+		&::after {
+			animation: zvg-elementor-flow-mid 7s ease-in-out infinite;
+
+			@media (prefers-reduced-motion: reduce) {
+				opacity: 0;
+			}
+		}
+	}
+
+	#{$root}__outputs {
+		display: flex;
+		flex-wrap: wrap;
+		gap: $flow-card-gap;
+		justify-content: space-between;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+
+		@include down($flow-collapse) {
+			margin-top: 16px;
+		}
+	}
+
+	#{$root}__output {
+		animation: zvg-elementor-flow-border 7s ease-in-out infinite;
+		background-color: $color-surface;
+		border: 1px solid $color-border;
+		border-radius: 4px;
+		flex: 1 1 $flow-card-basis;
+		padding: 16px;
+		text-align: center;
+
+		@media (prefers-reduced-motion: reduce) {
+			animation: none;
+		}
+	}
+}
+
+@keyframes zvg-elementor-flow-trunk {
+	0%,
+	4% {
+		opacity: 1;
+		transform: scaleY(0);
+	}
+
+	16%,
+	80% {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+
+	92%,
+	100% {
+		opacity: 0;
+		transform: scaleY(1);
+	}
+}
+
+@keyframes zvg-elementor-flow-elbow-left {
+	0%,
+	16% {
+		clip-path: inset(0 0 0 100%);
+		opacity: 1;
+	}
+
+	36%,
+	80% {
+		clip-path: inset(0 0 0 0);
+		opacity: 1;
+	}
+
+	92%,
+	100% {
+		clip-path: inset(0 0 0 0);
+		opacity: 0;
+	}
+}
+
+@keyframes zvg-elementor-flow-elbow-right {
+	0%,
+	16% {
+		clip-path: inset(0 100% 0 0);
+		opacity: 1;
+	}
+
+	36%,
+	80% {
+		clip-path: inset(0 0 0 0);
+		opacity: 1;
+	}
+
+	92%,
+	100% {
+		clip-path: inset(0 0 0 0);
+		opacity: 0;
+	}
+}
+
+@keyframes zvg-elementor-flow-mid {
+	0%,
+	16% {
+		opacity: 1;
+		transform: scaleY(0);
+	}
+
+	30%,
+	80% {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+
+	92%,
+	100% {
+		opacity: 0;
+		transform: scaleY(1);
+	}
+}
+
+@keyframes zvg-elementor-flow-border {
+	0%,
+	36% {
+		border-color: $color-border;
+	}
+
+	46%,
+	80% {
+		border-color: $color-accent;
+	}
+
+	92%,
+	100% {
+		border-color: $color-border;
+	}
+}
+
+

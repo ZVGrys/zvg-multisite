@@ -1,0 +1,156 @@
+@use '../../assets/css/vars' as *;
+
+$table-stack: 700px;
+
+.zvg-elementor-compare-table {
+	$root: &;
+
+	border: 1px solid $color-border;
+	border-radius: 6px;
+
+	@include down($table-stack) {
+		border: 0;
+		border-radius: 0;
+	}
+
+	&__table {
+		width: 100%;
+		border-collapse: collapse;
+		text-align: left;
+
+		line-height: 1.5;
+
+		@include up($table-stack) {
+			min-width: 620px;
+		}
+
+		@include down($table-stack) {
+			display: block;
+		}
+
+		th,
+		td {
+			padding: 16px;
+			border-bottom: 1px solid $color-border;
+
+			@include down($table-stack) {
+				display: block;
+			}
+		}
+
+		thead {
+			@include down($table-stack) {
+				display: none;
+			}
+		}
+
+		thead th,
+		thead td {
+			background-color: $color-surface-alt;
+		}
+
+		thead th {
+			font-family: $font-mono;
+			font-size: 15px;
+			font-weight: 600;
+
+			@include down($bp-large) {
+				font-size: 14px;
+			}
+
+			@include down($bp-small) {
+				font-size: 13px;
+			}
+		}
+
+		thead td:first-child {
+			@include up($table-stack) {
+				position: sticky;
+				left: 0;
+			}
+		}
+
+		tbody {
+			@include down($table-stack) {
+				display: block;
+			}
+		}
+
+		tbody th {
+			font-size: 15px;
+			font-weight: 400;
+			color: $color-muted;
+			background-color: $color-surface;
+
+			@include up($table-stack) {
+				position: sticky;
+				left: 0;
+				min-width: 200px;
+			}
+
+			@include down($table-stack) {
+				font-weight: 600;
+				color: $color-text;
+				background-color: $color-surface-alt;
+				border-bottom: 1px solid $color-border;
+			}
+
+			@include down($bp-large) {
+				font-size: 14px;
+			}
+
+			@include down($bp-small) {
+				font-size: 13px;
+			}
+		}
+
+		tbody td {
+			font-family: $font-mono;
+			font-weight: 600;
+
+			@include down($table-stack) {
+				display: flex;
+				align-items: baseline;
+				justify-content: space-between;
+				gap: 16px;
+			}
+		}
+
+		tbody tr {
+			@include down($table-stack) {
+				display: block;
+				margin-bottom: 16px;
+				border: 1px solid $color-border;
+				border-radius: 6px;
+				overflow: hidden;
+			}
+		}
+
+		tbody tr:last-child th,
+		tbody tr:last-child td {
+			border-bottom: 0;
+		}
+
+		tbody tr:last-child {
+			@include down($table-stack) {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__column {
+		display: none;
+
+		@include down($table-stack) {
+			display: block;
+			font-family: $font-body;
+			font-size: 15px;
+			font-weight: 400;
+			color: $color-muted;
+		}
+
+		@include down($bp-small) {
+			font-size: 13px;
+		}
+	}
+}
