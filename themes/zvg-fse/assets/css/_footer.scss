@@ -1,6 +1,7 @@
 @use "vars" as *;
 
 .zvg-fse-footer {
+	margin-block-start: 0;
 	padding: var(--wp--preset--spacing--50) var(--wp--custom--container--padding);
 	border-top: 1px solid $color-border;
 

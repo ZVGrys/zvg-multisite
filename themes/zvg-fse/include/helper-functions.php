@@ -10,6 +10,7 @@ defined( 'ABSPATH' ) || exit;
 add_filter( 'render_block_core/group', 'zvg_fse_mark_scroll_regions', 10, 2 );
 add_filter( 'render_block_core/navigation-link', 'zvg_fse_send_anchors_home', 10, 2 );
 add_filter( 'render_block_core/navigation-link', 'zvg_fse_resolve_privacy_link', 10, 2 );
+add_filter( 'render_block_core/navigation-link', 'zvg_fse_resolve_build_links', 10, 2 );
 
 /**
  * Groups that scroll sideways, and the label each one announces.
@@ -111,4 +112,40 @@ function zvg_fse_resolve_privacy_link( $html, $block ) {
 	}
 
 	return $tags->get_updated_html();
+}
+
+/**
+ * Point the footer's build links at the network's sites.
+ *
+ * @param string $html  Rendered block markup.
+ * @param array  $block Parsed block.
+ *
+ * @return string
+ */
+function zvg_fse_resolve_build_links( $html, $block ) {
+	$class = isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '';
+
+	if ( false === strpos( $class, 'zvg-fse-footer__build--' ) ) {
+		return $html;
+	}
+
+	foreach ( zvg_fse_build_sites() as $build ) {
+		if ( false === strpos( $class, 'zvg-fse-footer__build--' . $build['slug'] ) ) {
+			continue;
+		}
+
+		$tags = new WP_HTML_Tag_Processor( $html );
+
+		if ( $tags->next_tag( 'a' ) ) {
+			$tags->set_attribute( 'href', $build['url'] );
+
+			if ( $build['current'] ) {
+				$tags->set_attribute( 'aria-current', 'page' );
+			}
+		}
+
+		return $tags->get_updated_html();
+	}
+
+	return '';
 }

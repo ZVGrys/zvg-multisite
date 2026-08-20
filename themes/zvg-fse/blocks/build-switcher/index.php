@@ -23,7 +23,7 @@ function zvg_fse_register_build_switcher_block() {
 	wp_register_script(
 		'zvg-fse-build-switcher-editor',
 		ZVG_FSE_T_URI . '/blocks/build-switcher/index.js',
-		array( 'wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-i18n' ),
+		array( 'wp-blocks', 'wp-element', 'wp-block-editor' ),
 		zvg_fse_get_asset_version( '/blocks/build-switcher/index.js' ),
 		true
 	);
@@ -72,12 +72,12 @@ function zvg_fse_build_labels() {
 /**
  * Resolve the network's sites to the builds they hold.
  *
- * @return array<int, array<string, mixed>> Each entry has label, url and current.
+ * @return array<int, array<string, mixed>> Each entry has blog_id, slug, label, url and current.
  */
 function zvg_fse_build_sites() {
 	$cached = get_transient( 'zvg_fse_build_sites' );
 
-	if ( is_array( $cached ) ) {
+	if ( is_array( $cached ) && ( ! $cached || isset( $cached[0]['slug'] ) ) ) {
 		return zvg_fse_mark_current_build( $cached );
 	}
 
@@ -96,6 +96,7 @@ function zvg_fse_build_sites() {
 
 			$builds[ $segment ] = array(
 				'blog_id' => (int) $site->blog_id,
+				'slug'    => $segment ? $segment : 'fse',
 				'label'   => $labels[ $segment ],
 				'url'     => get_home_url( (int) $site->blog_id, '/' ),
 			);
@@ -105,6 +106,7 @@ function zvg_fse_build_sites() {
 	if ( empty( $builds ) ) {
 		$builds[''] = array(
 			'blog_id' => get_current_blog_id(),
+			'slug'    => 'fse',
 			'label'   => $labels[''],
 			'url'     => home_url( '/' ),
 		);
