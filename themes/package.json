@@ -1,0 +1,45 @@
+{
+  "name": "zvg-themes",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build pipeline for the ZVG multisite themes (zvg-fse, zvg-acf, zvg-elementor).",
+  "main": "gulpfile.js",
+  "scripts": {
+    "build": "gulp build",
+    "watch": "gulp watch",
+    "build:fse": "gulp build:zvg-fse",
+    "build:acf": "gulp build:zvg-acf",
+    "build:elementor": "gulp build:zvg-elementor",
+    "watch:fse": "gulp watch:zvg-fse",
+    "watch:acf": "gulp watch:zvg-acf",
+    "watch:elementor": "gulp watch:zvg-elementor"
+  },
+  "author": "ZVG",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "browser-sync": "^3.0.4",
+    "gulp": "^5.0.1",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-notify": "^5.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-strip-comments": "^2.5.2",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.77.0"
+  },
+  "dependencies": {
+    "install": "^0.10.2",
+    "normalize-scss": "^7.0.0",
+    "streamqueue": "^1.1.2"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true,
+    "fsevents@2.3.3": true
+  }
+}

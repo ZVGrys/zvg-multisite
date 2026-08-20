@@ -28,3 +28,8 @@ debug.log
 !themes/zvg-fse
 !themes/zvg-acf
 !themes/zvg-elementor
+
+# The build itself — one toolchain for all three themes, sitting above them.
+!themes/gulpfile.js
+!themes/package.json
+!themes/package-lock.json
