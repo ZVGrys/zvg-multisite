@@ -1,0 +1,70 @@
+@use 'vars' as *;
+
+.zvg-acf-main.zvg-acf-main--sections {
+	max-width: none;
+	padding-inline: 0;
+}
+
+.zvg-acf-section {
+	padding-block: $space-70;
+	border-top: 1px solid $color-border;
+
+	@include down($bp-medium) {
+		padding-block: $space-60;
+	}
+}
+
+.zvg-acf-section__inner {
+	max-width: $container-width + ($container-padding * 2);
+	margin-inline: auto;
+	padding-inline: $container-padding;
+
+	> * {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	> * + * {
+		margin-top: $space-20;
+	}
+}
+
+.zvg-acf-section__title {
+	margin: 0;
+}
+
+.zvg-acf-eyebrow {
+	margin-bottom: 0;
+	font-family: $font-mono;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.4;
+	color: $color-accent;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+
+	a {
+		color: inherit;
+	}
+}
+
+.zvg-acf-lead {
+	max-width: 60ch;
+	margin-top: $space-30;
+	font-size: 19px;
+	line-height: 1.5;
+	color: $color-muted;
+
+	@include down($bp-medium) {
+		font-size: 18px;
+	}
+
+	@include down($bp-small) {
+		font-size: 17px;
+	}
+}
+
+.zvg-acf-section-intro {
+	max-width: 48ch;
+	color: $color-muted;
+}

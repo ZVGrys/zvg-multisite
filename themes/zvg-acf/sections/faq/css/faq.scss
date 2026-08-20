@@ -1,0 +1,77 @@
+@use '../../../assets/css/vars' as *;
+
+.zvg-acf-faq {
+	$faq: &;
+
+	padding-block: $space-70;
+
+	&__title {
+		margin-bottom: $space-50;
+	}
+
+	#{$faq}__item {
+		border-bottom: 1px solid $color-border;
+
+		&:last-child {
+			border-bottom: 0;
+		}
+	}
+
+	#{$faq}__question {
+		margin: 0;
+	}
+
+	#{$faq}__trigger {
+		align-items: center;
+		background: none;
+		border: 0;
+		color: $color-text;
+		cursor: pointer;
+		display: flex;
+		font: inherit;
+		gap: $space-40;
+		justify-content: space-between;
+		padding: $space-30 0;
+		text-align: left;
+		transition: color $transition-fast;
+		width: 100%;
+
+		&:hover,
+		&:focus-visible {
+			color: $color-accent;
+		}
+
+		&[aria-expanded='true'] {
+			color: $color-accent;
+
+			#{$faq}__icon {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	#{$faq}__icon {
+		align-items: center;
+		display: flex;
+		flex-shrink: 0;
+		justify-content: center;
+		transition: transform $transition-fast;
+	}
+
+	#{$faq}__answer {
+		color: $color-muted;
+		padding: 0 $space-60 $space-30 0;
+
+		@include down($bp-medium) {
+			padding-right: 0;
+		}
+	}
+}
+
+.zvg-acf-js .zvg-acf-faq__answer {
+	display: none;
+
+	&:not([hidden]) {
+		display: block;
+	}
+}

@@ -1,0 +1,140 @@
+@use 'fonts';
+@use 'vars' as *;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+
+	@media (prefers-reduced-motion: reduce) {
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+	outline: 3px solid $color-accent;
+	outline-offset: 2px;
+	box-shadow: 0 0 0 5px $color-surface;
+
+	@media (forced-colors: active) {
+		outline: 3px solid Highlight;
+		outline-offset: 2px;
+	}
+}
+
+body {
+	background-color: $color-surface;
+	color: $color-text;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	min-height: 100vh;
+}
+
+img,
+svg,
+video,
+canvas {
+	height: auto;
+	max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+	text-wrap: balance;
+}
+
+p {
+	margin: 0;
+	text-wrap: pretty;
+}
+
+.screen-reader-text {
+	border: 0;
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+.zvg-acf-skip-link {
+	&:focus {
+		background-color: $color-accent;
+		border-radius: $radius-medium;
+		clip-path: none;
+		color: $color-accent-ink;
+		display: block;
+		height: auto;
+		left: $space-40;
+		padding: $space-20 $space-40;
+		position: fixed;
+		top: $space-40;
+		width: auto;
+		z-index: 100000;
+	}
+}
+
+.zvg-acf-main {
+	flex: 1 0 auto;
+	margin-inline: auto;
+	max-width: $container-width;
+	padding-inline: $container-padding;
+	width: 100%;
+}
+
+.no-scroll {
+	overflow: hidden;
+}
+
+.zvg-acf-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 14px 26px;
+	border: 1.5px solid $color-accent;
+	border-radius: $radius-medium;
+	background-color: $color-accent;
+	color: $color-accent-ink;
+	font-family: $font-body;
+	font-size: 17px;
+	font-weight: 600;
+	line-height: 1;
+	text-decoration: none;
+	transition: opacity $transition-fast, color $transition-fast, border-color $transition-fast;
+
+	@include down($bp-medium) {
+		font-size: 16px;
+	}
+
+	@include down($bp-small) {
+		font-size: 15px;
+	}
+
+	&:hover,
+	&:focus {
+		opacity: 0.88;
+		text-decoration: none;
+		color: $color-accent-ink;
+	}
+
+	&--outline {
+		background-color: transparent;
+		border-color: $color-border-strong;
+		color: $color-text;
+
+		&:hover,
+		&:focus {
+			opacity: 1;
+			color: $color-accent;
+			border-color: $color-accent;
+		}
+	}
+}

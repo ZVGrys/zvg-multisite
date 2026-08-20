@@ -1,0 +1,12 @@
+<IfModule mod_authz_core.c>
+	<FilesMatch "\.json$">
+		Require all denied
+	</FilesMatch>
+</IfModule>
+
+<IfModule !mod_authz_core.c>
+	<FilesMatch "\.json$">
+		Order allow,deny
+		Deny from all
+	</FilesMatch>
+</IfModule>
