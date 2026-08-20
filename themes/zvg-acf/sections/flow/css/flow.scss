@@ -1,0 +1,318 @@
+@use '../../../assets/css/vars' as *;
+
+$flow-card-basis: 180px;
+$flow-card-gap: $space-30;
+$flow-collapse: $flow-card-basis * 3 + $flow-card-gap * 2 + $space-50 + $space-20;
+
+.zvg-acf-flow {
+	background-image: linear-gradient($color-border 1px, transparent 1px),
+		linear-gradient(90deg, $color-border 1px, transparent 1px);
+	background-position: center top;
+	background-size: 32px 32px;
+
+	.zvg-acf-section__title {
+		text-align: center;
+	}
+
+	.zvg-acf-section-intro {
+		margin-inline: auto;
+		text-align: center;
+	}
+}
+
+.zvg-acf-token-flow {
+	--zvg-acf-wire: 1.5px;
+
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	margin-block-start: $space-50;
+	margin-inline: auto;
+	max-width: 760px;
+
+	&__source {
+		background-color: $color-surface-alt;
+		border: var(--zvg-acf-wire) solid $color-accent;
+		border-radius: $radius-large;
+		margin: 0;
+		padding: $space-30 $space-50;
+		text-align: center;
+
+		.zvg-acf-token-flow__name {
+			font-size: 17px;
+
+			@include down($bp-large) {
+				font-size: 16px;
+			}
+
+			@include down($bp-small) {
+				font-size: 15px;
+			}
+		}
+
+		.zvg-acf-token-flow__meta {
+			font-family: $font-body;
+			font-weight: 400;
+			margin-top: $space-10;
+		}
+	}
+
+	&__name {
+		display: block;
+		font-family: $font-mono;
+		font-size: 15px;
+		font-weight: 600;
+		line-height: 1.5;
+
+		@include down($bp-large) {
+			font-size: 14px;
+		}
+
+		@include down($bp-small) {
+			font-size: 13px;
+		}
+	}
+
+	&__meta {
+		color: $color-muted;
+		display: block;
+		font-size: 13px;
+		line-height: 1.5;
+		margin-top: 2px;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
+	}
+
+	&__trunk,
+	&__mid {
+		background-color: $color-border;
+	}
+
+	&__trunk::after,
+	&__mid::after,
+	&__elbow::before,
+	&__elbow::after {
+		content: "";
+		inset: 0;
+		position: absolute;
+	}
+
+	&__trunk::after,
+	&__mid::after {
+		background-color: $color-accent;
+		transform-origin: top center;
+	}
+
+	&__trunk {
+		height: $space-50;
+		position: relative;
+		width: var(--zvg-acf-wire);
+
+		@include down($flow-collapse) {
+			display: none;
+		}
+
+		&::after {
+			animation: zvg-acf-flow-trunk 7s ease-in-out infinite;
+
+			@media (prefers-reduced-motion: reduce) {
+				opacity: 0;
+			}
+		}
+	}
+
+	&__elbows {
+		display: flex;
+		height: $space-50;
+		position: relative;
+		width: 68%;
+
+		@include down($flow-collapse) {
+			display: none;
+		}
+	}
+
+	&__elbow {
+		flex: 1;
+		position: relative;
+
+		&::before,
+		&::after {
+			border: 0 solid $color-border;
+			border-top-width: var(--zvg-acf-wire);
+		}
+
+		&::after {
+			border-color: $color-accent;
+
+			@media (prefers-reduced-motion: reduce) {
+				opacity: 0;
+			}
+		}
+
+		&--left::before,
+		&--left::after {
+			border-left-width: var(--zvg-acf-wire);
+			border-top-left-radius: 10px;
+		}
+
+		&--right::before,
+		&--right::after {
+			border-right-width: var(--zvg-acf-wire);
+			border-top-right-radius: 10px;
+		}
+
+		&--left::after {
+			animation: zvg-acf-flow-elbow-left 7s ease-in-out infinite;
+		}
+
+		&--right::after {
+			animation: zvg-acf-flow-elbow-right 7s ease-in-out infinite;
+		}
+	}
+
+	&__mid {
+		bottom: 0;
+		left: 50%;
+		margin-left: calc(var(--zvg-acf-wire) / -2);
+		position: absolute;
+		top: 0;
+		width: var(--zvg-acf-wire);
+
+		&::after {
+			animation: zvg-acf-flow-mid 7s ease-in-out infinite;
+
+			@media (prefers-reduced-motion: reduce) {
+				opacity: 0;
+			}
+		}
+	}
+
+	&__outputs {
+		display: flex;
+		flex-wrap: wrap;
+		gap: $flow-card-gap;
+		justify-content: space-between;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+
+		@include down($flow-collapse) {
+			margin-top: $space-30;
+		}
+	}
+
+	&__output {
+		animation: zvg-acf-flow-border 7s ease-in-out infinite;
+		background-color: $color-surface;
+		border: 1px solid $color-border;
+		border-radius: $radius-medium;
+		flex: 1 1 $flow-card-basis;
+		padding: $space-30;
+		text-align: center;
+
+		@media (prefers-reduced-motion: reduce) {
+			animation: none;
+		}
+	}
+}
+
+@keyframes zvg-acf-flow-trunk {
+	0%,
+	4% {
+		opacity: 1;
+		transform: scaleY(0);
+	}
+
+	16%,
+	80% {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+
+	92%,
+	100% {
+		opacity: 0;
+		transform: scaleY(1);
+	}
+}
+
+@keyframes zvg-acf-flow-elbow-left {
+	0%,
+	16% {
+		clip-path: inset(0 0 0 100%);
+		opacity: 1;
+	}
+
+	36%,
+	80% {
+		clip-path: inset(0 0 0 0);
+		opacity: 1;
+	}
+
+	92%,
+	100% {
+		clip-path: inset(0 0 0 0);
+		opacity: 0;
+	}
+}
+
+@keyframes zvg-acf-flow-elbow-right {
+	0%,
+	16% {
+		clip-path: inset(0 100% 0 0);
+		opacity: 1;
+	}
+
+	36%,
+	80% {
+		clip-path: inset(0 0 0 0);
+		opacity: 1;
+	}
+
+	92%,
+	100% {
+		clip-path: inset(0 0 0 0);
+		opacity: 0;
+	}
+}
+
+@keyframes zvg-acf-flow-mid {
+	0%,
+	16% {
+		opacity: 1;
+		transform: scaleY(0);
+	}
+
+	30%,
+	80% {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+
+	92%,
+	100% {
+		opacity: 0;
+		transform: scaleY(1);
+	}
+}
+
+@keyframes zvg-acf-flow-border {
+	0%,
+	36% {
+		border-color: $color-border;
+	}
+
+	46%,
+	80% {
+		border-color: $color-accent;
+	}
+
+	92%,
+	100% {
+		border-color: $color-border;
+	}
+}
