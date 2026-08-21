@@ -1,5 +1,5 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"$schema": "https://schemas.wp.org/wp/6.7/block.json",
 	"apiVersion": 3,
 	"name": "zvg-fse/member-trigger",
 	"title": "ZVG Member Profile",
@@ -10,12 +10,18 @@
 	"textdomain": "zvg-fse",
 	"usesContext": [ "postId" ],
 	"ancestor": [ "core/post-template" ],
+	"style": "file:./style.css",
 	"render": "file:./block.php",
 	"attributes": {
 		"toggleLabel": {
 			"type": "string",
 			"role": "content",
 			"default": ""
+		}
+	},
+	"example": {
+		"attributes": {
+			"toggleLabel": "Read profile"
 		}
 	},
 	"supports": {

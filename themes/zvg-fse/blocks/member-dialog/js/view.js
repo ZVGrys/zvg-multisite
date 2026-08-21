@@ -53,6 +53,8 @@
 			portraitSlot.alt = image.alt;
 			portraitSlot.srcset = image.srcset || '';
 			portraitSlot.sizes = image.sizes || '';
+			portraitSlot.width = image.naturalWidth || image.width;
+			portraitSlot.height = image.naturalHeight || image.height;
 		}
 
 		function fillProfile(card) {
@@ -158,16 +160,30 @@
 			}
 		});
 
+		/**
+		 * Swallow the click that closed the dialog.
+		 *
+		 * A click on the backdrop closes the dialog during the mousedown/mouseup pair,
+		 * so the trailing click lands on whatever the backdrop was covering — on this
+		 * page that is another member card, which re-opens the dialog immediately.
+		 * Killing pointer events for a single frame lets that stray click expire.
+		 *
+		 * @return {void}
+		 */
+		function swallowClosingClick() {
+			document.documentElement.style.pointerEvents = 'none';
+			requestAnimationFrame(function () {
+				document.documentElement.style.pointerEvents = '';
+			});
+		}
+
 		dialog.addEventListener('close', function () {
 			if (opener) {
 				opener.focus({ focusVisible: openerFromKeyboard });
 				opener = null;
 			}
 
-			document.documentElement.style.pointerEvents = 'none';
-			requestAnimationFrame(function () {
-				document.documentElement.style.pointerEvents = '';
-			});
+			swallowClosingClick();
 		});
 	}
 

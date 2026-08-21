@@ -29,8 +29,8 @@ defined( 'ABSPATH' ) || exit;
 		<p class="is-style-note" style="margin-top:var(--wp--preset--spacing--50)"><?php echo esc_html_x( 'Fictional profiles — this section demonstrates a custom post type.', 'Team disclaimer', 'zvg-fse' ); ?></p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:query {"queryId":0,"query":{"perPage":6,"pages":0,"offset":0,"postType":"zvg_member","order":"asc","orderBy":"date","inherit":false},"className":"zvg-fse-team__query","style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}},"layout":{"type":"default"}} -->
-		<div class="wp-block-query zvg-fse-team__query" style="margin-top:var(--wp--preset--spacing--50)">
+		<!-- wp:query {"queryId":0,"query":{"perPage":6,"pages":0,"offset":0,"postType":"zvg_member","order":"asc","orderBy":"date","inherit":false},"className":"zvg-fse-team__query","layout":{"type":"default"}} -->
+		<div class="wp-block-query zvg-fse-team__query">
 			<!-- wp:post-template {"className":"zvg-fse-team__grid"} -->
 				<!-- wp:post-featured-image {"isLink":false,"aspectRatio":"1","className":"zvg-fse-member__portrait"} /-->
 
@@ -38,7 +38,7 @@ defined( 'ABSPATH' ) || exit;
 
 				<!-- wp:post-terms {"term":"zvg_member_role","className":"zvg-fse-member__role"} /-->
 
-				<!-- wp:post-excerpt {"showMoreOnNewLine":false,"excerptLength":40,"className":"zvg-fse-member__bio","textColor":"muted"} /-->
+				<!-- wp:zvg-fse/member-bio {"className":"zvg-fse-member__bio","textColor":"muted"} /-->
 
 				<!-- wp:zvg-fse/member-trigger /-->
 			<!-- /wp:post-template -->
