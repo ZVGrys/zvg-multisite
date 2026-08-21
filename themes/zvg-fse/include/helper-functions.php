@@ -104,7 +104,7 @@ function zvg_fse_posts_loop( $no_results ) {
 		<div class="wp-block-group zvg-fse-archive__card zvg-fse-post">
 			<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9"} /-->
 
-			<!-- wp:post-date {"format":"d M Y","className":"zvg-fse-post__date"} /-->
+			<!-- wp:post-date {"className":"zvg-fse-post__date"} /-->
 
 			<!-- wp:post-title {"level":2,"isLink":true} /-->
 
