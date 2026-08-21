@@ -1,6 +1,10 @@
 @use "../vars" as *;
 
 .zvg-fse-team {
+	& &__query {
+		margin-top: var(--wp--preset--spacing--50);
+	}
+
 	.wp-block-post-template {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
@@ -57,10 +61,6 @@
 		margin: 0;
 		font-size: var(--wp--preset--font-size--medium);
 		line-height: 1.5;
-
-		p {
-			margin: 0;
-		}
 	}
 
 	&__toggle {
@@ -81,8 +81,4 @@
 			border-radius: $radius-large;
 		}
 	}
-}
-
-.wp-block-zvg-fse-member-trigger {
-	display: contents;
 }

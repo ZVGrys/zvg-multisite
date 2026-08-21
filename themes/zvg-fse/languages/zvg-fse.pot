@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-21T12:18:33+00:00\n"
+"POT-Creation-Date: 2026-08-21T12:19:12+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: zvg-fse\n"
@@ -309,15 +309,23 @@ msgstr ""
 msgid "Member details"
 msgstr ""
 
-#: include/metaboxes.php:39
-msgid "Link"
+#: include/metaboxes.php:40
+msgid "Short bio"
 msgstr ""
 
-#: include/metaboxes.php:48
-msgid "Shown as the \"Get in touch\" link in the dialog. Leave empty to drop the link."
+#: include/metaboxes.php:47
+msgid "One sentence, shown on the card under the role."
 msgstr ""
 
 #: include/metaboxes.php:50
+msgid "Link"
+msgstr ""
+
+#: include/metaboxes.php:59
+msgid "Shown as the \"Get in touch\" link in the dialog. Leave empty to drop the link."
+msgstr ""
+
+#: include/metaboxes.php:61
 msgid "Popup text"
 msgstr ""
 
@@ -396,38 +404,38 @@ msgstr ""
 msgid "Fictional profiles that demonstrate a custom post type across the three builds."
 msgstr ""
 
-#: include/post-types.php:65
+#: include/post-types.php:70
 msgctxt "Taxonomy general name"
 msgid "Roles"
 msgstr ""
 
-#: include/post-types.php:66
+#: include/post-types.php:71
 msgctxt "Taxonomy singular name"
 msgid "Role"
 msgstr ""
 
-#: include/post-types.php:67
+#: include/post-types.php:72
 msgid "Roles"
 msgstr ""
 
-#: include/post-types.php:68
+#: include/post-types.php:73
 msgid "Add role"
 msgstr ""
 
-#: include/post-types.php:69
+#: include/post-types.php:74
 msgid "Edit role"
 msgstr ""
 
-#: include/post-types.php:70
+#: include/post-types.php:75
 msgid "Search roles"
 msgstr ""
 
-#: include/post-types.php:71
+#: include/post-types.php:76
 msgid "No roles found."
 msgstr ""
 
-#: include/post-types.php:166
-msgid "Team members are not readable over the REST API."
+#: include/post-types.php:173
+msgid "Team members and their roles are not readable over the REST API."
 msgstr ""
 
 #: patterns/blog-heading.php
@@ -1081,6 +1089,11 @@ msgctxt "Row value field label"
 msgid "Row %1$d: %2$s"
 msgstr ""
 
+#: blocks/member-bio/index.js:12
+msgctxt "Editor placeholder"
+msgid "Member bio"
+msgstr ""
+
 #: blocks/member-dialog/index.js:22
 msgid "Dialog text"
 msgstr ""
@@ -1290,6 +1303,35 @@ msgctxt "block keyword"
 msgid "measurements"
 msgstr ""
 
+#: blocks/member-bio/block.json
+msgctxt "block title"
+msgid "ZVG Member Bio"
+msgstr ""
+
+#: blocks/member-bio/block.json
+msgctxt "block description"
+msgid "The one-line bio a team member carries, read from the member's own field rather than the post excerpt."
+msgstr ""
+
+#: blocks/member-bio/block.json
+#: blocks/member-dialog/block.json
+#: blocks/member-trigger/block.json
+msgctxt "block keyword"
+msgid "team"
+msgstr ""
+
+#: blocks/member-bio/block.json
+#: blocks/member-dialog/block.json
+#: blocks/member-trigger/block.json
+msgctxt "block keyword"
+msgid "member"
+msgstr ""
+
+#: blocks/member-bio/block.json
+msgctxt "block keyword"
+msgid "bio"
+msgstr ""
+
 #: blocks/member-dialog/block.json
 msgctxt "block title"
 msgid "ZVG Member Dialog"
@@ -1298,18 +1340,6 @@ msgstr ""
 #: blocks/member-dialog/block.json
 msgctxt "block description"
 msgid "The dialog the team cards open, filled from the card that opened it."
-msgstr ""
-
-#: blocks/member-dialog/block.json
-#: blocks/member-trigger/block.json
-msgctxt "block keyword"
-msgid "team"
-msgstr ""
-
-#: blocks/member-dialog/block.json
-#: blocks/member-trigger/block.json
-msgctxt "block keyword"
-msgid "member"
 msgstr ""
 
 #: blocks/member-dialog/block.json

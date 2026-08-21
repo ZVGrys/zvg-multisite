@@ -1,6 +1,6 @@
 <?php
 /**
- * The team member's dialog fields — plain WordPress, no field-management library.
+ * The team member's fields — plain WordPress, no field-management library.
  *
  * @package ZVG_FSE
  */
@@ -32,9 +32,20 @@ function zvg_fse_register_member_metabox() {
 function zvg_fse_render_member_metabox( $post ) {
 	wp_nonce_field( 'zvg_fse_member_details', 'zvg_fse_member_details_nonce' );
 
+	$bio     = get_post_meta( $post->ID, '_zvg_member_bio', true );
 	$link    = get_post_meta( $post->ID, '_zvg_member_link', true );
 	$profile = get_post_meta( $post->ID, '_zvg_member_profile', true );
 	?>
+	<p>
+		<label for="zvg_fse_member_bio"><strong><?php esc_html_e( 'Short bio', 'zvg-fse' ); ?></strong></label><br>
+		<textarea
+			id="zvg_fse_member_bio"
+			name="zvg_fse_member_bio"
+			class="widefat"
+			rows="2"
+		><?php echo esc_textarea( $bio ); ?></textarea>
+		<span class="description"><?php esc_html_e( 'One sentence, shown on the card under the role.', 'zvg-fse' ); ?></span>
+	</p>
 	<p>
 		<label for="zvg_fse_member_link"><strong><?php esc_html_e( 'Link', 'zvg-fse' ); ?></strong></label><br>
 		<input
@@ -77,6 +88,10 @@ function zvg_fse_save_member_metabox( $post_id ) {
 
 	if ( ! current_user_can( 'edit_post', $post_id ) ) {
 		return;
+	}
+
+	if ( isset( $_POST['zvg_fse_member_bio'] ) ) {
+		update_post_meta( $post_id, '_zvg_member_bio', sanitize_textarea_field( wp_unslash( $_POST['zvg_fse_member_bio'] ) ) );
 	}
 
 	if ( isset( $_POST['zvg_fse_member_link'] ) ) {

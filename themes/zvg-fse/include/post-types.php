@@ -51,7 +51,7 @@ function zvg_fse_register_member_post_type() {
 			'show_in_menu'        => true,
 			'show_in_rest'        => true,
 			'menu_icon'           => 'dashicons-groups',
-			'supports'            => array( 'title', 'excerpt', 'thumbnail', 'revisions' ),
+			'supports'            => array( 'title', 'thumbnail', 'revisions' ),
 			'taxonomies'          => array( 'zvg_member_role' ),
 		)
 	);
@@ -59,6 +59,11 @@ function zvg_fse_register_member_post_type() {
 
 /**
  * Register the member role taxonomy.
+ *
+ * `publicly_queryable` has to stay true: `render_block_core_post_terms()` bails on
+ * `is_taxonomy_viewable()`, which reads exactly that flag, so turning it off empties the
+ * role line on every team card. The archive it opens up is closed again by
+ * `zvg_fse_close_member_role_archive()`.
  */
 function zvg_fse_register_member_role_taxonomy() {
 	$labels = array(
@@ -132,8 +137,8 @@ function zvg_fse_plain_member_roles( $links ) {
 }
 
 /**
- * The post type has no pages of its own, so its REST routes answer editors only.
- * The editor keeps working because whoever opens it is signed in.
+ * The post type and its taxonomy have no pages of their own, so their REST routes
+ * answer editors only. The editor keeps working because whoever opens it is signed in.
  *
  * @param array<string, array<int, array<string, mixed>>> $endpoints Registered REST routes.
  *
@@ -145,6 +150,8 @@ function zvg_fse_close_member_rest_reads( $endpoints ) {
 		'/wp/v2/zvg_member/(?P<id>[\d]+)',
 		'/wp/v2/zvg_member/(?P<parent>[\d]+)/revisions',
 		'/wp/v2/zvg_member/(?P<parent>[\d]+)/autosaves',
+		'/wp/v2/zvg_member_role',
+		'/wp/v2/zvg_member_role/(?P<id>[\d]+)',
 	);
 
 	foreach ( $routes as $route ) {
@@ -163,7 +170,7 @@ function zvg_fse_close_member_rest_reads( $endpoints ) {
 				if ( ! current_user_can( 'edit_posts' ) ) {
 					return new WP_Error(
 						'rest_forbidden',
-						__( 'Team members are not readable over the REST API.', 'zvg-fse' ),
+						__( 'Team members and their roles are not readable over the REST API.', 'zvg-fse' ),
 						array( 'status' => rest_authorization_required_code() )
 					);
 				}

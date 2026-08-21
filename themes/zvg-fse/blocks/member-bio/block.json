@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.7/block.json",
+	"apiVersion": 3,
+	"name": "zvg-fse/member-bio",
+	"title": "ZVG Member Bio",
+	"category": "theme",
+	"icon": "text",
+	"description": "The one-line bio a team member carries, read from the member's own field rather than the post excerpt.",
+	"keywords": [ "team", "member", "bio" ],
+	"textdomain": "zvg-fse",
+	"usesContext": [ "postId" ],
+	"ancestor": [ "core/post-template" ],
+	"render": "file:./block.php",
+	"supports": {
+		"html": false,
+		"reusable": false,
+		"color": {
+			"text": true,
+			"background": false,
+			"gradients": false
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		}
+	}
+}
