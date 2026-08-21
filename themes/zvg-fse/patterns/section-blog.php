@@ -21,8 +21,8 @@ defined( 'ABSPATH' ) || exit;
 		<h2 class="wp-block-heading zvg-fse-section__title"><?php echo esc_html_x( 'From the blog', 'Section title', 'zvg-fse' ); ?></h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:query {"queryId":0,"query":{"perPage":3,"pages":1,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":false},"className":"zvg-fse-blog__query","style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}},"layout":{"type":"default"}} -->
-		<div class="wp-block-query zvg-fse-blog__query" style="margin-top:var(--wp--preset--spacing--50)">
+		<!-- wp:query {"queryId":0,"query":{"perPage":3,"pages":1,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":false},"className":"zvg-fse-blog__query","layout":{"type":"default"}} -->
+		<div class="wp-block-query zvg-fse-blog__query">
 			<!-- wp:post-template {"className":"zvg-fse-blog__grid"} -->
 				<!-- wp:group {"className":"zvg-fse-archive__card zvg-fse-post","layout":{"type":"default"}} -->
 				<div class="wp-block-group zvg-fse-archive__card zvg-fse-post">

@@ -66,6 +66,9 @@ p.is-style-arrow-link:not(:has(a))::after {
 
 .is-style-arrow-link a,
 a.is-style-arrow-link {
+	display: inline-flex;
+	align-items: center;
+	min-height: 24px;
 	text-decoration: none;
 
 	&:hover,

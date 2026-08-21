@@ -1,6 +1,10 @@
 @use "../vars" as *;
 
 .zvg-fse-blog {
+	& &__query {
+		margin-top: var(--wp--preset--spacing--50);
+	}
+
 	&__grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
