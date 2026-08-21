@@ -44,6 +44,7 @@ if ( ! function_exists( 'zvg_fse_setup' ) ) :
 		add_editor_style(
 			array(
 				'assets/css/main.css',
+				'assets/css/blocks/button-outline.css',
 				'assets/css/templates/single.css',
 				'assets/css/templates/404.css',
 				'assets/css/sections/base.css',

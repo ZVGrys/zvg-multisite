@@ -10,6 +10,7 @@ defined( 'ABSPATH' ) || exit;
 add_action( 'wp_enqueue_scripts', 'zvg_fse_enqueue_scripts', 999 );
 add_action( 'init', 'zvg_fse_enqueue_block_styles' );
 add_action( 'init', 'zvg_fse_enqueue_class_styles' );
+add_action( 'init', 'zvg_fse_version_block_styles', 20 );
 add_action( 'wp_head', 'zvg_fse_flag_script_support', 1 );
 add_action( 'wp_head', 'zvg_fse_preload_fonts', 2 );
 add_action( 'init', 'zvg_fse_drop_emoji_support' );
@@ -335,6 +336,32 @@ function zvg_fse_enqueue_class_styles() {
 			10,
 			2
 		);
+	}
+}
+
+/**
+ * Version the stylesheets that block.json registers, like every other theme asset.
+ *
+ * Core versions them by the WordPress version unless SCRIPT_DEBUG is on, so a sheet too
+ * large to be inlined ships as its own request and keeps a stale cache across edits.
+ */
+function zvg_fse_version_block_styles() {
+	$styles = wp_styles();
+
+	foreach ( WP_Block_Type_Registry::get_instance()->get_all_registered() as $name => $block_type ) {
+		if ( 0 !== strpos( $name, 'zvg-fse/' ) ) {
+			continue;
+		}
+
+		foreach ( (array) $block_type->style_handles as $handle ) {
+			$style = $styles->query( $handle );
+
+			if ( ! $style || 0 !== strpos( (string) $style->src, ZVG_FSE_T_URI ) ) {
+				continue;
+			}
+
+			$style->ver = zvg_fse_get_asset_version( substr( $style->src, strlen( ZVG_FSE_T_URI ) ) );
+		}
 	}
 }
 

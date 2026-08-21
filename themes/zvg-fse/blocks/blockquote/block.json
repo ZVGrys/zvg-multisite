@@ -1,5 +1,5 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"$schema": "https://schemas.wp.org/wp/6.7/block.json",
 	"apiVersion": 3,
 	"name": "zvg-fse/blockquote",
 	"title": "ZVG Blockquote",
@@ -8,7 +8,6 @@
 	"description": "A quote card with an oversized quote mark, the quote itself and an optional author name and role.",
 	"keywords": [ "quote", "blockquote", "testimonial", "citation" ],
 	"textdomain": "zvg-fse",
-	"editorStyle": "file:./style.css",
 	"style": "file:./style.css",
 	"render": "file:./block.php",
 	"attributes": {
@@ -23,6 +22,13 @@
 		"authorRole": {
 			"type": "string",
 			"default": ""
+		}
+	},
+	"example": {
+		"attributes": {
+			"text": "The three builds share one design token set. What differs is who can change what, and how easily.",
+			"authorName": "Marta Lindqvist",
+			"authorRole": "Content strategist"
 		}
 	},
 	"supports": {
