@@ -1,5 +1,5 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"$schema": "https://schemas.wp.org/wp/6.7/block.json",
 	"apiVersion": 3,
 	"name": "zvg-fse/compare-table",
 	"title": "ZVG Compare Table",
@@ -28,14 +28,47 @@
 			"type": "array",
 			"role": "content",
 			"default": [
-				{ "label": "Lines of code", "values": [ "", "", "" ] },
-				{ "label": "Page weight", "values": [ "", "", "" ] },
-				{ "label": "DOM nodes", "values": [ "", "", "" ] },
-				{ "label": "Lighthouse mobile", "values": [ "", "", "" ] }
+				{
+					"label": "Lines of code",
+					"values": [ "", "", "" ]
+				},
+				{
+					"label": "Page weight",
+					"values": [ "", "", "" ]
+				},
+				{
+					"label": "DOM nodes",
+					"values": [ "", "", "" ]
+				},
+				{
+					"label": "Lighthouse mobile",
+					"values": [ "", "", "" ]
+				}
 			],
 			"items": {
 				"type": "object"
 			}
+		}
+	},
+	"example": {
+		"viewportWidth": 900,
+		"attributes": {
+			"caption": "Four checks compared across the three builds.",
+			"columns": [ "FSE", "Elementor", "ACF theme" ],
+			"rows": [
+				{
+					"label": "Lines of code",
+					"values": [ "6955", "—", "—" ]
+				},
+				{
+					"label": "Page weight",
+					"values": [ "476 KB", "—", "—" ]
+				},
+				{
+					"label": "DOM nodes",
+					"values": [ "577", "—", "—" ]
+				}
+			]
 		}
 	},
 	"supports": {

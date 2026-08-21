@@ -1,5 +1,5 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"$schema": "https://schemas.wp.org/wp/6.7/block.json",
 	"apiVersion": 3,
 	"name": "zvg-fse/post-share",
 	"title": "ZVG Share Links",
@@ -44,6 +44,15 @@
 		"copy": {
 			"type": "boolean",
 			"default": false
+		}
+	},
+	"example": {
+		"attributes": {
+			"label": "Share this post",
+			"linkedin": true,
+			"facebook": true,
+			"x": true,
+			"copy": true
 		}
 	},
 	"supports": {

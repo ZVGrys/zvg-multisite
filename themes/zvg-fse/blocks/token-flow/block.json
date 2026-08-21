@@ -1,5 +1,5 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"$schema": "https://schemas.wp.org/wp/6.7/block.json",
 	"apiVersion": 3,
 	"name": "zvg-fse/token-flow",
 	"title": "ZVG Token Flow",
@@ -23,13 +23,45 @@
 			"type": "array",
 			"role": "content",
 			"default": [
-				{ "name": "theme.json", "meta": "FSE" },
-				{ "name": "Elementor kit", "meta": "Elementor" },
-				{ "name": "SCSS variables", "meta": "ACF theme" }
+				{
+					"name": "theme.json",
+					"meta": "FSE"
+				},
+				{
+					"name": "Elementor kit",
+					"meta": "Elementor"
+				},
+				{
+					"name": "SCSS variables",
+					"meta": "ACF theme"
+				}
 			],
 			"items": {
 				"type": "object"
 			}
+		}
+	},
+	"example": {
+		"viewportWidth": 900,
+		"attributes": {
+			"source": {
+				"name": "Figma variables",
+				"meta": "colour · type · spacing · radius · shadow"
+			},
+			"outputs": [
+				{
+					"name": "theme.json",
+					"meta": "FSE"
+				},
+				{
+					"name": "Elementor kit",
+					"meta": "Elementor"
+				},
+				{
+					"name": "SCSS variables",
+					"meta": "ACF theme"
+				}
+			]
 		}
 	},
 	"supports": {
