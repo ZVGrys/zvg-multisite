@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-21T12:17:27+00:00\n"
+"POT-Creation-Date: 2026-08-21T12:18:33+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: zvg-fse\n"
@@ -155,7 +155,7 @@ msgstr ""
 
 #: blocks/build-chooser/index.php:166
 #: blocks/build-chooser/index.php:191
-#: blocks/build-switcher/index.php:66
+#: blocks/build-switcher/index.php:72
 #: patterns/section-measured.php:20
 msgctxt "Build name"
 msgid "Elementor"
@@ -193,17 +193,17 @@ msgctxt "Build definition"
 msgid "Hand-written templates and custom logic; changes go via a developer."
 msgstr ""
 
-#: blocks/build-switcher/block.php:23
+#: blocks/build-switcher/block.php:27
 msgid "Build version"
 msgstr ""
 
-#: blocks/build-switcher/index.php:65
+#: blocks/build-switcher/index.php:71
 #: patterns/section-measured.php:19
 msgctxt "Build name"
 msgid "FSE"
 msgstr ""
 
-#: blocks/build-switcher/index.php:67
+#: blocks/build-switcher/index.php:73
 msgctxt "Build name"
 msgid "ACF"
 msgstr ""
@@ -1023,6 +1023,22 @@ msgstr ""
 #: blocks/build-chooser/index.js:142
 #, js-format
 msgid "Option %d: description"
+msgstr ""
+
+#: blocks/build-switcher/index.js:23
+msgid "Build switcher"
+msgstr ""
+
+#: blocks/build-switcher/index.js:25
+msgid "Show the build switcher"
+msgstr ""
+
+#: blocks/build-switcher/index.js:27
+msgid "The links to the other two builds sit at the end of the menu."
+msgstr ""
+
+#: blocks/build-switcher/index.js:28
+msgid "Hidden on the front end. The block stays in the menu, so it can be switched back on here."
 msgstr ""
 
 #: blocks/compare-table/index.js:41

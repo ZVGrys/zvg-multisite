@@ -23,9 +23,15 @@ function zvg_fse_register_build_switcher_block() {
 	wp_register_script(
 		'zvg-fse-build-switcher-editor',
 		ZVG_FSE_T_URI . '/blocks/build-switcher/index.js',
-		array( 'wp-blocks', 'wp-element', 'wp-block-editor' ),
+		array( 'wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-i18n' ),
 		zvg_fse_get_asset_version( '/blocks/build-switcher/index.js' ),
 		true
+	);
+
+	wp_add_inline_script(
+		'zvg-fse-build-switcher-editor',
+		'window.zvgFseBuildLabels = ' . wp_json_encode( array_values( zvg_fse_build_labels() ) ) . ';',
+		'before'
 	);
 
 	register_block_type_from_metadata(

@@ -11,6 +11,10 @@
 
 defined( 'ABSPATH' ) || exit;
 
+if ( isset( $attributes['showSwitcher'] ) && ! $attributes['showSwitcher'] ) {
+	return;
+}
+
 $zvg_fse_builds = zvg_fse_build_sites();
 
 if ( count( $zvg_fse_builds ) < 2 ) {

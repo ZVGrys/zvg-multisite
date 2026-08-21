@@ -1,5 +1,5 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"$schema": "https://schemas.wp.org/wp/6.7/block.json",
 	"apiVersion": 3,
 	"name": "zvg-fse/build-switcher",
 	"title": "ZVG Build Switcher",
@@ -10,6 +10,13 @@
 	"textdomain": "zvg-fse",
 	"style": "file:./style.css",
 	"render": "file:./block.php",
+	"attributes": {
+		"showSwitcher": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"example": {},
 	"supports": {
 		"html": false,
 		"reusable": false,
