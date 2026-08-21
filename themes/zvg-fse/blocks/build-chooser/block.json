@@ -1,5 +1,5 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"$schema": "https://schemas.wp.org/wp/6.7/block.json",
 	"apiVersion": 3,
 	"name": "zvg-fse/build-chooser",
 	"title": "ZVG Build Chooser",
@@ -32,6 +32,9 @@
 				"type": "object"
 			}
 		}
+	},
+	"example": {
+		"viewportWidth": 900
 	},
 	"supports": {
 		"html": false,

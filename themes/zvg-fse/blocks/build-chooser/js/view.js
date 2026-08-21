@@ -24,14 +24,31 @@
 		var restart = form.querySelector('[data-chooser-restart]');
 		var labels = JSON.parse(form.getAttribute('data-chooser-labels') || '{}');
 		var current = 0;
+		var i;
 
 		form.setAttribute('data-chooser-ready', '');
+
+		for (i = 0; i < steps.length; i++) {
+			steps[i].setAttribute('tabindex', '-1');
+		}
+
+		result.setAttribute('tabindex', '-1');
 
 		function answered(index) {
 			return !!steps[index].querySelector('input:checked');
 		}
 
-		function render() {
+		/**
+		 * Show one step and hide the rest.
+		 *
+		 * @param {boolean} moveFocus Whether to send focus to the step now on screen. The
+		 *                            step that replaces it is a different question, so
+		 *                            leaving focus on the button that caused the swap
+		 *                            gives a screen reader nothing to announce.
+		 *
+		 * @return {void}
+		 */
+		function render(moveFocus) {
 			var i;
 
 			for (i = 0; i < steps.length; i++) {
@@ -45,6 +62,10 @@
 			actions.hidden = false;
 			restart.hidden = true;
 			othersTitle.hidden = true;
+
+			if (moveFocus) {
+				steps[current].focus();
+			}
 		}
 
 		/**
@@ -95,6 +116,8 @@
 					othersSlot.appendChild(verdict);
 				}
 			}
+
+			result.focus();
 		}
 
 		form.addEventListener('change', function (event) {
@@ -112,7 +135,7 @@
 
 			if (current < steps.length - 1) {
 				current++;
-				render();
+				render(true);
 				return;
 			}
 
@@ -122,7 +145,7 @@
 		back.addEventListener('click', function () {
 			if (current > 0) {
 				current--;
-				render();
+				render(true);
 			}
 		});
 
@@ -143,7 +166,7 @@
 			}
 
 			current = 0;
-			render();
+			render(true);
 			form.scrollIntoView({ block: 'nearest' });
 		});
 
