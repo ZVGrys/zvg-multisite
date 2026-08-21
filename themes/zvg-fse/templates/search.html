@@ -4,39 +4,9 @@
 <main id="content" class="wp-block-group zvg-fse-main" style="margin-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--60)">
 	<!-- wp:query-title {"type":"search","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|40"}}}} /-->
 
-	<!-- wp:search {"label":"Search","showLabel":false,"buttonText":"Search","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}}} /-->
+	<!-- wp:pattern {"slug":"zvg-fse/search-form"} /-->
 
-	<!-- wp:query {"queryId":0,"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":true},"className":"zvg-fse-archive","layout":{"type":"default"}} -->
-	<div class="wp-block-query zvg-fse-archive">
-		<!-- wp:post-template {"className":"zvg-fse-archive__grid"} -->
-			<!-- wp:group {"className":"zvg-fse-archive__card zvg-fse-post","layout":{"type":"default"}} -->
-			<div class="wp-block-group zvg-fse-archive__card zvg-fse-post">
-				<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9"} /-->
-
-				<!-- wp:post-date {"format":"d M Y","className":"zvg-fse-post__date"} /-->
-
-				<!-- wp:post-title {"level":2,"isLink":true} /-->
-
-				<!-- wp:post-excerpt {"excerptLength":20,"className":"zvg-fse-post__excerpt","textColor":"muted"} /-->
-
-				<!-- wp:read-more {"content":"Read more","className":"zvg-fse-post__link is-style-arrow-link"} /-->
-			</div>
-			<!-- /wp:group -->
-		<!-- /wp:post-template -->
-
-		<!-- wp:query-pagination {"style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
-			<!-- wp:query-pagination-previous {"label":"Previous"} /-->
-			<!-- wp:query-pagination-numbers /-->
-			<!-- wp:query-pagination-next {"label":"Next"} /-->
-		<!-- /wp:query-pagination -->
-
-		<!-- wp:query-no-results -->
-			<!-- wp:paragraph -->
-			<p>Nothing matched your search. Try a different keyword.</p>
-			<!-- /wp:paragraph -->
-		<!-- /wp:query-no-results -->
-	</div>
-	<!-- /wp:query -->
+	<!-- wp:pattern {"slug":"zvg-fse/search-loop"} /-->
 </main>
 <!-- /wp:group -->
 

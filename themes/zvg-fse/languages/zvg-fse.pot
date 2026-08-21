@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-20T13:03:01+00:00\n"
+"POT-Creation-Date: 2026-08-21T12:17:27+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: zvg-fse\n"
@@ -285,7 +285,22 @@ msgstr ""
 msgid "Note"
 msgstr ""
 
-#: include/helper-functions.php:24
+#: include/helper-functions.php:80
+msgctxt "Post card link"
+msgid "Read more"
+msgstr ""
+
+#: include/helper-functions.php:85
+msgctxt "Pagination"
+msgid "Previous"
+msgstr ""
+
+#: include/helper-functions.php:86
+msgctxt "Pagination"
+msgid "Next"
+msgstr ""
+
+#: include/helper-functions.php:144
 msgctxt "Scrollable region"
 msgid "Editor screenshots, scroll horizontally"
 msgstr ""
@@ -415,6 +430,21 @@ msgstr ""
 msgid "Team members are not readable over the REST API."
 msgstr ""
 
+#: patterns/blog-heading.php
+msgctxt "Pattern title"
+msgid "Blog heading"
+msgstr ""
+
+#: patterns/blog-heading.php
+msgctxt "Pattern description"
+msgid "The heading above the post list on the posts page, resolved in PHP so it can be translated."
+msgstr ""
+
+#: patterns/blog-heading.php:17
+msgctxt "Posts page title"
+msgid "Latest posts"
+msgstr ""
+
 #: patterns/footer-copy.php
 msgctxt "Pattern title"
 msgid "Footer copyright"
@@ -436,6 +466,73 @@ msgstr ""
 #: patterns/section-hero.php:18
 msgctxt "Author name"
 msgid "Zoriana Grys"
+msgstr ""
+
+#: patterns/footer-nav.php
+msgctxt "Pattern title"
+msgid "Footer navigation"
+msgstr ""
+
+#: patterns/footer-nav.php
+msgctxt "Pattern description"
+msgid "The footer menu. Labels and addresses are both resolved here, so the menu reads the same in the editor as it does on the front."
+msgstr ""
+
+#: patterns/footer-nav.php:17
+msgctxt "Footer menu label"
+msgid "Footer"
+msgstr ""
+
+#: patterns/footer-nav.php:31
+msgctxt "Footer menu"
+msgid "GitHub"
+msgstr ""
+
+#. translators: %s: build name, for example "FSE".
+#: patterns/footer-nav.php:39
+#, php-format
+msgctxt "Footer menu"
+msgid "%s build"
+msgstr ""
+
+#: patterns/footer-nav.php:49
+msgctxt "Footer menu"
+msgid "Privacy policy"
+msgstr ""
+
+#: patterns/header-nav.php
+msgctxt "Pattern title"
+msgid "Header navigation"
+msgstr ""
+
+#: patterns/header-nav.php
+msgctxt "Pattern description"
+msgid "The header menu and the build switcher, with every label resolved in PHP so it can be translated."
+msgstr ""
+
+#: patterns/header-nav.php:17
+msgctxt "Header menu label"
+msgid "Sections"
+msgstr ""
+
+#: patterns/header-nav.php:35
+msgctxt "Header menu"
+msgid "Builds"
+msgstr ""
+
+#: patterns/header-nav.php:39
+msgctxt "Header menu"
+msgid "How it works"
+msgstr ""
+
+#: patterns/header-nav.php:43
+msgctxt "Header menu"
+msgid "Measured"
+msgstr ""
+
+#: patterns/header-nav.php:47
+msgctxt "Header menu"
+msgid "Contact"
 msgstr ""
 
 #: patterns/page-not-found.php
@@ -486,6 +583,56 @@ msgstr ""
 #: patterns/page-not-found.php:45
 msgctxt "Not found button"
 msgid "Read the blog"
+msgstr ""
+
+#: patterns/posts-loop.php
+msgctxt "Pattern title"
+msgid "Posts loop"
+msgstr ""
+
+#: patterns/posts-loop.php
+msgctxt "Pattern description"
+msgid "The post list shared by the blog, the archives and the fallback index, with its link and pagination labels resolved in PHP rather than typed into the template."
+msgstr ""
+
+#: patterns/posts-loop.php:16
+msgctxt "Empty archive"
+msgid "No posts found."
+msgstr ""
+
+#: patterns/search-form.php
+msgctxt "Pattern title"
+msgid "Search form"
+msgstr ""
+
+#: patterns/search-form.php
+msgctxt "Pattern description"
+msgid "The search field on the search template, with its label and button text resolved in PHP so they can be translated."
+msgstr ""
+
+#: patterns/search-form.php:17
+msgctxt "Search field label"
+msgid "Search"
+msgstr ""
+
+#: patterns/search-form.php:19
+msgctxt "Search button"
+msgid "Search"
+msgstr ""
+
+#: patterns/search-loop.php
+msgctxt "Pattern title"
+msgid "Search results loop"
+msgstr ""
+
+#: patterns/search-loop.php
+msgctxt "Pattern description"
+msgid "The post list on the search template. Same cards as the archives, with a sentence of its own when nothing matched."
+msgstr ""
+
+#: patterns/search-loop.php:16
+msgctxt "Empty search"
+msgid "Nothing matched your search. Try a different keyword."
 msgstr ""
 
 #: patterns/section-blog.php
