@@ -9,6 +9,7 @@ defined( 'ABSPATH' ) || exit;
 
 add_action( 'acf/init', 'zvg_acf_register_options_page' );
 
+add_filter( 'acf/load_field', 'zvg_acf_load_error_default' );
 add_filter( 'acf/load_field', 'zvg_acf_load_post_default' );
 add_filter( 'acf/load_field/name=post_share_networks', 'zvg_acf_load_share_networks' );
 
@@ -38,6 +39,57 @@ function zvg_acf_register_options_page() {
 			'redirect'   => false,
 		)
 	);
+}
+
+/**
+ * The copy the not found page starts with.
+ *
+ * Read by the template through zvg_acf_error_option() and pre-filled into the fields
+ * themselves by zvg_acf_load_error_default(), so the strings live here alone.
+ *
+ * @return array<string, string> Site Options field name => value.
+ */
+function zvg_acf_error_defaults() {
+	return array(
+		'error_eyebrow'            => _x( 'Error 404', 'Not found eyebrow', 'zvg-acf' ),
+		'error_code'               => _x( '404', 'Not found code', 'zvg-acf' ),
+		'error_lead'               => _x( 'This page does not exist on any of the three builds.', 'Not found lead', 'zvg-acf' ),
+		'error_search_placeholder' => _x( 'Type a word or two', 'Not found search', 'zvg-acf' ),
+		'error_search_button'      => _x( 'Search', 'Not found search', 'zvg-acf' ),
+		'error_search_hint'        => _x( 'Looks through the posts and pages of this build.', 'Not found search hint', 'zvg-acf' ),
+		'error_button_1_label'     => _x( 'Back to the homepage', 'Not found button', 'zvg-acf' ),
+		'error_button_2_label'     => _x( 'Read the blog', 'Not found button', 'zvg-acf' ),
+	);
+}
+
+/**
+ * Pre-fill a not found field with the copy the theme ships.
+ *
+ * @param array $field Field being loaded.
+ *
+ * @return array
+ */
+function zvg_acf_load_error_default( $field ) {
+	$defaults = zvg_acf_error_defaults();
+
+	if ( isset( $field['name'], $defaults[ $field['name'] ] ) && '' === $field['default_value'] ) {
+		$field['default_value'] = $defaults[ $field['name'] ];
+	}
+
+	return $field;
+}
+
+/**
+ * A not found page option, falling back to the copy the theme ships.
+ *
+ * @param string $name Site Options field name.
+ *
+ * @return mixed
+ */
+function zvg_acf_error_option( $name ) {
+	$defaults = zvg_acf_error_defaults();
+
+	return zvg_acf_option( $name, isset( $defaults[ $name ] ) ? $defaults[ $name ] : '' );
 }
 
 /**
