@@ -100,3 +100,23 @@ if ( ! function_exists( 'zvg_elementor_register_locations' ) ) :
 endif;
 
 add_action( 'elementor/theme/register_locations', 'zvg_elementor_register_locations' );
+
+if ( ! function_exists( 'zvg_elementor_clean_search_combobox' ) ) :
+
+	/**
+	 * Drop the combobox ARIA the Search widget prints when Live Results are off.
+	 *
+	 * @param ElementorPro\Modules\Search\Widgets\Search $widget Search widget instance.
+	 */
+	function zvg_elementor_clean_search_combobox( $widget ) {
+		if ( 'yes' === $widget->get_settings_for_display( 'live_results' ) ) {
+			return;
+		}
+
+		foreach ( array( 'role', 'aria-autocomplete', 'aria-expanded', 'aria-controls', 'aria-haspopup' ) as $zvg_elementor_attribute ) {
+			$widget->remove_render_attribute( 'input', $zvg_elementor_attribute );
+		}
+	}
+endif;
+
+add_action( 'elementor_pro/search/before_input', 'zvg_elementor_clean_search_combobox' );
