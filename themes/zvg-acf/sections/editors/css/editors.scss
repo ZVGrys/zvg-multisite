@@ -1,17 +1,17 @@
 @use '../../../assets/css/vars' as *;
 
-$editors-inset: max(#{$container-padding}, calc((100% - #{$container-width}) / 2));
-$editors-basis: $container-width * 0.62;
+$editors-inset: max(24px, calc((100% - 1200px) / 2));
+$editors-basis: 1200px * 0.62;
 
 .zvg-acf-editors {
 	&__track {
 		display: flex;
-		gap: $space-40;
-		margin-top: $space-50;
+		gap: 24px;
+		margin-top: 40px;
 		overflow-x: auto;
-		padding-bottom: $space-30;
+		padding-bottom: 16px;
 		padding-left: $editors-inset;
-		padding-right: $container-padding;
+		padding-right: 24px;
 		scroll-padding-left: $editors-inset;
 		scroll-snap-type: x mandatory;
 		scrollbar-color: $color-border-strong transparent;
@@ -27,7 +27,7 @@ $editors-basis: $container-width * 0.62;
 
 		&::-webkit-scrollbar-thumb {
 			background: $color-border-strong;
-			border-radius: $radius-small;
+			border-radius: 2px;
 		}
 
 		&.has-custom-scrollbar {
@@ -44,16 +44,16 @@ $editors-basis: $container-width * 0.62;
 		display: flex;
 		flex: 0 0 min(62%, #{$editors-basis});
 		flex-direction: column;
-		gap: $space-30;
+		gap: 16px;
 		margin: 0;
-		min-width: min(100%, #{$measure-content});
+		min-width: min(100%, 560px);
 		scroll-snap-align: start;
 	}
 
 	&__shot {
 		aspect-ratio: 16 / 9;
 		border: 1px solid $color-border;
-		border-radius: $radius-medium;
+		border-radius: 4px;
 		display: block;
 		height: auto;
 		object-fit: cover;
@@ -65,14 +65,14 @@ $editors-basis: $container-width * 0.62;
 		aspect-ratio: 16 / 9;
 		background-color: $color-surface;
 		border: 1px solid $color-border;
-		border-radius: $radius-medium;
+		border-radius: 4px;
 		color: $color-muted;
 		display: flex;
 		font-family: $font-mono;
 		font-size: 13px;
 		line-height: 1.5;
 		margin: 0;
-		padding: $space-20;
+		padding: 8px;
 
 		@include down($bp-large) {
 			font-size: 12px;
@@ -82,7 +82,7 @@ $editors-basis: $container-width * 0.62;
 	&__caption {
 		color: $color-muted;
 		font-size: 15px;
-		line-height: 1.55;
+		line-height: 1.5;
 		margin: 0;
 
 		@include down($bp-large) {
@@ -96,16 +96,16 @@ $editors-basis: $container-width * 0.62;
 
 	&__scrollbar {
 		background-color: $color-border;
-		border-radius: $radius-small;
+		border-radius: 2px;
 		cursor: pointer;
 		height: 6px;
 		margin-inline: $editors-inset;
-		margin-top: $space-30;
+		margin-top: 16px;
 	}
 
 	&__thumb {
 		background-color: $color-border-strong;
-		border-radius: $radius-small;
+		border-radius: 2px;
 		height: 100%;
 	}
 }
