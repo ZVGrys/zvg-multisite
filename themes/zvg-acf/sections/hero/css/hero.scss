@@ -1,14 +1,14 @@
 @use '../../../assets/css/vars' as *;
 
 .zvg-acf-section.zvg-acf-hero {
-	padding-block-start: $space-70;
-	padding-block-end: $space-60;
+	padding-block-start: 96px;
+	padding-block-end: 64px;
 	border-top: 0;
 }
 
 .zvg-acf-hero {
 	&__title {
-		max-width: $measure-wide;
+		max-width: 820px;
 	}
 
 	&__byline {
@@ -23,7 +23,7 @@
 	&__buttons {
 		display: flex;
 		flex-wrap: wrap;
-		gap: $space-30;
-		margin-top: $space-50;
+		gap: 16px;
+		margin-top: 40px;
 	}
 }

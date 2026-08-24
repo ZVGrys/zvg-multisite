@@ -2,13 +2,13 @@
 
 .zvg-acf-measured {
 	.zvg-acf-compare-table {
-		margin-top: $space-50;
+		margin-top: 40px;
 	}
 }
 
 .zvg-acf-compare-table {
 	border: 1px solid $color-border;
-	border-radius: $radius-large;
+	border-radius: 6px;
 
 	@include down($bp-medium) {
 		border: 0;
@@ -32,7 +32,7 @@
 		th,
 		td {
 			border-bottom: 1px solid $color-border;
-			padding: $space-30;
+			padding: 16px;
 
 			@include down($bp-medium) {
 				display: block;
@@ -122,7 +122,7 @@
 				display: flex;
 				align-items: baseline;
 				justify-content: space-between;
-				gap: $space-30;
+				gap: 16px;
 			}
 		}
 
@@ -130,8 +130,8 @@
 			@include down($bp-medium) {
 				display: block;
 				border: 1px solid $color-border;
-				border-radius: $radius-large;
-				margin-bottom: $space-30;
+				border-radius: 6px;
+				margin-bottom: 16px;
 				overflow: hidden;
 			}
 		}
