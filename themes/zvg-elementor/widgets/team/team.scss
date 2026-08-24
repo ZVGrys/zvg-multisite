@@ -45,6 +45,14 @@
 	#{$root}__name {
 		font-size: 17px;
 		letter-spacing: -0.01em;
+
+		@include down($bp-large) {
+			font-size: 16px;
+		}
+
+		@include down($bp-small) {
+			font-size: 15px;
+		}
 	}
 
 	#{$root}__role {
@@ -53,6 +61,10 @@
 		font-size: 13px;
 		letter-spacing: 0.03em;
 		line-height: 1.5;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
 	}
 
 	#{$root}__bio {
@@ -62,6 +74,10 @@
 
 		@include down($bp-large) {
 			font-size: 14px;
+		}
+
+		@include down($bp-small) {
+			font-size: 13px;
 		}
 	}
 
@@ -76,6 +92,10 @@
 		font-weight: 600;
 		line-height: normal;
 		padding: 0;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
 
 		&:hover,
 		&:focus {
@@ -110,6 +130,14 @@
 			font-size: 15px;
 			line-height: 1.6;
 			margin: 0 0 16px;
+
+			@include down($bp-large) {
+				font-size: 14px;
+			}
+
+			@include down($bp-small) {
+				font-size: 13px;
+			}
 		}
 	}
 
@@ -124,6 +152,14 @@
 		font-size: 28px;
 		letter-spacing: -0.01em;
 		margin: 0 0 4px;
+
+		@include down($bp-large) {
+			font-size: 25px;
+		}
+
+		@include down($bp-small) {
+			font-size: 22px;
+		}
 	}
 
 	p#{$root}__dialog-role {
@@ -132,6 +168,10 @@
 		font-size: 13px;
 		letter-spacing: 0.03em;
 		margin: 0;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
 	}
 
 	#{$root}__dialog-portrait {
@@ -157,24 +197,42 @@
 		padding: 8px;
 		transition: color 200ms ease, border-color 200ms ease;
 
+		@include down($bp-large) {
+			font-size: 14px;
+		}
+
+		@include down($bp-small) {
+			font-size: 13px;
+		}
+
 		&:focus {
 			background: transparent;
 			border-color: $color-border-strong;
+			border-width: 1px;
 			color: $color-muted;
 		}
 
 		&:hover {
 			background: transparent;
 			border-color: $color-accent;
+			border-width: 1px;
 			color: $color-text;
 		}
 	}
 
 	#{$root}__dialog-link {
+		align-items: center;
+		display: inline-flex;
 		font-family: $font-mono;
 		font-size: 13px;
 		font-weight: 600;
+		line-height: 1.5;
+		min-height: 24px;
 		text-decoration: none;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
 
 		&::after {
 			content: "\2192";
