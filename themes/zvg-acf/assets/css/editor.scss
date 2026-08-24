@@ -1,0 +1,15 @@
+@use 'vars' as *;
+
+body {
+	font-family: $font-body;
+	font-size: 17px;
+	line-height: 1.5;
+
+	@include down($bp-large) {
+		font-size: 16px;
+	}
+
+	@include down($bp-small) {
+		font-size: 15px;
+	}
+}

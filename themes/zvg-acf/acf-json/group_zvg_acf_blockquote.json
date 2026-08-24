@@ -1,0 +1,80 @@
+{
+    "key": "group_zvg_acf_blockquote",
+    "title": "Blockquote block",
+    "fields": [
+        {
+            "key": "field_zvg_acf_blockquote_text",
+            "label": "Quote",
+            "name": "text",
+            "type": "textarea",
+            "instructions": "The quote itself, without the quotation marks — the block draws its own.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_zvg_acf_blockquote_author_name",
+            "label": "Author name",
+            "name": "author_name",
+            "type": "text",
+            "instructions": "Leave both author fields empty to print the quote on its own.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_zvg_acf_blockquote_author_role",
+            "label": "Author role",
+            "name": "author_role",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/zvg-acf-blockquote"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1787563525
+}

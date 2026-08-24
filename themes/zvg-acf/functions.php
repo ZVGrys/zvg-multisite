@@ -24,6 +24,7 @@ if ( ! defined( 'ZVG_ACF_VERSION' ) ) {
 require_once ZVG_ACF_T_PATH . '/include/actions-config.php';
 require_once ZVG_ACF_T_PATH . '/include/helper-functions.php';
 require_once ZVG_ACF_T_PATH . '/include/post-types.php';
+require_once ZVG_ACF_T_PATH . '/include/blocks.php';
 require_once ZVG_ACF_T_PATH . '/include/share-links.php';
 require_once ZVG_ACF_T_PATH . '/include/site-options.php';
 require_once ZVG_ACF_T_PATH . '/acf-custom-fields/acf-menus/init.php';
@@ -66,6 +67,7 @@ if ( ! function_exists( 'zvg_acf_setup' ) ) :
 			array(
 				'assets/css/general.css',
 				'assets/css/typography.css',
+				'assets/css/editor.css',
 			)
 		);
 	}
