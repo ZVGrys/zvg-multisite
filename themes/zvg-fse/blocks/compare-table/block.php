@@ -25,21 +25,21 @@ $zvg_fse_blank = _x( '—', 'Unmeasured statistic', 'zvg-fse' );
 
 ?>
 <div <?php echo get_block_wrapper_attributes(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped by core. ?>>
-	<table class="wp-block-zvg-fse-compare-table__table" role="table">
+	<table class="wp-block-zvg-fse-compare-table__table">
 		<?php if ( '' !== $zvg_fse_caption ) : ?>
 			<caption class="screen-reader-text"><?php echo esc_html( $zvg_fse_caption ); ?></caption>
 		<?php endif; ?>
 
-		<thead role="rowgroup">
-			<tr role="row">
+		<thead>
+			<tr>
 				<td></td>
 				<?php foreach ( $zvg_fse_columns as $zvg_fse_column ) : ?>
-					<th scope="col" role="columnheader"><?php echo esc_html( $zvg_fse_column ); ?></th>
+					<th scope="col"><?php echo esc_html( $zvg_fse_column ); ?></th>
 				<?php endforeach; ?>
 			</tr>
 		</thead>
 
-		<tbody role="rowgroup">
+		<tbody>
 			<?php
 			foreach ( $zvg_fse_rows as $zvg_fse_row ) :
 				$zvg_fse_label = isset( $zvg_fse_row['label'] ) ? trim( $zvg_fse_row['label'] ) : '';
@@ -50,11 +50,11 @@ $zvg_fse_blank = _x( '—', 'Unmeasured statistic', 'zvg-fse' );
 
 				$zvg_fse_values = isset( $zvg_fse_row['values'] ) && is_array( $zvg_fse_row['values'] ) ? $zvg_fse_row['values'] : array();
 				?>
-				<tr role="row">
-					<th scope="row" role="rowheader"><?php echo esc_html( $zvg_fse_label ); ?></th>
+				<tr>
+					<th scope="row"><?php echo esc_html( $zvg_fse_label ); ?></th>
 					<?php foreach ( $zvg_fse_columns as $zvg_fse_index => $zvg_fse_column ) : ?>
 						<?php $zvg_fse_value = isset( $zvg_fse_values[ $zvg_fse_index ] ) ? trim( $zvg_fse_values[ $zvg_fse_index ] ) : ''; ?>
-						<td role="cell">
+						<td>
 							<span class="wp-block-zvg-fse-compare-table__column"><?php echo esc_html( $zvg_fse_column ); ?></span>
 							<span class="wp-block-zvg-fse-compare-table__value"><?php echo esc_html( '' === $zvg_fse_value ? $zvg_fse_blank : $zvg_fse_value ); ?></span>
 						</td>
