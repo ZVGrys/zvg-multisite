@@ -1,0 +1,93 @@
+@use 'vars' as *;
+
+.zvg-acf-share {
+	align-items: center;
+	border-top: 1px solid $color-border;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	margin-top: 64px;
+	padding-top: 24px;
+
+	&__label {
+		color: $color-muted;
+		font-family: $font-mono;
+		font-size: 13px;
+		font-weight: 600;
+		letter-spacing: 0.03em;
+		line-height: 1.5;
+		margin: 0;
+		text-transform: uppercase;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	&__link {
+		align-items: center;
+		border: 1px solid $color-border;
+		border-radius: 4px;
+		color: $color-text;
+		display: inline-flex;
+		font-family: $font-mono;
+		font-size: 13px;
+		font-weight: 600;
+		gap: 0.5em;
+		line-height: 1.5;
+		padding: 8px 14px;
+		text-decoration: none;
+		transition: color $transition-fast, border-color $transition-fast;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
+
+		&:hover,
+		&:focus {
+			border-color: $color-accent;
+			color: $color-accent;
+			text-decoration: none;
+		}
+	}
+
+	&__copy {
+		background: none;
+		cursor: pointer;
+		display: none;
+		line-height: inherit;
+
+		&.is-copied {
+			border-color: $color-accent;
+			color: $color-accent;
+		}
+	}
+
+	&__icon {
+		fill: currentColor;
+		flex: none;
+		height: 14px;
+		width: 14px;
+
+		&.is-stroked {
+			fill: none;
+			stroke: currentColor;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+			stroke-width: 2;
+		}
+	}
+}
+
+.zvg-acf-js .zvg-acf-share__copy {
+	display: inline-flex;
+}
