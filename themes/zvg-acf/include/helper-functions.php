@@ -41,6 +41,18 @@ if ( ! function_exists( 'zvg_acf_sections' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'zvg_acf_is_sections_page' ) ) :
+
+	/**
+	 * Whether the queried page is assembled from section rows.
+	 *
+	 * @return bool
+	 */
+	function zvg_acf_is_sections_page() {
+		return is_page_template( 'template-sections.php' ) && (bool) zvg_acf_sections();
+	}
+endif;
+
 if ( ! function_exists( 'zvg_acf_render_sections' ) ) :
 
 	/**
