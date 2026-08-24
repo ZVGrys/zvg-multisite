@@ -181,10 +181,25 @@ function zvg_acf_enqueue_scripts() {
 	);
 
 	wp_register_style(
+		'zvg-acf-share',
+		ZVG_ACF_T_URI . '/assets/css/share.css',
+		array( 'zvg-acf-general' ),
+		zvg_acf_get_asset_version( '/assets/css/share.css' )
+	);
+
+	wp_register_style(
 		'zvg-acf-pagination',
 		ZVG_ACF_T_URI . '/assets/css/blog/pagination.css',
 		array( 'zvg-acf-general' ),
 		zvg_acf_get_asset_version( '/assets/css/blog/pagination.css' )
+	);
+
+	wp_register_script(
+		'zvg-acf-share',
+		ZVG_ACF_T_URI . '/assets/js/share.min.js',
+		array(),
+		zvg_acf_get_asset_version( '/assets/js/share.min.js' ),
+		true
 	);
 
 	if ( is_404() ) {
