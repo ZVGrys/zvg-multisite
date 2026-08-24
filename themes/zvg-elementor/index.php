@@ -23,15 +23,14 @@ if ( is_singular() ) {
 	}
 } elseif ( ! zvg_elementor_do_location( 'archive' ) ) {
 	?>
+	<div class="zvg-elementor-archive">
 	<h1 class="zvg-elementor-archive__title">
 		<?php
-		$zvg_elementor_posts_page = (int) get_option( 'page_for_posts' );
-
 		if ( is_search() ) {
 			/* translators: %s: search query. */
 			printf( esc_html_x( 'Search results for %s', 'Archive title', 'zvg-elementor' ), '<span>' . esc_html( get_search_query() ) . '</span>' );
-		} elseif ( is_home() && $zvg_elementor_posts_page ) {
-			echo esc_html( get_the_title( $zvg_elementor_posts_page ) );
+		} elseif ( is_home() ) {
+			echo esc_html_x( 'Latest posts', 'Blog archive title', 'zvg-elementor' );
 		} else {
 			the_archive_title();
 		}
@@ -39,21 +38,36 @@ if ( is_singular() ) {
 	</h1>
 
 	<?php if ( have_posts() ) { ?>
-	<div class="zvg-elementor-archive__list">
+	<div class="zvg-elementor-archive__grid">
 		<?php
 		while ( have_posts() ) {
 			the_post();
+
+			$zvg_elementor_excerpt = wp_trim_words( get_the_excerpt(), 20 );
 			?>
-			<article <?php post_class( 'zvg-elementor-card' ); ?>>
-				<h2 class="zvg-elementor-card__title">
+			<article <?php post_class( 'zvg-elementor-post' ); ?>>
+				<?php if ( has_post_thumbnail() ) { ?>
+				<a class="zvg-elementor-post__thumbnail-link" href="<?php the_permalink(); ?>">
+					<?php the_post_thumbnail( 'medium_large', array( 'class' => 'zvg-elementor-post__thumbnail' ) ); ?>
+				</a>
+				<?php } ?>
+
+				<p class="zvg-elementor-post__date">
+					<time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
+				</p>
+
+				<h2 class="zvg-elementor-post__title">
 					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 				</h2>
 
-				<?php if ( has_excerpt() || get_the_content() ) { ?>
-				<div class="zvg-elementor-card__excerpt">
-					<?php the_excerpt(); ?>
-				</div>
+				<?php if ( '' !== trim( $zvg_elementor_excerpt ) ) { ?>
+				<p class="zvg-elementor-post__excerpt"><?php echo esc_html( $zvg_elementor_excerpt ); ?></p>
 				<?php } ?>
+
+				<a class="zvg-elementor-post__link" href="<?php the_permalink(); ?>">
+					<?php echo esc_html_x( 'Read more', 'Archive card link', 'zvg-elementor' ); ?>
+					<span class="screen-reader-text"><?php echo esc_html( ': ' . get_the_title() ); ?></span>
+				</a>
 			</article>
 			<?php
 		}
@@ -61,7 +75,13 @@ if ( is_singular() ) {
 	</div>
 
 		<?php
-		the_posts_pagination();
+		the_posts_pagination(
+			array(
+				'mid_size'  => 2,
+				'prev_text' => esc_html_x( 'Previous', 'Archive pagination', 'zvg-elementor' ),
+				'next_text' => esc_html_x( 'Next', 'Archive pagination', 'zvg-elementor' ),
+			)
+		);
 		?>
 	<?php } else { ?>
 	<p class="zvg-elementor-archive__empty">
@@ -74,6 +94,7 @@ if ( is_singular() ) {
 		?>
 	</p>
 	<?php } ?>
+	</div>
 	<?php
 }
 

@@ -53,6 +53,7 @@ if ( ! function_exists( 'zvg_elementor_widgets' ) ) {
 				'faqs'           => 'ZVG_Elementor_FAQS',
 				'highlight-text' => 'ZVG_Elementor_Highlight_Text',
 				'menu'           => 'ZVG_Elementor_Menu',
+				'share'          => 'ZVG_Elementor_Share',
 				'team'           => 'ZVG_Elementor_Team',
 				'token-flow'     => 'ZVG_Elementor_Token_Flow',
 			)

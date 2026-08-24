@@ -1,4 +1,9 @@
+@use 'fonts';
 @use 'vars' as *;
+
+:root {
+	--zvg-elementor-menu-breakpoint: #{$bp-medium};
+}
 
 *,
 *::before,
@@ -80,7 +85,7 @@ button {
 	width: 100%;
 
 	&--boxed {
-		max-width: 1200px;
+		max-width: 1248px;
 		padding-inline: 24px;
 	}
 }

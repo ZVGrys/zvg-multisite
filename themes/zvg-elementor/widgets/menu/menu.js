@@ -8,6 +8,20 @@
 	'use strict';
 
 	/**
+	 * The width the menu collapses at, kept in the stylesheet so the value lives once.
+	 *
+	 * @return {string} A CSS length.
+	 */
+	function zvgElementorMenuBreakpoint() {
+		var value = window
+			.getComputedStyle(document.documentElement)
+			.getPropertyValue('--zvg-elementor-menu-breakpoint')
+			.trim();
+
+		return value || '782px';
+	}
+
+	/**
 	 * Wire one menu widget: the toggle opens the panel, Escape and a second click close it.
 	 *
 	 * @param {HTMLElement} nav Widget root.
@@ -15,7 +29,7 @@
 	function zvgElementorInitMenu(nav) {
 		var toggle = nav.querySelector('.zvg-elementor-nav__toggle');
 		var panel = nav.querySelector('.zvg-elementor-nav__panel');
-		var small = window.matchMedia('(max-width: 782px)');
+		var small = window.matchMedia('(max-width: ' + zvgElementorMenuBreakpoint() + ')');
 
 		if (!toggle || !panel || nav.dataset.zvgMenuBound) {
 			return;

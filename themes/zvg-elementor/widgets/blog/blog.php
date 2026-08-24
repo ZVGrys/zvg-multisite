@@ -73,7 +73,7 @@ class ZVG_Elementor_Blog extends Widget_Base {
 	 * @return string[]
 	 */
 	public function get_style_depends() {
-		return array( 'zvg-elementor-blog' );
+		return array( 'zvg-elementor-post-card', 'zvg-elementor-pagination', 'zvg-elementor-blog' );
 	}
 
 	/**
@@ -107,36 +107,64 @@ class ZVG_Elementor_Blog extends Widget_Base {
 		);
 
 		$this->add_control(
+			'source',
+			array(
+				'label'       => esc_html__( 'Source', 'zvg-elementor' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'latest',
+				'options'     => array(
+					'latest'        => esc_html__( 'Latest posts', 'zvg-elementor' ),
+					'current_query' => esc_html__( 'Current query', 'zvg-elementor' ),
+				),
+				'description' => esc_html__( 'Current query follows the blog, category and search results, and adds pagination.', 'zvg-elementor' ),
+			)
+		);
+
+		$this->add_control(
 			'posts_per_page',
 			array(
-				'label'   => esc_html__( 'How many to show', 'zvg-elementor' ),
-				'type'    => Controls_Manager::NUMBER,
-				'min'     => 1,
-				'max'     => 12,
-				'default' => 3,
+				'label'     => esc_html__( 'How many to show', 'zvg-elementor' ),
+				'type'      => Controls_Manager::NUMBER,
+				'min'       => 1,
+				'max'       => 12,
+				'default'   => 3,
+				'condition' => array( 'source' => 'latest' ),
 			)
 		);
 
 		$this->add_control(
 			'order',
 			array(
-				'label'   => esc_html__( 'Order', 'zvg-elementor' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'DESC',
-				'options' => array(
+				'label'     => esc_html__( 'Order', 'zvg-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'DESC',
+				'options'   => array(
 					'DESC' => esc_html__( 'Newest first', 'zvg-elementor' ),
 					'ASC'  => esc_html__( 'Oldest first', 'zvg-elementor' ),
 				),
+				'condition' => array( 'source' => 'latest' ),
 			)
 		);
 
 		$this->add_control(
 			'category',
 			array(
-				'label'   => esc_html__( 'Category', 'zvg-elementor' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => '',
-				'options' => $this->get_category_options(),
+				'label'     => esc_html__( 'Category', 'zvg-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => '',
+				'options'   => $this->get_category_options(),
+				'condition' => array( 'source' => 'latest' ),
+			)
+		);
+
+		$this->add_control(
+			'empty_text',
+			array(
+				'label'       => esc_html__( 'Text when nothing is found', 'zvg-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => _x( 'Nothing has been published here yet.', 'Empty archive', 'zvg-elementor' ),
+				'label_block' => true,
+				'condition'   => array( 'source' => 'current_query' ),
 			)
 		);
 
@@ -145,8 +173,36 @@ class ZVG_Elementor_Blog extends Widget_Base {
 			array(
 				'label'       => esc_html__( 'Link "Read more" text', 'zvg-elementor' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Read more', 'zvg-elementor' ),
+				'default'     => __( 'Read more', 'zvg-elementor' ),
 				'description' => esc_html__( 'Leave empty to drop the link.', 'zvg-elementor' ),
+				'label_block' => true,
+			)
+		);
+
+		$this->add_control(
+			'title_tag',
+			array(
+				'label'       => esc_html__( 'Title tag', 'zvg-elementor' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'h3',
+				'options'     => array(
+					'h2' => 'H2',
+					'h3' => 'H3',
+					'h4' => 'H4',
+					'h5' => 'H5',
+					'h6' => 'H6',
+				),
+				'description' => esc_html__( 'Pick the level that follows the heading above this list.', 'zvg-elementor' ),
+			)
+		);
+
+		$this->add_control(
+			'date_format',
+			array(
+				'label'       => esc_html__( 'Date format', 'zvg-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => 'd M Y',
+				'description' => esc_html__( 'PHP date format. Leave empty to follow Settings → General.', 'zvg-elementor' ),
 				'label_block' => true,
 			)
 		);
@@ -165,7 +221,7 @@ class ZVG_Elementor_Blog extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'date_typography',
-				'selector' => '{{WRAPPER}} .zvg-elementor-blog__date',
+				'selector' => '{{WRAPPER}} .zvg-elementor-post__date',
 			)
 		);
 
@@ -175,7 +231,7 @@ class ZVG_Elementor_Blog extends Widget_Base {
 				'label'     => esc_html__( 'Color', 'zvg-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} .zvg-elementor-blog__date' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .zvg-elementor-post__date' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -194,7 +250,7 @@ class ZVG_Elementor_Blog extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'title_typography',
-				'selector' => '{{WRAPPER}} .zvg-elementor-blog__title',
+				'selector' => '{{WRAPPER}} .zvg-elementor-post__title',
 			)
 		);
 
@@ -204,7 +260,7 @@ class ZVG_Elementor_Blog extends Widget_Base {
 				'label'     => esc_html__( 'Color', 'zvg-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} .zvg-elementor-blog__title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .zvg-elementor-post__title' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -223,7 +279,7 @@ class ZVG_Elementor_Blog extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'excerpt_typography',
-				'selector' => '{{WRAPPER}} .zvg-elementor-blog__excerpt',
+				'selector' => '{{WRAPPER}} .zvg-elementor-post__excerpt',
 			)
 		);
 
@@ -233,7 +289,7 @@ class ZVG_Elementor_Blog extends Widget_Base {
 				'label'     => esc_html__( 'Color', 'zvg-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} .zvg-elementor-blog__excerpt' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .zvg-elementor-post__excerpt' => 'color: {{VALUE}};',
 				),
 			)
 		);
@@ -252,7 +308,7 @@ class ZVG_Elementor_Blog extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'link_typography',
-				'selector' => '{{WRAPPER}} .zvg-elementor-blog__link',
+				'selector' => '{{WRAPPER}} .zvg-elementor-post__link',
 			)
 		);
 
@@ -262,12 +318,23 @@ class ZVG_Elementor_Blog extends Widget_Base {
 				'label'     => esc_html__( 'Color', 'zvg-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} .zvg-elementor-blog__link' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .zvg-elementor-post__link' => 'color: {{VALUE}};',
 				),
 			)
 		);
 
 		$this->end_controls_section();
+	}
+
+	/**
+	 * Whether the widget renders the request's own query rather than its own.
+	 *
+	 * @param array $settings Widget settings.
+	 *
+	 * @return bool
+	 */
+	protected function is_current_query( $settings ) {
+		return isset( $settings['source'] ) && 'current_query' === $settings['source'];
 	}
 
 	/**
@@ -278,6 +345,10 @@ class ZVG_Elementor_Blog extends Widget_Base {
 	 * @return \WP_Query
 	 */
 	protected function get_posts( $settings ) {
+		if ( $this->is_current_query( $settings ) ) {
+			return $GLOBALS['wp_query'];
+		}
+
 		$per_page = isset( $settings['posts_per_page'] ) ? (int) $settings['posts_per_page'] : 3;
 		$order    = ( isset( $settings['order'] ) && 'ASC' === $settings['order'] ) ? 'ASC' : 'DESC';
 
@@ -304,15 +375,25 @@ class ZVG_Elementor_Blog extends Widget_Base {
 	 */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
+		$archive  = $this->is_current_query( $settings );
 		$posts    = $this->get_posts( $settings );
 
 		if ( ! $posts->have_posts() ) {
+			$empty = $archive && isset( $settings['empty_text'] ) ? trim( $settings['empty_text'] ) : '';
+
+			if ( '' !== $empty ) {
+				printf( '<p class="zvg-elementor-blog__empty">%s</p>', esc_html( $empty ) );
+			}
+
 			return;
 		}
 
-		$link_text = isset( $settings['link_text'] ) ? $settings['link_text'] : '';
+		$link_text   = isset( $settings['link_text'] ) ? $settings['link_text'] : '';
+		$title_tag   = in_array( $settings['title_tag'] ?? '', array( 'h2', 'h3', 'h4', 'h5', 'h6' ), true ) ? $settings['title_tag'] : 'h3';
+		$date_format = isset( $settings['date_format'] ) ? trim( $settings['date_format'] ) : '';
+		$date_format = '' === $date_format ? (string) get_option( 'date_format' ) : $date_format;
 		?>
-		<div class="zvg-elementor-blog">
+		<div class="zvg-elementor-blog<?php echo $archive ? ' zvg-elementor-blog--archive' : ''; ?>">
 			<div class="zvg-elementor-blog__grid">
 				<?php
 				while ( $posts->have_posts() ) {
@@ -320,44 +401,59 @@ class ZVG_Elementor_Blog extends Widget_Base {
 
 					$excerpt = wp_trim_words( get_the_excerpt(), 20 );
 					?>
-				<article class="zvg-elementor-blog__card">
+				<article class="zvg-elementor-post">
 					<?php if ( has_post_thumbnail() ) { ?>
-						<a class="zvg-elementor-blog__thumbnail-link" href="<?php the_permalink(); ?>">
-							<?php
-							echo wp_kses(
-								get_the_post_thumbnail(
-									get_the_ID(),
-									'medium_large',
-									array( 'class' => 'zvg-elementor-blog__thumbnail' )
-								),
-								'post'
-							);
-							?>
+						<a class="zvg-elementor-post__thumbnail-link" href="<?php the_permalink(); ?>">
+							<?php the_post_thumbnail( 'medium_large', array( 'class' => 'zvg-elementor-post__thumbnail' ) ); ?>
 						</a>
 					<?php } ?>
 
-					<p class="zvg-elementor-blog__date"><?php echo esc_html( get_the_date( 'd M Y' ) ); ?></p>
+					<p class="zvg-elementor-post__date">
+						<time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date( $date_format ) ); ?></time>
+					</p>
 
-					<h3 class="zvg-elementor-blog__title">
-						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-					</h3>
+					<?php
+					printf(
+						'<%1$s class="zvg-elementor-post__title"><a href="%2$s">%3$s</a></%1$s>',
+						esc_html( $title_tag ),
+						esc_url( (string) get_permalink() ),
+						esc_html( get_the_title() )
+					);
+					?>
 
 					<?php if ( '' !== trim( $excerpt ) ) { ?>
-						<div class="zvg-elementor-blog__excerpt"><?php echo esc_html( $excerpt ); ?></div>
+						<p class="zvg-elementor-post__excerpt"><?php echo esc_html( $excerpt ); ?></p>
 					<?php } ?>
 
 					<?php if ( '' !== $link_text ) { ?>
-						<a class="zvg-elementor-blog__link" href="<?php the_permalink(); ?>">
+						<a class="zvg-elementor-post__link" href="<?php the_permalink(); ?>">
 							<?php echo esc_html( $link_text ); ?>
+							<span class="screen-reader-text"><?php echo esc_html( ': ' . get_the_title() ); ?></span>
 						</a>
 					<?php } ?>
 				</article>
 					<?php
 				}
 
-				wp_reset_postdata();
+				if ( $archive ) {
+					rewind_posts();
+				} else {
+					wp_reset_postdata();
+				}
 				?>
 			</div>
+
+			<?php
+			if ( $archive ) {
+				the_posts_pagination(
+					array(
+						'mid_size'  => 2,
+						'prev_text' => esc_html_x( 'Previous', 'Archive pagination', 'zvg-elementor' ),
+						'next_text' => esc_html_x( 'Next', 'Archive pagination', 'zvg-elementor' ),
+					)
+				);
+			}
+			?>
 		</div>
 		<?php
 	}

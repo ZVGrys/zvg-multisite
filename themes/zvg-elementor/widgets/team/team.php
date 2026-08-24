@@ -122,7 +122,7 @@ class ZVG_Elementor_Team extends Widget_Base {
 			array(
 				'label'       => esc_html__( 'Card button', 'zvg-elementor' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Read profile', 'zvg-elementor' ),
+				'default'     => __( 'Read profile', 'zvg-elementor' ),
 				'label_block' => true,
 			)
 		);
@@ -141,7 +141,7 @@ class ZVG_Elementor_Team extends Widget_Base {
 			array(
 				'label'       => esc_html__( 'Close button', 'zvg-elementor' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Close', 'zvg-elementor' ),
+				'default'     => __( 'Close', 'zvg-elementor' ),
 				'label_block' => true,
 			)
 		);
@@ -151,7 +151,7 @@ class ZVG_Elementor_Team extends Widget_Base {
 			array(
 				'label'       => esc_html__( 'Link "Get in touch" text', 'zvg-elementor' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Get in touch', 'zvg-elementor' ),
+				'default'     => __( 'Get in touch', 'zvg-elementor' ),
 				'description' => esc_html__( 'Shown only for members with a link set on their profile.', 'zvg-elementor' ),
 				'label_block' => true,
 			)
@@ -314,20 +314,17 @@ class ZVG_Elementor_Team extends Widget_Base {
 
 					$member_id = get_the_ID();
 					$role      = $this->get_role( $member_id );
-					$bio       = get_the_excerpt();
+					$bio       = (string) get_post_meta( $member_id, '_zvg_member_bio', true );
 					$profile   = get_post_meta( $member_id, '_zvg_member_profile', true );
 					$link      = get_post_meta( $member_id, '_zvg_member_link', true );
 					?>
 				<article class="zvg-elementor-team__member">
 					<?php if ( has_post_thumbnail() ) { ?>
 						<?php
-						echo wp_kses(
-							get_the_post_thumbnail(
-								$member_id,
-								'medium_large',
-								array( 'class' => 'zvg-elementor-team__portrait' )
-							),
-							'post'
+						echo get_the_post_thumbnail(
+							$member_id,
+							'medium_large',
+							array( 'class' => 'zvg-elementor-team__portrait' )
 						);
 						?>
 					<?php } ?>
@@ -343,7 +340,7 @@ class ZVG_Elementor_Team extends Widget_Base {
 					<?php } ?>
 
 					<?php if ( '' !== trim( $profile ) && '' !== $toggle_label ) { ?>
-						<button class="zvg-elementor-team__toggle" type="button" data-member-open data-member-link="<?php echo esc_attr( $link ); ?>" hidden>
+						<button class="zvg-elementor-team__toggle" type="button" data-member-open data-member-link="<?php echo esc_url( $link ); ?>" hidden>
 							<?php echo esc_html( $toggle_label ); ?>
 							<span class="elementor-screen-only"><?php echo esc_html( ': ' . get_the_title() ); ?></span>
 						</button>
@@ -365,8 +362,8 @@ class ZVG_Elementor_Team extends Widget_Base {
 			<dialog class="zvg-elementor-team__dialog" data-member-dialog closedby="any" aria-labelledby="<?php echo esc_attr( $name_id ); ?>">
 				<div class="zvg-elementor-team__dialog-head">
 					<div>
-						<h3 class="zvg-elementor-team__dialog-name" id="<?php echo esc_attr( $name_id ); ?>" data-member-name></h3>
-						<p class="zvg-elementor-team__dialog-role" data-member-role></p>
+						<h3 class="zvg-elementor-team__dialog-name" id="<?php echo esc_attr( $name_id ); ?>" data-member-name hidden></h3>
+						<p class="zvg-elementor-team__dialog-role" data-member-role hidden></p>
 					</div>
 
 					<?php if ( '' !== $close_label ) { ?>
@@ -374,9 +371,18 @@ class ZVG_Elementor_Team extends Widget_Base {
 					<?php } ?>
 				</div>
 
-				<img class="zvg-elementor-team__dialog-portrait" data-member-portrait src="" alt="" decoding="async">
+				<img
+					class="zvg-elementor-team__dialog-portrait"
+					data-member-portrait
+					src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+					width="800"
+					height="800"
+					alt=""
+					decoding="async"
+					hidden
+				>
 
-				<p class="zvg-elementor-team__dialog-bio" data-member-bio></p>
+				<p class="zvg-elementor-team__dialog-bio" data-member-bio hidden></p>
 
 				<div data-member-profile-slot></div>
 

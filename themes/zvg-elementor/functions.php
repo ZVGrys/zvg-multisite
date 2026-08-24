@@ -23,7 +23,9 @@ if ( ! defined( 'ZVG_ELEMENTOR_VERSION' ) ) {
 
 require_once ZVG_ELEMENTOR_T_PATH . '/include/actions-config.php';
 require_once ZVG_ELEMENTOR_T_PATH . '/include/helper-functions.php';
+require_once ZVG_ELEMENTOR_T_PATH . '/include/site-options.php';
 require_once ZVG_ELEMENTOR_T_PATH . '/include/post-types.php';
+require_once ZVG_ELEMENTOR_T_PATH . '/include/share-links.php';
 require_once ZVG_ELEMENTOR_T_PATH . '/cmb2/init.php';
 require_once ZVG_ELEMENTOR_T_PATH . '/include/metaboxes.php';
 

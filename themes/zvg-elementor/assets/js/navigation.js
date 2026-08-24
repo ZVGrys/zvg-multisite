@@ -8,12 +8,26 @@
 	'use strict';
 
 	/**
+	 * The width the menu collapses at, kept in the stylesheet so the value lives once.
+	 *
+	 * @return {string} A CSS length.
+	 */
+	function zvgElementorMenuBreakpoint() {
+		var value = window
+			.getComputedStyle(document.documentElement)
+			.getPropertyValue('--zvg-elementor-menu-breakpoint')
+			.trim();
+
+		return value || '782px';
+	}
+
+	/**
 	 * Toggle the fallback header menu on small screens.
 	 */
 	function zvgElementorInitNavigation() {
 		var toggle = document.querySelector('.zvg-elementor-header__toggle');
 		var nav = document.querySelector('.zvg-elementor-header__nav');
-		var small = window.matchMedia('(max-width: 782px)');
+		var small = window.matchMedia('(max-width: ' + zvgElementorMenuBreakpoint() + ')');
 
 		if (!toggle || !nav) {
 			return;

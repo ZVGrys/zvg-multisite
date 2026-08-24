@@ -126,7 +126,7 @@ class ZVG_Elementor_FAQS extends Widget_Base {
 			array(
 				'label'       => esc_html__( 'Question', 'zvg-elementor' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Question', 'zvg-elementor' ),
+				'default'     => __( 'Question', 'zvg-elementor' ),
 				'label_block' => true,
 			)
 		);
@@ -136,7 +136,7 @@ class ZVG_Elementor_FAQS extends Widget_Base {
 			array(
 				'label'       => esc_html__( 'Answer', 'zvg-elementor' ),
 				'type'        => Controls_Manager::TEXTAREA,
-				'default'     => esc_html__( 'There is some text for FAQ item', 'zvg-elementor' ),
+				'default'     => __( 'There is some text for FAQ item', 'zvg-elementor' ),
 				'label_block' => true,
 			)
 		);

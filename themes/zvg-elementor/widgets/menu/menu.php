@@ -223,7 +223,7 @@ class ZVG_Elementor_Menu extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		$menu     = isset( $settings['menu'] ) ? $settings['menu'] : '';
 
-		$items = $menu ? wp_nav_menu(
+		$items = $menu ? (string) wp_nav_menu(
 			array(
 				'menu'        => $menu,
 				'container'   => false,
@@ -233,23 +233,10 @@ class ZVG_Elementor_Menu extends Widget_Base {
 				'echo'        => false,
 			)
 		) : '';
+		$items = trim( $items );
 
-		$labels = array(
-			''          => _x( 'FSE', 'Build name', 'zvg-elementor' ),
-			'elementor' => _x( 'Elementor', 'Build name', 'zvg-elementor' ),
-			'acf'       => _x( 'ACF', 'Build name', 'zvg-elementor' ),
-		);
-		$builds = array();
-
-		if ( isset( $settings['show_switcher'] ) && 'yes' === $settings['show_switcher'] ) {
-			foreach ( is_multisite() ? get_sites( array( 'number' => 10 ) ) : array() as $site ) {
-				$path = trim( substr( $site->path, strlen( PATH_CURRENT_SITE ) ), '/' );
-
-				if ( isset( $labels[ $path ] ) ) {
-					$builds[ $path ] = (int) $site->blog_id;
-				}
-			}
-		}
+		$switcher = isset( $settings['show_switcher'] ) && 'yes' === $settings['show_switcher'];
+		$builds   = $switcher ? zvg_elementor_build_sites() : array();
 
 		if ( '' === $items && count( $builds ) < 2 ) {
 			return;
@@ -266,16 +253,14 @@ class ZVG_Elementor_Menu extends Widget_Base {
 
 			<div class="zvg-elementor-nav__panel" id="<?php echo esc_attr( $panel_id ); ?>">
 				<?php if ( ! empty( $items ) ) { ?>
-					<?php echo wp_kses( $items, 'post' ); ?>
+					<?php echo $items; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wp_nav_menu() markup, escaped by core. ?>
 				<?php } ?>
 
-				<?php if ( count( $builds ) > 1 ) { ?>
-				<nav class="zvg-elementor-switcher" aria-label="<?php echo esc_attr_x( 'Build', 'Build switcher label', 'zvg-elementor' ); ?>">
-					<?php foreach ( array_intersect_key( $labels, $builds ) as $path => $label ) { ?>
-					<a class="zvg-elementor-switcher__link" href="<?php echo esc_url( get_home_url( $builds[ $path ], '/' ) ); ?>"<?php echo get_current_blog_id() === $builds[ $path ] ? ' aria-current="page"' : ''; ?>><?php echo esc_html( $label ); ?></a>
-					<?php } ?>
-				</nav>
-				<?php } ?>
+				<?php
+				if ( $switcher ) {
+					zvg_elementor_render_build_switcher();
+				}
+				?>
 			</div>
 		</nav>
 		<?php

@@ -1,14 +1,12 @@
 @use '../../assets/css/vars' as *;
 
-$table-stack: 700px;
-
 .zvg-elementor-compare-table {
 	$root: &;
 
 	border: 1px solid $color-border;
 	border-radius: 6px;
 
-	@include down($table-stack) {
+	@include down($bp-medium) {
 		border: 0;
 		border-radius: 0;
 	}
@@ -20,11 +18,11 @@ $table-stack: 700px;
 
 		line-height: 1.5;
 
-		@include up($table-stack) {
+		@include up($bp-medium) {
 			min-width: 620px;
 		}
 
-		@include down($table-stack) {
+		@include down($bp-medium) {
 			display: block;
 		}
 
@@ -33,13 +31,13 @@ $table-stack: 700px;
 			padding: 16px;
 			border-bottom: 1px solid $color-border;
 
-			@include down($table-stack) {
+			@include down($bp-medium) {
 				display: block;
 			}
 		}
 
 		thead {
-			@include down($table-stack) {
+			@include down($bp-medium) {
 				display: none;
 			}
 		}
@@ -64,14 +62,14 @@ $table-stack: 700px;
 		}
 
 		thead td:first-child {
-			@include up($table-stack) {
+			@include up($bp-medium) {
 				position: sticky;
 				left: 0;
 			}
 		}
 
 		tbody {
-			@include down($table-stack) {
+			@include down($bp-medium) {
 				display: block;
 			}
 		}
@@ -82,13 +80,13 @@ $table-stack: 700px;
 			color: $color-muted;
 			background-color: $color-surface;
 
-			@include up($table-stack) {
+			@include up($bp-medium) {
 				position: sticky;
 				left: 0;
 				min-width: 200px;
 			}
 
-			@include down($table-stack) {
+			@include down($bp-medium) {
 				font-weight: 600;
 				color: $color-text;
 				background-color: $color-surface-alt;
@@ -108,7 +106,7 @@ $table-stack: 700px;
 			font-family: $font-mono;
 			font-weight: 600;
 
-			@include down($table-stack) {
+			@include down($bp-medium) {
 				display: flex;
 				align-items: baseline;
 				justify-content: space-between;
@@ -117,7 +115,7 @@ $table-stack: 700px;
 		}
 
 		tbody tr {
-			@include down($table-stack) {
+			@include down($bp-medium) {
 				display: block;
 				margin-bottom: 16px;
 				border: 1px solid $color-border;
@@ -132,7 +130,7 @@ $table-stack: 700px;
 		}
 
 		tbody tr:last-child {
-			@include down($table-stack) {
+			@include down($bp-medium) {
 				margin-bottom: 0;
 			}
 		}
@@ -141,7 +139,7 @@ $table-stack: 700px;
 	&__column {
 		display: none;
 
-		@include down($table-stack) {
+		@include down($bp-medium) {
 			display: block;
 			font-family: $font-body;
 			font-size: 15px;
