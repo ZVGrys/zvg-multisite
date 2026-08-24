@@ -4,6 +4,9 @@
 
 	<file>.</file>
 
+	<exclude-pattern>*/cmb2/*</exclude-pattern>
+	<exclude-pattern>*/languages/*</exclude-pattern>
+
 	<arg name="extensions" value="php"/>
 	<arg name="colors"/>
 	<arg value="sp"/>

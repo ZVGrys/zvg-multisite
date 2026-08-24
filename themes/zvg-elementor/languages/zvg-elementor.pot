@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-18T14:31:48+00:00\n"
+"POT-Creation-Date: 2026-08-21T13:31:31+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: zvg-elementor\n"
@@ -39,36 +39,16 @@ msgstr ""
 msgid "https://github.com/ZVGrys"
 msgstr ""
 
-#: 404.php:19
-msgctxt "Not found lead"
-msgid "This page does not exist on any of the three builds."
-msgstr ""
-
-#: 404.php:21
-msgctxt "Not found body"
-msgid "Either the address has a typo in it, or the link that brought you here points at something that has since moved."
-msgstr ""
-
-#: 404.php:24
-msgctxt "Not found link"
-msgid "Back to the homepage"
-msgstr ""
-
-#: footer.php:18
-msgctxt "Footer copyright"
-msgid "© 2026 Zoriana Grys, WordPress Full-Stack Engineer."
-msgstr ""
-
-#: footer.php:21
+#: footer.php:27
 msgctxt "Footer menu label"
 msgid "Footer"
 msgstr ""
 
-#: functions.php:62
+#: functions.php:64
 msgid "Primary"
 msgstr ""
 
-#: functions.php:63
+#: functions.php:65
 msgid "Footer"
 msgstr ""
 
@@ -76,188 +56,442 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:40
-#: widgets/menu/menu.php:262
+#: header.php:46
+#: widgets/menu/menu.php:263
 msgctxt "Mobile menu button"
 msgid "Menu"
 msgstr ""
 
-#: header.php:45
+#: header.php:51
 msgctxt "Header menu label"
 msgid "Sections"
 msgstr ""
 
-#: header.php:57
-#: widgets/build-switcher/build-switcher.php:167
-#: widgets/menu/menu.php:238
+#: header.php:64
+#: widgets/menu/menu.php:239
 msgctxt "Build name"
 msgid "FSE"
 msgstr ""
 
-#: header.php:58
-#: widgets/build-switcher/build-switcher.php:168
-#: widgets/menu/menu.php:239
+#: header.php:65
+#: widgets/menu/menu.php:240
 msgctxt "Build name"
 msgid "Elementor"
 msgstr ""
 
-#: header.php:59
-#: widgets/build-switcher/build-switcher.php:169
-#: widgets/menu/menu.php:240
+#: header.php:66
+#: widgets/menu/menu.php:241
 msgctxt "Build name"
 msgid "ACF"
 msgstr ""
 
-#: header.php:73
-#: widgets/build-switcher/build-switcher.php:188
-#: widgets/menu/menu.php:273
+#: header.php:80
+#: widgets/menu/menu.php:274
 msgctxt "Build switcher label"
-msgid "Build"
+msgid "Build version"
 msgstr ""
 
 #: include/elementor-widgets.php:23
 msgid "ZVG"
 msgstr ""
 
-#: include/metaboxes.php:20
+#: include/metaboxes.php:21
 msgid "Member details"
 msgstr ""
 
-#: include/metaboxes.php:27
-#: widgets/blog/blog.php:246
+#: include/metaboxes.php:28
+msgid "Short bio"
+msgstr ""
+
+#: include/metaboxes.php:29
+msgid "One sentence, shown on the card under the role."
+msgstr ""
+
+#: include/metaboxes.php:38
+#: widgets/blog/blog.php:302
 #: widgets/build-card/build-card.php:140
 #: widgets/build-card/build-card.php:259
 msgid "Link"
 msgstr ""
 
-#: include/metaboxes.php:28
+#: include/metaboxes.php:39
 msgid "Shown as the \"Get in touch\" link in the dialog. Leave empty to drop the link."
 msgstr ""
 
-#: include/metaboxes.php:36
+#: include/metaboxes.php:47
 msgid "Popup text"
 msgstr ""
 
-#: include/post-types.php:20
+#: include/metaboxes.php:48
+msgid "The long profile, shown inside the dialog. Leave empty and the card gets no button at all."
+msgstr ""
+
+#: include/post-types.php:25
 msgctxt "Post type general name"
 msgid "Team members"
 msgstr ""
 
-#: include/post-types.php:21
+#: include/post-types.php:26
 msgctxt "Post type singular name"
 msgid "Team member"
 msgstr ""
 
-#: include/post-types.php:22
+#: include/post-types.php:27
 msgctxt "Admin menu text"
 msgid "Team"
 msgstr ""
 
-#: include/post-types.php:23
+#: include/post-types.php:28
 msgid "Add team member"
 msgstr ""
 
-#: include/post-types.php:24
+#: include/post-types.php:29
 msgid "Edit team member"
 msgstr ""
 
-#: include/post-types.php:25
+#: include/post-types.php:30
 msgid "View team member"
 msgstr ""
 
-#: include/post-types.php:26
+#: include/post-types.php:31
 msgid "Search team members"
 msgstr ""
 
-#: include/post-types.php:27
+#: include/post-types.php:32
 msgid "No team members found."
 msgstr ""
 
-#: include/post-types.php:28
+#: include/post-types.php:33
 msgid "No team members found in Trash."
 msgstr ""
 
-#: include/post-types.php:29
+#: include/post-types.php:34
 msgid "Portrait"
 msgstr ""
 
-#: include/post-types.php:30
+#: include/post-types.php:35
 msgid "Set portrait"
 msgstr ""
 
-#: include/post-types.php:31
+#: include/post-types.php:36
 msgid "Remove portrait"
 msgstr ""
 
-#: include/post-types.php:32
+#: include/post-types.php:37
 msgid "Use as portrait"
 msgstr ""
 
-#: include/post-types.php:33
+#: include/post-types.php:38
 msgid "Team member archives"
 msgstr ""
 
-#: include/post-types.php:34
+#: include/post-types.php:39
 msgid "Team member published."
 msgstr ""
 
-#: include/post-types.php:35
+#: include/post-types.php:40
 msgid "Team member updated."
 msgstr ""
 
-#: include/post-types.php:42
+#: include/post-types.php:47
 msgid "Fictional profiles that demonstrate a custom post type across the three builds."
 msgstr ""
 
-#: include/post-types.php:63
+#: include/post-types.php:75
 msgctxt "Taxonomy general name"
 msgid "Roles"
 msgstr ""
 
-#: include/post-types.php:64
+#: include/post-types.php:76
 msgctxt "Taxonomy singular name"
 msgid "Role"
 msgstr ""
 
-#: include/post-types.php:65
+#: include/post-types.php:77
 msgid "Roles"
 msgstr ""
 
-#: include/post-types.php:66
+#: include/post-types.php:78
 msgid "Add role"
 msgstr ""
 
-#: include/post-types.php:67
+#: include/post-types.php:79
 msgid "Edit role"
 msgstr ""
 
-#: include/post-types.php:68
+#: include/post-types.php:80
 msgid "Search roles"
 msgstr ""
 
-#: include/post-types.php:69
+#: include/post-types.php:81
 msgid "No roles found."
 msgstr ""
 
-#: include/post-types.php:135
-msgid "Team members are not readable over the REST API."
+#: include/post-types.php:149
+msgid "Team members and their roles are not readable over the REST API."
+msgstr ""
+
+#: include/share-links.php:50
+msgctxt "Share network"
+msgid "Email"
+msgstr ""
+
+#: include/share-links.php:106
+msgctxt "Share links label"
+msgid "Share this post"
+msgstr ""
+
+#: include/share-links.php:114
+msgctxt "Share link"
+msgid "(opens in a new tab)"
+msgstr ""
+
+#: include/share-links.php:121
+msgctxt "Share links"
+msgid "Link copied"
+msgstr ""
+
+#: include/share-links.php:123
+#: widgets/share/share.php:101
+msgctxt "Share links"
+msgid "Copy link"
+msgstr ""
+
+#: include/site-options.php:23
+msgctxt "Header logo type"
+msgid "Site title"
+msgstr ""
+
+#: include/site-options.php:24
+msgctxt "Header logo type"
+msgid "Logo image"
+msgstr ""
+
+#: include/site-options.php:43
+msgctxt "Footer copyright without a site title"
+msgid "© {{year}}"
+msgstr ""
+
+#. translators: 1: the {{year}} token, replaced with the current year at render. 2: site title.
+#: include/site-options.php:48
+#, php-format
+msgctxt "Footer copyright"
+msgid "© %1$s %2$s"
+msgstr ""
+
+#: include/site-options.php:167
+msgctxt "Not found eyebrow"
+msgid "Error 404"
+msgstr ""
+
+#: include/site-options.php:168
+msgctxt "Not found code"
+msgid "404"
+msgstr ""
+
+#: include/site-options.php:169
+msgctxt "Not found lead"
+msgid "This page does not exist on any of the three builds."
+msgstr ""
+
+#: include/site-options.php:170
+msgctxt "Not found search"
+msgid "Type a word or two"
+msgstr ""
+
+#: include/site-options.php:171
+msgctxt "Not found search"
+msgid "Search"
+msgstr ""
+
+#: include/site-options.php:172
+msgctxt "Not found search hint"
+msgid "Looks through the posts and pages of this build."
+msgstr ""
+
+#: include/site-options.php:173
+msgctxt "Not found button"
+msgid "Back to the homepage"
+msgstr ""
+
+#: include/site-options.php:174
+msgctxt "Not found button"
+msgid "Read the blog"
+msgstr ""
+
+#: include/site-options.php:235
+msgctxt "Customizer section"
+msgid "Header"
+msgstr ""
+
+#: include/site-options.php:236
+msgid "Applies to the theme header. Elementor Theme Builder header replaces it."
+msgstr ""
+
+#: include/site-options.php:244
+msgctxt "Customizer section"
+msgid "Footer"
+msgstr ""
+
+#: include/site-options.php:245
+msgid "Applies to the theme footer. Elementor Theme Builder footer replaces it."
+msgstr ""
+
+#: include/site-options.php:264
+msgid "Logo type"
+msgstr ""
+
+#: include/site-options.php:295
+#: include/site-options.php:344
+msgctxt "Customizer control"
+msgid "Menu"
+msgstr ""
+
+#: include/site-options.php:313
+msgid "Show build switcher"
+msgstr ""
+
+#: include/site-options.php:332
+msgid "Copyright"
+msgstr ""
+
+#: include/site-options.php:333
+msgid "For a dynamic year use {{year}}. For example: © {{year}} Zoriana Grys."
+msgstr ""
+
+#: include/site-options.php:351
+msgctxt "Customizer section"
+msgid "404"
+msgstr ""
+
+#: include/site-options.php:352
+msgid "Applies to the theme not found page. An Elementor Theme Builder 404 template replaces it."
+msgstr ""
+
+#: include/site-options.php:358
+#: widgets/build-card/build-card.php:162
+#: widgets/build-card/build-card.php:317
+#: widgets/build-chooser/build-chooser.php:169
+#: widgets/compare-table/compare-table.php:159
+msgid "Label"
+msgstr ""
+
+#: include/site-options.php:359
+msgid "Code"
+msgstr ""
+
+#: include/site-options.php:360
+msgid "Lead"
+msgstr ""
+
+#: include/site-options.php:402
+msgid "Show search form"
+msgstr ""
+
+#: include/site-options.php:408
+msgid "Search placeholder"
+msgstr ""
+
+#: include/site-options.php:409
+msgid "Search button"
+msgstr ""
+
+#: include/site-options.php:410
+msgid "Search hint"
+msgstr ""
+
+#: include/site-options.php:441
+msgid "First Button: Label"
+msgstr ""
+
+#: include/site-options.php:446
+msgid "First Button: URL"
+msgstr ""
+
+#: include/site-options.php:448
+msgid "Leave empty to link to the homepage."
+msgstr ""
+
+#: include/site-options.php:451
+msgid "Second Button: Label"
+msgstr ""
+
+#: include/site-options.php:456
+msgid "Second Button: URL"
+msgstr ""
+
+#: include/site-options.php:458
+msgid "Leave empty to link to the posts page. The button is hidden while there is neither."
 msgstr ""
 
 #. translators: %s: search query.
-#: index.php:32
+#: index.php:31
 #, php-format
 msgctxt "Archive title"
 msgid "Search results for %s"
 msgstr ""
 
-#: index.php:70
+#: index.php:33
+msgctxt "Blog archive title"
+msgid "Latest posts"
+msgstr ""
+
+#: index.php:68
+msgctxt "Archive card link"
+msgid "Read more"
+msgstr ""
+
+#: index.php:81
+#: widgets/blog/blog.php:451
+msgctxt "Archive pagination"
+msgid "Previous"
+msgstr ""
+
+#: index.php:82
+#: widgets/blog/blog.php:452
+msgctxt "Archive pagination"
+msgid "Next"
+msgstr ""
+
+#: index.php:90
 msgctxt "Empty search"
 msgid "Nothing here matches that search."
 msgstr ""
 
-#: index.php:72
+#: index.php:92
+#: widgets/blog/blog.php:165
 msgctxt "Empty archive"
 msgid "Nothing has been published here yet."
+msgstr ""
+
+#: searchform.php:19
+msgctxt "Search form placeholder"
+msgid "What are you looking for?"
+msgstr ""
+
+#: searchform.php:23
+msgctxt "Search form button"
+msgid "Search"
+msgstr ""
+
+#: searchform.php:28
+msgctxt "Search form label"
+msgid "Search for"
+msgstr ""
+
+#: single.php:21
+msgctxt "Post navigation"
+msgid "Previous"
+msgstr ""
+
+#: single.php:22
+msgctxt "Post navigation"
+msgid "Next"
+msgstr ""
+
+#: single.php:57
+msgctxt "Post navigation label"
+msgid "Posts"
 msgstr ""
 
 #: widgets/blog/blog.php:49
@@ -273,56 +507,94 @@ msgid "Posts"
 msgstr ""
 
 #: widgets/blog/blog.php:112
+#: widgets/token-flow/token-flow.php:86
+#: widgets/token-flow/token-flow.php:172
+msgid "Source"
+msgstr ""
+
+#: widgets/blog/blog.php:116
+msgid "Latest posts"
+msgstr ""
+
+#: widgets/blog/blog.php:117
+msgid "Current query"
+msgstr ""
+
+#: widgets/blog/blog.php:119
+msgid "Current query follows the blog, category and search results, and adds pagination."
+msgstr ""
+
+#: widgets/blog/blog.php:126
 msgid "How many to show"
 msgstr ""
 
-#: widgets/blog/blog.php:123
+#: widgets/blog/blog.php:138
 #: widgets/team/team.php:110
 msgid "Order"
 msgstr ""
 
-#: widgets/blog/blog.php:127
+#: widgets/blog/blog.php:142
 #: widgets/team/team.php:115
 msgid "Newest first"
 msgstr ""
 
-#: widgets/blog/blog.php:128
+#: widgets/blog/blog.php:143
 #: widgets/team/team.php:114
 msgid "Oldest first"
 msgstr ""
 
-#: widgets/blog/blog.php:136
+#: widgets/blog/blog.php:152
 msgid "Category"
 msgstr ""
 
-#: widgets/blog/blog.php:146
+#: widgets/blog/blog.php:163
+msgid "Text when nothing is found"
+msgstr ""
+
+#: widgets/blog/blog.php:174
 msgid "Link \"Read more\" text"
 msgstr ""
 
-#: widgets/blog/blog.php:148
+#: widgets/blog/blog.php:176
 msgid "Read more"
 msgstr ""
 
-#: widgets/blog/blog.php:149
+#: widgets/blog/blog.php:177
 msgid "Leave empty to drop the link."
 msgstr ""
 
-#: widgets/blog/blog.php:159
+#: widgets/blog/blog.php:185
+#: widgets/build-card/build-card.php:104
+msgid "Title tag"
+msgstr ""
+
+#: widgets/blog/blog.php:195
+msgid "Pick the level that follows the heading above this list."
+msgstr ""
+
+#: widgets/blog/blog.php:202
+msgid "Date format"
+msgstr ""
+
+#: widgets/blog/blog.php:205
+msgid "PHP date format. Leave empty to follow Settings → General."
+msgstr ""
+
+#: widgets/blog/blog.php:215
 msgid "Date"
 msgstr ""
 
-#: widgets/blog/blog.php:175
-#: widgets/blog/blog.php:204
-#: widgets/blog/blog.php:233
-#: widgets/blog/blog.php:262
+#: widgets/blog/blog.php:231
+#: widgets/blog/blog.php:260
+#: widgets/blog/blog.php:289
+#: widgets/blog/blog.php:318
 #: widgets/build-chooser/build-chooser.php:395
 #: widgets/build-chooser/build-chooser.php:423
-#: widgets/build-switcher/build-switcher.php:119
-#: widgets/compare-table/compare-table.php:182
-#: widgets/compare-table/compare-table.php:212
-#: widgets/compare-table/compare-table.php:241
-#: widgets/editor-track/editor-track.php:169
-#: widgets/editor-track/editor-track.php:198
+#: widgets/compare-table/compare-table.php:209
+#: widgets/compare-table/compare-table.php:239
+#: widgets/compare-table/compare-table.php:268
+#: widgets/editor-track/editor-track.php:178
+#: widgets/editor-track/editor-track.php:207
 #: widgets/highlight-text/highlight-text.php:142
 #: widgets/highlight-text/highlight-text.php:196
 #: widgets/menu/menu.php:155
@@ -332,14 +604,14 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: widgets/blog/blog.php:188
+#: widgets/blog/blog.php:244
 #: widgets/build-card/build-card.php:94
 #: widgets/build-card/build-card.php:218
-#: widgets/build-chooser/build-chooser.php:226
+#: widgets/build-chooser/build-chooser.php:225
 msgid "Title"
 msgstr ""
 
-#: widgets/blog/blog.php:217
+#: widgets/blog/blog.php:273
 msgid "Excerpt"
 msgstr ""
 
@@ -356,13 +628,9 @@ msgstr ""
 msgid "Full Site Editing"
 msgstr ""
 
-#: widgets/build-card/build-card.php:104
-msgid "Title tag"
-msgstr ""
-
 #: widgets/build-card/build-card.php:120
 #: widgets/build-card/build-card.php:238
-#: widgets/build-chooser/build-chooser.php:235
+#: widgets/build-chooser/build-chooser.php:234
 #: widgets/highlight-text/highlight-text.php:93
 #: widgets/highlight-text/highlight-text.php:126
 msgid "Text"
@@ -384,13 +652,6 @@ msgstr ""
 #: widgets/build-card/build-card.php:183
 #: widgets/build-card/build-card.php:288
 msgid "Measurements"
-msgstr ""
-
-#: widgets/build-card/build-card.php:162
-#: widgets/build-card/build-card.php:317
-#: widgets/build-chooser/build-chooser.php:170
-#: widgets/compare-table/compare-table.php:134
-msgid "Label"
 msgstr ""
 
 #: widgets/build-card/build-card.php:164
@@ -441,7 +702,7 @@ msgstr ""
 
 #. translators: an em dash, standing in for a measurement that has not been taken yet.
 #: widgets/build-card/build-card.php:349
-#: widgets/compare-table/compare-table.php:281
+#: widgets/compare-table/compare-table.php:299
 msgctxt "Unmeasured statistic"
 msgid "—"
 msgstr ""
@@ -461,7 +722,7 @@ msgid "ZVG Build Chooser"
 msgstr ""
 
 #: widgets/build-chooser/build-chooser.php:130
-#: widgets/build-chooser/build-chooser.php:196
+#: widgets/build-chooser/build-chooser.php:195
 #: widgets/build-chooser/build-chooser.php:379
 msgid "Questions"
 msgstr ""
@@ -481,49 +742,50 @@ msgid "Groups the answers of this question. Lowercase, no spaces."
 msgstr ""
 
 #. translators: %d: which answer of the question this is.
-#: widgets/build-chooser/build-chooser.php:161
+#: widgets/build-chooser/build-chooser.php:160
 #, php-format
 msgid "Answer %d"
 msgstr ""
 
-#: widgets/build-chooser/build-chooser.php:208
-#: widgets/build-chooser/build-chooser.php:245
+#: widgets/build-chooser/build-chooser.php:207
+#: widgets/build-chooser/build-chooser.php:244
 msgid "Verdicts"
 msgstr ""
 
-#: widgets/build-chooser/build-chooser.php:217
+#: widgets/build-chooser/build-chooser.php:216
 msgid "Build"
 msgstr ""
 
-#: widgets/build-chooser/build-chooser.php:257
-#: widgets/build-chooser/build-chooser.php:294
+#: widgets/build-chooser/build-chooser.php:256
+#: widgets/build-chooser/build-chooser.php:293
 #: widgets/build-chooser/build-chooser.php:486
 msgid "Definitions"
 msgstr ""
 
-#: widgets/build-chooser/build-chooser.php:264
+#: widgets/build-chooser/build-chooser.php:263
 msgid "Heading"
 msgstr ""
 
-#: widgets/build-chooser/build-chooser.php:275
+#: widgets/build-chooser/build-chooser.php:274
 #: widgets/build-chooser/build-chooser.php:495
 msgid "Term"
 msgstr ""
 
-#: widgets/build-chooser/build-chooser.php:284
+#: widgets/build-chooser/build-chooser.php:283
 #: widgets/build-chooser/build-chooser.php:515
 msgid "Description"
 msgstr ""
 
-#: widgets/build-chooser/build-chooser.php:306
+#: widgets/build-chooser/build-chooser.php:305
 msgid "Labels"
 msgstr ""
 
-#: widgets/build-chooser/build-chooser.php:313
+#: widgets/build-chooser/build-chooser.php:312
 #: widgets/build-chooser/build-chooser.php:406
 msgid "Progress"
 msgstr ""
 
+#. translators: %1$d and %2$d are placeholders the editor types into the field; keep them in the translation.
 #: widgets/build-chooser/build-chooser.php:315
 #, php-format
 msgid "Use %1$d for the current question and %2$d for how many there are."
@@ -581,118 +843,63 @@ msgstr ""
 msgid "Description color"
 msgstr ""
 
-#: widgets/build-switcher/build-switcher.php:32
-msgid "ZVG Build Switcher"
-msgstr ""
-
-#: widgets/build-switcher/build-switcher.php:69
-#: widgets/faqs/faqs.php:103
-#: widgets/highlight-text/highlight-text.php:86
-#: widgets/menu/menu.php:109
-msgid "Content"
-msgstr ""
-
-#: widgets/build-switcher/build-switcher.php:76
-msgid "Variant"
-msgstr ""
-
-#: widgets/build-switcher/build-switcher.php:80
-msgid "Segmented"
-msgstr ""
-
-#: widgets/build-switcher/build-switcher.php:81
-msgid "List"
-msgstr ""
-
-#: widgets/build-switcher/build-switcher.php:89
-msgid "Long labels"
-msgstr ""
-
-#: widgets/build-switcher/build-switcher.php:91
-msgid "Shows \"FSE build\" instead of \"FSE\"."
-msgstr ""
-
-#: widgets/build-switcher/build-switcher.php:92
-msgid "Yes"
-msgstr ""
-
-#: widgets/build-switcher/build-switcher.php:93
-msgid "No"
-msgstr ""
-
-#: widgets/build-switcher/build-switcher.php:103
-msgid "Builds"
-msgstr ""
-
-#: widgets/build-switcher/build-switcher.php:130
-#: widgets/menu/menu.php:166
-msgid "Hover color"
-msgstr ""
-
-#: widgets/build-switcher/build-switcher.php:142
-msgid "Current build color"
-msgstr ""
-
-#: widgets/build-switcher/build-switcher.php:162
-msgctxt "Build name"
-msgid "FSE build"
-msgstr ""
-
-#: widgets/build-switcher/build-switcher.php:163
-msgctxt "Build name"
-msgid "Elementor build"
-msgstr ""
-
-#: widgets/build-switcher/build-switcher.php:164
-msgctxt "Build name"
-msgid "ACF build"
-msgstr ""
-
 #: widgets/compare-table/compare-table.php:49
 msgid "ZVG Compare Table"
 msgstr ""
 
-#: widgets/compare-table/compare-table.php:86
-msgid "Table"
-msgstr ""
-
-#: widgets/compare-table/compare-table.php:93
-msgid "Caption for screen readers"
+#: widgets/compare-table/compare-table.php:103
+msgctxt "Compare table column"
+msgid "FSE"
 msgstr ""
 
 #: widgets/compare-table/compare-table.php:104
-#: widgets/team/team.php:165
-#: widgets/token-flow/token-flow.php:93
-#: widgets/token-flow/token-flow.php:124
-#: widgets/token-flow/token-flow.php:181
-#: widgets/token-flow/token-flow.php:211
-msgid "Name"
+msgctxt "Compare table column"
+msgid "Elementor"
 msgstr ""
 
-#: widgets/compare-table/compare-table.php:113
-msgid "Columns"
+#: widgets/compare-table/compare-table.php:105
+msgctxt "Compare table column"
+msgid "ACF theme"
 msgstr ""
 
-#: widgets/compare-table/compare-table.php:125
-#: widgets/compare-table/compare-table.php:153
+#: widgets/compare-table/compare-table.php:126
+msgid "Table"
+msgstr ""
+
+#: widgets/compare-table/compare-table.php:133
+msgid "Caption for screen readers"
+msgstr ""
+
+#. translators: %s: the column's own name, shown so the editor knows which one this is.
+#: widgets/compare-table/compare-table.php:146
+#, php-format
+msgid "Column: %s"
+msgstr ""
+
+#. translators: %s: name of a build the table compares.
+#: widgets/compare-table/compare-table.php:170
+#, php-format
+msgid "%s: Value"
+msgstr ""
+
+#: widgets/compare-table/compare-table.php:172
+msgid "Leave empty for a check that has not been run yet."
+msgstr ""
+
+#: widgets/compare-table/compare-table.php:181
 msgid "Rows"
 msgstr ""
 
-#: widgets/compare-table/compare-table.php:143
-#: widgets/compare-table/compare-table.php:225
-msgid "Values"
-msgstr ""
-
-#: widgets/compare-table/compare-table.php:145
-msgid "One value per column, separated by a vertical bar: 6955 | 7100 | 6800. Leave a value empty for a check that has not been run yet."
-msgstr ""
-
-#: widgets/compare-table/compare-table.php:165
+#: widgets/compare-table/compare-table.php:193
 msgid "Column names"
 msgstr ""
 
-#: widgets/compare-table/compare-table.php:196
+#: widgets/compare-table/compare-table.php:223
 msgid "Row labels"
+msgstr ""
+
+#: widgets/compare-table/compare-table.php:252
+msgid "Values"
 msgstr ""
 
 #: widgets/editor-track/editor-track.php:57
@@ -700,12 +907,12 @@ msgid "ZVG Editor Track"
 msgstr ""
 
 #: widgets/editor-track/editor-track.php:103
-#: widgets/editor-track/editor-track.php:141
+#: widgets/editor-track/editor-track.php:150
 msgid "Editors"
 msgstr ""
 
 #: widgets/editor-track/editor-track.php:112
-#: widgets/editor-track/editor-track.php:123
+#: widgets/editor-track/editor-track.php:132
 msgid "Screenshot"
 msgstr ""
 
@@ -713,21 +920,27 @@ msgstr ""
 msgid "Leave empty to show the placeholder text instead."
 msgstr ""
 
-#: widgets/editor-track/editor-track.php:121
+#: widgets/editor-track/editor-track.php:130
 msgid "Placeholder text"
 msgstr ""
 
-#: widgets/editor-track/editor-track.php:131
-#: widgets/editor-track/editor-track.php:153
+#: widgets/editor-track/editor-track.php:140
+#: widgets/editor-track/editor-track.php:162
 msgid "Caption"
 msgstr ""
 
-#: widgets/editor-track/editor-track.php:182
+#: widgets/editor-track/editor-track.php:191
 msgid "Placeholder"
 msgstr ""
 
 #: widgets/faqs/faqs.php:57
 msgid "ZVG FAQs"
+msgstr ""
+
+#: widgets/faqs/faqs.php:103
+#: widgets/highlight-text/highlight-text.php:86
+#: widgets/menu/menu.php:109
+msgid "Content"
 msgstr ""
 
 #: widgets/faqs/faqs.php:110
@@ -751,11 +964,12 @@ msgid "ZVG Highlight Text"
 msgstr ""
 
 #: widgets/highlight-text/highlight-text.php:96
-msgid "Built by {{Zoriana Grys}}, WordPress Full-Stack Engineer."
+msgctxt "Highlight text placeholder"
+msgid "Built by {{the person who signs it}}."
 msgstr ""
 
 #: widgets/highlight-text/highlight-text.php:97
-msgid "Put double braces around the part you want highlighted: Built by {{Zoriana Grys}}."
+msgid "Put double braces around the part you want highlighted: Built by {{someone}}."
 msgstr ""
 
 #: widgets/highlight-text/highlight-text.php:104
@@ -807,6 +1021,10 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
+#: widgets/menu/menu.php:166
+msgid "Hover color"
+msgstr ""
+
 #: widgets/menu/menu.php:180
 msgid "Panel"
 msgstr ""
@@ -819,9 +1037,27 @@ msgstr ""
 msgid "Toggle color"
 msgstr ""
 
-#: widgets/menu/menu.php:260
+#: widgets/menu/menu.php:261
 msgctxt "Menu label"
 msgid "Sections"
+msgstr ""
+
+#: widgets/share/share.php:33
+msgid "ZVG Share"
+msgstr ""
+
+#: widgets/share/share.php:79
+msgid "Share"
+msgstr ""
+
+#: widgets/share/share.php:90
+#: widgets/share/share.php:103
+msgid "Show"
+msgstr ""
+
+#: widgets/share/share.php:91
+#: widgets/share/share.php:104
+msgid "Hide"
 msgstr ""
 
 #: widgets/team/team.php:57
@@ -864,6 +1100,14 @@ msgstr ""
 msgid "Shown only for members with a link set on their profile."
 msgstr ""
 
+#: widgets/team/team.php:165
+#: widgets/token-flow/token-flow.php:93
+#: widgets/token-flow/token-flow.php:124
+#: widgets/token-flow/token-flow.php:181
+#: widgets/token-flow/token-flow.php:211
+msgid "Name"
+msgstr ""
+
 #: widgets/team/team.php:194
 msgid "Role"
 msgstr ""
@@ -874,11 +1118,6 @@ msgstr ""
 
 #: widgets/token-flow/token-flow.php:49
 msgid "ZVG Token Flow"
-msgstr ""
-
-#: widgets/token-flow/token-flow.php:86
-#: widgets/token-flow/token-flow.php:172
-msgid "Source"
 msgstr ""
 
 #: widgets/token-flow/token-flow.php:95

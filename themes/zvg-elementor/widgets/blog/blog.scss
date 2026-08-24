@@ -1,114 +1,25 @@
 @use '../../assets/css/vars' as *;
 
 .zvg-elementor-blog {
-	$root: &;
-
-	#{$root}__grid {
+	&__grid {
 		display: grid;
 		gap: 24px;
 		grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
 	}
 
-	#{$root}__card {
-		background: $color-surface-alt;
-		border: 1px solid $color-border;
-		border-radius: 6px;
-		display: flex;
-		flex-direction: column;
-		gap: 16px;
-		height: 100%;
-		padding: 16px;
-		transition: border-color 400ms ease, box-shadow 400ms ease;
-
-		&:hover,
-		&:has(:focus-visible) {
-			border-color: $color-accent;
-			box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-		}
-	}
-
-	#{$root}__thumbnail-link {
-		display: block;
-	}
-
-	#{$root}__thumbnail {
-		aspect-ratio: 16 / 9;
-		border: 1px solid $color-border;
-		border-radius: 4px;
-		display: block;
-		height: auto;
-		object-fit: cover;
-		width: 100%;
-	}
-
-	#{$root}__date {
+	&__empty {
 		color: $color-muted;
-		font-family: $font-mono;
-		font-size: 13px;
-		line-height: 1.5;
-		margin: 16px 0 0;
 	}
 
-	#{$root}__title {
-		font-size: 19px;
-		letter-spacing: -0.01em;
-		line-height: 1.15;
-		margin: 0;
+	&--archive &__grid {
+		grid-template-columns: 1fr;
 
-		a {
-			color: inherit;
-			text-decoration: none;
-			transition: color 200ms ease;
-
-			&:hover,
-			&:focus {
-				color: $color-accent;
-			}
-		}
-	}
-
-	#{$root}__excerpt {
-		color: $color-muted;
-		font-size: 15px;
-		line-height: 1.55;
-
-		@include down($bp-large) {
-			font-size: 14px;
-		}
-	}
-
-	#{$root}__link {
-		align-self: flex-start;
-		color: $color-accent;
-		font-family: $font-mono;
-		font-size: 13px;
-		font-weight: 600;
-		line-height: 1.5;
-		margin-top: auto;
-		text-decoration: none;
-
-		&:hover,
-		&:focus {
-			text-decoration: none;
+		@include up($bp-small) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 
-		&::after {
-			content: "\2192";
-			display: inline-block;
-			margin-left: 0.35em;
-			transition: transform 300ms ease;
-		}
-
-		&:hover::after,
-		&:focus::after {
-			transform: translateX(2px);
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		#{$root}__card,
-		#{$root}__link::after {
-			transition: none;
+		@include up($bp-large) {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
 		}
 	}
 }

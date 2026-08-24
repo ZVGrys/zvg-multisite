@@ -8,6 +8,18 @@
 defined( 'ABSPATH' ) || exit;
 
 add_action( 'wp_enqueue_scripts', 'zvg_elementor_enqueue_scripts', 999 );
+add_action( 'wp_head', 'zvg_elementor_flag_script_support', 1 );
+
+/**
+ * Mark the document as scripted before the body is painted.
+ */
+function zvg_elementor_flag_script_support() {
+	if ( is_admin() ) {
+		return;
+	}
+
+	wp_print_inline_script_tag( 'document.documentElement.classList.add("zvg-elementor-js");' );
+}
 
 /**
  * Resolve asset version.
@@ -86,6 +98,35 @@ function zvg_elementor_enqueue_scripts() {
 		zvg_elementor_get_asset_version( '/assets/css/switcher.css' )
 	);
 
+	wp_register_style(
+		'zvg-elementor-share',
+		ZVG_ELEMENTOR_T_URI . '/assets/css/share.css',
+		array( 'zvg-elementor-general' ),
+		zvg_elementor_get_asset_version( '/assets/css/share.css' )
+	);
+
+	wp_register_style(
+		'zvg-elementor-post-card',
+		ZVG_ELEMENTOR_T_URI . '/assets/css/blog/post-card.css',
+		array( 'zvg-elementor-general' ),
+		zvg_elementor_get_asset_version( '/assets/css/blog/post-card.css' )
+	);
+
+	wp_register_style(
+		'zvg-elementor-pagination',
+		ZVG_ELEMENTOR_T_URI . '/assets/css/blog/pagination.css',
+		array( 'zvg-elementor-general' ),
+		zvg_elementor_get_asset_version( '/assets/css/blog/pagination.css' )
+	);
+
+	wp_register_script(
+		'zvg-elementor-share',
+		ZVG_ELEMENTOR_T_URI . '/assets/js/share.min.js',
+		array(),
+		zvg_elementor_get_asset_version( '/assets/js/share.min.js' ),
+		true
+	);
+
 	if ( ! zvg_elementor_has_location( 'header' ) ) {
 		zvg_elementor_enqueue_style( 'header', '/assets/css/header.css', array( 'zvg-elementor-general' ) );
 		wp_enqueue_style( 'zvg-elementor-switcher' );
@@ -103,15 +144,21 @@ function zvg_elementor_enqueue_scripts() {
 		zvg_elementor_enqueue_style( 'error-page', '/assets/css/error-page.css', array( 'zvg-elementor-general' ) );
 	}
 
-	if ( is_single() ) {
+	if ( is_single() && ! zvg_elementor_owns_content() ) {
 		zvg_elementor_enqueue_style( 'blog-single', '/assets/css/blog/blog-single.css', array( 'zvg-elementor-general' ) );
+
+		wp_enqueue_style( 'zvg-elementor-share' );
+		wp_enqueue_script( 'zvg-elementor-share' );
 	}
 
-	if ( $blog_page ) {
+	if ( $blog_page && ! zvg_elementor_owns_content() ) {
 		zvg_elementor_enqueue_style( 'blog-list', '/assets/css/blog/blog-list.css', array( 'zvg-elementor-general' ) );
+
+		wp_enqueue_style( 'zvg-elementor-post-card' );
+		wp_enqueue_style( 'zvg-elementor-pagination' );
 	}
 
-	if ( has_nav_menu( 'primary' ) ) {
+	if ( has_nav_menu( 'primary' ) && ! zvg_elementor_has_location( 'header' ) ) {
 		wp_enqueue_script(
 			'zvg-elementor-navigation',
 			ZVG_ELEMENTOR_T_URI . '/assets/js/navigation.min.js',

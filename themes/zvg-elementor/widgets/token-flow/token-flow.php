@@ -92,7 +92,7 @@ class ZVG_Elementor_Token_Flow extends Widget_Base {
 			array(
 				'label'       => esc_html__( 'Name', 'zvg-elementor' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Figma variables', 'zvg-elementor' ),
+				'default'     => __( 'Figma variables', 'zvg-elementor' ),
 				'label_block' => true,
 			)
 		);
@@ -102,7 +102,7 @@ class ZVG_Elementor_Token_Flow extends Widget_Base {
 			array(
 				'label'       => esc_html__( 'Note', 'zvg-elementor' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'colour · type · spacing · radius · shadow', 'zvg-elementor' ),
+				'default'     => __( 'colour · type · spacing · radius · shadow', 'zvg-elementor' ),
 				'label_block' => true,
 			)
 		);
@@ -123,7 +123,7 @@ class ZVG_Elementor_Token_Flow extends Widget_Base {
 			array(
 				'label'       => esc_html__( 'Name', 'zvg-elementor' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'theme.json', 'zvg-elementor' ),
+				'default'     => __( 'theme.json', 'zvg-elementor' ),
 				'label_block' => true,
 			)
 		);
@@ -133,7 +133,7 @@ class ZVG_Elementor_Token_Flow extends Widget_Base {
 			array(
 				'label'       => esc_html__( 'Note', 'zvg-elementor' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'FSE', 'zvg-elementor' ),
+				'default'     => __( 'FSE', 'zvg-elementor' ),
 				'label_block' => true,
 			)
 		);
@@ -264,6 +264,8 @@ class ZVG_Elementor_Token_Flow extends Widget_Base {
 		if ( empty( $outputs ) ) {
 			return;
 		}
+
+		$total = count( $outputs );
 		?>
 		<div class="zvg-elementor-token-flow">
 			<?php if ( ! empty( $settings['source_name'] ) || ! empty( $settings['source_meta'] ) ) { ?>
@@ -281,11 +283,21 @@ class ZVG_Elementor_Token_Flow extends Widget_Base {
 			<?php // The connectors carry no meaning of their own: the list below says the same thing in words. ?>
 			<div class="zvg-elementor-token-flow__trunk" aria-hidden="true"></div>
 
+			<?php if ( $total > 1 ) { ?>
 			<div class="zvg-elementor-token-flow__elbows" aria-hidden="true">
 				<div class="zvg-elementor-token-flow__elbow zvg-elementor-token-flow__elbow--left"></div>
 				<div class="zvg-elementor-token-flow__elbow zvg-elementor-token-flow__elbow--right"></div>
-				<div class="zvg-elementor-token-flow__mid"></div>
+
+				<?php
+				for ( $position = 1; $position < $total - 1; $position++ ) {
+					printf(
+						'<div class="zvg-elementor-token-flow__mid" style="--zvg-elementor-mid:%s%%"></div>',
+						esc_attr( (string) round( ( $position + 0.5 ) / $total * 100, 4 ) )
+					);
+				}
+				?>
 			</div>
+			<?php } ?>
 
 			<ul class="zvg-elementor-token-flow__outputs">
 				<?php

@@ -93,7 +93,7 @@ class ZVG_Elementor_Build_Card extends Widget_Base {
 			array(
 				'label'       => esc_html__( 'Title', 'zvg-elementor' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Full Site Editing', 'zvg-elementor' ),
+				'default'     => __( 'Full Site Editing', 'zvg-elementor' ),
 				'label_block' => true,
 			)
 		);
@@ -119,7 +119,7 @@ class ZVG_Elementor_Build_Card extends Widget_Base {
 			array(
 				'label'       => esc_html__( 'Text', 'zvg-elementor' ),
 				'type'        => Controls_Manager::TEXTAREA,
-				'default'     => esc_html__( 'Built entirely in the block editor: theme.json for styling, native block patterns for layout, no custom PHP templates.', 'zvg-elementor' ),
+				'default'     => __( 'Built entirely in the block editor: theme.json for styling, native block patterns for layout, no custom PHP templates.', 'zvg-elementor' ),
 				'label_block' => true,
 			)
 		);
@@ -129,7 +129,7 @@ class ZVG_Elementor_Build_Card extends Widget_Base {
 			array(
 				'label'       => esc_html__( 'Link text', 'zvg-elementor' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'View live build', 'zvg-elementor' ),
+				'default'     => __( 'View live build', 'zvg-elementor' ),
 				'label_block' => true,
 			)
 		);
@@ -161,7 +161,7 @@ class ZVG_Elementor_Build_Card extends Widget_Base {
 			array(
 				'label'       => esc_html__( 'Label', 'zvg-elementor' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Lines of code', 'zvg-elementor' ),
+				'default'     => __( 'Lines of code', 'zvg-elementor' ),
 				'label_block' => true,
 			)
 		);
@@ -186,15 +186,15 @@ class ZVG_Elementor_Build_Card extends Widget_Base {
 				'title_field' => '{{{ label }}}',
 				'default'     => array(
 					array(
-						'label' => esc_html__( 'Lines of code', 'zvg-elementor' ),
+						'label' => __( 'Lines of code', 'zvg-elementor' ),
 						'value' => '',
 					),
 					array(
-						'label' => esc_html__( 'Page weight', 'zvg-elementor' ),
+						'label' => __( 'Page weight', 'zvg-elementor' ),
 						'value' => '',
 					),
 					array(
-						'label' => esc_html__( 'DOM nodes', 'zvg-elementor' ),
+						'label' => __( 'DOM nodes', 'zvg-elementor' ),
 						'value' => '',
 					),
 				),
@@ -334,8 +334,7 @@ class ZVG_Elementor_Build_Card extends Widget_Base {
 	}
 
 	/**
-	 * Render one measurement value, setting a trailing unit in its own span so
-	 * "476 KB" keeps the rhythm of the plain numbers beside it.
+	 * Render one measurement value, with any trailing unit in its own span.
 	 *
 	 * @param string $value Measurement value.
 	 *
@@ -395,7 +394,12 @@ class ZVG_Elementor_Build_Card extends Widget_Base {
 			<?php } ?>
 
 			<?php if ( $has_link ) { ?>
-				<a <?php $this->print_render_attribute_string( 'link' ); ?>><?php echo esc_html( $link_text ); ?></a>
+				<a <?php $this->print_render_attribute_string( 'link' ); ?>>
+					<?php echo esc_html( $link_text ); ?>
+					<?php if ( ! empty( $settings['title'] ) ) { ?>
+						<span class="screen-reader-text"><?php echo esc_html( ': ' . $settings['title'] ); ?></span>
+					<?php } ?>
+				</a>
 			<?php } ?>
 
 			<?php if ( ! empty( $stats ) ) { ?>

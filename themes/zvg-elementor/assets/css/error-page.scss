@@ -1,28 +1,137 @@
 @use 'vars' as *;
 
+.error404 {
+	display: flex;
+	flex-direction: column;
+
+	.zvg-elementor-main {
+		display: flex;
+		flex: 1 0 auto;
+		flex-direction: column;
+	}
+}
+
 .zvg-elementor-404 {
+	$root: &;
+
+	display: flex;
+	flex: 1 0 auto;
+	flex-direction: column;
+	justify-content: center;
 	margin-inline: auto;
+	margin-top: 96px;
 	max-width: 820px;
-	padding-block: 96px;
+	min-height: 70vh;
+	padding-bottom: 96px;
+	text-align: center;
+	width: 100%;
+
+	&__eyebrow {
+		color: $color-accent;
+		font-family: $font-mono;
+		font-size: 13px;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		line-height: 1.4;
+		margin: 0;
+		text-transform: uppercase;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
+	}
 
 	&__code {
-		color: $color-border-strong;
-		font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-		font-size: 52px;
+		color: $color-accent;
+		font-family: $font-mono;
+		font-size: 120px;
 		font-weight: 600;
-		margin: 0 0 16px;
+		line-height: 1;
+		margin: 8px 0 16px;
+
+		@include down($bp-large) {
+			font-size: 90px;
+		}
+
+		@include down($bp-small) {
+			font-size: 68px;
+		}
 	}
 
-	&__lead {
-		margin-bottom: 16px;
-	}
-
-	&__body {
-		color: $color-muted;
+	h1#{$root}__lead {
+		font-size: 19px;
+		font-weight: 400;
+		letter-spacing: 0;
+		margin: 0 auto 16px;
 		max-width: 560px;
+
+		@include down($bp-large) {
+			font-size: 18px;
+		}
+
+		@include down($bp-small) {
+			font-size: 17px;
+		}
+	}
+
+	&__hint {
+		color: $color-muted;
+		font-family: $font-mono;
+		font-size: 13px;
+		line-height: 1.5;
+		margin: 0;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
 	}
 
 	&__links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+		justify-content: center;
 		margin-top: 40px;
+	}
+
+	a#{$root}__button {
+		text-decoration: none;
+
+		&:focus,
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	a#{$root}__button--outline {
+		background-color: transparent;
+		border-color: $color-border-strong;
+		color: $color-text;
+
+		&:focus,
+		&:hover {
+			background-color: transparent;
+			border-color: $color-accent;
+			color: $color-accent;
+		}
+	}
+
+	.zvg-elementor-search {
+		display: flex;
+		flex-wrap: nowrap;
+		gap: 18px;
+		margin: 24px auto 8px;
+		max-width: 560px;
+		text-align: start;
+		width: 100%;
+	}
+
+	.zvg-elementor-search__field {
+		flex: 1 1 240px;
+		min-width: 0;
+
+		&::placeholder {
+			color: $color-muted;
+		}
 	}
 }

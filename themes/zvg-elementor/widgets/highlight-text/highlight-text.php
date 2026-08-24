@@ -93,8 +93,8 @@ class ZVG_Elementor_Highlight_Text extends Widget_Base {
 				'label'       => esc_html__( 'Text', 'zvg-elementor' ),
 				'type'        => Controls_Manager::TEXTAREA,
 				'rows'        => 3,
-				'default'     => esc_html__( 'Built by {{Zoriana Grys}}, WordPress Full-Stack Engineer.', 'zvg-elementor' ),
-				'description' => esc_html__( 'Put double braces around the part you want highlighted: Built by {{Zoriana Grys}}.', 'zvg-elementor' ),
+				'default'     => _x( 'Built by {{the person who signs it}}.', 'Highlight text placeholder', 'zvg-elementor' ),
+				'description' => esc_html__( 'Put double braces around the part you want highlighted: Built by {{someone}}.', 'zvg-elementor' ),
 			)
 		);
 

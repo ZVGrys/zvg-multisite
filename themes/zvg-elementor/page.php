@@ -15,8 +15,14 @@ if ( ! zvg_elementor_do_location( 'single' ) ) {
 	while ( have_posts() ) {
 		the_post();
 
-		the_content();
+		if ( ! zvg_elementor_is_builder_page() ) {
+			?>
+		<h1 class="zvg-elementor-entry__title"><?php the_title(); ?></h1>
+			<?php
+		}
 
+		the_content();
+		wp_link_pages();
 	}
 }
 

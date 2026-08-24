@@ -44,6 +44,21 @@
 			return node ? node.textContent.trim() : '';
 		}
 
+		/**
+		 * Fill one slot, leaving it out of the document when there is nothing to say.
+		 *
+		 * @param {HTMLElement} slot  Slot element.
+		 * @param {string}      value Text to place in it.
+		 */
+		function fillSlot(slot, value) {
+			if (!slot) {
+				return;
+			}
+
+			slot.textContent = value;
+			slot.hidden = '' === value;
+		}
+
 		function fillPortrait(card) {
 			if (!portraitSlot) {
 				return;
@@ -60,6 +75,11 @@
 			portraitSlot.hidden = false;
 			portraitSlot.src = image.currentSrc || image.src;
 			portraitSlot.alt = image.alt;
+
+			if (image.naturalWidth && image.naturalHeight) {
+				portraitSlot.width = image.naturalWidth;
+				portraitSlot.height = image.naturalHeight;
+			}
 		}
 
 		function fillProfile(card) {
@@ -126,9 +146,9 @@
 			opener = button;
 			openerFromKeyboard = fromKeyboard;
 
-			nameSlot.textContent = text(card, '.zvg-elementor-team__name');
-			roleSlot.textContent = text(card, '.zvg-elementor-team__role');
-			bioSlot.textContent = text(card, '.zvg-elementor-team__bio');
+			fillSlot(nameSlot, text(card, '.zvg-elementor-team__name'));
+			fillSlot(roleSlot, text(card, '.zvg-elementor-team__role'));
+			fillSlot(bioSlot, text(card, '.zvg-elementor-team__bio'));
 
 			fillPortrait(card);
 			fillProfile(card);

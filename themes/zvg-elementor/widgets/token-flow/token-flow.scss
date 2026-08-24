@@ -62,6 +62,10 @@ $flow-collapse: $flow-card-basis * 3 + $flow-card-gap * 2 + 48px;
 		font-size: 13px;
 		line-height: 1.5;
 		margin-top: 2px;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
 	}
 
 	#{$root}__trunk,
@@ -156,7 +160,7 @@ $flow-collapse: $flow-card-basis * 3 + $flow-card-gap * 2 + 48px;
 
 	#{$root}__mid {
 		bottom: 0;
-		left: 50%;
+		left: var(--zvg-elementor-mid, 50%);
 		margin-left: calc(var(--zvg-elementor-wire) / -2);
 		position: absolute;
 		top: 0;

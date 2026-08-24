@@ -1,7 +1,6 @@
 <?php
 /**
- * The team member's dialog fields — via CMB2, as a deliberate contrast with
- * FSE's native metabox for the same feature.
+ * The team member's fields, via CMB2.
  *
  * @package ZVG_Elementor
  */
@@ -24,6 +23,16 @@ if ( ! function_exists( 'zvg_elementor_member_metabox' ) ) {
 
 		$cmb->add_field(
 			array(
+				'name'       => esc_html__( 'Short bio', 'zvg-elementor' ),
+				'desc'       => esc_html__( 'One sentence, shown on the card under the role.', 'zvg-elementor' ),
+				'id'         => '_zvg_member_bio',
+				'type'       => 'textarea_small',
+				'attributes' => array( 'rows' => 2 ),
+			)
+		);
+
+		$cmb->add_field(
+			array(
 				'name' => esc_html__( 'Link', 'zvg-elementor' ),
 				'desc' => esc_html__( 'Shown as the "Get in touch" link in the dialog. Leave empty to drop the link.', 'zvg-elementor' ),
 				'id'   => '_zvg_member_link',
@@ -34,6 +43,7 @@ if ( ! function_exists( 'zvg_elementor_member_metabox' ) ) {
 		$cmb->add_field(
 			array(
 				'name'    => esc_html__( 'Popup text', 'zvg-elementor' ),
+				'desc'    => esc_html__( 'The long profile, shown inside the dialog. Leave empty and the card gets no button at all.', 'zvg-elementor' ),
 				'id'      => '_zvg_member_profile',
 				'type'    => 'wysiwyg',
 				'options' => array(
@@ -46,3 +56,4 @@ if ( ! function_exists( 'zvg_elementor_member_metabox' ) ) {
 
 	add_action( 'cmb2_admin_init', 'zvg_elementor_member_metabox' );
 }
+

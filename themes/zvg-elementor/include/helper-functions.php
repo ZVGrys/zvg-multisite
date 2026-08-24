@@ -76,3 +76,70 @@ if ( ! function_exists( 'zvg_elementor_owns_content' ) ) :
 		return zvg_elementor_has_location( $location );
 	}
 endif;
+
+if ( ! function_exists( 'zvg_elementor_build_labels' ) ) :
+
+	/**
+	 * The name each build of this landing page goes by.
+	 *
+	 * @return array<string, string> Path segment => label.
+	 */
+	function zvg_elementor_build_labels() {
+		$zvg_elementor_labels = array(
+			''          => _x( 'FSE', 'Build name', 'zvg-elementor' ),
+			'elementor' => _x( 'Elementor', 'Build name', 'zvg-elementor' ),
+			'acf'       => _x( 'ACF', 'Build name', 'zvg-elementor' ),
+		);
+
+		/**
+		 * Filter the build names.
+		 *
+		 * @param array<string, string> $zvg_elementor_labels Path segment => label.
+		 */
+		return apply_filters( 'zvg_elementor_build_labels', $zvg_elementor_labels );
+	}
+endif;
+
+if ( ! function_exists( 'zvg_elementor_build_sites' ) ) :
+
+	/**
+	 * The builds this network actually carries, in the order they are named.
+	 *
+	 * @return array<string, int> Path segment => blog id.
+	 */
+	function zvg_elementor_build_sites() {
+		$zvg_elementor_labels = zvg_elementor_build_labels();
+		$zvg_elementor_builds = array();
+
+		foreach ( is_multisite() ? get_sites( array( 'number' => 10 ) ) : array() as $zvg_elementor_site ) {
+			$zvg_elementor_path = trim( substr( $zvg_elementor_site->path, strlen( PATH_CURRENT_SITE ) ), '/' );
+
+			if ( isset( $zvg_elementor_labels[ $zvg_elementor_path ] ) ) {
+				$zvg_elementor_builds[ $zvg_elementor_path ] = (int) $zvg_elementor_site->blog_id;
+			}
+		}
+
+		return $zvg_elementor_builds;
+	}
+endif;
+
+if ( ! function_exists( 'zvg_elementor_render_build_switcher' ) ) :
+
+	/**
+	 * Print the links to each build of this landing page.
+	 */
+	function zvg_elementor_render_build_switcher() {
+		$zvg_elementor_builds = zvg_elementor_build_sites();
+
+		if ( count( $zvg_elementor_builds ) < 2 ) {
+			return;
+		}
+		?>
+		<div class="zvg-elementor-switcher" role="group" aria-label="<?php echo esc_attr_x( 'Build version', 'Build switcher label', 'zvg-elementor' ); ?>">
+			<?php foreach ( array_intersect_key( zvg_elementor_build_labels(), $zvg_elementor_builds ) as $zvg_elementor_path => $zvg_elementor_label ) { ?>
+			<a class="zvg-elementor-switcher__link" href="<?php echo esc_url( get_home_url( $zvg_elementor_builds[ $zvg_elementor_path ], '/' ) ); ?>"<?php echo get_current_blog_id() === $zvg_elementor_builds[ $zvg_elementor_path ] ? ' aria-current="page"' : ''; ?>><?php echo esc_html( $zvg_elementor_label ); ?></a>
+			<?php } ?>
+		</div>
+		<?php
+	}
+endif;

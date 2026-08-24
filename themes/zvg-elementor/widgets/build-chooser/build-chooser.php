@@ -607,6 +607,8 @@ class ZVG_Elementor_Build_Chooser extends Widget_Base {
 				'see'  => ! empty( $settings['see_label'] ) ? $settings['see_label'] : '',
 			)
 		);
+
+		$group = 'zvg-elementor-chooser-' . $this->get_id() . '-';
 		?>
 		<div class="zvg-elementor-chooser">
 			<form class="zvg-elementor-chooser__form" data-chooser data-chooser-labels="<?php echo esc_attr( $labels ); ?>" novalidate>
@@ -616,10 +618,12 @@ class ZVG_Elementor_Build_Chooser extends Widget_Base {
 						<?php if ( ! empty( $settings['step_label'] ) ) { ?>
 							<span class="zvg-elementor-chooser__count">
 								<?php
-								printf(
-									esc_html( $settings['step_label'] ),
-									(int) $index + 1,
-									(int) $total
+								echo esc_html(
+									str_replace(
+										array( '%1$d', '%2$d' ),
+										array( (int) $index + 1, (int) $total ),
+										$settings['step_label']
+									)
 								);
 								?>
 							</span>
@@ -632,7 +636,7 @@ class ZVG_Elementor_Build_Chooser extends Widget_Base {
 					<label class="zvg-elementor-chooser__choice">
 						<input
 							type="radio"
-							name="<?php echo esc_attr( $step['name'] ); ?>"
+							name="<?php echo esc_attr( $group . $step['name'] ); ?>"
 							value="<?php echo esc_attr( $choice_index ); ?>"
 							<?php foreach ( $choice['weights'] as $build => $weight ) { ?>
 								data-<?php echo esc_attr( $build ); ?>="<?php echo esc_attr( $weight ); ?>"

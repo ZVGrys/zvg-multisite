@@ -77,6 +77,44 @@ class ZVG_Elementor_Compare_Table extends Widget_Base {
 	}
 
 	/**
+	 * The builds the table compares, as row-value key => control key holding the name.
+	 *
+	 * @return string[]
+	 */
+	private function get_column_keys() {
+		return array(
+			'value_fse'       => 'column_fse',
+			'value_elementor' => 'column_elementor',
+			'value_acf'       => 'column_acf',
+		);
+	}
+
+	/**
+	 * The name each column carries, as row-value key => name.
+	 *
+	 * @param array $settings Widget settings.
+	 *
+	 * @return string[]
+	 */
+	private function get_columns( $settings = array() ) {
+		$defaults = array(
+			'value_fse'       => _x( 'FSE', 'Compare table column', 'zvg-elementor' ),
+			'value_elementor' => _x( 'Elementor', 'Compare table column', 'zvg-elementor' ),
+			'value_acf'       => _x( 'ACF theme', 'Compare table column', 'zvg-elementor' ),
+		);
+
+		$columns = array();
+
+		foreach ( $this->get_column_keys() as $value_key => $control_key ) {
+			$name = isset( $settings[ $control_key ] ) ? trim( $settings[ $control_key ] ) : '';
+
+			$columns[ $value_key ] = '' === $name ? $defaults[ $value_key ] : $name;
+		}
+
+		return $columns;
+	}
+
+	/**
 	 * Widget controls.
 	 */
 	protected function register_controls() {
@@ -96,35 +134,19 @@ class ZVG_Elementor_Compare_Table extends Widget_Base {
 			)
 		);
 
-		$columns = new Repeater();
+		$columns = $this->get_columns();
 
-		$columns->add_control(
-			'name',
-			array(
-				'label'       => esc_html__( 'Name', 'zvg-elementor' ),
-				'type'        => Controls_Manager::TEXT,
-				'label_block' => true,
-			)
-		);
-
-		$this->add_control(
-			'columns',
-			array(
-				'label'       => esc_html__( 'Columns', 'zvg-elementor' ),
-				'type'        => Controls_Manager::REPEATER,
-				'fields'      => $columns->get_controls(),
-				'title_field' => '{{{ name }}}',
-			)
-		);
-
-		$this->end_controls_section();
-
-		$this->start_controls_section(
-			'section_rows',
-			array(
-				'label' => esc_html__( 'Rows', 'zvg-elementor' ),
-			)
-		);
+		foreach ( $this->get_column_keys() as $value_key => $control_key ) {
+			$this->add_control(
+				$control_key,
+				array(
+					'label'       => sprintf( esc_html__( 'Column: %s', 'zvg-elementor' ), $columns[ $value_key ] ),
+					'type'        => Controls_Manager::TEXT,
+					'default'     => $columns[ $value_key ],
+					'label_block' => true,
+				)
+			);
+		}
 
 		$rows = new Repeater();
 
@@ -137,15 +159,17 @@ class ZVG_Elementor_Compare_Table extends Widget_Base {
 			)
 		);
 
-		$rows->add_control(
-			'values',
-			array(
-				'label'       => esc_html__( 'Values', 'zvg-elementor' ),
-				'type'        => Controls_Manager::TEXT,
-				'description' => esc_html__( 'One value per column, separated by a vertical bar: 6955 | 7100 | 6800. Leave a value empty for a check that has not been run yet.', 'zvg-elementor' ),
-				'label_block' => true,
-			)
-		);
+		foreach ( $columns as $key => $name ) {
+			$rows->add_control(
+				$key,
+				array(
+					'label'       => sprintf( esc_html__( '%s: Value', 'zvg-elementor' ), $name ),
+					'type'        => Controls_Manager::TEXT,
+					'description' => esc_html__( 'Leave empty for a check that has not been run yet.', 'zvg-elementor' ),
+					'label_block' => true,
+				)
+			);
+		}
 
 		$this->add_control(
 			'rows',
@@ -253,16 +277,7 @@ class ZVG_Elementor_Compare_Table extends Widget_Base {
 	 */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-
-		$columns = ( isset( $settings['columns'] ) && is_array( $settings['columns'] ) ) ? $settings['columns'] : array();
-		$columns = array_values(
-			array_filter(
-				$columns,
-				static function ( $column ) {
-					return ! empty( $column['name'] );
-				}
-			)
-		);
+		$columns  = $this->get_columns( $settings );
 
 		$rows = ( isset( $settings['rows'] ) && is_array( $settings['rows'] ) ) ? $settings['rows'] : array();
 		$rows = array_filter(
@@ -272,7 +287,7 @@ class ZVG_Elementor_Compare_Table extends Widget_Base {
 			}
 		);
 
-		if ( empty( $columns ) || empty( $rows ) ) {
+		if ( empty( $rows ) ) {
 			return;
 		}
 
@@ -288,30 +303,30 @@ class ZVG_Elementor_Compare_Table extends Widget_Base {
 				<thead>
 					<tr>
 						<td></td>
-						<?php foreach ( $columns as $column ) { ?>
-						<th scope="col"><?php echo esc_html( $column['name'] ); ?></th>
+						<?php foreach ( $columns as $name ) { ?>
+						<th scope="col"><?php echo esc_html( $name ); ?></th>
 						<?php } ?>
 					</tr>
 				</thead>
 
 				<tbody>
-					<?php
-					foreach ( $rows as $row ) {
-						$values = isset( $row['values'] ) ? array_map( 'trim', explode( '|', $row['values'] ) ) : array();
-						?>
+					<?php foreach ( $rows as $row ) { ?>
 					<tr>
 						<th scope="row"><?php echo esc_html( $row['label'] ); ?></th>
-						<?php foreach ( $columns as $index => $column ) { ?>
+						<?php
+						foreach ( $columns as $key => $name ) {
+							$value = isset( $row[ $key ] ) ? trim( $row[ $key ] ) : '';
+							?>
 						<td>
 							<?php // Read out on narrow screens, where the stacked layout drops the header row. ?>
-							<span class="zvg-elementor-compare-table__column"><?php echo esc_html( $column['name'] ); ?></span>
-							<span class="zvg-elementor-compare-table__value"><?php echo esc_html( empty( $values[ $index ] ) ? $blank : $values[ $index ] ); ?></span>
+							<span class="zvg-elementor-compare-table__column"><?php echo esc_html( $name ); ?></span>
+							<span class="zvg-elementor-compare-table__value"><?php echo esc_html( '' === $value ? $blank : $value ); ?></span>
 						</td>
-						<?php } ?>
+							<?php
+						}
+						?>
 					</tr>
-						<?php
-					}
-					?>
+					<?php } ?>
 				</tbody>
 			</table>
 		</div>

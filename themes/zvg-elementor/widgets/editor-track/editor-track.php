@@ -115,12 +115,21 @@ class ZVG_Elementor_Editor_Track extends Widget_Base {
 			)
 		);
 
+		$items->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			array(
+				'name'      => 'image',
+				'default'   => 'full',
+				'separator' => 'none',
+			)
+		);
+
 		$items->add_control(
 			'placeholder',
 			array(
 				'label'       => esc_html__( 'Placeholder text', 'zvg-elementor' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Screenshot', 'zvg-elementor' ),
+				'default'     => __( 'Screenshot', 'zvg-elementor' ),
 				'label_block' => true,
 			)
 		);
@@ -207,6 +216,28 @@ class ZVG_Elementor_Editor_Track extends Widget_Base {
 	}
 
 	/**
+	 * The registered size one screenshot is served at.
+	 *
+	 * @param array $item Repeater row.
+	 *
+	 * @return string|int[] Size name, or a width/height pair for a custom size.
+	 */
+	protected function get_image_size( $item ) {
+		$size = isset( $item['image_size'] ) ? $item['image_size'] : 'full';
+
+		if ( 'custom' !== $size ) {
+			return $size;
+		}
+
+		$custom = isset( $item['image_custom_dimension'] ) ? $item['image_custom_dimension'] : array();
+
+		return array(
+			isset( $custom['width'] ) ? (int) $custom['width'] : 0,
+			isset( $custom['height'] ) ? (int) $custom['height'] : 0,
+		);
+	}
+
+	/**
 	 * Front-end output.
 	 */
 	protected function render() {
@@ -223,6 +254,7 @@ class ZVG_Elementor_Editor_Track extends Widget_Base {
 		if ( empty( $items ) ) {
 			return;
 		}
+
 		?>
 		<div class="zvg-elementor-editor-track">
 			<?php
@@ -231,14 +263,11 @@ class ZVG_Elementor_Editor_Track extends Widget_Base {
 			<figure class="zvg-elementor-editor-track__item">
 				<?php if ( ! empty( $item['image']['id'] ) ) { ?>
 					<?php
-					echo wp_kses(
-						wp_get_attachment_image(
-							(int) $item['image']['id'],
-							'full',
-							false,
-							array( 'class' => 'zvg-elementor-editor-track__shot' )
-						),
-						'post'
+					echo wp_get_attachment_image(
+						(int) $item['image']['id'],
+						$this->get_image_size( $item ),
+						false,
+						array( 'class' => 'zvg-elementor-editor-track__shot' )
 					);
 					?>
 				<?php } elseif ( ! empty( $item['placeholder'] ) ) { ?>

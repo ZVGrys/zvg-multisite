@@ -49,7 +49,7 @@ function zvg_elementor_register_member_post_type() {
 			'show_in_menu'        => true,
 			'show_in_rest'        => true,
 			'menu_icon'           => 'dashicons-groups',
-			'supports'            => array( 'title', 'excerpt', 'thumbnail', 'revisions' ),
+			'supports'            => array( 'title', 'thumbnail', 'revisions' ),
 			'taxonomies'          => array( 'zvg_member_role' ),
 		)
 	);
@@ -101,8 +101,7 @@ function zvg_elementor_close_member_role_archive() {
 }
 
 /**
- * The post type has no pages of its own, so its REST routes answer editors only.
- * The editor keeps working because whoever opens it is signed in.
+ * Restrict the member REST routes to editors.
  *
  * @param array<string, array<int, array<string, mixed>>> $endpoints Registered REST routes.
  *
@@ -114,6 +113,8 @@ function zvg_elementor_close_member_rest_reads( $endpoints ) {
 		'/wp/v2/zvg_member/(?P<id>[\d]+)',
 		'/wp/v2/zvg_member/(?P<parent>[\d]+)/revisions',
 		'/wp/v2/zvg_member/(?P<parent>[\d]+)/autosaves',
+		'/wp/v2/zvg_member_role',
+		'/wp/v2/zvg_member_role/(?P<id>[\d]+)',
 	);
 
 	foreach ( $routes as $route ) {
@@ -132,7 +133,7 @@ function zvg_elementor_close_member_rest_reads( $endpoints ) {
 				if ( ! current_user_can( 'edit_posts' ) ) {
 					return new WP_Error(
 						'rest_forbidden',
-						__( 'Team members are not readable over the REST API.', 'zvg-elementor' ),
+						__( 'Team members and their roles are not readable over the REST API.', 'zvg-elementor' ),
 						array( 'status' => rest_authorization_required_code() )
 					);
 				}
