@@ -208,3 +208,25 @@ if ( ! function_exists( 'zvg_acf_option' ) ) :
 		return null === $value ? $default : $value;
 	}
 endif;
+
+if ( ! function_exists( 'zvg_acf_member_role' ) ) :
+
+	/**
+	 * The role a team member holds.
+	 *
+	 * @param int $post_id Member ID.
+	 *
+	 * @return string
+	 */
+	function zvg_acf_member_role( $post_id ) {
+		$roles = get_the_terms( $post_id, 'zvg_member_role' );
+
+		if ( ! $roles || is_wp_error( $roles ) ) {
+			return '';
+		}
+
+		$role = reset( $roles );
+
+		return $role->name;
+	}
+endif;

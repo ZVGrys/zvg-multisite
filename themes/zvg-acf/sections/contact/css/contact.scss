@@ -1,0 +1,168 @@
+@use '../../../assets/css/vars' as *;
+
+.zvg-acf-contact {
+	&__layout {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 64px;
+		margin-top: 40px;
+
+		@include up($bp-medium) {
+			flex-wrap: nowrap;
+		}
+	}
+
+	&__direct {
+		display: flex;
+		flex: 0 1 260px;
+		flex-direction: column;
+		gap: 8px;
+		margin-left: auto;
+		font-size: 15px;
+		text-align: right;
+
+		@include down($bp-large) {
+			font-size: 14px;
+		}
+
+		@include down($bp-medium) {
+			flex: 1 1 100%;
+			margin-left: 0;
+			text-align: left;
+		}
+
+		@include down($bp-small) {
+			font-size: 13px;
+		}
+
+		p {
+			margin: 0;
+		}
+
+		a {
+			text-decoration: none;
+			transition: opacity $transition-fast;
+
+			&:hover,
+			&:focus {
+				opacity: 0.8;
+			}
+		}
+	}
+
+	&__label {
+		color: $color-muted;
+	}
+}
+
+.zvg-acf-contact__layout .wpcf7 {
+	flex: 1 1 420px;
+	max-width: 560px;
+
+	@include down($bp-medium) {
+		flex: 1 1 100%;
+		max-width: none;
+	}
+}
+
+.zvg-acf-field {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	font-size: 15px;
+
+	@include down($bp-large) {
+		font-size: 14px;
+	}
+
+	@include down($bp-small) {
+		font-size: 13px;
+	}
+
+	input,
+	textarea {
+		width: 100%;
+		padding: 12px 14px;
+		border: 1px solid $color-border-strong;
+		border-radius: 4px;
+		background-color: $color-surface-alt;
+		color: $color-text;
+		font-family: inherit;
+		font-size: 17px;
+		transition: border-color $transition-fast;
+
+		@include down($bp-large) {
+			font-size: 16px;
+		}
+
+		@include down($bp-small) {
+			font-size: 15px;
+		}
+
+		&:focus-visible {
+			border-color: $color-accent;
+		}
+
+		&[aria-invalid="true"] {
+			border-color: $color-danger;
+		}
+	}
+
+	textarea {
+		resize: vertical;
+	}
+
+	.wpcf7-form-control-wrap {
+		display: block;
+	}
+
+	.wpcf7-not-valid-tip {
+		margin-top: 6px;
+		color: $color-danger;
+		font-size: 13px;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
+	}
+}
+
+.zvg-acf-form__actions {
+	margin: 40px 0 0;
+
+	.zvg-acf-button {
+		cursor: pointer;
+
+		&:active {
+			opacity: 0.75;
+		}
+	}
+}
+
+.zvg-acf-contact .wpcf7 form .wpcf7-response-output {
+	margin: 16px 0 0;
+	padding: 0;
+	border: 0;
+	color: $color-accent;
+	font-size: 15px;
+
+	@include down($bp-large) {
+		font-size: 14px;
+	}
+
+	@include down($bp-small) {
+		font-size: 13px;
+	}
+}
+
+.zvg-acf-contact .wpcf7 form.invalid .wpcf7-response-output,
+.zvg-acf-contact .wpcf7 form.failed .wpcf7-response-output,
+.zvg-acf-contact .wpcf7 form.aborted .wpcf7-response-output,
+.zvg-acf-contact .wpcf7 form.spam .wpcf7-response-output {
+	color: $color-danger;
+}
+
+.zvg-acf-contact .wpcf7-spinner {
+	background-color: $color-border-strong;
+}
