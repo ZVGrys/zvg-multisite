@@ -117,6 +117,10 @@ function zvg_acf_preload_fonts() {
  * The stylesheet and script of every section the entry is built from.
  */
 function zvg_acf_enqueue_section_assets() {
+	if ( ! zvg_acf_is_sections_page() ) {
+		return;
+	}
+
 	foreach ( array_unique( zvg_acf_sections() ) as $section ) {
 		$style = '/sections/' . $section . '/css/' . $section . '.css';
 
@@ -155,7 +159,7 @@ function zvg_acf_enqueue_scripts() {
 	}
 
 	if ( is_singular() ) {
-		if ( zvg_acf_sections() ) {
+		if ( zvg_acf_is_sections_page() ) {
 			zvg_acf_enqueue_style( 'sections', '/assets/css/sections.css', array( 'zvg-acf-general' ) );
 		} else {
 			zvg_acf_enqueue_style( 'singular', '/assets/css/singular.css', array( 'zvg-acf-general' ) );

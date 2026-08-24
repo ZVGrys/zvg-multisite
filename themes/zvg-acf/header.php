@@ -75,4 +75,18 @@ defined( 'ABSPATH' ) || exit;
 		</div>
 	</header>
 
-	<main id="content" class="zvg-acf-main<?php echo esc_attr( zvg_acf_sections() ? ' zvg-acf-main--sections' : '' ); ?>">
+	<?php
+	$zvg_acf_main_class = 'zvg-acf-main';
+
+	if ( zvg_acf_is_sections_page() ) {
+		$zvg_acf_main_class .= ' zvg-acf-main--sections';
+	} elseif ( is_404() ) {
+		$zvg_acf_main_class .= ' zvg-acf-main--404';
+	} elseif ( is_home() || is_archive() || is_search() ) {
+		$zvg_acf_main_class .= ' zvg-acf-main--archive';
+	} elseif ( is_page() ) {
+		$zvg_acf_main_class .= ' zvg-acf-main--page';
+	}
+	?>
+
+	<main id="content" class="<?php echo esc_attr( $zvg_acf_main_class ); ?>">
