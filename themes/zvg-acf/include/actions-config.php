@@ -10,6 +10,7 @@ defined( 'ABSPATH' ) || exit;
 add_action( 'wp_enqueue_scripts', 'zvg_acf_enqueue_scripts', 999 );
 add_action( 'wp_head', 'zvg_acf_flag_script_support', 1 );
 add_action( 'wp_head', 'zvg_acf_preload_fonts', 2 );
+add_action( 'enqueue_block_assets', 'zvg_acf_enqueue_editor_fonts' );
 add_action( 'init', 'zvg_acf_drop_emoji_support' );
 add_filter( 'wpcf7_load_js', 'zvg_acf_page_has_contact_form' );
 add_filter( 'wpcf7_load_css', 'zvg_acf_page_has_contact_form' );
@@ -107,25 +108,95 @@ function zvg_acf_enqueue_style( $name, $relative, $deps = array() ) {
 }
 
 /**
- * Preload the faces used above the fold.
+ * The self-hosted faces, in the order they are declared.
+ *
+ * Only the faces the top of a page needs carry 'preload'. The two metric
+ * fallbacks are pure CSS with no URL of their own and live in _fonts.scss.
+ *
+ * @return array<int, array<string, mixed>>
+ */
+function zvg_acf_font_faces() {
+	return array(
+		array(
+			'family'  => 'Space Grotesk',
+			'weight'  => 400,
+			'file'    => 'space-grotesk-latin-400-normal.woff2',
+			'preload' => true,
+		),
+		array(
+			'family'  => 'Space Grotesk',
+			'weight'  => 600,
+			'file'    => 'space-grotesk-latin-600-normal.woff2',
+			'preload' => true,
+		),
+		array(
+			'family'  => 'IBM Plex Mono',
+			'weight'  => 400,
+			'file'    => 'ibm-plex-mono-latin-400-normal.woff2',
+			'preload' => false,
+		),
+		array(
+			'family'  => 'IBM Plex Mono',
+			'weight'  => 600,
+			'file'    => 'ibm-plex-mono-latin-600-normal.woff2',
+			'preload' => true,
+		),
+	);
+}
+
+/**
+ * The @font-face rules of every self-hosted face, as one line of CSS.
+ *
+ * @return string
+ */
+function zvg_acf_font_face_rules() {
+	$rules = '';
+
+	foreach ( zvg_acf_font_faces() as $face ) {
+		$rules .= sprintf(
+			'@font-face{font-family:"%1$s";font-style:normal;font-weight:%2$d;font-display:swap;src:url("%3$s") format("woff2")}',
+			esc_attr( $face['family'] ),
+			(int) $face['weight'],
+			esc_url( ZVG_ACF_T_URI . '/assets/fonts/' . $face['file'] )
+		);
+	}
+
+	return $rules;
+}
+
+/**
+ * Preload the faces the top of the page needs, then declare them all inline.
  */
 function zvg_acf_preload_fonts() {
 	if ( is_admin() ) {
 		return;
 	}
 
-	$faces = array(
-		'space-grotesk-latin-400-normal.woff2',
-		'space-grotesk-latin-600-normal.woff2',
-		'ibm-plex-mono-latin-600-normal.woff2',
-	);
+	foreach ( zvg_acf_font_faces() as $face ) {
+		if ( ! $face['preload'] ) {
+			continue;
+		}
 
-	foreach ( $faces as $face ) {
 		printf(
 			'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
-			esc_url( ZVG_ACF_T_URI . '/assets/fonts/' . $face )
+			esc_url( ZVG_ACF_T_URI . '/assets/fonts/' . $face['file'] )
 		);
 	}
+
+	printf( '<style id="zvg-acf-fonts">%s</style>' . "\n", zvg_acf_font_face_rules() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- every interpolated part is escaped in zvg_acf_font_face_rules().
+}
+
+/**
+ * Declare the same faces inside the editor canvas.
+ */
+function zvg_acf_enqueue_editor_fonts() {
+	if ( ! is_admin() ) {
+		return;
+	}
+
+	wp_register_style( 'zvg-acf-editor-fonts', false, array(), ZVG_ACF_VERSION );
+	wp_enqueue_style( 'zvg-acf-editor-fonts' );
+	wp_add_inline_style( 'zvg-acf-editor-fonts', zvg_acf_font_face_rules() );
 }
 
 /**
