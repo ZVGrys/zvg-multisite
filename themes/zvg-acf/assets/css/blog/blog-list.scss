@@ -1,44 +1,29 @@
 @use '../vars' as *;
 
+.zvg-acf-main--archive {
+	padding-block: 96px 64px;
+}
+
 .zvg-acf-archive {
 	&__title {
-		margin-block: $space-60 $space-50;
+		margin: 0 0 40px;
 	}
 
-	&__list {
+	&__grid {
 		display: grid;
-		gap: $space-50;
+		gap: 24px;
+		grid-template-columns: 1fr;
+
+		@include up($bp-small) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		@include up($bp-large) {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
 	}
 
 	&__empty {
 		color: $color-muted;
-	}
-}
-
-.zvg-acf-card {
-	border-bottom: 1px solid $color-border;
-	padding-bottom: $space-50;
-
-	&:last-child {
-		border-bottom: 0;
-	}
-
-	&__title {
-		margin-bottom: $space-20;
-
-		a {
-			color: inherit;
-			text-decoration: none;
-
-			&:hover,
-			&:focus {
-				color: $color-accent;
-			}
-		}
-	}
-
-	&__excerpt {
-		color: $color-muted;
-		max-width: $measure-wide;
 	}
 }
