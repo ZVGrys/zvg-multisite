@@ -35,21 +35,21 @@ $zvg_acf_blank = _x( '—', 'Unmeasured statistic', 'zvg-acf' );
 		<?php } ?>
 
 		<div class="zvg-acf-compare-table">
-			<table class="zvg-acf-compare-table__table" role="table">
+			<table class="zvg-acf-compare-table__table">
 				<?php if ( '' !== $zvg_acf_caption ) { ?>
 				<caption class="screen-reader-text"><?php echo esc_html( $zvg_acf_caption ); ?></caption>
 				<?php } ?>
 
-				<thead role="rowgroup">
-					<tr role="row">
+				<thead>
+					<tr>
 						<td></td>
 						<?php foreach ( $zvg_acf_columns as $zvg_acf_column ) { ?>
-						<th scope="col" role="columnheader"><?php echo esc_html( $zvg_acf_column ); ?></th>
+						<th scope="col"><?php echo esc_html( $zvg_acf_column ); ?></th>
 						<?php } ?>
 					</tr>
 				</thead>
 
-				<tbody role="rowgroup">
+				<tbody>
 					<?php
 					while ( have_rows( 'rows' ) ) {
 						the_row();
@@ -60,13 +60,13 @@ $zvg_acf_blank = _x( '—', 'Unmeasured statistic', 'zvg-acf' );
 							continue;
 						}
 						?>
-					<tr role="row">
-						<th scope="row" role="rowheader"><?php echo esc_html( $zvg_acf_label ); ?></th>
+					<tr>
+						<th scope="row"><?php echo esc_html( $zvg_acf_label ); ?></th>
 						<?php
 						foreach ( $zvg_acf_columns as $zvg_acf_key => $zvg_acf_column ) {
 							$zvg_acf_value = trim( (string) get_sub_field( $zvg_acf_key ) );
 							?>
-						<td role="cell">
+						<td>
 							<span class="zvg-acf-compare-table__column"><?php echo esc_html( $zvg_acf_column ); ?></span>
 							<span class="zvg-acf-compare-table__value"><?php echo esc_html( '' === $zvg_acf_value ? $zvg_acf_blank : $zvg_acf_value ); ?></span>
 						</td>
