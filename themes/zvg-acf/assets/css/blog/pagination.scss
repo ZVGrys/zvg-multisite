@@ -1,0 +1,66 @@
+@use '../vars' as *;
+
+.pagination {
+	align-items: center;
+	display: flex;
+	font-family: $font-mono;
+	font-size: 13px;
+	font-weight: 600;
+	gap: 8px;
+	justify-content: center;
+	margin-top: 64px;
+
+	@include down($bp-large) {
+		font-size: 12px;
+	}
+
+	.nav-links {
+		align-items: center;
+		display: flex;
+		gap: 8px;
+	}
+
+	.page-numbers {
+		border: 1px solid $color-border;
+		border-radius: 4px;
+		color: $color-muted;
+		line-height: 1.5;
+		padding: 4px 8px;
+		text-decoration: none;
+		transition: color $transition-fast, border-color $transition-fast;
+
+		&:hover,
+		&:focus {
+			border-color: $color-accent;
+			color: $color-text;
+			text-decoration: none;
+		}
+	}
+
+	.page-numbers.current {
+		background-color: $color-accent;
+		border-color: $color-accent;
+		color: $color-accent-ink;
+	}
+
+	.page-numbers.prev,
+	.page-numbers.next {
+		border: 0;
+		color: $color-accent;
+		padding: 0;
+		transition: opacity $transition-fast;
+
+		&:hover,
+		&:focus {
+			opacity: 0.8;
+		}
+	}
+
+	.page-numbers.prev {
+		margin-right: 8px;
+	}
+
+	.page-numbers.next {
+		margin-left: 8px;
+	}
+}

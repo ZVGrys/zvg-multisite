@@ -173,6 +173,20 @@ function zvg_acf_enqueue_scripts() {
 	zvg_acf_enqueue_style( 'typography', '/assets/css/typography.css', array( 'zvg-acf-general' ) );
 	zvg_acf_enqueue_style( 'main', '/assets/css/main.css', array( 'zvg-acf-general' ) );
 
+	wp_register_style(
+		'zvg-acf-post-card',
+		ZVG_ACF_T_URI . '/assets/css/blog/post-card.css',
+		array( 'zvg-acf-general' ),
+		zvg_acf_get_asset_version( '/assets/css/blog/post-card.css' )
+	);
+
+	wp_register_style(
+		'zvg-acf-pagination',
+		ZVG_ACF_T_URI . '/assets/css/blog/pagination.css',
+		array( 'zvg-acf-general' ),
+		zvg_acf_get_asset_version( '/assets/css/blog/pagination.css' )
+	);
+
 	if ( is_404() ) {
 		zvg_acf_enqueue_style( 'error-page', '/assets/css/error-page.css', array( 'zvg-acf-general' ) );
 	}
@@ -185,8 +199,18 @@ function zvg_acf_enqueue_scripts() {
 		}
 	}
 
+	if ( is_single() ) {
+		zvg_acf_enqueue_style( 'blog-single', '/assets/css/blog/blog-single.css', array( 'zvg-acf-general' ) );
+
+		wp_enqueue_style( 'zvg-acf-share' );
+		wp_enqueue_script( 'zvg-acf-share' );
+	}
+
 	if ( is_home() || is_archive() || is_search() ) {
 		zvg_acf_enqueue_style( 'blog-list', '/assets/css/blog/blog-list.css', array( 'zvg-acf-general' ) );
+
+		wp_enqueue_style( 'zvg-acf-post-card' );
+		wp_enqueue_style( 'zvg-acf-pagination' );
 	}
 
 	if ( is_search() || is_404() ) {
