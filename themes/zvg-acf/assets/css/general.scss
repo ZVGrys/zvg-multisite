@@ -68,15 +68,15 @@ p {
 .zvg-acf-skip-link {
 	&:focus {
 		background-color: $color-accent;
-		border-radius: $radius-medium;
+		border-radius: 4px;
 		clip-path: none;
 		color: $color-accent-ink;
 		display: block;
 		height: auto;
-		left: $space-40;
-		padding: $space-20 $space-40;
+		left: 24px;
+		padding: 8px 24px;
 		position: fixed;
-		top: $space-40;
+		top: 24px;
 		width: auto;
 		z-index: 100000;
 	}
@@ -85,8 +85,8 @@ p {
 .zvg-acf-main {
 	flex: 1 0 auto;
 	margin-inline: auto;
-	max-width: $container-width;
-	padding-inline: $container-padding;
+	max-width: 1200px + (24px * 2);
+	padding-inline: 24px;
 	width: 100%;
 }
 
@@ -100,7 +100,7 @@ p {
 	justify-content: center;
 	padding: 14px 26px;
 	border: 1.5px solid $color-accent;
-	border-radius: $radius-medium;
+	border-radius: 4px;
 	background-color: $color-accent;
 	color: $color-accent-ink;
 	font-family: $font-body;
@@ -110,7 +110,7 @@ p {
 	text-decoration: none;
 	transition: opacity $transition-fast, color $transition-fast, border-color $transition-fast;
 
-	@include down($bp-medium) {
+	@include down($bp-large) {
 		font-size: 16px;
 	}
 

@@ -9,6 +9,10 @@ defined( 'ABSPATH' ) || exit;
 
 add_action( 'acf/init', 'zvg_acf_register_options_page' );
 
+add_filter( 'acf/load_field', 'zvg_acf_load_error_default' );
+add_filter( 'acf/load_field', 'zvg_acf_load_post_default' );
+add_filter( 'acf/load_field/name=post_share_networks', 'zvg_acf_load_share_networks' );
+
 add_filter( 'acf/load_value/name=header_menu', 'zvg_acf_load_menu_location', 10, 3 );
 add_filter( 'acf/update_value/name=header_menu', 'zvg_acf_update_menu_location', 10, 3 );
 add_filter( 'acf/load_value/name=footer_menu', 'zvg_acf_load_menu_location', 10, 3 );
@@ -35,6 +39,129 @@ function zvg_acf_register_options_page() {
 			'redirect'   => false,
 		)
 	);
+}
+
+/**
+ * The copy the not found page starts with.
+ *
+ * Read by the template through zvg_acf_error_option() and pre-filled into the fields
+ * themselves by zvg_acf_load_error_default(), so the strings live here alone.
+ *
+ * @return array<string, string> Site Options field name => value.
+ */
+function zvg_acf_error_defaults() {
+	return array(
+		'error_eyebrow'            => _x( 'Error 404', 'Not found eyebrow', 'zvg-acf' ),
+		'error_code'               => _x( '404', 'Not found code', 'zvg-acf' ),
+		'error_lead'               => _x( 'This page does not exist on any of the three builds.', 'Not found lead', 'zvg-acf' ),
+		'error_search_placeholder' => _x( 'Type a word or two', 'Not found search', 'zvg-acf' ),
+		'error_search_button'      => _x( 'Search', 'Not found search', 'zvg-acf' ),
+		'error_search_hint'        => _x( 'Looks through the posts and pages of this build.', 'Not found search hint', 'zvg-acf' ),
+		'error_button_1_label'     => _x( 'Back to the homepage', 'Not found button', 'zvg-acf' ),
+		'error_button_2_label'     => _x( 'Read the blog', 'Not found button', 'zvg-acf' ),
+	);
+}
+
+/**
+ * Pre-fill a not found field with the copy the theme ships.
+ *
+ * @param array $field Field being loaded.
+ *
+ * @return array
+ */
+function zvg_acf_load_error_default( $field ) {
+	$defaults = zvg_acf_error_defaults();
+
+	if ( isset( $field['name'], $defaults[ $field['name'] ] ) && '' === $field['default_value'] ) {
+		$field['default_value'] = $defaults[ $field['name'] ];
+	}
+
+	return $field;
+}
+
+/**
+ * A not found page option, falling back to the copy the theme ships.
+ *
+ * @param string $name Site Options field name.
+ *
+ * @return mixed
+ */
+function zvg_acf_error_option( $name ) {
+	$defaults = zvg_acf_error_defaults();
+
+	return zvg_acf_option( $name, isset( $defaults[ $name ] ) ? $defaults[ $name ] : '' );
+}
+
+/**
+ * The copy a single post is built with, and the share networks it offers.
+ *
+ * Read by the template through zvg_acf_post_option() and pre-filled into the text
+ * fields by zvg_acf_load_post_default(), so the strings live here alone.
+ *
+ * @return array<string, mixed> Site Options field name => value.
+ */
+function zvg_acf_post_defaults() {
+	return array(
+		'post_share_show'     => true,
+		'post_share_label'    => _x( 'Share this post', 'Share links label', 'zvg-acf' ),
+		'post_share_networks' => array_keys( zvg_acf_share_networks() ),
+		'post_share_copy'     => true,
+		'post_nav_show'       => true,
+		'post_nav_prev_label' => _x( 'Previous', 'Post navigation', 'zvg-acf' ),
+		'post_nav_next_label' => _x( 'Next', 'Post navigation', 'zvg-acf' ),
+	);
+}
+
+/**
+ * Pre-fill a single post field with the copy the theme ships.
+ *
+ * @param array $field Field being loaded.
+ *
+ * @return array
+ */
+function zvg_acf_load_post_default( $field ) {
+	$defaults = zvg_acf_post_defaults();
+	$name     = isset( $field['name'] ) ? $field['name'] : '';
+
+	if ( isset( $defaults[ $name ] ) && is_string( $defaults[ $name ] ) && '' === $field['default_value'] ) {
+		$field['default_value'] = $defaults[ $name ];
+	}
+
+	return $field;
+}
+
+/**
+ * Offer the networks the theme ships, so a filtered catalogue reaches the field.
+ *
+ * @param array $field Field being loaded.
+ *
+ * @return array
+ */
+function zvg_acf_load_share_networks( $field ) {
+	$defaults = zvg_acf_post_defaults();
+
+	foreach ( zvg_acf_share_networks() as $key => $network ) {
+		$field['choices'][ $key ] = $network['name'];
+	}
+
+	if ( empty( $field['default_value'] ) ) {
+		$field['default_value'] = $defaults['post_share_networks'];
+	}
+
+	return $field;
+}
+
+/**
+ * A single post option, falling back to the copy the theme ships.
+ *
+ * @param string $name Site Options field name.
+ *
+ * @return mixed
+ */
+function zvg_acf_post_option( $name ) {
+	$defaults = zvg_acf_post_defaults();
+
+	return zvg_acf_option( $name, isset( $defaults[ $name ] ) ? $defaults[ $name ] : '' );
 }
 
 /**

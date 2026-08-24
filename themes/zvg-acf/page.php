@@ -14,16 +14,10 @@ get_header();
 while ( have_posts() ) {
 	the_post();
 
-	if ( zvg_acf_sections( get_the_ID() ) ) {
-		zvg_acf_render_sections();
-
-		continue;
-	}
-
 	$zvg_acf_title   = get_the_title();
 	$zvg_acf_content = trim( get_the_content() );
 	?>
-<article <?php post_class( 'zvg-acf-entry' ); ?>>
+<article <?php post_class( 'zvg-acf-entry zvg-acf-entry--page' ); ?>>
 	<?php if ( ! empty( $zvg_acf_title ) ) { ?>
 	<h1 class="zvg-acf-entry__title"><?php echo esc_html( $zvg_acf_title ); ?></h1>
 	<?php } ?>

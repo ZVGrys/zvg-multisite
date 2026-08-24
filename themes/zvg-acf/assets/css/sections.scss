@@ -6,18 +6,18 @@
 }
 
 .zvg-acf-section {
-	padding-block: $space-70;
+	padding-block: 96px;
 	border-top: 1px solid $color-border;
 
 	@include down($bp-medium) {
-		padding-block: $space-60;
+		padding-block: 64px;
 	}
 }
 
 .zvg-acf-section__inner {
-	max-width: $container-width + ($container-padding * 2);
+	max-width: 1200px + (24px * 2);
 	margin-inline: auto;
-	padding-inline: $container-padding;
+	padding-inline: 24px;
 
 	> * {
 		margin-top: 0;
@@ -25,7 +25,7 @@
 	}
 
 	> * + * {
-		margin-top: $space-20;
+		margin-top: 8px;
 	}
 }
 
@@ -43,6 +43,10 @@
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
 
+	@include down($bp-large) {
+		font-size: 12px;
+	}
+
 	a {
 		color: inherit;
 	}
@@ -50,12 +54,12 @@
 
 .zvg-acf-lead {
 	max-width: 60ch;
-	margin-top: $space-30;
+	margin-top: 16px;
 	font-size: 19px;
 	line-height: 1.5;
 	color: $color-muted;
 
-	@include down($bp-medium) {
+	@include down($bp-large) {
 		font-size: 18px;
 	}
 

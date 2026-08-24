@@ -1,0 +1,76 @@
+@use '../../../assets/css/vars' as *;
+
+.zvg-acf-blockquote {
+	background-color: $color-surface-alt;
+	border-radius: 6px;
+	margin-inline: 0;
+	padding: 64px 24px 24px;
+	position: relative;
+
+	&::before {
+		color: $color-accent;
+		content: "\201C";
+		font-family: $font-body;
+		font-size: 64px;
+		font-weight: 600;
+		left: 24px;
+		line-height: 1;
+		position: absolute;
+		top: 8px;
+	}
+
+	&__quote {
+		border: 0;
+		margin: 0;
+		padding: 0;
+	}
+
+	&__text {
+		color: $color-text;
+		font-size: 19px;
+		font-style: normal;
+		line-height: 1.45;
+		margin: 0;
+
+		@include down($bp-large) {
+			font-size: 18px;
+		}
+
+		@include down($bp-small) {
+			font-size: 17px;
+		}
+	}
+
+	&__author {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		margin-top: 24px;
+		text-align: left;
+	}
+
+	&__name {
+		color: $color-text;
+		font-size: 15px;
+		font-style: normal;
+		font-weight: 600;
+
+		@include down($bp-large) {
+			font-size: 14px;
+		}
+
+		@include down($bp-small) {
+			font-size: 13px;
+		}
+	}
+
+	&__role {
+		color: $color-muted;
+		font-family: $font-mono;
+		font-size: 13px;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
+	}
+}

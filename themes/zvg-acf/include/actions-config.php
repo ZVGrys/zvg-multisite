@@ -10,7 +10,23 @@ defined( 'ABSPATH' ) || exit;
 add_action( 'wp_enqueue_scripts', 'zvg_acf_enqueue_scripts', 999 );
 add_action( 'wp_head', 'zvg_acf_flag_script_support', 1 );
 add_action( 'wp_head', 'zvg_acf_preload_fonts', 2 );
+add_action( 'enqueue_block_assets', 'zvg_acf_enqueue_editor_fonts' );
 add_action( 'init', 'zvg_acf_drop_emoji_support' );
+add_filter( 'wpcf7_load_js', 'zvg_acf_page_has_contact_form' );
+add_filter( 'wpcf7_load_css', 'zvg_acf_page_has_contact_form' );
+
+/**
+ * Contact Form 7 loads its script and stylesheet on every page of the site.
+ *
+ * @return bool
+ */
+function zvg_acf_page_has_contact_form() {
+	if ( zvg_acf_is_sections_page() && in_array( 'contact', zvg_acf_sections(), true ) ) {
+		return true;
+	}
+
+	return is_singular() && has_shortcode( (string) get_post_field( 'post_content', get_queried_object_id() ), 'contact-form-7' );
+}
 
 /**
  * Mark the document as scripted before the body is painted.
@@ -92,36 +108,114 @@ function zvg_acf_enqueue_style( $name, $relative, $deps = array() ) {
 }
 
 /**
- * Preload the faces used above the fold.
+ * The self-hosted faces, in the order they are declared.
+ *
+ * Only the faces the top of a page needs carry 'preload'. The two metric
+ * fallbacks are pure CSS with no URL of their own and live in _fonts.scss.
+ *
+ * @return array<int, array<string, mixed>>
+ */
+function zvg_acf_font_faces() {
+	return array(
+		array(
+			'family'  => 'Space Grotesk',
+			'weight'  => 400,
+			'file'    => 'space-grotesk-latin-400-normal.woff2',
+			'preload' => true,
+		),
+		array(
+			'family'  => 'Space Grotesk',
+			'weight'  => 600,
+			'file'    => 'space-grotesk-latin-600-normal.woff2',
+			'preload' => true,
+		),
+		array(
+			'family'  => 'IBM Plex Mono',
+			'weight'  => 400,
+			'file'    => 'ibm-plex-mono-latin-400-normal.woff2',
+			'preload' => false,
+		),
+		array(
+			'family'  => 'IBM Plex Mono',
+			'weight'  => 600,
+			'file'    => 'ibm-plex-mono-latin-600-normal.woff2',
+			'preload' => true,
+		),
+	);
+}
+
+/**
+ * The @font-face rules of every self-hosted face, as one line of CSS.
+ *
+ * @return string
+ */
+function zvg_acf_font_face_rules() {
+	$rules = '';
+
+	foreach ( zvg_acf_font_faces() as $face ) {
+		$rules .= sprintf(
+			'@font-face{font-family:"%1$s";font-style:normal;font-weight:%2$d;font-display:swap;src:url("%3$s") format("woff2")}',
+			esc_attr( $face['family'] ),
+			(int) $face['weight'],
+			esc_url( ZVG_ACF_T_URI . '/assets/fonts/' . $face['file'] )
+		);
+	}
+
+	return $rules;
+}
+
+/**
+ * Preload the faces the top of the page needs, then declare them all inline.
  */
 function zvg_acf_preload_fonts() {
 	if ( is_admin() ) {
 		return;
 	}
 
-	$faces = array(
-		'space-grotesk-latin-400-normal.woff2',
-		'space-grotesk-latin-600-normal.woff2',
-		'ibm-plex-mono-latin-600-normal.woff2',
-	);
+	foreach ( zvg_acf_font_faces() as $face ) {
+		if ( ! $face['preload'] ) {
+			continue;
+		}
 
-	foreach ( $faces as $face ) {
 		printf(
 			'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
-			esc_url( ZVG_ACF_T_URI . '/assets/fonts/' . $face )
+			esc_url( ZVG_ACF_T_URI . '/assets/fonts/' . $face['file'] )
 		);
 	}
+
+	printf( '<style id="zvg-acf-fonts">%s</style>' . "\n", zvg_acf_font_face_rules() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- every interpolated part is escaped in zvg_acf_font_face_rules().
+}
+
+/**
+ * Declare the same faces inside the editor canvas.
+ */
+function zvg_acf_enqueue_editor_fonts() {
+	if ( ! is_admin() ) {
+		return;
+	}
+
+	wp_register_style( 'zvg-acf-editor-fonts', false, array(), ZVG_ACF_VERSION );
+	wp_enqueue_style( 'zvg-acf-editor-fonts' );
+	wp_add_inline_style( 'zvg-acf-editor-fonts', zvg_acf_font_face_rules() );
 }
 
 /**
  * The stylesheet and script of every section the entry is built from.
  */
 function zvg_acf_enqueue_section_assets() {
+	if ( ! zvg_acf_is_sections_page() ) {
+		return;
+	}
+
 	foreach ( array_unique( zvg_acf_sections() ) as $section ) {
 		$style = '/sections/' . $section . '/css/' . $section . '.css';
 
 		if ( file_exists( ZVG_ACF_T_PATH . $style ) ) {
 			zvg_acf_enqueue_style( $section, $style, array( 'zvg-acf-general', 'zvg-acf-sections' ) );
+		}
+
+		if ( 'blog' === $section ) {
+			wp_enqueue_style( 'zvg-acf-post-card' );
 		}
 
 		$script = '/sections/' . $section . '/js/' . $section . '.min.js';
@@ -150,20 +244,59 @@ function zvg_acf_enqueue_scripts() {
 	zvg_acf_enqueue_style( 'typography', '/assets/css/typography.css', array( 'zvg-acf-general' ) );
 	zvg_acf_enqueue_style( 'main', '/assets/css/main.css', array( 'zvg-acf-general' ) );
 
+	wp_register_style(
+		'zvg-acf-post-card',
+		ZVG_ACF_T_URI . '/assets/css/blog/post-card.css',
+		array( 'zvg-acf-general' ),
+		zvg_acf_get_asset_version( '/assets/css/blog/post-card.css' )
+	);
+
+	wp_register_style(
+		'zvg-acf-share',
+		ZVG_ACF_T_URI . '/assets/css/share.css',
+		array( 'zvg-acf-general' ),
+		zvg_acf_get_asset_version( '/assets/css/share.css' )
+	);
+
+	wp_register_style(
+		'zvg-acf-pagination',
+		ZVG_ACF_T_URI . '/assets/css/blog/pagination.css',
+		array( 'zvg-acf-general' ),
+		zvg_acf_get_asset_version( '/assets/css/blog/pagination.css' )
+	);
+
+	wp_register_script(
+		'zvg-acf-share',
+		ZVG_ACF_T_URI . '/assets/js/share.min.js',
+		array(),
+		zvg_acf_get_asset_version( '/assets/js/share.min.js' ),
+		true
+	);
+
 	if ( is_404() ) {
 		zvg_acf_enqueue_style( 'error-page', '/assets/css/error-page.css', array( 'zvg-acf-general' ) );
 	}
 
 	if ( is_singular() ) {
-		if ( zvg_acf_sections() ) {
+		if ( zvg_acf_is_sections_page() ) {
 			zvg_acf_enqueue_style( 'sections', '/assets/css/sections.css', array( 'zvg-acf-general' ) );
 		} else {
 			zvg_acf_enqueue_style( 'singular', '/assets/css/singular.css', array( 'zvg-acf-general' ) );
 		}
 	}
 
+	if ( is_single() ) {
+		zvg_acf_enqueue_style( 'blog-single', '/assets/css/blog/blog-single.css', array( 'zvg-acf-general' ) );
+
+		wp_enqueue_style( 'zvg-acf-share' );
+		wp_enqueue_script( 'zvg-acf-share' );
+	}
+
 	if ( is_home() || is_archive() || is_search() ) {
 		zvg_acf_enqueue_style( 'blog-list', '/assets/css/blog/blog-list.css', array( 'zvg-acf-general' ) );
+
+		wp_enqueue_style( 'zvg-acf-post-card' );
+		wp_enqueue_style( 'zvg-acf-pagination' );
 	}
 
 	if ( is_search() || is_404() ) {

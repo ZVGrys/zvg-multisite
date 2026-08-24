@@ -3,10 +3,10 @@
 .zvg-acf-faq {
 	$faq: &;
 
-	padding-block: $space-70;
+	padding-block: 96px;
 
 	&__title {
-		margin-bottom: $space-50;
+		margin-bottom: 40px;
 	}
 
 	#{$faq}__item {
@@ -29,9 +29,9 @@
 		cursor: pointer;
 		display: flex;
 		font: inherit;
-		gap: $space-40;
+		gap: 24px;
 		justify-content: space-between;
-		padding: $space-30 0;
+		padding: 16px 0;
 		text-align: left;
 		transition: color $transition-fast;
 		width: 100%;
@@ -60,7 +60,7 @@
 
 	#{$faq}__answer {
 		color: $color-muted;
-		padding: 0 $space-60 $space-30 0;
+		padding: 0 64px 16px 0;
 
 		@include down($bp-medium) {
 			padding-right: 0;

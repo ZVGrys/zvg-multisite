@@ -180,6 +180,446 @@
                 "class": "",
                 "id": ""
             }
+        },
+        {
+            "key": "field_zvg_acf_post_tab",
+            "label": "Post",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_zvg_acf_post_share_show",
+            "label": "Show share links",
+            "name": "post_share_show",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_zvg_acf_post_share_label",
+            "label": "Share label",
+            "name": "post_share_label",
+            "type": "text",
+            "instructions": "Leave empty to print the links with no label.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_zvg_acf_post_share_show",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_zvg_acf_post_share_networks",
+            "label": "Share networks",
+            "name": "post_share_networks",
+            "type": "checkbox",
+            "instructions": "The list the theme ships, filtered by zvg_acf_share_networks.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_zvg_acf_post_share_show",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {},
+            "allow_custom": 0,
+            "default_value": [],
+            "layout": "vertical",
+            "toggle": 1,
+            "return_format": "value",
+            "save_custom": 0
+        },
+        {
+            "key": "field_zvg_acf_post_share_copy",
+            "label": "Show copy link button",
+            "name": "post_share_copy",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_zvg_acf_post_share_show",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_zvg_acf_post_nav_show",
+            "label": "Show post navigation",
+            "name": "post_nav_show",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_zvg_acf_post_nav_prev_label",
+            "label": "Previous label",
+            "name": "post_nav_prev_label",
+            "type": "text",
+            "instructions": "Leave empty to use the post's own title.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_zvg_acf_post_nav_show",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_zvg_acf_post_nav_next_label",
+            "label": "Next label",
+            "name": "post_nav_next_label",
+            "type": "text",
+            "instructions": "Leave empty to use the post's own title.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_zvg_acf_post_nav_show",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_zvg_acf_error_tab",
+            "label": "404",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_zvg_acf_error_eyebrow",
+            "label": "Label",
+            "name": "error_eyebrow",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_zvg_acf_error_code",
+            "label": "Code",
+            "name": "error_code",
+            "type": "text",
+            "instructions": "Decorative. Hidden from screen readers.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_zvg_acf_error_lead",
+            "label": "Lead",
+            "name": "error_lead",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_zvg_acf_error_show_search",
+            "label": "Show search form",
+            "name": "error_show_search",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_zvg_acf_error_search_placeholder",
+            "label": "Search placeholder",
+            "name": "error_search_placeholder",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_zvg_acf_error_show_search",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_zvg_acf_error_search_button",
+            "label": "Search button",
+            "name": "error_search_button",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_zvg_acf_error_show_search",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_zvg_acf_error_search_hint",
+            "label": "Search hint",
+            "name": "error_search_hint",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_zvg_acf_error_show_search",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_zvg_acf_error_button_1_label",
+            "label": "First Button: Label",
+            "name": "error_button_1_label",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_zvg_acf_error_button_1_url",
+            "label": "First Button: URL",
+            "name": "error_button_1_url",
+            "type": "url",
+            "instructions": "Leave empty to link to the homepage.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_zvg_acf_error_button_2_label",
+            "label": "Second Button: Label",
+            "name": "error_button_2_label",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_zvg_acf_error_button_2_url",
+            "label": "Second Button: URL",
+            "name": "error_button_2_url",
+            "type": "url",
+            "instructions": "Leave empty to link to the posts page. The button is hidden while there is neither.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -199,5 +639,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1787226713
+    "modified": 1787468870
 }

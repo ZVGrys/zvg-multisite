@@ -2,45 +2,30 @@
 
 .zvg-acf-search {
 	display: flex;
-	flex-wrap: wrap;
-	gap: $space-20;
-	margin-bottom: $space-50;
-	max-width: $measure-wide;
+	flex-wrap: nowrap;
+	gap: 18px;
+	margin-bottom: 40px;
 
 	&__field {
 		background-color: $color-surface-alt;
-		border: 1px solid $color-border;
-		border-radius: $radius-medium;
+		border: 1px solid $color-border-strong;
+		border-radius: 4px;
 		color: $color-text;
 		flex: 1 1 240px;
 		font: inherit;
-		padding: $space-20 $space-30;
+		min-width: 0;
+		padding: 12px 14px;
 
 		&::placeholder {
 			color: $color-muted;
 		}
 
 		&:focus-visible {
-			border-color: $color-border-strong;
-			outline: 2px solid $color-accent;
-			outline-offset: 2px;
+			border-color: $color-accent;
 		}
 	}
 
 	&__submit {
-		background-color: $color-accent;
-		border: 0;
-		border-radius: $radius-medium;
-		color: $color-accent-ink;
 		cursor: pointer;
-		font: inherit;
-		font-weight: 600;
-		padding: $space-20 $space-40;
-		transition: opacity $transition-fast;
-
-		&:hover,
-		&:focus-visible {
-			opacity: 0.85;
-		}
 	}
 }

@@ -1,0 +1,261 @@
+@use '../../../assets/css/vars' as *;
+
+.zvg-acf-team {
+	&__note {
+		color: $color-muted;
+		font-family: $font-mono;
+		font-size: 13px;
+		margin-top: 40px;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
+	}
+
+	&__grid {
+		display: grid;
+		gap: 24px;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+		margin-top: 40px;
+	}
+}
+
+.zvg-acf-member {
+	background-color: $color-surface-alt;
+	border: 1px solid $color-border;
+	border-radius: 6px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 16px;
+	position: relative;
+	transition: border-color $transition-base, box-shadow $transition-base;
+
+	&:hover,
+	&:has(:focus-visible) {
+		border-color: $color-accent;
+		box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+	}
+
+	&__portrait {
+		aspect-ratio: 1;
+		border: 1px solid $color-border;
+		border-radius: 4px;
+		display: block;
+		height: auto;
+		margin-bottom: 8px;
+		object-fit: cover;
+		width: 100%;
+	}
+
+	&__name,
+	&__role,
+	&__bio {
+		margin: 0;
+	}
+
+	&__name {
+		font-size: 17px;
+
+		@include down($bp-large) {
+			font-size: 16px;
+		}
+
+		@include down($bp-small) {
+			font-size: 15px;
+		}
+	}
+
+	&__role {
+		color: $color-accent;
+		font-family: $font-mono;
+		font-size: 13px;
+		letter-spacing: 0.03em;
+		line-height: 1.5;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
+	}
+
+	&__bio {
+		color: $color-muted;
+		font-size: 15px;
+		line-height: 1.5;
+
+		@include down($bp-large) {
+			font-size: 14px;
+		}
+
+		@include down($bp-small) {
+			font-size: 13px;
+		}
+	}
+
+	&__toggle {
+		align-self: flex-start;
+		background-color: transparent;
+		border: 0;
+		color: $color-accent;
+		cursor: pointer;
+		font-family: $font-mono;
+		font-size: 13px;
+		font-weight: 600;
+		padding: 0;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
+
+		&::after {
+			border-radius: 6px;
+			content: "";
+			inset: 0;
+			position: absolute;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
+}
+
+.zvg-acf-js .zvg-acf-member .zvg-acf-member__profile {
+	display: none;
+}
+
+.zvg-acf-dialog {
+	background-color: $color-surface;
+	border: 1px solid $color-border-strong;
+	border-radius: 6px;
+	color: $color-text;
+	max-width: 560px;
+	padding: 24px;
+	width: calc(100% - 40px);
+
+	&::backdrop {
+		background-color: rgba(10, 8, 14, 0.68);
+	}
+
+	p {
+		color: $color-muted;
+		font-size: 15px;
+		line-height: 1.6;
+		margin-bottom: 16px;
+
+		@include down($bp-large) {
+			font-size: 14px;
+		}
+
+		@include down($bp-small) {
+			font-size: 13px;
+		}
+	}
+
+	&__head {
+		align-items: flex-start;
+		display: flex;
+		gap: 16px;
+		justify-content: space-between;
+	}
+
+	&__name {
+		font-size: 28px;
+		margin: 0 0 4px;
+
+		@include down($bp-large) {
+			font-size: 25px;
+		}
+
+		@include down($bp-small) {
+			font-size: 22px;
+		}
+	}
+
+	p#{&}__role {
+		color: $color-accent;
+		font-family: $font-mono;
+		font-size: 13px;
+		letter-spacing: 0.03em;
+		margin: 0;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
+	}
+
+	&__portrait {
+		border: 1px solid $color-border;
+		border-radius: 4px;
+		display: block;
+		height: auto;
+		margin: 24px 0;
+		max-width: 100%;
+		width: 200px;
+	}
+
+	&__close {
+		background-color: transparent;
+		border: 1px solid $color-border-strong;
+		border-radius: 4px;
+		color: $color-muted;
+		cursor: pointer;
+		font-family: $font-mono;
+		font-size: 15px;
+		line-height: 1;
+		padding: 8px;
+		transition: color $transition-fast, border-color $transition-fast;
+
+		@include down($bp-large) {
+			font-size: 14px;
+		}
+
+		@include down($bp-small) {
+			font-size: 13px;
+		}
+
+		&:hover {
+			border-color: $color-accent;
+			color: $color-text;
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			transition: none;
+		}
+	}
+
+	&__link {
+		align-items: center;
+		display: inline-flex;
+		font-family: $font-mono;
+		font-size: 13px;
+		font-weight: 600;
+		min-height: 24px;
+		text-decoration: none;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
+
+		&:hover,
+		&:focus {
+			text-decoration: none;
+		}
+
+		&::after {
+			content: "\2192";
+			display: inline-block;
+			margin-left: 0.35em;
+			transition: transform $transition-fast;
+
+			@media (prefers-reduced-motion: reduce) {
+				transition: none;
+			}
+		}
+
+		&:hover::after,
+		&:focus::after {
+			transform: translateX(2px);
+		}
+	}
+}
