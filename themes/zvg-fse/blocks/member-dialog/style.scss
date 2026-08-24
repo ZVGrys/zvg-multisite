@@ -5,7 +5,7 @@
 }
 
 .zvg-fse-dialog {
-	width: calc(100% - var(--wp--preset--spacing--50));
+	width: calc(100% - var(--wp--preset--spacing--50, 40px));
 	max-width: $measure-content;
 	padding: var(--wp--preset--spacing--40);
 	color: $color-text;
