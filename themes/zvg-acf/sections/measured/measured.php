@@ -11,9 +11,9 @@ $zvg_acf_title   = get_sub_field( 'title' );
 $zvg_acf_intro   = get_sub_field( 'intro' );
 $zvg_acf_caption = trim( (string) get_sub_field( 'caption' ) );
 $zvg_acf_columns = array(
-	'value_fse'       => 'FSE',
-	'value_elementor' => 'Elementor',
-	'value_acf'       => 'ACF theme',
+	'value_fse'       => _x( 'FSE', 'Build name', 'zvg-acf' ),
+	'value_elementor' => _x( 'Elementor', 'Build name', 'zvg-acf' ),
+	'value_acf'       => _x( 'ACF theme', 'Build name', 'zvg-acf' ),
 );
 
 if ( ! have_rows( 'rows' ) ) {
