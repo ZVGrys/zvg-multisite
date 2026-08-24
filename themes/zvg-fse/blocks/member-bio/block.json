@@ -11,6 +11,7 @@
 	"usesContext": [ "postId" ],
 	"ancestor": [ "core/post-template" ],
 	"render": "file:./block.php",
+	"example": {},
 	"supports": {
 		"html": false,
 		"reusable": false,

@@ -64,8 +64,8 @@ $zvg_fse_editors = array(
 				<!-- /wp:group -->
 				<?php endif; ?>
 
-				<!-- wp:paragraph {"className":"zvg-fse-editors__caption","textColor":"muted","fontSize":"medium","style":{"typography":{"lineHeight":"1.55"}}} -->
-				<p class="zvg-fse-editors__caption has-muted-color has-text-color has-medium-font-size" style="line-height:1.55"><?php echo esc_html( $zvg_fse_editor['caption'] ); ?></p>
+				<!-- wp:paragraph {"className":"zvg-fse-editors__caption","textColor":"muted","fontSize":"medium","style":{"typography":{"lineHeight":"1.5"}}} -->
+				<p class="zvg-fse-editors__caption has-muted-color has-text-color has-medium-font-size" style="line-height:1.5"><?php echo esc_html( $zvg_fse_editor['caption'] ); ?></p>
 				<!-- /wp:paragraph -->
 			</figure>
 			<!-- /wp:group -->
