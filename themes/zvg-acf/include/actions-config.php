@@ -11,6 +11,21 @@ add_action( 'wp_enqueue_scripts', 'zvg_acf_enqueue_scripts', 999 );
 add_action( 'wp_head', 'zvg_acf_flag_script_support', 1 );
 add_action( 'wp_head', 'zvg_acf_preload_fonts', 2 );
 add_action( 'init', 'zvg_acf_drop_emoji_support' );
+add_filter( 'wpcf7_load_js', 'zvg_acf_page_has_contact_form' );
+add_filter( 'wpcf7_load_css', 'zvg_acf_page_has_contact_form' );
+
+/**
+ * Contact Form 7 loads its script and stylesheet on every page of the site.
+ *
+ * @return bool
+ */
+function zvg_acf_page_has_contact_form() {
+	if ( zvg_acf_is_sections_page() && in_array( 'contact', zvg_acf_sections(), true ) ) {
+		return true;
+	}
+
+	return is_singular() && has_shortcode( (string) get_post_field( 'post_content', get_queried_object_id() ), 'contact-form-7' );
+}
 
 /**
  * Mark the document as scripted before the body is painted.
@@ -126,6 +141,10 @@ function zvg_acf_enqueue_section_assets() {
 
 		if ( file_exists( ZVG_ACF_T_PATH . $style ) ) {
 			zvg_acf_enqueue_style( $section, $style, array( 'zvg-acf-general', 'zvg-acf-sections' ) );
+		}
+
+		if ( 'blog' === $section ) {
+			wp_enqueue_style( 'zvg-acf-post-card' );
 		}
 
 		$script = '/sections/' . $section . '/js/' . $section . '.min.js';
