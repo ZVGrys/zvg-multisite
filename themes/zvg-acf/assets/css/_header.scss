@@ -6,21 +6,21 @@
 	z-index: 100;
 	background-color: $color-surface;
 	border-bottom: 1px solid $color-border;
-	padding-inline: $container-padding;
+	padding-inline: 24px;
 
 	&__inner {
 		align-items: center;
 		display: flex;
 		flex-wrap: wrap;
-		gap: $space-60;
+		gap: 64px;
 		justify-content: space-between;
 		margin-inline: auto;
-		max-width: $container-width;
-		padding-block: $space-30;
+		max-width: 1200px;
+		padding-block: 16px;
 		width: 100%;
 
 		@include down($bp-medium) {
-			gap: $space-30;
+			gap: 16px;
 		}
 	}
 
@@ -28,6 +28,14 @@
 		font-size: 19px;
 		font-weight: 600;
 		margin: 0;
+
+		@include down($bp-large) {
+			font-size: 18px;
+		}
+
+		@include down($bp-small) {
+			font-size: 17px;
+		}
 
 		a {
 			color: inherit;
@@ -64,8 +72,8 @@
 
 	&__close {
 		position: absolute;
-		right: $container-padding;
-		top: $space-30;
+		right: 24px;
+		top: 16px;
 
 		@include up($bp-medium) {
 			display: none;
@@ -76,7 +84,7 @@
 .zvg-acf-menu {
 	display: flex;
 	flex-wrap: wrap;
-	gap: $space-40;
+	gap: 24px;
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -95,9 +103,9 @@
 	.sub-menu {
 		display: flex;
 		flex-direction: column;
-		gap: $space-20;
+		gap: 8px;
 		list-style: none;
-		margin: $space-20 0 0;
+		margin: 8px 0 0;
 		padding: 0;
 	}
 }
@@ -107,7 +115,7 @@
 	display: flex;
 	flex: 1;
 	flex-wrap: wrap;
-	gap: $space-40;
+	gap: 24px;
 	justify-content: space-between;
 
 	@include down($bp-medium) {
@@ -115,11 +123,11 @@
 		background-color: $color-surface;
 		display: none;
 		flex-direction: column;
-		gap: $space-40;
+		gap: 24px;
 		inset: var(--wp-admin--admin-bar--height, 0) 0 0;
 		justify-content: flex-start;
 		overflow-y: auto;
-		padding: $space-30 $container-padding;
+		padding: 16px 24px;
 		position: fixed;
 		z-index: 100000;
 	}
@@ -127,7 +135,7 @@
 	.zvg-acf-menu {
 		@include down($bp-medium) {
 			flex-direction: column;
-			gap: $space-40;
+			gap: 24px;
 		}
 
 		a {
@@ -156,16 +164,20 @@
 	padding: 3px;
 	background-color: $color-surface-alt;
 	border: 1px solid $color-border;
-	border-radius: $radius-large;
+	border-radius: 6px;
 
 	&__link {
 		font-family: $font-mono;
 		font-size: 13px;
 		font-weight: 600;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
 		letter-spacing: 0.03em;
 		color: $color-muted;
 		padding: 7px 12px;
-		border-radius: $radius-medium;
+		border-radius: 4px;
 		text-decoration: none;
 		text-transform: uppercase;
 		transition: color $transition-fast;

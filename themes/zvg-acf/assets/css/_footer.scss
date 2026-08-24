@@ -2,17 +2,17 @@
 
 .zvg-acf-footer {
 	border-top: 1px solid $color-border;
-	padding-inline: $container-padding;
+	padding-inline: 24px;
 
 	&__inner {
 		align-items: center;
 		display: flex;
 		flex-wrap: wrap;
-		gap: $space-40;
+		gap: 24px;
 		justify-content: space-between;
 		margin-inline: auto;
-		max-width: $container-width;
-		padding-block: $space-50;
+		max-width: 1200px;
+		padding-block: 40px;
 		width: 100%;
 	}
 
@@ -21,18 +21,26 @@
 		color: $color-muted;
 		font-size: 13px;
 		margin: 0;
+
+		@include down($bp-large) {
+			font-size: 12px;
+		}
 	}
 
 	&__nav {
 		align-items: center;
 		display: flex;
 		flex-wrap: wrap;
-		gap: $space-40;
+		gap: 24px;
 		font-size: 13px;
 		line-height: 1.5;
 
+		@include down($bp-large) {
+			font-size: 12px;
+		}
+
 		.zvg-acf-menu {
-			gap: $space-40;
+			gap: 24px;
 			row-gap: 5px;
 
 			a {
