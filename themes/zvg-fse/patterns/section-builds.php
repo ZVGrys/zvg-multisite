@@ -23,7 +23,7 @@ $zvg_fse_builds = array(
 		'title'  => _x( 'Elementor', 'Build card title', 'zvg-fse' ),
 		'text'   => _x( 'Built with Elementor’s page builder, styled with an Elementor kit generated from the same design tokens.', 'Build card text', 'zvg-fse' ),
 		'url'    => home_url( '/elementor/' ),
-		'values' => array( '9347', '788 KB', '582' ),
+		'values' => array( '9347', '788 KB', '580' ),
 	),
 	array(
 		'title'  => _x( 'ACF theme', 'Build card title', 'zvg-fse' ),
