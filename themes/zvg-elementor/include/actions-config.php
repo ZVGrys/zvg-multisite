@@ -10,6 +10,15 @@ defined( 'ABSPATH' ) || exit;
 add_action( 'wp_enqueue_scripts', 'zvg_elementor_enqueue_scripts', 999 );
 add_action( 'wp_head', 'zvg_elementor_flag_script_support', 1 );
 
+/*
+ * Load only the core blocks a page actually renders, instead of the whole block library.
+ *
+ * Block themes get this for free since WP 5.9; a classic theme has to opt in. Post content on
+ * this build is a handful of paragraphs, and without the split WordPress still ships the full
+ * block-library stylesheet with it.
+ */
+add_filter( 'should_load_separate_core_block_assets', '__return_true' );
+
 /**
  * Mark the document as scripted before the body is painted.
  */
