@@ -95,10 +95,6 @@
 	&__actions {
 		display: flex;
 		gap: 8px;
-
-		&[hidden] {
-			display: none;
-		}
 	}
 
 	&__button {
@@ -121,8 +117,9 @@
 		border-color: $color-border-strong;
 		color: $color-text;
 
-		&:hover,
-		&:focus {
+		&:focus,
+		&:hover {
+			background-color: transparent;
 			border-color: $color-accent;
 			color: $color-accent;
 			opacity: 1;

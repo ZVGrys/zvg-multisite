@@ -44,6 +44,20 @@
 			return !!steps[index].querySelector('input:checked');
 		}
 
+		/**
+		 * Move focus onto a panel the step change has just revealed.
+		 *
+		 * @param {HTMLElement} target Element to focus.
+		 */
+		function focusPanel(target) {
+			if (!target) {
+				return;
+			}
+
+			target.setAttribute('tabindex', '-1');
+			target.focus();
+		}
+
 		function render() {
 			var i;
 
@@ -141,10 +155,12 @@
 			if (current < steps.length - 1) {
 				current++;
 				render();
+				focusPanel(steps[current]);
 				return;
 			}
 
 			show();
+			focusPanel(result);
 		});
 
 		if (back) {
@@ -152,6 +168,7 @@
 				if (current > 0) {
 					current--;
 					render();
+					focusPanel(steps[current]);
 				}
 			});
 		}
@@ -176,6 +193,7 @@
 				current = 0;
 				render();
 				form.scrollIntoView({ block: 'nearest' });
+				focusPanel(steps[current]);
 			});
 		}
 

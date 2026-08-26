@@ -120,3 +120,64 @@ if ( ! function_exists( 'zvg_elementor_clean_search_combobox' ) ) :
 endif;
 
 add_action( 'elementor_pro/search/before_input', 'zvg_elementor_clean_search_combobox' );
+
+if ( ! function_exists( 'zvg_elementor_form_autocomplete_tokens' ) ) :
+
+	/**
+	 * The autocomplete token each Form widget field answers to.
+	 *
+	 * A field is matched on its own id first, then on its type.
+	 *
+	 * @return array Token keyed by field id or field type.
+	 */
+	function zvg_elementor_form_autocomplete_tokens() {
+		/**
+		 * Filter the autocomplete tokens handed to the Form widget's fields.
+		 *
+		 * @param array $tokens Token keyed by field id or field type.
+		 */
+		return apply_filters(
+			'zvg_elementor_form_autocomplete_tokens',
+			array(
+				'name'    => 'name',
+				'email'   => 'email',
+				'tel'     => 'tel',
+				'phone'   => 'tel',
+				'company' => 'organization',
+				'url'     => 'url',
+			)
+		);
+	}
+endif;
+
+if ( ! function_exists( 'zvg_elementor_form_field_autocomplete' ) ) :
+
+	/**
+	 * Name the purpose of a Form widget input, which the widget itself never does.
+	 *
+	 * @param array                                   $item       Field settings.
+	 * @param int                                     $item_index Field index.
+	 * @param ElementorPro\Modules\Forms\Widgets\Form $widget     Form widget instance.
+	 *
+	 * @return array
+	 */
+	function zvg_elementor_form_field_autocomplete( $item, $item_index, $widget ) {
+		$tokens = zvg_elementor_form_autocomplete_tokens();
+		$keys   = array(
+			isset( $item['custom_id'] ) ? $item['custom_id'] : '',
+			isset( $item['field_type'] ) ? $item['field_type'] : '',
+		);
+
+		foreach ( $keys as $zvg_elementor_key ) {
+			if ( isset( $tokens[ $zvg_elementor_key ] ) ) {
+				$widget->add_render_attribute( 'input' . $item_index, 'autocomplete', $tokens[ $zvg_elementor_key ] );
+
+				break;
+			}
+		}
+
+		return $item;
+	}
+endif;
+
+add_filter( 'elementor_pro/forms/render/item', 'zvg_elementor_form_field_autocomplete', 10, 3 );

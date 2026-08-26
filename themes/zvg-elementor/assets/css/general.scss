@@ -11,6 +11,18 @@
 	box-sizing: border-box;
 }
 
+[hidden] {
+	display: none !important;
+}
+
+html {
+	scroll-padding-block-start: 80px;
+
+	@include down($bp-medium) {
+		scroll-padding-block-start: 68px;
+	}
+}
+
 body {
 	background-color: $color-surface;
 	color: $color-text;
@@ -51,6 +63,22 @@ button {
 	}
 }
 
+.elementor .elementor-field-group .elementor-field-textual:focus-visible {
+	box-shadow: 0 0 0 5px $color-surface;
+	outline: 3px solid $color-accent;
+	outline-offset: 2px;
+
+	@media (forced-colors: active) {
+		outline: 3px solid Highlight;
+		outline-offset: 2px;
+	}
+}
+
+.elementor-post-navigation .elementor-post-navigation__link a:focus-visible {
+	box-shadow: none;
+	outline-offset: -3px;
+}
+
 .screen-reader-text {
 	border: 0;
 	clip-path: inset(50%);
@@ -67,6 +95,7 @@ button {
 	&:focus {
 		background-color: $color-accent;
 		border-radius: 4px;
+		clip: auto;
 		clip-path: none;
 		color: $color-accent-ink;
 		display: block;
