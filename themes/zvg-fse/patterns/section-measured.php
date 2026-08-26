@@ -23,15 +23,15 @@ $zvg_fse_table = wp_json_encode(
 		'rows'    => array(
 			array(
 				'label'  => _x( 'Lines of code', 'Measurement', 'zvg-fse' ),
-				'values' => array( '6955', '', '' ),
+				'values' => array( '7012', '9347', '6652' ),
 			),
 			array(
 				'label'  => _x( 'Page weight', 'Measurement', 'zvg-fse' ),
-				'values' => array( '476 KB', '', '' ),
+				'values' => array( '341 KB', '788 KB', '228 KB' ),
 			),
 			array(
 				'label'  => _x( 'DOM nodes', 'Measurement', 'zvg-fse' ),
-				'values' => array( '577', '', '' ),
+				'values' => array( '576', '582', '503' ),
 			),
 			array(
 				'label'  => _x( 'Lighthouse mobile', 'Measurement', 'zvg-fse' ),
