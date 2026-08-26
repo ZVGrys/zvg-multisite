@@ -24,6 +24,7 @@
 	}
 
 	&__direct a {
+		padding-block: 6px;
 		text-decoration: none;
 		transition: opacity $transition-fast;
 
@@ -104,6 +105,34 @@
 		&:active {
 			opacity: 0.75;
 		}
+	}
+}
+
+.zvg-fse-contact .screen-reader-response:focus-within {
+	position: static;
+	width: auto;
+	height: auto;
+	margin: 0 0 var(--wp--preset--spacing--30);
+	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+	overflow: visible;
+	clip: auto;
+	clip-path: none;
+	font-size: var(--wp--preset--font-size--medium);
+	color: $color-danger;
+	border: 1px solid $color-danger;
+	border-radius: $radius-medium;
+
+	p {
+		margin: 0;
+	}
+
+	ul {
+		margin: var(--wp--preset--spacing--10) 0 0;
+		padding-inline-start: 1.25em;
+	}
+
+	a {
+		color: inherit;
 	}
 }
 

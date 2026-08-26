@@ -19,4 +19,10 @@
 	&__nav .wp-block-navigation__container {
 		row-gap: 5px;
 	}
+
+	&__nav .wp-block-navigation-item__content {
+		display: inline-flex;
+		align-items: center;
+		min-height: 44px;
+	}
 }

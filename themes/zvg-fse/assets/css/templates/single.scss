@@ -8,6 +8,7 @@
 
 	.wp-block-post-terms a,
 	&__nav a {
+		padding-block: 14px;
 		transition: opacity $transition-fast;
 
 		&:hover,
