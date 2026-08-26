@@ -14,6 +14,14 @@
 	}
 }
 
+[hidden] {
+	display: none !important;
+}
+
+html {
+	scroll-padding-top: 90px;
+}
+
 :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
 	outline: 3px solid $color-accent;
 	outline-offset: 2px;

@@ -26,6 +26,9 @@
 
 		function openNav() {
 			nav.classList.add('is-open');
+			nav.setAttribute('role', 'dialog');
+			nav.setAttribute('aria-modal', 'true');
+			nav.setAttribute('aria-label', nav.getAttribute('data-menu-label') || '');
 			toggle.setAttribute('aria-expanded', 'true');
 			document.documentElement.classList.add('no-scroll');
 
@@ -36,6 +39,9 @@
 
 		function closeNav() {
 			nav.classList.remove('is-open');
+			nav.removeAttribute('role');
+			nav.removeAttribute('aria-modal');
+			nav.removeAttribute('aria-label');
 			toggle.setAttribute('aria-expanded', 'false');
 			document.documentElement.classList.remove('no-scroll');
 		}

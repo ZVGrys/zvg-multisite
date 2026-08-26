@@ -100,10 +100,6 @@
 	&__actions {
 		display: flex;
 		gap: 8px;
-
-		&[hidden] {
-			display: none;
-		}
 	}
 
 	&__button {

@@ -57,7 +57,14 @@
 		display: block;
 		height: 24px;
 		padding: 0;
+		position: relative;
 		width: 24px;
+
+		&::after {
+			content: "";
+			inset: -10px;
+			position: absolute;
+		}
 
 		svg {
 			display: block;

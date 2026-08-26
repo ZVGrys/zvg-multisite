@@ -157,7 +157,7 @@ $zvg_acf_labels = wp_json_encode(
 					<?php } ?>
 				</div>
 
-				<div class="zvg-acf-chooser__result" data-chooser-result role="status">
+				<div class="zvg-acf-chooser__result" data-chooser-result role="status" tabindex="-1">
 					<?php if ( '' !== $zvg_acf_winner ) { ?>
 					<p class="zvg-acf-eyebrow"><?php echo esc_html( $zvg_acf_winner ); ?></p>
 					<?php } ?>
