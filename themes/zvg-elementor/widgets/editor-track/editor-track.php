@@ -256,7 +256,7 @@ class ZVG_Elementor_Editor_Track extends Widget_Base {
 		}
 
 		?>
-		<div class="zvg-elementor-editor-track">
+		<div class="zvg-elementor-editor-track" tabindex="0" role="group" aria-label="<?php echo esc_attr_x( 'Editor screenshots, scroll horizontally', 'Scrollable region', 'zvg-elementor' ); ?>">
 			<?php
 			foreach ( $items as $item ) {
 				?>

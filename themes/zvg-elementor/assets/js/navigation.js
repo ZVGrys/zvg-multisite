@@ -22,7 +22,8 @@
 	}
 
 	/**
-	 * Toggle the fallback header menu on small screens.
+	 * Toggle the fallback header menu on small screens. While open the panel covers
+	 * the viewport, so focus is kept inside it.
 	 */
 	function zvgElementorInitNavigation() {
 		var toggle = document.querySelector('.zvg-elementor-header__toggle');
@@ -39,6 +40,42 @@
 			document.documentElement.classList.remove('no-scroll');
 		}
 
+		/**
+		 * The elements the open panel is allowed to hand focus to.
+		 *
+		 * @return {HTMLElement[]} Toggle plus the focusable descendants of the panel.
+		 */
+		function focusable() {
+			return [ toggle ].concat(
+				Array.prototype.slice.call(
+					nav.querySelectorAll('a[href], button:not([disabled])')
+				)
+			);
+		}
+
+		/**
+		 * Keep Tab inside the panel while it covers the page.
+		 *
+		 * @param {KeyboardEvent} event Key event.
+		 */
+		function trapFocus(event) {
+			var items = focusable();
+			var first = items[0];
+			var last = items[items.length - 1];
+
+			if (event.shiftKey && document.activeElement === first) {
+				event.preventDefault();
+				last.focus();
+
+				return;
+			}
+
+			if (!event.shiftKey && document.activeElement === last) {
+				event.preventDefault();
+				first.focus();
+			}
+		}
+
 		toggle.addEventListener('click', function () {
 			var isOpen = nav.classList.toggle('is-open');
 
@@ -47,12 +84,20 @@
 		});
 
 		document.addEventListener('keydown', function (event) {
-			if ('Escape' !== event.key || !nav.classList.contains('is-open')) {
+			if (!nav.classList.contains('is-open')) {
 				return;
 			}
 
-			closeNav();
-			toggle.focus();
+			if ('Escape' === event.key) {
+				closeNav();
+				toggle.focus();
+
+				return;
+			}
+
+			if ('Tab' === event.key) {
+				trapFocus(event);
+			}
 		});
 
 		small.addEventListener('change', function (event) {

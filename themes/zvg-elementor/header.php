@@ -69,4 +69,4 @@ defined( 'ABSPATH' ) || exit;
 	</header>
 	<?php } ?>
 
-	<main id="content" class="zvg-elementor-main<?php echo zvg_elementor_owns_content() ? '' : ' zvg-elementor-main--boxed'; ?>">
+	<main id="content" class="zvg-elementor-main<?php echo zvg_elementor_owns_content() ? '' : ' zvg-elementor-main--boxed'; ?>" tabindex="-1">

@@ -30,6 +30,12 @@
 		transition: color 300ms ease;
 		width: 100%;
 
+		&:focus,
+		&:hover {
+			background: none;
+			border: 0;
+		}
+
 		&:hover,
 		&:focus-visible {
 			color: $color-accent;

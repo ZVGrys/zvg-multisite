@@ -23,6 +23,7 @@
 
 	/**
 	 * Wire one menu widget: the toggle opens the panel, Escape and a second click close it.
+	 * While open the panel covers the viewport, so focus is kept inside it.
 	 *
 	 * @param {HTMLElement} nav Widget root.
 	 */
@@ -43,17 +44,62 @@
 			document.documentElement.classList.toggle('no-scroll', isOpen);
 		}
 
+		/**
+		 * The elements the open panel is allowed to hand focus to.
+		 *
+		 * @return {NodeList} Focusable descendants of the widget root.
+		 */
+		function focusable() {
+			return nav.querySelectorAll('a[href], button:not([disabled])');
+		}
+
+		/**
+		 * Keep Tab inside the panel while it covers the page.
+		 *
+		 * @param {KeyboardEvent} event Key event.
+		 */
+		function trapFocus(event) {
+			var items = focusable();
+
+			if (!items.length) {
+				return;
+			}
+
+			var first = items[0];
+			var last = items[items.length - 1];
+
+			if (event.shiftKey && document.activeElement === first) {
+				event.preventDefault();
+				last.focus();
+
+				return;
+			}
+
+			if (!event.shiftKey && document.activeElement === last) {
+				event.preventDefault();
+				first.focus();
+			}
+		}
+
 		toggle.addEventListener('click', function () {
 			setOpen(!panel.classList.contains('is-open'));
 		});
 
-		nav.addEventListener('keydown', function (event) {
-			if ('Escape' !== event.key || !panel.classList.contains('is-open')) {
+		document.addEventListener('keydown', function (event) {
+			if (!panel.classList.contains('is-open')) {
 				return;
 			}
 
-			setOpen(false);
-			toggle.focus();
+			if ('Escape' === event.key) {
+				setOpen(false);
+				toggle.focus();
+
+				return;
+			}
+
+			if ('Tab' === event.key) {
+				trapFocus(event);
+			}
 		});
 
 		small.addEventListener('change', function (event) {
