@@ -17,19 +17,19 @@ $zvg_fse_builds = array(
 		'title'  => _x( 'Full Site Editing', 'Build card title', 'zvg-fse' ),
 		'text'   => _x( 'Built entirely in the block editor: theme.json for styling, native block patterns for layout, no custom PHP templates.', 'Build card text', 'zvg-fse' ),
 		'url'    => home_url( '/' ),
-		'values' => array( '6955', '476 KB', '577' ),
+		'values' => array( '7012', '341 KB', '576' ),
 	),
 	array(
 		'title'  => _x( 'Elementor', 'Build card title', 'zvg-fse' ),
 		'text'   => _x( 'Built with Elementor’s page builder, styled with an Elementor kit generated from the same design tokens.', 'Build card text', 'zvg-fse' ),
 		'url'    => home_url( '/elementor/' ),
-		'values' => array( '', '', '' ),
+		'values' => array( '9347', '788 KB', '582' ),
 	),
 	array(
 		'title'  => _x( 'ACF theme', 'Build card title', 'zvg-fse' ),
 		'text'   => _x( 'A classic theme: hand-written PHP templates, with ACF fields for anything an editor needs to change.', 'Build card text', 'zvg-fse' ),
 		'url'    => home_url( '/acf/' ),
-		'values' => array( '', '', '' ),
+		'values' => array( '6652', '228 KB', '503' ),
 	),
 );
 

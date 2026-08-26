@@ -58,15 +58,15 @@
 			"rows": [
 				{
 					"label": "Lines of code",
-					"values": [ "6955", "—", "—" ]
+					"values": [ "7012", "9347", "6652" ]
 				},
 				{
 					"label": "Page weight",
-					"values": [ "476 KB", "—", "—" ]
+					"values": [ "341 KB", "788 KB", "228 KB" ]
 				},
 				{
 					"label": "DOM nodes",
-					"values": [ "577", "—", "—" ]
+					"values": [ "576", "582", "503" ]
 				}
 			]
 		}
