@@ -8,6 +8,31 @@
 	'use strict';
 
 	/**
+	 * Close the responsive navigation overlay a link was activated from.
+	 *
+	 * @param {HTMLElement} link The activated link.
+	 *
+	 * @return {void}
+	 */
+	function zvgFseCloseNavigationOverlay(link) {
+		var overlay = link.closest(
+			'.wp-block-navigation__responsive-container.is-menu-open'
+		);
+
+		if (!overlay) {
+			return;
+		}
+
+		var close = overlay.querySelector(
+			'.wp-block-navigation__responsive-container-close'
+		);
+
+		if (close) {
+			close.click();
+		}
+	}
+
+	/**
 	 * Scroll to anchors that land on this page instead of navigating to them.
 	 */
 	function zvgFseInitAnchorScroll() {
@@ -65,6 +90,7 @@
 			).matches;
 
 			event.preventDefault();
+			zvgFseCloseNavigationOverlay(link);
 			target.scrollIntoView({
 				behavior: prefersReducedMotion ? 'auto' : 'smooth',
 				block: 'start',

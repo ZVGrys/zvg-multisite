@@ -19,6 +19,10 @@
 
 	.wp-block-navigation__responsive-container-open,
 	.wp-block-navigation__responsive-container-close {
+		align-items: center;
+		justify-content: center;
+		min-width: 44px;
+		min-height: 44px;
 		color: $color-text;
 		transition: color $transition-fast;
 
@@ -26,6 +30,11 @@
 		&:focus {
 			color: $color-accent;
 		}
+	}
+
+	.wp-block-navigation__responsive-container-open {
+		margin-block: -10px;
+		margin-inline-end: -10px;
 	}
 
 	.wp-block-navigation__responsive-container.is-menu-open {
@@ -43,7 +52,8 @@
 	}
 
 	.wp-block-navigation__responsive-container-close {
-		top: 8px;
+		top: -2px;
+		margin-inline-end: -10px;
 	}
 }
 

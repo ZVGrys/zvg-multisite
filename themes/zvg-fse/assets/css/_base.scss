@@ -13,6 +13,18 @@
 	}
 }
 
+[hidden] {
+	display: none !important;
+}
+
+html {
+	scroll-padding-block-start: 84px;
+
+	@include down($bp-medium) {
+		scroll-padding-block-start: 68px;
+	}
+}
+
 img,
 svg,
 video,
