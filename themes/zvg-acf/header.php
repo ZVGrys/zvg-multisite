@@ -48,7 +48,7 @@ defined( 'ABSPATH' ) || exit;
 				</svg>
 			</button>
 
-			<div class="zvg-acf-header__nav" id="zvg-acf-nav">
+			<div class="zvg-acf-header__nav" id="zvg-acf-nav" data-menu-label="<?php esc_attr_e( 'Menu', 'zvg-acf' ); ?>">
 				<button class="zvg-acf-header__close" type="button" aria-label="<?php esc_attr_e( 'Close menu', 'zvg-acf' ); ?>">
 					<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 						<path d="m13.06 12 6.47-6.47-1.06-1.06L12 10.94 5.53 4.47 4.47 5.53 10.94 12l-6.47 6.47 1.06 1.06L12 13.06l6.47 6.47 1.06-1.06L13.06 12Z" fill="currentColor" />
@@ -59,10 +59,11 @@ defined( 'ABSPATH' ) || exit;
 				if ( has_nav_menu( 'primary' ) ) {
 					wp_nav_menu(
 						array(
-							'theme_location' => 'primary',
-							'container'      => 'nav',
-							'menu_class'     => 'zvg-acf-menu',
-							'depth'          => 2,
+							'theme_location'       => 'primary',
+							'container'            => 'nav',
+							'container_aria_label' => _x( 'Primary', 'Navigation landmark', 'zvg-acf' ),
+							'menu_class'           => 'zvg-acf-menu',
+							'depth'                => 2,
 						)
 					);
 				}
@@ -89,4 +90,4 @@ defined( 'ABSPATH' ) || exit;
 	}
 	?>
 
-	<main id="content" class="<?php echo esc_attr( $zvg_acf_main_class ); ?>">
+	<main id="content" class="<?php echo esc_attr( $zvg_acf_main_class ); ?>" tabindex="-1">

@@ -45,9 +45,24 @@
 		}
 
 		/**
-		 * Show the current question and nothing else.
+		 * Move focus to the answer a keyboard user is meant to reach next.
+		 *
+		 * @param {HTMLElement} target Element to focus.
 		 */
-		function render() {
+		function focusOn(target) {
+			if (!target) {
+				return;
+			}
+
+			target.focus();
+		}
+
+		/**
+		 * Show the current question and nothing else.
+		 *
+		 * @param {boolean} moveFocus Whether to move focus into the question shown.
+		 */
+		function render(moveFocus) {
 			var i;
 
 			for (i = 0; i < steps.length; i++) {
@@ -69,6 +84,10 @@
 
 			if (othersTitle) {
 				othersTitle.hidden = true;
+			}
+
+			if (moveFocus) {
+				focusOn(steps[current].querySelector('input:checked') || steps[current].querySelector('input'));
 			}
 		}
 
@@ -96,8 +115,10 @@
 
 		/**
 		 * Swap the questions for the verdicts.
+		 *
+		 * @param {boolean} moveFocus Whether to move focus to the verdict.
 		 */
-		function show() {
+		function show(moveFocus) {
 			var top = winner();
 			var verdicts = form.querySelectorAll('[data-build]');
 			var i;
@@ -129,6 +150,10 @@
 					othersSlot.appendChild(verdict);
 				}
 			}
+
+			if (moveFocus) {
+				focusOn(result);
+			}
 		}
 
 		form.addEventListener('change', function (event) {
@@ -146,18 +171,18 @@
 
 			if (current < steps.length - 1) {
 				current++;
-				render();
+				render(true);
 				return;
 			}
 
-			show();
+			show(true);
 		});
 
 		if (back) {
 			back.addEventListener('click', function () {
 				if (current > 0) {
 					current--;
-					render();
+					render(true);
 				}
 			});
 		}
@@ -180,12 +205,12 @@
 				}
 
 				current = 0;
-				render();
+				render(true);
 				form.scrollIntoView({ block: 'nearest' });
 			});
 		}
 
-		render();
+		render(false);
 	}
 
 	/**
