@@ -31,7 +31,7 @@ $zvg_fse_table = wp_json_encode(
 			),
 			array(
 				'label'  => _x( 'DOM nodes', 'Measurement', 'zvg-fse' ),
-				'values' => array( '576', '582', '503' ),
+				'values' => array( '576', '580', '503' ),
 			),
 			array(
 				'label'  => _x( 'Lighthouse mobile', 'Measurement', 'zvg-fse' ),
