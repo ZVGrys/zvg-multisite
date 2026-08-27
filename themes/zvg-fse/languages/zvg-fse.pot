@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-21T12:21:00+00:00\n"
+"POT-Creation-Date: 2026-08-27T10:47:07+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: zvg-fse\n"
@@ -795,7 +795,7 @@ msgstr ""
 
 #: patterns/section-editors.php:19
 msgctxt "Editor screenshot"
-msgid "The landing page open in the WordPress block editor, with a measurements block selected and its settings in the sidebar"
+msgid "The landing page open in the WordPress block editor, with the three builds section selected in the list view and its settings in the sidebar"
 msgstr ""
 
 #: patterns/section-editors.php:20
@@ -808,27 +808,37 @@ msgctxt "Editor screenshot placeholder"
 msgid "Screenshot — Elementor canvas"
 msgstr ""
 
-#: patterns/section-editors.php:24
+#: patterns/section-editors.php:25
+msgctxt "Editor screenshot"
+msgid "The same landing page open in the Elementor editor, with the three builds section selected and the structure panel listing every section"
+msgstr ""
+
+#: patterns/section-editors.php:26
 msgctxt "Editor caption"
 msgid "Editing is drag-and-drop with every setting exposed, which is fast but easy to drift from the tokens."
 msgstr ""
 
-#: patterns/section-editors.php:27
+#: patterns/section-editors.php:29
 msgctxt "Editor screenshot placeholder"
 msgid "Screenshot — WP admin with ACF fields"
 msgstr ""
 
-#: patterns/section-editors.php:28
+#: patterns/section-editors.php:31
+msgctxt "Editor screenshot"
+msgid "The same landing page in the WordPress admin, with the three builds section expanded as a list of labelled ACF fields"
+msgstr ""
+
+#: patterns/section-editors.php:32
 msgctxt "Editor caption"
 msgid "Editing is filling labelled fields; the layout itself is not editable, which keeps the design intact."
 msgstr ""
 
-#: patterns/section-editors.php:38
+#: patterns/section-editors.php:42
 msgctxt "Section title"
 msgid "Three editors, one page"
 msgstr ""
 
-#: patterns/section-editors.php:42
+#: patterns/section-editors.php:46
 msgctxt "Section intro"
 msgid "The same section, opened for editing in each of the three builds."
 msgstr ""
