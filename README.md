@@ -147,9 +147,6 @@ three stacks are fast.** The honest difference is above that row — Elementor s
 weight of the ACF theme and takes 0.7 s longer to paint its largest element, and it costs 2 700
 more lines of code to maintain.
 
-> The FSE line count has drifted by a few lines since it was last measured; the figures above are
-> the ones the site itself reports. A full re-measure is queued.
-
 ## Same design, three editors
 
 The same nine sections, in three editing surfaces.
