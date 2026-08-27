@@ -135,17 +135,13 @@ CSS, no `*.min.js`, no `.json`, no vendored libraries. **Page weight** is the la
 guest receives it, admin bar hidden, uncompressed. **DOM nodes** are elements in the
 server-rendered markup.
 
-**Lighthouse mobile was measured against a static export of the three builds served from a CDN,
-not against WordPress.** That is a deliberate choice and it changes what the number means:
-server render time drops out of the picture entirely, so all three builds become the same kind of
-file on the same host. What the score still reflects is the payload each stack produces — which
-is the part a stack actually decides. Each figure is the median of three runs of Lighthouse 12
-with the default mobile preset.
+Lighthouse score barely separates the three builds, and that is itself the finding: **served
+properly, all three stacks are fast.** The honest difference is above that row — Elementor ships
+3.5× the page weight of the ACF theme and takes 0.7 s longer to paint its largest element, and it
+costs 2 700 more lines of code to maintain.
 
-The score barely separates the three, and that is itself the finding: **served properly, all
-three stacks are fast.** The honest difference is above that row — Elementor ships 3.5× the page
-weight of the ACF theme and takes 0.7 s longer to paint its largest element, and it costs 2 700
-more lines of code to maintain.
+The FSE line count has drifted by a few lines since it was last measured; the figures above are
+the ones the site itself reports. A full re-measure is queued.
 
 ## Same design, three editors
 
