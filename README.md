@@ -14,17 +14,22 @@ The three builds are visually indistinguishable. The only pixel that differs is 
 the header switcher is lit — that is the result, not a coincidence.
 
 <details>
-<summary>The same viewport in the other two builds, the mobile layout, and the full page</summary>
+<summary>All three builds at the same viewport, plus the mobile layout and the full page</summary>
 
 <table>
   <tr>
+    <th align="center">Full Site Editing</th>
     <th align="center">Elementor</th>
     <th align="center">ACF theme</th>
   </tr>
   <tr>
-    <td><img src="docs/img/elementor-home.png" alt="The Elementor build" width="410"></td>
-    <td><img src="docs/img/acf-home.png" alt="The ACF build" width="410"></td>
+    <td><img src="docs/img/fse-home.png" alt="The FSE build" width="270"></td>
+    <td><img src="docs/img/elementor-home.png" alt="The Elementor build" width="270"></td>
+    <td><img src="docs/img/acf-home.png" alt="The ACF build" width="270"></td>
   </tr>
+</table>
+
+<table>
   <tr>
     <th align="center">Mobile</th>
     <th align="center">The whole page</th>
