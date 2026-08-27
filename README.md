@@ -29,16 +29,11 @@ the header switcher is lit — that is the result, not a coincidence.
   </tr>
 </table>
 
-<table>
-  <tr>
-    <th align="center">Mobile</th>
-    <th align="center">The whole page</th>
-  </tr>
-  <tr>
-    <td align="center"><img src="docs/img/fse-mobile.png" alt="The mobile layout" width="230"></td>
-    <td align="center"><img src="docs/img/fse-full.png" alt="The landing page from top to bottom" width="230"></td>
-  </tr>
-</table>
+<b>Mobile</b><br>
+<img src="docs/img/fse-mobile.png" alt="The mobile layout" width="240">
+
+<b>The whole page</b>, 1440 × 6934<br>
+<img src="docs/img/fse-full.png" alt="The landing page from top to bottom" width="200">
 
 </details>
 
