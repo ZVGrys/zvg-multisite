@@ -16,15 +16,19 @@ $zvg_fse_editors = array(
 	array(
 		'shot'    => _x( 'Screenshot — block editor', 'Editor screenshot placeholder', 'zvg-fse' ),
 		'image'   => 'editor-fse.webp',
-		'alt'     => _x( 'The landing page open in the WordPress block editor, with a measurements block selected and its settings in the sidebar', 'Editor screenshot', 'zvg-fse' ),
+		'alt'     => _x( 'The landing page open in the WordPress block editor, with the three builds section selected in the list view and its settings in the sidebar', 'Editor screenshot', 'zvg-fse' ),
 		'caption' => _x( 'Editing means selecting blocks in place; styling choices are limited to what theme.json allows.', 'Editor caption', 'zvg-fse' ),
 	),
 	array(
 		'shot'    => _x( 'Screenshot — Elementor canvas', 'Editor screenshot placeholder', 'zvg-fse' ),
+		'image'   => 'editor-elementor.webp',
+		'alt'     => _x( 'The same landing page open in the Elementor editor, with the three builds section selected and the structure panel listing every section', 'Editor screenshot', 'zvg-fse' ),
 		'caption' => _x( 'Editing is drag-and-drop with every setting exposed, which is fast but easy to drift from the tokens.', 'Editor caption', 'zvg-fse' ),
 	),
 	array(
 		'shot'    => _x( 'Screenshot — WP admin with ACF fields', 'Editor screenshot placeholder', 'zvg-fse' ),
+		'image'   => 'editor-acf.webp',
+		'alt'     => _x( 'The same landing page in the WordPress admin, with the three builds section expanded as a list of labelled ACF fields', 'Editor screenshot', 'zvg-fse' ),
 		'caption' => _x( 'Editing is filling labelled fields; the layout itself is not editable, which keeps the design intact.', 'Editor caption', 'zvg-fse' ),
 	),
 );
