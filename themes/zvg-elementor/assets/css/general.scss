@@ -16,6 +16,7 @@
 }
 
 html {
+	scroll-behavior: smooth;
 	scroll-padding-block-start: 80px;
 
 	@include down($bp-medium) {

@@ -160,8 +160,25 @@
 
 	&.is-open {
 		@include down($bp-medium) {
+			animation: zvg-acf-nav-fade-in 100ms ease-out forwards;
 			display: flex;
 		}
+
+		@media (prefers-reduced-motion: reduce) {
+			animation-duration: 1ms;
+		}
+	}
+}
+
+@keyframes zvg-acf-nav-fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(0.5em);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }
 
