@@ -22,6 +22,11 @@ debug.log
 !/README.md
 !/LICENSE
 
+# The screenshots the README shows.
+!/docs/
+!/docs/img/*.png
+!/docs/img/*.webp
+
 # The fatal-error template. A drop-in, so it has to sit at the wp-content root, but it is ours
 # and it carries the site's identity — it belongs in version control like any other template.
 !/php-error.php

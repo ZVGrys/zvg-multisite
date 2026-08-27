@@ -38,6 +38,12 @@
 	}
 
 	.wp-block-navigation__responsive-container.is-menu-open {
+		animation: zvg-fse-nav-fade-in 100ms ease-out forwards;
+
+		@media (prefers-reduced-motion: reduce) {
+			animation-duration: 1ms;
+		}
+
 		.wp-block-navigation-item__content {
 			font-size: var(--wp--preset--font-size--x-large);
 		}
@@ -110,5 +116,17 @@ html:not(.zvg-fse-js) {
 
 	.wp-block-navigation__container {
 		flex-wrap: wrap;
+	}
+}
+
+@keyframes zvg-fse-nav-fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(0.5em);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }
