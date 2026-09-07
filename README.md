@@ -177,7 +177,7 @@ And in how the ACF build stores its field definitions — nothing in the databas
 
 ![ACF field groups](docs/img/backend-acf-fields.png)
 
-## Repository layout
+## What this repository contains
 
 The repository is rooted at WordPress's `wp-content/`, so it drops straight into an install.
 Only own code is tracked — core, bundled themes, third-party plugins and uploads are excluded.
@@ -191,6 +191,21 @@ wp-content/
     ├── zvg-acf/              classic theme — sections/, acf-json/, template-sections.php
     └── zvg-elementor/        classic theme — widgets/, cmb2/
 ```
+
+**What is not here is the content.** The landing page itself lives in the database of each build
+— as block markup on the FSE page, as `_elementor_data` on the Elementor page, as field values on
+the ACF page — and so do the team members and their portraits, the blog posts, the contact form,
+and Elementor's kit and Theme Builder templates. `acf-json/` carries field *definitions*, not the
+values filled into them. Neither is the multisite itself: three subsites, their front pages and
+their permalinks are configuration, not code.
+
+Running the builds needs WordPress 6.7+ as a subdirectory multisite, PHP 7.4+, and Node for the
+asset build. Per build: **ACF Pro** (blog 2), **Elementor** and **Elementor Pro** (blog 3),
+Contact Form 7 and Rank Math. The two Pro plugins are commercial and are listed as dependencies
+only.
+
+So this is not a turnkey install and is not meant to be one — the themes compile and can be read,
+which is what the code is published for.
 
 ## Build
 
@@ -217,8 +232,6 @@ stands in for the set.
 What a static capture cannot carry: the contact form renders but does not send, and search,
 comments and the REST API are absent — there is no PHP behind them. The header's build switcher
 is decorative here, since only one build is published.
-
-Requires WordPress 6.7+ and PHP 7.4+ to run the builds themselves.
 
 ## Licence
 
