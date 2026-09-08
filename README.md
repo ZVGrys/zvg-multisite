@@ -184,9 +184,11 @@ Only own code is tracked — core, bundled themes, third-party plugins and uploa
 
 ```
 wp-content/
+├── .github/workflows/        the coding-standards check that runs on every pull request
 ├── docs/img/                 screenshots used by this README
 └── themes/
     ├── gulpfile.js           one build for all three themes
+    ├── composer.json         one coding-standards toolchain for all three themes
     ├── zvg-fse/              block theme — theme.json, patterns/, blocks/, templates/
     ├── zvg-acf/              classic theme — sections/, acf-json/, template-sections.php
     └── zvg-elementor/        classic theme — widgets/, cmb2/
@@ -221,6 +223,24 @@ npx gulp build:zvg-fse      # a single theme
 
 SCSS compiles to expanded, autoprefixed, minified CSS next to its source; JS goes through Babel
 and uglify to `*.min.js`. **Edit the `.scss` and `.js` sources — never the generated files.**
+
+## Coding standards
+
+PHP is checked against the **WordPress Coding Standards** — one ruleset per theme, each pinned to
+its own text domain, so a domain leaked from another build is an error rather than a nuance.
+
+```bash
+cd wp-content/themes
+composer install            # first time only
+composer lint               # all three themes
+composer lint:fse           # a single theme
+```
+
+The same command runs on every pull request that touches PHP
+([`.github/workflows/lint-php.yml`](.github/workflows/lint-php.yml)), one step per theme so a
+failure in the first still reports the other two. All three themes pass clean. Where a rule is
+deliberately not followed, the line carries a `phpcs:ignore` with its reason — a silent one is a
+defect.
 
 ## Notes on the live page
 
