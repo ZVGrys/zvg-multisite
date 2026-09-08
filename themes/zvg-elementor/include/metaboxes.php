@@ -56,4 +56,3 @@ if ( ! function_exists( 'zvg_elementor_member_metabox' ) ) {
 
 	add_action( 'cmb2_admin_init', 'zvg_elementor_member_metabox' );
 }
-

@@ -42,3 +42,11 @@ debug.log
 !themes/gulpfile.js
 !themes/package.json
 !themes/package-lock.json
+
+# The coding-standards toolchain, alongside the build. themes/vendor/ stays ignored by
+# themes/* above, exactly as node_modules/ does.
+!themes/composer.json
+!themes/composer.lock
+
+# The workflows that run those standards on every pull request.
+!/.github/

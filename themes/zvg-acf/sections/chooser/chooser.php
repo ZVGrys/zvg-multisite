@@ -189,11 +189,11 @@ $zvg_acf_labels = wp_json_encode(
 								}
 								?>
 						<div class="zvg-acf-chooser__verdict" data-build="<?php echo esc_attr( $zvg_acf_build ); ?>">
-							<?php if ( '' !== $zvg_acf_verdict_title ) { ?>
+							<?php if ( '' !== $zvg_acf_verdict_title ) { // phpcs:ignore Generic.WhiteSpace.ScopeIndent.Incorrect -- Indent follows the HTML nesting, not the PHP scope. ?>
 							<h3 class="zvg-acf-chooser__verdict-title"><?php echo esc_html( $zvg_acf_verdict_title ); ?></h3>
 							<?php } ?>
 
-							<?php if ( '' !== $zvg_acf_verdict_text ) { ?>
+							<?php if ( '' !== $zvg_acf_verdict_text ) { // phpcs:ignore Generic.WhiteSpace.ScopeIndent.Incorrect -- Indent follows the HTML nesting, not the PHP scope. ?>
 							<p class="zvg-acf-chooser__verdict-text"><?php echo esc_html( $zvg_acf_verdict_text ); ?></p>
 							<?php } ?>
 						</div>

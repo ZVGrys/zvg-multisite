@@ -7,7 +7,6 @@
 
 namespace Elementor;
 
-
 defined( 'ABSPATH' ) || exit;
 
 /**
