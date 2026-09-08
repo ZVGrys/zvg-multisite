@@ -1,0 +1,53 @@
+includes:
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+
+parameters:
+    level: 5
+
+    paths:
+        - zvg-fse
+        - zvg-acf
+        - zvg-elementor
+
+    # Vendored, not ours — read for its symbols, never analysed. Plain `excludePaths` would
+    # hide CMB2 from both, and then new_cmb2_box() reads as an unknown function.
+    excludePaths:
+        analyse:
+            - zvg-elementor/cmb2
+
+    # Three WordPress signatures the stubs describe more narrowly than WordPress itself does.
+    # Each is verified against core; none is a defect in the themes.
+    ignoreErrors:
+        # wp_nav_menu() accepts container => false to mean "no wrapper", not only a string.
+        -
+            message: '#^Parameter \#1 \$args of function wp_nav_menu expects array\{#'
+            identifier: argument.type
+
+        # A Customizer setting's default may be any type, not only a string.
+        -
+            message: '#^Parameter \#2 \$args of method WP_Customize_Manager\:\:add_setting\(\) expects array\{#'
+            identifier: argument.type
+
+        # WP_HTML_Tag_Processor::next_tag() is @param array|string|null in core; the stub lost
+        # the string.
+        -
+            message: '#^Parameter \#1 \$query of method WP_HTML_Tag_Processor\:\:next_tag\(\) expects array\{#'
+            identifier: argument.type
+
+    # Each theme's constants — functions.php guards them behind defined(), which PHPStan
+    # cannot resolve.
+    bootstrapFiles:
+        - phpstan/constants.php
+
+    # A site may define these; analysis must not assume the value it happens to see.
+    dynamicConstantNames:
+        - ZVG_FSE_USE_THEME_VERSION
+        - ZVG_ACF_USE_THEME_VERSION
+        - ZVG_ELEMENTOR_USE_THEME_VERSION
+
+    # WordPress core comes from the extension above. These two do not. Scanned, not executed —
+    # the Elementor stubs extend WooCommerce classes that are not installed here, so running
+    # the file fatals.
+    scanFiles:
+        - vendor/php-stubs/acf-pro-stubs/acf-pro-stubs.php
+        - vendor/arts/elementor-stubs/elementor-stubs.php

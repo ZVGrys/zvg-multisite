@@ -15,8 +15,7 @@ defined( 'ZVG_ELEMENTOR_T_PATH' ) || define( 'ZVG_ELEMENTOR_T_PATH', get_templat
 defined( 'ZVG_ELEMENTOR_USE_THEME_VERSION' ) || define( 'ZVG_ELEMENTOR_USE_THEME_VERSION', false );
 
 if ( ! defined( 'ZVG_ELEMENTOR_VERSION' ) ) {
-	$zvg_elementor_theme   = wp_get_theme();
-	$zvg_elementor_version = $zvg_elementor_theme instanceof WP_Theme ? $zvg_elementor_theme->get( 'Version' ) : '';
+	$zvg_elementor_version = wp_get_theme()->get( 'Version' );
 
 	define( 'ZVG_ELEMENTOR_VERSION', $zvg_elementor_version ? $zvg_elementor_version : '1.0.0' );
 }

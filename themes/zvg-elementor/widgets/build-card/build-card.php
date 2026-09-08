@@ -340,7 +340,7 @@ class ZVG_Elementor_Build_Card extends Widget_Base {
 	 * @return string Escaped markup.
 	 */
 	protected function stat_value_markup( $value ) {
-		$value = is_string( $value ) ? trim( $value ) : '';
+		$value = trim( $value );
 
 		if ( '' === $value ) {
 			/* translators: an em dash, standing in for a measurement that has not been taken yet. */

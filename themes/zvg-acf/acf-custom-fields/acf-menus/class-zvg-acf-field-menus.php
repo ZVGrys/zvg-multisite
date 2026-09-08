@@ -44,7 +44,7 @@ class Zvg_Acf_Field_Menus extends acf_field {
 		<select id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $class ); ?>" name="<?php echo esc_attr( $field['name'] ); ?>">
 			<option value=""><?php echo esc_html_x( '— Select —', 'Empty menu choice', 'zvg-acf' ); ?></option>
 			<?php foreach ( $menus as $menu ) { ?>
-			<option value="<?php echo esc_attr( $menu->term_id ); ?>" <?php selected( $field['value'], $menu->term_id ); ?>><?php echo esc_html( $menu->name ); ?></option>
+			<option value="<?php echo esc_attr( (string) $menu->term_id ); ?>" <?php selected( $field['value'], $menu->term_id ); ?>><?php echo esc_html( $menu->name ); ?></option>
 			<?php } ?>
 		</select>
 		<?php

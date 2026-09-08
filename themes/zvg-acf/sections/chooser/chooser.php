@@ -116,7 +116,7 @@ $zvg_acf_labels = wp_json_encode(
 							echo esc_html(
 								str_replace(
 									array( '%1$d', '%2$d' ),
-									array( (int) $zvg_acf_index + 1, (int) $zvg_acf_total ),
+									array( (string) ( (int) $zvg_acf_index + 1 ), (string) (int) $zvg_acf_total ),
 									$zvg_acf_progress
 								)
 							);
@@ -132,9 +132,9 @@ $zvg_acf_labels = wp_json_encode(
 						<input
 							type="radio"
 							name="<?php echo esc_attr( $zvg_acf_step['name'] ); ?>"
-							value="<?php echo esc_attr( $zvg_acf_choice_index ); ?>"
+							value="<?php echo esc_attr( (string) $zvg_acf_choice_index ); ?>"
 							<?php foreach ( $zvg_acf_choice['weights'] as $zvg_acf_build => $zvg_acf_weight ) { ?>
-							data-<?php echo esc_attr( $zvg_acf_build ); ?>="<?php echo esc_attr( $zvg_acf_weight ); ?>"
+							data-<?php echo esc_attr( $zvg_acf_build ); ?>="<?php echo esc_attr( (string) $zvg_acf_weight ); ?>"
 							<?php } ?>
 						>
 						<span><?php echo esc_html( $zvg_acf_choice['label'] ); ?></span>

@@ -15,8 +15,7 @@ defined( 'ZVG_FSE_T_PATH' ) || define( 'ZVG_FSE_T_PATH', get_template_directory(
 defined( 'ZVG_FSE_USE_THEME_VERSION' ) || define( 'ZVG_FSE_USE_THEME_VERSION', false );
 
 if ( ! defined( 'ZVG_FSE_VERSION' ) ) {
-	$zvg_fse_theme   = wp_get_theme();
-	$zvg_fse_version = $zvg_fse_theme instanceof WP_Theme ? $zvg_fse_theme->get( 'Version' ) : '';
+	$zvg_fse_version = wp_get_theme()->get( 'Version' );
 
 	define( 'ZVG_FSE_VERSION', $zvg_fse_version ? $zvg_fse_version : '1.0.0' );
 }

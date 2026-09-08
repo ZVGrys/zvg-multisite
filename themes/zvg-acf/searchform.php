@@ -13,7 +13,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $zvg_acf_field_id = wp_unique_id( 'zvg-acf-search-' );
-$zvg_acf_args     = isset( $args ) && is_array( $args ) ? $args : array();
+$zvg_acf_args     = $args;
 
 $zvg_acf_placeholder = empty( $zvg_acf_args['placeholder'] )
 	? _x( 'What are you looking for?', 'Search form placeholder', 'zvg-acf' )
