@@ -1,0 +1,46 @@
+name: PHP lint
+
+on:
+  pull_request:
+    paths:
+      - 'themes/**/*.php'
+      - 'themes/**/phpcs.xml.dist'
+      - 'themes/composer.*'
+      - '.github/workflows/lint-php.yml'
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  phpcs:
+    name: PHPCS
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: themes
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: composer
+
+      - uses: ramsey/composer-install@v3
+        with:
+          working-directory: themes
+
+      # One step per theme, so a failure in the first still reports the other two.
+      - name: zvg-fse
+        run: composer lint:fse
+
+      - name: zvg-acf
+        if: ${{ !cancelled() }}
+        run: composer lint:acf
+
+      - name: zvg-elementor
+        if: ${{ !cancelled() }}
+        run: composer lint:elementor

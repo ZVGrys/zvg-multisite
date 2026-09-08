@@ -140,6 +140,7 @@ class ZVG_Elementor_Compare_Table extends Widget_Base {
 			$this->add_control(
 				$control_key,
 				array(
+					// translators: %s: Column name.
 					'label'       => sprintf( esc_html__( 'Column: %s', 'zvg-elementor' ), $columns[ $value_key ] ),
 					'type'        => Controls_Manager::TEXT,
 					'default'     => $columns[ $value_key ],
@@ -163,6 +164,7 @@ class ZVG_Elementor_Compare_Table extends Widget_Base {
 			$rows->add_control(
 				$key,
 				array(
+					// translators: %s: Column name.
 					'label'       => sprintf( esc_html__( '%s: Value', 'zvg-elementor' ), $name ),
 					'type'        => Controls_Manager::TEXT,
 					'description' => esc_html__( 'Leave empty for a check that has not been run yet.', 'zvg-elementor' ),

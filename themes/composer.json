@@ -1,0 +1,26 @@
+{
+  "name": "zvg/themes",
+  "description": "Coding standards tooling for the ZVG multisite themes (zvg-fse, zvg-acf, zvg-elementor).",
+  "type": "project",
+  "license": "proprietary",
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.13",
+    "wp-coding-standards/wpcs": "^3.1"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "scripts": {
+    "lint:fse": "phpcs --standard=zvg-fse/phpcs.xml.dist",
+    "lint:acf": "phpcs --standard=zvg-acf/phpcs.xml.dist",
+    "lint:elementor": "phpcs --standard=zvg-elementor/phpcs.xml.dist",
+    "lint": [
+      "@lint:fse",
+      "@lint:acf",
+      "@lint:elementor"
+    ],
+    "lint:fix": "phpcbf"
+  }
+}

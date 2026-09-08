@@ -197,15 +197,15 @@ if ( ! function_exists( 'zvg_acf_option' ) ) :
 	/**
 	 * A site-wide option.
 	 *
-	 * @param string $name    Site Options field name.
-	 * @param mixed  $default Value to use while the field holds nothing of its own.
+	 * @param string $name     Site Options field name.
+	 * @param mixed  $fallback Value to use while the field holds nothing of its own.
 	 *
 	 * @return mixed
 	 */
-	function zvg_acf_option( $name, $default = '' ) {
+	function zvg_acf_option( $name, $fallback = '' ) {
 		$value = function_exists( 'get_field' ) ? get_field( $name, 'option' ) : null;
 
-		return null === $value ? $default : $value;
+		return null === $value ? $fallback : $value;
 	}
 endif;
 

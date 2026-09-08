@@ -311,6 +311,7 @@ class ZVG_Elementor_Build_Chooser extends Widget_Base {
 			array(
 				'label'       => esc_html__( 'Progress', 'zvg-elementor' ),
 				'type'        => Controls_Manager::TEXT,
+				// translators: %1$d and %2$d are shown literally — they are the placeholders the editor types into the field.
 				'description' => esc_html__( 'Use %1$d for the current question and %2$d for how many there are.', 'zvg-elementor' ),
 				'label_block' => true,
 			)

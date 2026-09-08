@@ -68,7 +68,7 @@ if ( ! function_exists( 'zvg_elementor_render_share_links' ) ) :
 	/**
 	 * Print the share links of an entry.
 	 *
-	 * @param int             $post_id  Entry to share.
+	 * @param int                      $post_id  Entry to share.
 	 * @param array<string, bool>|null $chosen Network key => whether to show it, plus the
 	 *                                         'copy' key for the copy button. Null shows all.
 	 */
