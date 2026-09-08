@@ -52,3 +52,8 @@ debug.log
 
 # The workflows that run those standards on every pull request.
 !/.github/
+
+# CMB2 ships its own build lock file. We never install or run its toolchain — there is no
+# package.json beside it and no node_modules — so tracking it only feeds Dependabot alerts for
+# packages that do not exist on any machine here.
+themes/zvg-elementor/cmb2/package-lock.json
