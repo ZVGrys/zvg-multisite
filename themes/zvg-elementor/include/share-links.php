@@ -17,7 +17,8 @@ if ( ! function_exists( 'zvg_elementor_share_networks' ) ) :
 	/**
 	 * The networks an entry can be handed to.
 	 *
-	 * @return array<string, array<string, string>> Key => name, share address and icon path.
+	 * @return array<string, array<string, string|bool>> Key => name, share address, icon path, and
+	 *                                                  whether the icon is stroked.
 	 */
 	function zvg_elementor_share_networks() {
 		$zvg_elementor_networks = array(
@@ -57,7 +58,8 @@ if ( ! function_exists( 'zvg_elementor_share_networks' ) ) :
 		/**
 		 * Filter the share networks.
 		 *
-		 * @param array<string, array<string, string>> $zvg_elementor_networks Key => name, share address and icon path.
+		 * @param array<string, array<string, string|bool>> $zvg_elementor_networks Key => name, share
+		 *        address, icon path, and whether the icon is stroked.
 		 */
 		return apply_filters( 'zvg_elementor_share_networks', $zvg_elementor_networks );
 	}

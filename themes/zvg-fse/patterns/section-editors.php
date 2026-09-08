@@ -14,19 +14,16 @@ defined( 'ABSPATH' ) || exit;
 
 $zvg_fse_editors = array(
 	array(
-		'shot'    => _x( 'Screenshot — block editor', 'Editor screenshot placeholder', 'zvg-fse' ),
 		'image'   => 'editor-fse.webp',
 		'alt'     => _x( 'The landing page open in the WordPress block editor, with the three builds section selected in the list view and its settings in the sidebar', 'Editor screenshot', 'zvg-fse' ),
 		'caption' => _x( 'Editing means selecting blocks in place; styling choices are limited to what theme.json allows.', 'Editor caption', 'zvg-fse' ),
 	),
 	array(
-		'shot'    => _x( 'Screenshot — Elementor canvas', 'Editor screenshot placeholder', 'zvg-fse' ),
 		'image'   => 'editor-elementor.webp',
 		'alt'     => _x( 'The same landing page open in the Elementor editor, with the three builds section selected and the structure panel listing every section', 'Editor screenshot', 'zvg-fse' ),
 		'caption' => _x( 'Editing is drag-and-drop with every setting exposed, which is fast but easy to drift from the tokens.', 'Editor caption', 'zvg-fse' ),
 	),
 	array(
-		'shot'    => _x( 'Screenshot — WP admin with ACF fields', 'Editor screenshot placeholder', 'zvg-fse' ),
 		'image'   => 'editor-acf.webp',
 		'alt'     => _x( 'The same landing page in the WordPress admin, with the three builds section expanded as a list of labelled ACF fields', 'Editor screenshot', 'zvg-fse' ),
 		'caption' => _x( 'Editing is filling labelled fields; the layout itself is not editable, which keeps the design intact.', 'Editor caption', 'zvg-fse' ),
@@ -54,19 +51,9 @@ $zvg_fse_editors = array(
 			<?php foreach ( $zvg_fse_editors as $zvg_fse_editor ) : ?>
 			<!-- wp:group {"tagName":"figure","className":"zvg-fse-editors__item","style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"default"}} -->
 			<figure class="wp-block-group zvg-fse-editors__item">
-				<?php if ( isset( $zvg_fse_editor['image'] ) ) : ?>
 				<!-- wp:image {"className":"zvg-fse-editors__shot","sizeSlug":"full","linkDestination":"none"} -->
 				<figure class="wp-block-image size-full zvg-fse-editors__shot"><img src="<?php echo esc_url( ZVG_FSE_T_URI . '/assets/img/' . $zvg_fse_editor['image'] ); ?>" alt="<?php echo esc_attr( $zvg_fse_editor['alt'] ); ?>"/></figure>
 				<!-- /wp:image -->
-				<?php else : ?>
-				<!-- wp:group {"className":"zvg-fse-placeholder zvg-fse-placeholder--wide","layout":{"type":"default"}} -->
-				<div class="wp-block-group zvg-fse-placeholder zvg-fse-placeholder--wide">
-					<!-- wp:paragraph {"fontSize":"small"} -->
-					<p class="has-small-font-size"><?php echo esc_html( $zvg_fse_editor['shot'] ); ?></p>
-					<!-- /wp:paragraph -->
-				</div>
-				<!-- /wp:group -->
-				<?php endif; ?>
 
 				<!-- wp:paragraph {"className":"zvg-fse-editors__caption","textColor":"muted","fontSize":"medium","style":{"typography":{"lineHeight":"1.5"}}} -->
 				<p class="zvg-fse-editors__caption has-muted-color has-text-color has-medium-font-size" style="line-height:1.5"><?php echo esc_html( $zvg_fse_editor['caption'] ); ?></p>

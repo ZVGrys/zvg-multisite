@@ -1,12 +1,13 @@
-name: PHP lint
+name: PHP
 
 on:
   pull_request:
     paths:
       - 'themes/**/*.php'
       - 'themes/**/phpcs.xml.dist'
+      - 'themes/phpstan.neon.dist'
       - 'themes/composer.*'
-      - '.github/workflows/lint-php.yml'
+      - '.github/workflows/php.yml'
   push:
     branches: [main]
 
@@ -15,7 +16,7 @@ permissions:
 
 jobs:
   phpcs:
-    name: PHPCS
+    name: Coding standards
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -44,3 +45,24 @@ jobs:
       - name: zvg-elementor
         if: ${{ !cancelled() }}
         run: composer lint:elementor
+
+  phpstan:
+    name: Static analysis
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: themes
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: composer
+
+      - uses: ramsey/composer-install@v3
+        with:
+          working-directory: themes
+
+      - run: composer analyse

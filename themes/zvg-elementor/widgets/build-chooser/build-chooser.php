@@ -622,7 +622,7 @@ class ZVG_Elementor_Build_Chooser extends Widget_Base {
 								echo esc_html(
 									str_replace(
 										array( '%1$d', '%2$d' ),
-										array( (int) $index + 1, (int) $total ),
+										array( (string) ( (int) $index + 1 ), (string) (int) $total ),
 										$settings['step_label']
 									)
 								);

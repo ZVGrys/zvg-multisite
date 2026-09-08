@@ -66,7 +66,7 @@ if ( ! class_exists( 'ZVG_Elementor_Widgets' ) ) {
 	/**
 	 * Loads and registers the theme's Elementor widgets.
 	 */
-	class ZVG_Elementor_Widgets {
+	final class ZVG_Elementor_Widgets {
 
 		/**
 		 * Single instance.
@@ -81,11 +81,11 @@ if ( ! class_exists( 'ZVG_Elementor_Widgets' ) ) {
 		 * @return ZVG_Elementor_Widgets
 		 */
 		public static function get_instance() {
-			if ( ! isset( static::$instance ) ) {
-				static::$instance = new static();
+			if ( ! isset( self::$instance ) ) {
+				self::$instance = new self();
 			}
 
-			return static::$instance;
+			return self::$instance;
 		}
 
 		/**

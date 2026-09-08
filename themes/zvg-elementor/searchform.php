@@ -13,7 +13,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $zvg_elementor_field_id = wp_unique_id( 'zvg-elementor-search-' );
-$zvg_elementor_args     = isset( $args ) && is_array( $args ) ? $args : array();
+$zvg_elementor_args     = $args;
 
 $zvg_elementor_placeholder = empty( $zvg_elementor_args['placeholder'] )
 	? _x( 'What are you looking for?', 'Search form placeholder', 'zvg-elementor' )

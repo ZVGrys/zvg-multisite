@@ -70,7 +70,8 @@ function zvg_fse_register_post_share_block() {
 /**
  * The networks the block can hand a post to.
  *
- * @return array<string, array<string, string>> Attribute key => name, share address and icon path.
+ * @return array<string, array<string, string|bool>> Attribute key => name, share address, icon
+ *                                                   path, and whether the icon is stroked.
  */
 function zvg_fse_share_networks() {
 	return array(
