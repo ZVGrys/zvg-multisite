@@ -19,7 +19,7 @@ $zvg_acf_members = new WP_Query(
 	array(
 		'post_type'              => 'zvg_member',
 		'post_status'            => 'publish',
-		'posts_per_page'         => -1,
+		'posts_per_page'         => 6,
 		'orderby'                => 'date',
 		'order'                  => $zvg_acf_order,
 		'ignore_sticky_posts'    => true,
