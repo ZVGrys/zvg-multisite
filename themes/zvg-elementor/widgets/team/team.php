@@ -261,7 +261,7 @@ class ZVG_Elementor_Team extends Widget_Base {
 			array(
 				'post_type'              => 'zvg_member',
 				'post_status'            => 'publish',
-				'posts_per_page'         => -1,
+				'posts_per_page'         => 6,
 				'orderby'                => 'date',
 				'order'                  => $order,
 				'ignore_sticky_posts'    => true,
