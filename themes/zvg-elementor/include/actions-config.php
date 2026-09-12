@@ -9,6 +9,7 @@ defined( 'ABSPATH' ) || exit;
 
 add_action( 'wp_enqueue_scripts', 'zvg_elementor_enqueue_scripts', 999 );
 add_action( 'wp_head', 'zvg_elementor_flag_script_support', 1 );
+add_action( 'init', 'zvg_elementor_drop_emoji_support' );
 
 /*
  * Load only the core blocks a page actually renders, instead of the whole block library.
@@ -28,6 +29,17 @@ function zvg_elementor_flag_script_support() {
 	}
 
 	wp_print_inline_script_tag( 'document.documentElement.classList.add("zvg-elementor-js");' );
+}
+
+/**
+ * Drop the emoji detection script and its styles.
+ */
+function zvg_elementor_drop_emoji_support() {
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 }
 
 /**
