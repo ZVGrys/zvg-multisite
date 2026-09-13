@@ -5,6 +5,7 @@
 	<file>.</file>
 
 	<exclude-pattern>*/languages/*</exclude-pattern>
+	<exclude-pattern>*/blocks/*/build/*</exclude-pattern>
 
 	<arg name="extensions" value="php"/>
 	<arg name="colors"/>

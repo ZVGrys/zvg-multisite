@@ -16,29 +16,15 @@ add_filter( 'block_type_metadata_settings', 'zvg_fse_allow_switcher_in_navigatio
 const ZVG_FSE_BUILDS_TTL = 12 * HOUR_IN_SECONDS;
 
 /**
- * Register the block and its editor script.
+ * Register the block and hand its editor script the build labels.
  */
 function zvg_fse_register_build_switcher_block() {
-
-	wp_register_script(
-		'zvg-fse-build-switcher-editor',
-		ZVG_FSE_T_URI . '/blocks/build-switcher/index.js',
-		array( 'wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-i18n' ),
-		zvg_fse_get_asset_version( '/blocks/build-switcher/index.js' ),
-		true
-	);
+	register_block_type_from_metadata( ZVG_FSE_T_PATH . '/blocks/build-switcher' );
 
 	wp_add_inline_script(
-		'zvg-fse-build-switcher-editor',
+		generate_block_asset_handle( 'zvg-fse/build-switcher', 'editorScript' ),
 		'window.zvgFseBuildLabels = ' . wp_json_encode( array_values( zvg_fse_build_labels() ) ) . ';',
 		'before'
-	);
-
-	register_block_type_from_metadata(
-		ZVG_FSE_T_PATH . '/blocks/build-switcher',
-		array(
-			'editor_script' => 'zvg-fse-build-switcher-editor',
-		)
 	);
 }
 

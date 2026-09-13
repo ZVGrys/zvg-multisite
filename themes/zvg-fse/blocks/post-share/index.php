@@ -10,18 +10,9 @@ defined( 'ABSPATH' ) || exit;
 add_action( 'init', 'zvg_fse_register_post_share_block' );
 
 /**
- * Register the block and its editor script.
+ * Register the block and hand its editor script the share networks.
  */
 function zvg_fse_register_post_share_block() {
-
-	wp_register_script(
-		'zvg-fse-post-share-editor',
-		ZVG_FSE_T_URI . '/blocks/post-share/index.js',
-		array( 'wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-i18n' ),
-		zvg_fse_get_asset_version( '/blocks/post-share/index.js' ),
-		true
-	);
-
 	$zvg_fse_for_editor = array();
 
 	foreach ( zvg_fse_share_networks() as $zvg_fse_key => $zvg_fse_network ) {
@@ -40,30 +31,12 @@ function zvg_fse_register_post_share_block() {
 		'stroke' => true,
 	);
 
+	register_block_type_from_metadata( ZVG_FSE_T_PATH . '/blocks/post-share' );
+
 	wp_add_inline_script(
-		'zvg-fse-post-share-editor',
+		generate_block_asset_handle( 'zvg-fse/post-share', 'editorScript' ),
 		'window.zvgFseShareNetworks = ' . wp_json_encode( $zvg_fse_for_editor ) . ';',
 		'before'
-	);
-
-	// Registered by hand, like the editor script above — block.json's own
-	// "viewScript" auto-registration versions by the WP/Gutenberg version, not
-	// by file mtime, so an edit to view.js was served stale from the browser
-	// cache until the next unrelated core/Gutenberg update.
-	wp_register_script(
-		'zvg-fse-post-share-view',
-		ZVG_FSE_T_URI . '/blocks/post-share/js/view.min.js',
-		array(),
-		zvg_fse_get_asset_version( '/blocks/post-share/js/view.min.js' ),
-		true
-	);
-
-	register_block_type_from_metadata(
-		ZVG_FSE_T_PATH . '/blocks/post-share',
-		array(
-			'editor_script'       => 'zvg-fse-post-share-editor',
-			'view_script_handles' => array( 'zvg-fse-post-share-view' ),
-		)
 	);
 }
 

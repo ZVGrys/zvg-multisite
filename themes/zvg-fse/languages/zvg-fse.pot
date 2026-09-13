@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-27T10:47:07+00:00\n"
+"POT-Creation-Date: 2026-09-13T11:30:39+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: zvg-fse\n"
@@ -82,113 +82,113 @@ msgctxt "Chooser aside"
 msgid "The three options"
 msgstr ""
 
-#: blocks/build-chooser/index.php:69
+#: blocks/build-chooser/index.php:59
 msgctxt "Chooser question"
 msgid "Who edits the content after launch?"
 msgstr ""
 
-#: blocks/build-chooser/index.php:73
+#: blocks/build-chooser/index.php:63
 msgctxt "Chooser answer"
 msgid "A developer"
 msgstr ""
 
-#: blocks/build-chooser/index.php:80
+#: blocks/build-chooser/index.php:70
 msgctxt "Chooser answer"
 msgid "A marketing team"
 msgstr ""
 
-#: blocks/build-chooser/index.php:87
+#: blocks/build-chooser/index.php:77
 msgctxt "Chooser answer"
 msgid "The client, occasionally"
 msgstr ""
 
-#: blocks/build-chooser/index.php:96
+#: blocks/build-chooser/index.php:86
 msgctxt "Chooser question"
 msgid "How much of the design is fixed?"
 msgstr ""
 
-#: blocks/build-chooser/index.php:100
+#: blocks/build-chooser/index.php:90
 msgctxt "Chooser answer"
 msgid "Pixel-exact from a mockup"
 msgstr ""
 
-#: blocks/build-chooser/index.php:107
+#: blocks/build-chooser/index.php:97
 msgctxt "Chooser answer"
 msgid "A design system with room to move"
 msgstr ""
 
-#: blocks/build-chooser/index.php:114
+#: blocks/build-chooser/index.php:104
 msgctxt "Chooser answer"
 msgid "It will change often"
 msgstr ""
 
-#: blocks/build-chooser/index.php:123
+#: blocks/build-chooser/index.php:113
 msgctxt "Chooser question"
 msgid "What is the budget shape?"
 msgstr ""
 
-#: blocks/build-chooser/index.php:127
+#: blocks/build-chooser/index.php:117
 msgctxt "Chooser answer"
 msgid "Fixed and tight"
 msgstr ""
 
-#: blocks/build-chooser/index.php:134
+#: blocks/build-chooser/index.php:124
 msgctxt "Chooser answer"
 msgid "Room for a proper build"
 msgstr ""
 
-#: blocks/build-chooser/index.php:141
+#: blocks/build-chooser/index.php:131
 msgctxt "Chooser answer"
 msgid "Ongoing retainer"
 msgstr ""
 
-#: blocks/build-chooser/index.php:162
-#: blocks/build-chooser/index.php:187
+#: blocks/build-chooser/index.php:152
+#: blocks/build-chooser/index.php:177
 msgctxt "Build name"
 msgid "Full Site Editing"
 msgstr ""
 
-#: blocks/build-chooser/index.php:163
+#: blocks/build-chooser/index.php:153
 msgctxt "Chooser verdict"
 msgid "Editors get native block controls and the styling stays in theme.json, so content changes rarely need a developer. The trade-off is less control over markup than a hand-written theme."
 msgstr ""
 
-#: blocks/build-chooser/index.php:166
-#: blocks/build-chooser/index.php:191
-#: blocks/build-switcher/index.php:72
+#: blocks/build-chooser/index.php:156
+#: blocks/build-chooser/index.php:181
+#: blocks/build-switcher/index.php:58
 #: patterns/section-measured.php:20
 msgctxt "Build name"
 msgid "Elementor"
 msgstr ""
 
-#: blocks/build-chooser/index.php:167
+#: blocks/build-chooser/index.php:157
 msgctxt "Chooser verdict"
 msgid "Assembly is fast and a non-technical team can keep changing layouts after launch. The trade-off is heavier markup and a dependency on the builder."
 msgstr ""
 
-#: blocks/build-chooser/index.php:170
-#: blocks/build-chooser/index.php:195
+#: blocks/build-chooser/index.php:160
+#: blocks/build-chooser/index.php:185
 #: patterns/section-measured.php:21
 msgctxt "Build name"
 msgid "ACF theme"
 msgstr ""
 
-#: blocks/build-chooser/index.php:171
+#: blocks/build-chooser/index.php:161
 msgctxt "Chooser verdict"
 msgid "Templates are hand-written, so the output matches the design exactly and custom logic is straightforward. The trade-off is that most layout changes go back through a developer."
 msgstr ""
 
-#: blocks/build-chooser/index.php:188
+#: blocks/build-chooser/index.php:178
 msgctxt "Build definition"
 msgid "Editors work in native blocks; styling stays in theme.json."
 msgstr ""
 
-#: blocks/build-chooser/index.php:192
+#: blocks/build-chooser/index.php:182
 msgctxt "Build definition"
 msgid "Fast assembly and open layout control, at the cost of markup weight."
 msgstr ""
 
-#: blocks/build-chooser/index.php:196
+#: blocks/build-chooser/index.php:186
 msgctxt "Build definition"
 msgid "Hand-written templates and custom logic; changes go via a developer."
 msgstr ""
@@ -197,13 +197,13 @@ msgstr ""
 msgid "Build version"
 msgstr ""
 
-#: blocks/build-switcher/index.php:71
+#: blocks/build-switcher/index.php:57
 #: patterns/section-measured.php:19
 msgctxt "Build name"
 msgid "FSE"
 msgstr ""
 
-#: blocks/build-switcher/index.php:73
+#: blocks/build-switcher/index.php:59
 msgctxt "Build name"
 msgid "ACF"
 msgstr ""
@@ -216,19 +216,19 @@ msgid "—"
 msgstr ""
 
 #: blocks/member-dialog/block.php:17
-#: blocks/member-dialog/index.js:11
+#: blocks/member-dialog/build/index.js:1
 msgctxt "Team dialog button"
 msgid "Close"
 msgstr ""
 
 #: blocks/member-dialog/block.php:23
-#: blocks/member-dialog/index.js:12
+#: blocks/member-dialog/build/index.js:1
 msgctxt "Team dialog link"
 msgid "Get in touch"
 msgstr ""
 
 #: blocks/member-trigger/block.php:33
-#: blocks/member-trigger/index.js:11
+#: blocks/member-trigger/build/index.js:1
 msgctxt "Team member button"
 msgid "Read profile"
 msgstr ""
@@ -249,12 +249,12 @@ msgid "Link copied"
 msgstr ""
 
 #: blocks/post-share/block.php:77
-#: blocks/post-share/index.php:38
+#: blocks/post-share/index.php:29
 msgctxt "Share links"
 msgid "Copy link"
 msgstr ""
 
-#: blocks/post-share/index.php:103
+#: blocks/post-share/index.php:94
 msgctxt "Share network"
 msgid "Email"
 msgstr ""
@@ -788,57 +788,42 @@ msgctxt "Pattern description"
 msgid "The same section opened for editing in each build, on a track that scrolls sideways."
 msgstr ""
 
-#: patterns/section-editors.php:17
-msgctxt "Editor screenshot placeholder"
-msgid "Screenshot — block editor"
-msgstr ""
-
-#: patterns/section-editors.php:19
+#: patterns/section-editors.php:18
 msgctxt "Editor screenshot"
 msgid "The landing page open in the WordPress block editor, with the three builds section selected in the list view and its settings in the sidebar"
 msgstr ""
 
-#: patterns/section-editors.php:20
+#: patterns/section-editors.php:19
 msgctxt "Editor caption"
 msgid "Editing means selecting blocks in place; styling choices are limited to what theme.json allows."
 msgstr ""
 
 #: patterns/section-editors.php:23
-msgctxt "Editor screenshot placeholder"
-msgid "Screenshot — Elementor canvas"
-msgstr ""
-
-#: patterns/section-editors.php:25
 msgctxt "Editor screenshot"
 msgid "The same landing page open in the Elementor editor, with the three builds section selected and the structure panel listing every section"
 msgstr ""
 
-#: patterns/section-editors.php:26
+#: patterns/section-editors.php:24
 msgctxt "Editor caption"
 msgid "Editing is drag-and-drop with every setting exposed, which is fast but easy to drift from the tokens."
 msgstr ""
 
-#: patterns/section-editors.php:29
-msgctxt "Editor screenshot placeholder"
-msgid "Screenshot — WP admin with ACF fields"
-msgstr ""
-
-#: patterns/section-editors.php:31
+#: patterns/section-editors.php:28
 msgctxt "Editor screenshot"
 msgid "The same landing page in the WordPress admin, with the three builds section expanded as a list of labelled ACF fields"
 msgstr ""
 
-#: patterns/section-editors.php:32
+#: patterns/section-editors.php:29
 msgctxt "Editor caption"
 msgid "Editing is filling labelled fields; the layout itself is not editable, which keeps the design intact."
 msgstr ""
 
-#: patterns/section-editors.php:42
+#: patterns/section-editors.php:39
 msgctxt "Section title"
 msgid "Three editors, one page"
 msgstr ""
 
-#: patterns/section-editors.php:46
+#: patterns/section-editors.php:43
 msgctxt "Section intro"
 msgid "The same section, opened for editing in each of the three builds."
 msgstr ""
@@ -975,224 +960,223 @@ msgctxt "Team disclaimer"
 msgid "Fictional profiles — this section demonstrates a custom post type."
 msgstr ""
 
-#: blocks/blockquote/index.js:24
+#: blocks/blockquote/build/index.js:1
 msgid "Write the quote…"
 msgstr ""
 
-#: blocks/blockquote/index.js:35
+#: blocks/blockquote/build/index.js:1
 msgid "Author name"
 msgstr ""
 
-#: blocks/blockquote/index.js:43
+#: blocks/blockquote/build/index.js:1
 msgid "Role, company"
 msgstr ""
 
 #. translators: %d: position of the question in the questionnaire.
-#: blocks/build-chooser/index.js:61
+#: blocks/build-chooser/build/index.js:2
 #, js-format
 msgid "Question %d"
 msgstr ""
 
 #. translators: %d: position of the question in the questionnaire.
-#: blocks/build-chooser/index.js:66
+#: blocks/build-chooser/build/index.js:3
 #, js-format
 msgid "Question %d: text"
 msgstr ""
 
 #. translators: 1: question number, 2: answer number.
-#: blocks/build-chooser/index.js:77
+#: blocks/build-chooser/build/index.js:4
 #, js-format
 msgid "Question %1$d · answer %2$d: label"
 msgstr ""
 
 #. translators: 1: answer number, 2: build name.
-#: blocks/build-chooser/index.js:90
+#: blocks/build-chooser/build/index.js:5
 #, js-format
 msgid "Answer %1$d: points for %2$s"
 msgstr ""
 
-#: blocks/build-chooser/index.js:106
+#: blocks/build-chooser/build/index.js:5
 msgid "Verdicts"
 msgstr ""
 
 #. translators: %s: build name.
-#: blocks/build-chooser/index.js:113
+#: blocks/build-chooser/build/index.js:6
 #, js-format
 msgid "%s: title"
 msgstr ""
 
 #. translators: %s: build name.
-#: blocks/build-chooser/index.js:119
+#: blocks/build-chooser/build/index.js:7
 #, js-format
 msgid "%s: verdict"
 msgstr ""
 
-#: blocks/build-chooser/index.js:129
+#: blocks/build-chooser/build/index.js:7
 msgid "The three options"
 msgstr ""
 
 #. translators: %d: position of the option in the list.
-#: blocks/build-chooser/index.js:136
+#: blocks/build-chooser/build/index.js:8
 #, js-format
 msgid "Option %d: name"
 msgstr ""
 
 #. translators: %d: position of the option in the list.
-#: blocks/build-chooser/index.js:142
+#: blocks/build-chooser/build/index.js:9
 #, js-format
 msgid "Option %d: description"
 msgstr ""
 
-#: blocks/build-switcher/index.js:23
+#: blocks/build-switcher/build/index.js:1
 msgid "Build switcher"
 msgstr ""
 
-#: blocks/build-switcher/index.js:25
+#: blocks/build-switcher/build/index.js:1
 msgid "Show the build switcher"
 msgstr ""
 
-#: blocks/build-switcher/index.js:27
+#: blocks/build-switcher/build/index.js:1
 msgid "The links to the other two builds sit at the end of the menu."
 msgstr ""
 
-#: blocks/build-switcher/index.js:28
+#: blocks/build-switcher/build/index.js:1
 msgid "Hidden on the front end. The block stays in the menu, so it can be switched back on here."
 msgstr ""
 
-#: blocks/compare-table/index.js:41
+#: blocks/compare-table/build/index.js:1
 msgid "Table"
 msgstr ""
 
-#: blocks/compare-table/index.js:43
+#: blocks/compare-table/build/index.js:1
 msgid "Caption for screen readers"
 msgstr ""
 
 #. translators: %d: position of the column in the table.
-#: blocks/compare-table/index.js:51
+#: blocks/compare-table/build/index.js:2
 #, js-format
 msgid "Column %d"
 msgstr ""
 
 #. translators: 1: position of the row in the table, 2: row label.
-#: blocks/compare-table/index.js:60
+#: blocks/compare-table/build/index.js:3
 #, js-format
 msgctxt "Row panel title"
 msgid "Row %1$d: %2$s"
 msgstr ""
 
 #. translators: %d: position of the row in the table.
-#: blocks/compare-table/index.js:65
+#: blocks/compare-table/build/index.js:4
 #, js-format
 msgid "Row %d"
 msgstr ""
 
 #. translators: %d: position of the row in the table.
-#: blocks/compare-table/index.js:76
+#: blocks/compare-table/build/index.js:5
 #, js-format
 msgid "Row %d: label"
 msgstr ""
 
 #. translators: 1: position of the row in the table, 2: column name.
-#: blocks/compare-table/index.js:85
+#: blocks/compare-table/build/index.js:6
 #, js-format
 msgctxt "Row value field label"
 msgid "Row %1$d: %2$s"
 msgstr ""
 
-#: blocks/member-bio/index.js:12
+#: blocks/member-bio/build/index.js:1
 msgctxt "Editor placeholder"
 msgid "Member bio"
 msgstr ""
 
-#: blocks/member-dialog/index.js:22
+#: blocks/member-dialog/build/index.js:1
 msgid "Dialog text"
 msgstr ""
 
-#: blocks/member-dialog/index.js:24
+#: blocks/member-dialog/build/index.js:1
 msgid "Close button"
 msgstr ""
 
-#: blocks/member-dialog/index.js:30
+#: blocks/member-dialog/build/index.js:1
 msgid "Link text"
 msgstr ""
 
-#: blocks/member-dialog/index.js:40
+#: blocks/member-dialog/build/index.js:1
 msgctxt "Editor placeholder"
 msgid "Team member dialog"
 msgstr ""
 
-#: blocks/member-trigger/index.js:21
+#: blocks/member-trigger/build/index.js:1
 msgid "Card button"
 msgstr ""
 
-#: blocks/member-trigger/index.js:23
+#: blocks/member-trigger/build/index.js:1
 msgid "Button text"
 msgstr ""
 
-#: blocks/post-share/index.js:24
+#: blocks/post-share/build/index.js:1
 msgid "Share links"
 msgstr ""
 
-#: blocks/post-share/index.js:26
-#: blocks/stat-list/index.js:104
+#: blocks/post-share/build/index.js:1
+#: blocks/stat-list/build/index.js:4
 msgid "Label"
 msgstr ""
 
-#: blocks/post-share/index.js:28
-#: blocks/post-share/index.js:47
+#: blocks/post-share/build/index.js:1
 msgid "Share this post"
 msgstr ""
 
-#: blocks/stat-list/index.js:52
+#: blocks/stat-list/build/index.js:1
 msgid "Stats"
 msgstr ""
 
 #. translators: %d: position of the stat in the list.
-#: blocks/stat-list/index.js:59
+#: blocks/stat-list/build/index.js:2
 #, js-format
 msgid "Stat %d: label"
 msgstr ""
 
 #. translators: %d: position of the stat in the list.
-#: blocks/stat-list/index.js:65
+#: blocks/stat-list/build/index.js:3
 #, js-format
 msgid "Stat %d: value"
 msgstr ""
 
 #. translators: %d: position of the stat in the list.
-#: blocks/stat-list/index.js:79
+#: blocks/stat-list/build/index.js:4
 #, js-format
 msgid "Remove stat %d"
 msgstr ""
 
-#: blocks/stat-list/index.js:90
+#: blocks/stat-list/build/index.js:4
 msgid "Add stat"
 msgstr ""
 
-#: blocks/token-flow/index.js:36
+#: blocks/token-flow/build/index.js:1
 msgid "Source"
 msgstr ""
 
-#: blocks/token-flow/index.js:37
+#: blocks/token-flow/build/index.js:1
 msgid "Source: name"
 msgstr ""
 
-#: blocks/token-flow/index.js:40
+#: blocks/token-flow/build/index.js:1
 msgid "Source: detail"
 msgstr ""
 
-#: blocks/token-flow/index.js:46
+#: blocks/token-flow/build/index.js:1
 msgid "Outputs"
 msgstr ""
 
 #. translators: %d: position of the output in the diagram.
-#: blocks/token-flow/index.js:53
+#: blocks/token-flow/build/index.js:2
 #, js-format
 msgid "Output %d: name"
 msgstr ""
 
 #. translators: %d: position of the output in the diagram.
-#: blocks/token-flow/index.js:59
+#: blocks/token-flow/build/index.js:3
 #, js-format
 msgid "Output %d: detail"
 msgstr ""

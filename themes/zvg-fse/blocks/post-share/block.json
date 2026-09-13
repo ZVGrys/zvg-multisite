@@ -8,6 +8,8 @@
 	"description": "Hands the current post to LinkedIn, Facebook or X. Plain links, no third-party scripts.",
 	"keywords": [ "share", "social", "linkedin", "facebook", "x" ],
 	"textdomain": "zvg-fse",
+	"editorScript": "file:./build/index.js",
+	"viewScriptModule": "file:./build/view.js",
 	"style": "file:./style.css",
 	"render": "file:./block.php",
 	"usesContext": [ "postId" ],

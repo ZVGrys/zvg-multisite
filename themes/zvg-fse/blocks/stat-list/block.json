@@ -8,6 +8,7 @@
 	"description": "A short list of measurements. Each value reads above its label, while the markup keeps the dt-then-dd order the content model requires.",
 	"keywords": [ "stats", "measurements", "numbers" ],
 	"textdomain": "zvg-fse",
+	"editorScript": "file:./build/index.js",
 	"style": "file:./style.css",
 	"render": "file:./block.php",
 	"attributes": {
