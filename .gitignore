@@ -19,6 +19,7 @@ debug.log
 
 # But not these files...
 !/.gitignore
+!/.coderabbit.yaml
 !/README.md
 !/LICENSE
 
