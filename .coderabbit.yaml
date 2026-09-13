@@ -1,0 +1,165 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: en-US
+tone_instructions: >-
+  Direct and brief. Give committable GitHub suggestion blocks with exact code and tabs.
+  One pass per file. Skip anything PHPCS or PHPStan already reports.
+
+reviews:
+  profile: assertive
+  request_changes_workflow: false
+  high_level_summary: false
+  high_level_summary_in_walkthrough: true
+  collapse_walkthrough: true
+  changed_files_summary: false
+  sequence_diagrams: false
+  estimate_code_review_effort: false
+  assess_linked_issues: true
+  related_issues: false
+  related_prs: false
+  suggested_labels: false
+  suggested_reviewers: false
+  in_progress_fortune: false
+  poem: false
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - main
+    ignore_title_keywords:
+      - "[WIP]"
+      - "[DO NOT MERGE]"
+  path_filters:
+    - "!themes/*/*/**/*.css"
+    - "!**/*.css.map"
+    - "!**/*.min.js"
+    - "!**/*.min.js.map"
+    - "!**/*.pot"
+    - "!**/package-lock.json"
+    - "!**/composer.lock"
+    - "!themes/zvg-elementor/cmb2/**"
+    - "!docs/img/**"
+  path_instructions:
+    - path: "themes/**/*.php"
+      instructions: |
+        This repository holds one landing page built three ways: zvg-fse (Full Site Editing),
+        zvg-acf (hand-written ACF theme) and zvg-elementor (Elementor Pro). The builds share
+        tokens and content but differ in implementation on purpose. Do not flag a difference
+        between two themes as an inconsistency unless the diff itself introduces it.
+
+        PHPCS (WordPress standard) and PHPStan level 5 gate every PR, so review what they
+        cannot see:
+        - Prefix isolation: zvg_fse_ / zvg_acf_ / zvg_elementor_ functions, ZVG_FSE_ /
+          ZVG_ACF_ / ZVG_ELEMENTOR_ constants and matching text domains. One theme's prefix
+          must never appear in another theme. Template-scope variables carry the prefix too.
+        - Every PHP file opens with a docblock carrying @package, then
+          `defined( 'ABSPATH' ) || exit;`.
+        - Every query has an upper bound: no 'posts_per_page' => -1, no 'nopaging', no
+          get_sites() without 'number'.
+        - An empty value prints no markup at all, wrapper included. Flag an echoed wrapper
+          around a value that can be empty.
+        - Core-generated markup (wp_get_attachment_image, get_the_post_thumbnail,
+          get_the_term_list, wp_nav_menu with echo false) is echoed as-is. Wrapping it in
+          wp_kses() or wp_kses_post() is a defect: it strips srcset, sizes, decoding and
+          fetchpriority.
+        - Every phpcs:ignore carries a `--` reason.
+        - Elementor control 'default' values use plain __() or _x(); esc_html__() there
+          escapes twice. Labels and descriptions keep esc_html__().
+        - Customizer control 'label' and section 'title' take plain __(); 'description'
+          keeps esc_html__().
+        - Assets are referenced through the theme's _T_URI / _T_PATH constants and versioned
+          with the theme's *_get_asset_version() helper, never a literal or null version.
+        - Post meta saves follow: nonce check, DOING_AUTOSAVE bail, current_user_can,
+          wp_unslash, sanitise, update_post_meta.
+        - Anything a consumer may want to change goes through apply_filters() with a
+          documented @param.
+        - Comments are limited to docblocks, translators notes and phpcs annotations. Flag
+          explanatory prose comments.
+    - path: "themes/zvg-fse/{parts,templates}/**/*.html"
+      instructions: |
+        Static block markup cannot call PHP. Flag any English text, install-dependent URL or
+        moving value (year, count) typed into these files; it belongs in a PHP pattern pulled
+        in with a wp:pattern reference. Flag a navigation-link block without a url.
+    - path: "themes/**/*.scss"
+      instructions: |
+        - No hex colour outside _vars.scss.
+        - Breakpoints nest inside the selector they modify through up() / down(). Flag a
+          top-level @media block.
+        - Every entry point starts with `@use 'vars' as *;`.
+        - BEM: .zvg-{build}-{block}__{element}--{modifier}.
+        - An element carries only what makes it differ from Theme Style or theme.json. Flag
+          restated inherited colour, font or spacing.
+        - CSS is split per section and loaded only where it renders. A new section stylesheet
+          needs its registration: a row in zvg_fse_class_stylesheets() for FSE, a
+          get_style_depends() entry for an Elementor widget, the sections/<name>/ path for ACF.
+        - Comments are limited to what the WordPress standard requires.
+    - path: "themes/**/*.js"
+      instructions: |
+        Source files only; *.min.js is gulp output. No explanatory prose comments. Flag DOM
+        injection through innerHTML with unsanitised data.
+    - path: "themes/zvg-acf/acf-json/**/*.json"
+      instructions: |
+        ACF Local JSON is the source of truth and there are no database rows. A changed field
+        group must bump its "modified" timestamp. Every section's text and images are ACF
+        fields; flag hardcoded content in a section template that has no field behind it.
+  tools:
+    phpcs:
+      enabled: false
+    phpstan:
+      enabled: false
+    eslint:
+      enabled: false
+    stylelint:
+      enabled: false
+    biome:
+      enabled: false
+    oxc:
+      enabled: false
+    htmlhint:
+      enabled: false
+    markdownlint:
+      enabled: false
+    languagetool:
+      enabled: false
+    gitleaks:
+      enabled: true
+    actionlint:
+      enabled: true
+    shellcheck:
+      enabled: true
+  pre_merge_checks:
+    docstrings:
+      mode: "off"
+    title:
+      mode: warning
+      requirements: >-
+        English, imperative mood, states what was added or fixed, at most 72 characters,
+        no trailing period, no conventional-commit prefix.
+    description:
+      mode: "off"
+    custom_checks:
+      - name: Short PR body
+        mode: warning
+        instructions: |
+          Pass when the PR body is English and holds one or two sentences on how the change
+          solves the problem, optionally followed by the issue it closes and a screenshot or
+          GIF. Fail when the body is empty, lists every changed file, contains tables or
+          before/after essays, or carries an AI attribution line such as Co-Authored-By or
+          "Generated with".
+      - name: Screenshot for UI changes
+        mode: warning
+        instructions: |
+          Pass when the diff touches no .scss, .html, block pattern or template file, or when
+          the PR body contains an image or GIF. Fail when rendered UI files change and the body
+          has no image.
+
+chat:
+  art: false
+  auto_reply: false
+
+knowledge_base:
+  learnings:
+    scope: local
+  code_guidelines:
+    enabled: true
+    filePatterns:
+      - README.md
