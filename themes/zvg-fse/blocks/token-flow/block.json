@@ -8,6 +8,7 @@
 	"description": "One source of tokens fanning out into three builds. The connectors are drawn in CSS, so the diagram holds exactly three outputs.",
 	"keywords": [ "tokens", "diagram", "flow" ],
 	"textdomain": "zvg-fse",
+	"editorScript": "file:./build/index.js",
 	"style": "file:./style.css",
 	"render": "file:./block.php",
 	"attributes": {

@@ -10,6 +10,7 @@
 	"textdomain": "zvg-fse",
 	"usesContext": [ "postId" ],
 	"ancestor": [ "core/post-template" ],
+	"editorScript": "file:./build/index.js",
 	"style": "file:./style.css",
 	"render": "file:./block.php",
 	"attributes": {

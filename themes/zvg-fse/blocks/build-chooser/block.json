@@ -8,6 +8,8 @@
 	"description": "Three questions that weigh the answers and suggest one of the builds. Without JavaScript it stays a readable form with all three verdicts.",
 	"keywords": [ "chooser", "quiz", "questionnaire", "recommendation" ],
 	"textdomain": "zvg-fse",
+	"editorScript": "file:./build/index.js",
+	"viewScriptModule": "file:./build/view.js",
 	"style": "file:./style.css",
 	"render": "file:./block.php",
 	"attributes": {

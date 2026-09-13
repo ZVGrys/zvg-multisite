@@ -8,6 +8,8 @@
 	"description": "The dialog the team cards open, filled from the card that opened it.",
 	"keywords": [ "team", "member", "profile", "dialog" ],
 	"textdomain": "zvg-fse",
+	"editorScript": "file:./build/index.js",
+	"viewScriptModule": "file:./build/view.js",
 	"style": "file:./style.css",
 	"render": "file:./block.php",
 	"attributes": {

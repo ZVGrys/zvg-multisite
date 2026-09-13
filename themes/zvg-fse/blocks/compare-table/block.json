@@ -8,6 +8,7 @@
 	"description": "A comparison table whose row labels are headers and stay in place while the columns scroll.",
 	"keywords": [ "table", "comparison", "measurements" ],
 	"textdomain": "zvg-fse",
+	"editorScript": "file:./build/index.js",
 	"style": "file:./style.css",
 	"render": "file:./block.php",
 	"attributes": {

@@ -1,0 +1,1 @@
+(()=>{"use strict";const e=window.wp.blocks,o=JSON.parse('{"UU":"zvg-fse/member-bio"}'),i=window.wp.blockEditor,r=window.wp.i18n,n=window.ReactJSXRuntime;(0,e.registerBlockType)(o.UU,{edit:function(){return(0,n.jsx)("p",{...(0,i.useBlockProps)(),children:(0,r._x)("Member bio","Editor placeholder","zvg-fse")})}})})();

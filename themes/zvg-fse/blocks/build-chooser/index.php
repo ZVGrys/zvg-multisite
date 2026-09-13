@@ -10,20 +10,13 @@ defined( 'ABSPATH' ) || exit;
 add_action( 'init', 'zvg_fse_register_build_chooser_block' );
 
 /**
- * Register the block and its editor script.
+ * Register the block and hand its editor script the chooser defaults.
  */
 function zvg_fse_register_build_chooser_block() {
-
-	wp_register_script(
-		'zvg-fse-build-chooser-editor',
-		ZVG_FSE_T_URI . '/blocks/build-chooser/index.js',
-		array( 'wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-server-side-render', 'wp-i18n' ),
-		zvg_fse_get_asset_version( '/blocks/build-chooser/index.js' ),
-		true
-	);
+	register_block_type_from_metadata( ZVG_FSE_T_PATH . '/blocks/build-chooser' );
 
 	wp_add_inline_script(
-		'zvg-fse-build-chooser-editor',
+		generate_block_asset_handle( 'zvg-fse/build-chooser', 'editorScript' ),
 		'window.zvgFseChooserDefaults = ' . wp_json_encode(
 			array(
 				'steps'       => zvg_fse_chooser_steps(),
@@ -32,26 +25,6 @@ function zvg_fse_register_build_chooser_block() {
 			)
 		) . ';',
 		'before'
-	);
-
-	// Registered by hand, like the editor script above — block.json's own
-	// "viewScript" auto-registration versions by the WP/Gutenberg version, not
-	// by file mtime, so an edit to view.js was served stale from the browser
-	// cache until the next unrelated core/Gutenberg update.
-	wp_register_script(
-		'zvg-fse-build-chooser-view',
-		ZVG_FSE_T_URI . '/blocks/build-chooser/js/view.min.js',
-		array(),
-		zvg_fse_get_asset_version( '/blocks/build-chooser/js/view.min.js' ),
-		true
-	);
-
-	register_block_type_from_metadata(
-		ZVG_FSE_T_PATH . '/blocks/build-chooser',
-		array(
-			'editor_script'       => 'zvg-fse-build-chooser-editor',
-			'view_script_handles' => array( 'zvg-fse-build-chooser-view' ),
-		)
 	);
 }
 

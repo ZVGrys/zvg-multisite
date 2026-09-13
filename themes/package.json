@@ -5,9 +5,12 @@
   "description": "Build pipeline for the ZVG multisite themes (zvg-fse, zvg-acf, zvg-elementor).",
   "main": "gulpfile.js",
   "scripts": {
-    "build": "gulp build",
+    "build": "gulp build && wp-scripts build --experimental-modules",
     "watch": "gulp watch",
-    "build:fse": "gulp build:zvg-fse",
+    "build:fse": "gulp build:zvg-fse && wp-scripts build --experimental-modules",
+    "build:blocks": "wp-scripts build --experimental-modules",
+    "start:blocks": "wp-scripts start --experimental-modules",
+    "lint:js": "wp-scripts lint-js zvg-fse/blocks/*/src webpack.config.js",
     "build:acf": "gulp build:zvg-acf",
     "build:elementor": "gulp build:zvg-elementor",
     "watch:fse": "gulp watch:zvg-fse",
@@ -19,6 +22,7 @@
   "devDependencies": {
     "@babel/core": "^7.21.4",
     "@babel/preset-env": "^7.21.4",
+    "@wordpress/scripts": "^35.0.0",
     "browser-sync": "^3.0.4",
     "gulp": "^5.0.1",
     "gulp-autoprefixer": "^9.0.0",
@@ -33,6 +37,11 @@
     "sass": "^1.77.0"
   },
   "dependencies": {
+    "@wordpress/block-editor": "^17.1.0",
+    "@wordpress/blocks": "^16.0.0",
+    "@wordpress/components": "^40.1.0",
+    "@wordpress/i18n": "^6.28.0",
+    "@wordpress/server-side-render": "^6.31.0",
     "install": "^0.10.2",
     "normalize-scss": "^7.0.0",
     "streamqueue": "^1.1.2"

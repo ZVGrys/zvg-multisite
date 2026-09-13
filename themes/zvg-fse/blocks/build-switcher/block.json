@@ -8,6 +8,7 @@
 	"description": "Links to the same landing built on each stack. The current site is marked automatically.",
 	"keywords": [ "build", "switcher", "version", "multisite" ],
 	"textdomain": "zvg-fse",
+	"editorScript": "file:./build/index.js",
 	"style": "file:./style.css",
 	"render": "file:./block.php",
 	"attributes": {
