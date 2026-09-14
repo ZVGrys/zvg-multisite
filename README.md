@@ -132,7 +132,7 @@ The same four checks, run against each finished build.
 
 **Lines of code** counts source only — `.php`, template `.html`, `.scss`, `.js`. No compiled
 CSS, no `*.min.js`, no `.json`, no vendored libraries. **Page weight** is the landing page as a
-guest receives it, admin bar hidden, uncompressed. **DOM nodes** are elements in the
+guest receives it, uncompressed. **DOM nodes** are elements in the
 server-rendered markup.
 
 Lighthouse score barely separates the three builds, and that is itself the finding: **served
@@ -184,10 +184,19 @@ Only own code is tracked — core, bundled themes, third-party plugins and uploa
 
 ```
 wp-content/
-├── .github/workflows/        the PHP checks that run on every pull request
+├── .github/
+│   ├── workflows/            PHP checks, Stylelint and the asset build, run on pull requests
+│   └── dependabot.yml        weekly dependency updates
+├── .editorconfig
 ├── docs/img/                 screenshots used by this README
+├── mu-plugins/
+│   └── zvg-security-headers.php   security headers for every build
+├── php-error.php             the fatal-error page
 └── themes/
-    ├── gulpfile.js           one build for all three themes
+    ├── package.json          one asset build and the linters for all three themes
+    ├── gulpfile.js           SCSS and theme JS
+    ├── webpack.config.js     the FSE blocks' editor and view scripts (@wordpress/scripts)
+    ├── .stylelintrc.json     Stylelint config
     ├── composer.json         PHPCS and PHPStan for all three themes
     ├── phpstan.neon.dist     static-analysis config
     ├── phpstan/              the theme constants, declared for analysis
@@ -203,8 +212,8 @@ and Elementor's kit and Theme Builder templates. `acf-json/` carries field *defi
 values filled into them. Neither is the multisite itself: three subsites, their front pages and
 their permalinks are configuration, not code.
 
-Running the builds needs WordPress 6.7+ as a subdirectory multisite, PHP 7.4+, and Node for the
-asset build. Per build: **ACF Pro** (blog 2), **Elementor** and **Elementor Pro** (blog 3),
+Running the builds needs WordPress 6.7+ as a subdirectory multisite, PHP 7.4+, and Node 22+ for
+the asset build. Per build: **ACF Pro** (blog 2), **Elementor** and **Elementor Pro** (blog 3),
 Contact Form 7 and Rank Math. The two Pro plugins are commercial and are listed as dependencies
 only.
 
@@ -218,13 +227,16 @@ The tooling sits one level above the themes and drives all three from one instal
 ```bash
 cd wp-content/themes
 npm install                 # first time only
-npx gulp                    # build all, then watch
-npx gulp build              # one-off build of all three
-npx gulp build:zvg-fse      # a single theme
+npm run build               # one-off build of all three themes
+npm run build:fse           # a single theme (build:acf, build:elementor)
+npm run watch:fse           # rebuild on change
+npm run start:blocks        # rebuild the FSE block scripts on change
 ```
 
-SCSS compiles to expanded, autoprefixed, minified CSS next to its source; JS goes through Babel
-and uglify to `*.min.js`. **Edit the `.scss` and `.js` sources — never the generated files.**
+gulp compiles SCSS to autoprefixed, minified CSS next to its source and runs theme JS through
+Babel and uglify to `*.min.js`. The FSE blocks' editor scripts (JSX) and front-end view modules are
+built by `@wordpress/scripts` into each block's `build/`. **Edit the `.scss`, `.js` and `src/`
+sources — never the generated files.**
 
 ## Coding standards and static analysis
 
@@ -246,6 +258,21 @@ there is **no baseline file** — nothing is being deferred. Where a rule is del
 followed the line carries a `phpcs:ignore` with its reason, and the three PHPStan exceptions are
 each a WordPress signature the stubs describe more narrowly than WordPress itself does, verified
 against core and commented in the config.
+
+SCSS is checked by **Stylelint** on the WordPress config with house limits — selector specificity
+capped at 0,2,1, no IDs, no `!important`, nesting two levels deep — and all three themes report
+zero errors.
+
+```bash
+npm run lint:style          # Stylelint, all three themes
+npm run lint:js             # ESLint on the FSE block sources
+```
+
+Stylelint runs on pull requests that touch SCSS
+([`.github/workflows/css.yml`](.github/workflows/css.yml)), and a **Build** job
+([`.github/workflows/build.yml`](.github/workflows/build.yml)) rebuilds every asset and fails if the
+output differs from the committed files. Dependabot opens weekly grouped updates for npm, Composer
+and GitHub Actions.
 
 ## Notes on the live page
 
