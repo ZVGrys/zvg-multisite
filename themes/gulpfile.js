@@ -12,7 +12,6 @@ const gulp = require('gulp');
 const { src, dest, watch, series, parallel } = gulp;
 
 const babel = require('gulp-babel');
-const sourcemaps = require('gulp-sourcemaps');
 
 const gulpSass = require('gulp-sass')(require('sass'));
 
@@ -53,8 +52,7 @@ const noop = () => Promise.resolve();
 
 /* ─── Pipelines ─────────────────────────────────────────────────────────── */
 function jsPipeline(glob, out) {
-    return src(glob, { allowEmpty: true })
-        .pipe(sourcemaps.init())
+    return src(glob, { allowEmpty: true, sourcemaps: true })
         .pipe(
             babel({
                 presets: ['@babel/env'],
@@ -62,13 +60,11 @@ function jsPipeline(glob, out) {
         )
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
-        .pipe(sourcemaps.write('.'))
-        .pipe(dest(out));
+        .pipe(dest(out, { sourcemaps: '.' }));
 }
 
 function scssPipeline(glob, out) {
-    return src(glob, { allowEmpty: true })
-        .pipe(sourcemaps.init())
+    return src(glob, { allowEmpty: true, sourcemaps: true })
         .pipe(plumber())
         .pipe(
             gulpSass({
@@ -86,8 +82,7 @@ function scssPipeline(glob, out) {
             })
         )
         .pipe(cleanCSS({ compatibility: 'ie8' }))
-        .pipe(sourcemaps.write('.'))
-        .pipe(dest(out));
+        .pipe(dest(out, { sourcemaps: '.' }));
 }
 
 /* ─── Generate one task set per theme ───────────────────────────────────── */
