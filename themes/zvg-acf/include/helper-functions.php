@@ -41,6 +41,58 @@ if ( ! function_exists( 'zvg_acf_sections' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'zvg_acf_section_layouts' ) ) :
+
+	/**
+	 * The layout names registered on the sections field.
+	 *
+	 * @return string[]
+	 */
+	function zvg_acf_section_layouts() {
+		static $layouts = null;
+
+		if ( null !== $layouts ) {
+			return $layouts;
+		}
+
+		$field = function_exists( 'acf_get_field' ) ? acf_get_field( 'zvg_acf_sections' ) : false;
+
+		if ( ! is_array( $field ) || empty( $field['layouts'] ) || ! is_array( $field['layouts'] ) ) {
+			return array();
+		}
+
+		$layouts = array();
+
+		foreach ( $field['layouts'] as $layout ) {
+			if ( ! empty( $layout['name'] ) && is_string( $layout['name'] ) ) {
+				$layouts[] = $layout['name'];
+			}
+		}
+
+		return $layouts;
+	}
+endif;
+
+if ( ! function_exists( 'zvg_acf_section_name' ) ) :
+
+	/**
+	 * A stored layout name, accepted only when it is a registered section layout.
+	 *
+	 * @param mixed $layout Stored flexible-content layout name.
+	 *
+	 * @return string Section name, or an empty string.
+	 */
+	function zvg_acf_section_name( $layout ) {
+		if ( ! is_string( $layout ) ) {
+			return '';
+		}
+
+		$name = sanitize_key( $layout );
+
+		return ( '' !== $name && $name === $layout && in_array( $name, zvg_acf_section_layouts(), true ) ) ? $name : '';
+	}
+endif;
+
 if ( ! function_exists( 'zvg_acf_is_sections_page' ) ) :
 
 	/**
@@ -66,7 +118,11 @@ if ( ! function_exists( 'zvg_acf_render_sections' ) ) :
 		while ( have_rows( 'zvg_acf_sections' ) ) {
 			the_row();
 
-			$section = get_row_layout();
+			$section = zvg_acf_section_name( get_row_layout() );
+
+			if ( '' === $section ) {
+				continue;
+			}
 
 			get_template_part( 'sections/' . $section . '/' . $section );
 		}

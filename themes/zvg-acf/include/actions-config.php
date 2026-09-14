@@ -14,6 +14,26 @@ add_action( 'enqueue_block_assets', 'zvg_acf_enqueue_editor_fonts' );
 add_action( 'init', 'zvg_acf_drop_emoji_support' );
 add_filter( 'wpcf7_load_js', 'zvg_acf_page_has_contact_form' );
 add_filter( 'wpcf7_load_css', 'zvg_acf_page_has_contact_form' );
+add_filter( 'acf/settings/l10n', 'zvg_acf_translate_field_labels' );
+add_filter( 'acf/settings/l10n_textdomain', 'zvg_acf_field_labels_textdomain' );
+
+/**
+ * Translate the labels of the local JSON field groups.
+ *
+ * @return bool
+ */
+function zvg_acf_translate_field_labels() {
+	return true;
+}
+
+/**
+ * The text domain the field group labels are translated in.
+ *
+ * @return string
+ */
+function zvg_acf_field_labels_textdomain() {
+	return 'zvg-acf';
+}
 
 /**
  * Contact Form 7 loads its script and stylesheet on every page of the site.
@@ -207,7 +227,7 @@ function zvg_acf_enqueue_section_assets() {
 		return;
 	}
 
-	foreach ( array_unique( zvg_acf_sections() ) as $section ) {
+	foreach ( array_unique( array_filter( array_map( 'zvg_acf_section_name', zvg_acf_sections() ) ) ) as $section ) {
 		$style = '/sections/' . $section . '/css/' . $section . '.css';
 
 		if ( file_exists( ZVG_ACF_T_PATH . $style ) ) {

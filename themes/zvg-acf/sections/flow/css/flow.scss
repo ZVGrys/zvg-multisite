@@ -115,7 +115,7 @@ $flow-collapse: $flow-card-basis * 3 + $flow-card-gap * 2 + 40px + 8px;
 		}
 
 		&::after {
-			animation: zvg-acf-flow-trunk 7s ease-in-out infinite;
+			animation: zvg-acf-flow-trunk 7000ms ease-in-out infinite;
 
 			@media (prefers-reduced-motion: reduce) {
 				opacity: 0;
@@ -165,11 +165,11 @@ $flow-collapse: $flow-card-basis * 3 + $flow-card-gap * 2 + 40px + 8px;
 		}
 
 		&--left::after {
-			animation: zvg-acf-flow-elbow-left 7s ease-in-out infinite;
+			animation: zvg-acf-flow-elbow-left 7000ms ease-in-out infinite;
 		}
 
 		&--right::after {
-			animation: zvg-acf-flow-elbow-right 7s ease-in-out infinite;
+			animation: zvg-acf-flow-elbow-right 7000ms ease-in-out infinite;
 		}
 	}
 
@@ -182,7 +182,7 @@ $flow-collapse: $flow-card-basis * 3 + $flow-card-gap * 2 + 40px + 8px;
 		width: var(--zvg-acf-wire);
 
 		&::after {
-			animation: zvg-acf-flow-mid 7s ease-in-out infinite;
+			animation: zvg-acf-flow-mid 7000ms ease-in-out infinite;
 
 			@media (prefers-reduced-motion: reduce) {
 				opacity: 0;
@@ -206,7 +206,7 @@ $flow-collapse: $flow-card-basis * 3 + $flow-card-gap * 2 + 40px + 8px;
 	}
 
 	&__output {
-		animation: zvg-acf-flow-border 7s ease-in-out infinite;
+		animation: zvg-acf-flow-border 7000ms ease-in-out infinite;
 		background-color: $color-surface;
 		border: 1px solid $color-border;
 		border-radius: 4px;

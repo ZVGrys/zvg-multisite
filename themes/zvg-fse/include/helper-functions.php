@@ -44,7 +44,7 @@ function zvg_fse_redirect_empty_search() {
  * @return string Attributes as JSON, or an empty string when there are none.
  */
 function zvg_fse_block_attrs( $attributes ) {
-	return $attributes ? (string) wp_json_encode( $attributes ) : '';
+	return $attributes ? serialize_block_attributes( $attributes ) : '';
 }
 
 /**

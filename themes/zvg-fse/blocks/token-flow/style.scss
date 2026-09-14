@@ -83,7 +83,7 @@ $flow-card-gap: 16px;
 		}
 
 		&::after {
-			animation: zvg-fse-flow-trunk 7s ease-in-out infinite;
+			animation: zvg-fse-flow-trunk 7000ms ease-in-out infinite;
 		}
 	}
 
@@ -125,11 +125,11 @@ $flow-card-gap: 16px;
 		}
 
 		&--left::after {
-			animation: zvg-fse-flow-elbow-left 7s ease-in-out infinite;
+			animation: zvg-fse-flow-elbow-left 7000ms ease-in-out infinite;
 		}
 
 		&--right::after {
-			animation: zvg-fse-flow-elbow-right 7s ease-in-out infinite;
+			animation: zvg-fse-flow-elbow-right 7000ms ease-in-out infinite;
 		}
 	}
 
@@ -142,7 +142,7 @@ $flow-card-gap: 16px;
 		margin-left: calc(var(--zvg-fse-wire) / -2);
 
 		&::after {
-			animation: zvg-fse-flow-mid 7s ease-in-out infinite;
+			animation: zvg-fse-flow-mid 7000ms ease-in-out infinite;
 		}
 	}
 
@@ -168,7 +168,7 @@ $flow-card-gap: 16px;
 		background-color: $color-surface;
 		border: 1px solid $color-border;
 		border-radius: $radius-medium;
-		animation: zvg-fse-flow-border 7s ease-in-out infinite;
+		animation: zvg-fse-flow-border 7000ms ease-in-out infinite;
 
 		@media (prefers-reduced-motion: reduce) {
 			animation: none;

@@ -73,14 +73,14 @@
 	}
 
 	&__icon {
-		fill: currentColor;
+		fill: currentcolor;
 		flex: none;
 		height: 14px;
 		width: 14px;
 
 		&.is-stroked {
 			fill: none;
-			stroke: currentColor;
+			stroke: currentcolor;
 			stroke-linecap: round;
 			stroke-linejoin: round;
 			stroke-width: 2;

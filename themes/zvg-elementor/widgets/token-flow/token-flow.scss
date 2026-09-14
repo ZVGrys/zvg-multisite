@@ -94,7 +94,7 @@ $flow-collapse: $flow-card-basis * 3 + $flow-card-gap * 2 + 48px;
 		width: var(--zvg-elementor-wire);
 
 		&::after {
-			animation: zvg-elementor-flow-trunk 7s ease-in-out infinite;
+			animation: zvg-elementor-flow-trunk 7000ms ease-in-out infinite;
 
 			@media (prefers-reduced-motion: reduce) {
 				opacity: 0;
@@ -144,11 +144,11 @@ $flow-collapse: $flow-card-basis * 3 + $flow-card-gap * 2 + 48px;
 		}
 
 		&--left::after {
-			animation: zvg-elementor-flow-elbow-left 7s ease-in-out infinite;
+			animation: zvg-elementor-flow-elbow-left 7000ms ease-in-out infinite;
 		}
 
 		&--right::after {
-			animation: zvg-elementor-flow-elbow-right 7s ease-in-out infinite;
+			animation: zvg-elementor-flow-elbow-right 7000ms ease-in-out infinite;
 		}
 
 		&::after {
@@ -167,7 +167,7 @@ $flow-collapse: $flow-card-basis * 3 + $flow-card-gap * 2 + 48px;
 		width: var(--zvg-elementor-wire);
 
 		&::after {
-			animation: zvg-elementor-flow-mid 7s ease-in-out infinite;
+			animation: zvg-elementor-flow-mid 7000ms ease-in-out infinite;
 
 			@media (prefers-reduced-motion: reduce) {
 				opacity: 0;
@@ -191,7 +191,7 @@ $flow-collapse: $flow-card-basis * 3 + $flow-card-gap * 2 + 48px;
 	}
 
 	#{$root}__output {
-		animation: zvg-elementor-flow-border 7s ease-in-out infinite;
+		animation: zvg-elementor-flow-border 7000ms ease-in-out infinite;
 		background-color: $color-surface;
 		border: 1px solid $color-border;
 		border-radius: 4px;
