@@ -21,7 +21,7 @@
   "author": "ZVG",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.21.4",
+    "@babel/core": "^8.0.5",
     "@babel/preset-env": "^7.21.4",
     "@wordpress/scripts": "^35.0.0",
     "@wordpress/stylelint-config": "^25.0.0",
