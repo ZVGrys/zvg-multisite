@@ -42,10 +42,7 @@
     "@wordpress/blocks": "^16.0.0",
     "@wordpress/components": "^40.1.0",
     "@wordpress/i18n": "^6.28.0",
-    "@wordpress/server-side-render": "^6.31.0",
-    "install": "^0.10.2",
-    "normalize-scss": "^7.0.0",
-    "streamqueue": "^1.1.2"
+    "@wordpress/server-side-render": "^6.31.0"
   },
   "allowScripts": {
     "@parcel/watcher@2.6.0": true,

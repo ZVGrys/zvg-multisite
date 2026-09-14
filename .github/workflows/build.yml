@@ -1,0 +1,41 @@
+name: Build
+
+on:
+  pull_request:
+    paths:
+      - 'themes/**/*.scss'
+      - 'themes/**/*.js'
+      - 'themes/zvg-fse/blocks/*/block.json'
+      - 'themes/package.json'
+      - 'themes/package-lock.json'
+      - '.github/workflows/build.yml'
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: themes
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: themes/package-lock.json
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - name: Compiled files match the commit
+        run: |
+          git status --porcelain -- .
+          test -z "$(git status --porcelain -- .)"
