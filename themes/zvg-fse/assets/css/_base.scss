@@ -6,9 +6,13 @@
 	box-sizing: border-box;
 
 	@media (prefers-reduced-motion: reduce) {
+		// stylelint-disable-next-line declaration-no-important -- must beat every component's own motion declarations.
 		transition-duration: 0.01ms !important;
+		// stylelint-disable-next-line declaration-no-important -- must beat every component's own motion declarations.
 		animation-duration: 0.01ms !important;
+		// stylelint-disable-next-line declaration-no-important -- must beat every component's own motion declarations.
 		animation-iteration-count: 1 !important;
+		// stylelint-disable-next-line declaration-no-important -- must beat every component's own motion declarations.
 		scroll-behavior: auto !important;
 	}
 }
@@ -57,23 +61,22 @@ canvas {
 }
 
 .screen-reader-text {
-	position: absolute !important;
+	position: absolute;
 	width: 1px;
 	height: 1px;
 	padding: 0;
 	overflow: hidden;
-	clip: rect(1px, 1px, 1px, 1px);
 	clip-path: inset(50%);
 	white-space: nowrap;
 	border: 0;
 }
 
-body .skip-link.screen-reader-text:focus {
+// stylelint-disable-next-line selector-max-specificity -- core's skip-link sheet styles `.skip-link.screen-reader-text:focus` (0,3,0).
+.skip-link.screen-reader-text:focus {
 	top: calc(var(--wp-admin--admin-bar--height, 0px) + var(--wp--preset--spacing--20));
 	left: var(--wp--preset--spacing--20);
 	margin: 0;
 	overflow: visible;
-	clip: auto;
 	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
 	font-family: var(--wp--preset--font-family--body);
 	font-size: var(--wp--preset--font-size--medium);

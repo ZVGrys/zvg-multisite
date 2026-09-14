@@ -39,31 +39,3 @@
 		}
 	}
 }
-
-.zvg-elementor-switcher--list {
-	background: none;
-	border: 0;
-	border-radius: 0;
-	flex-wrap: wrap;
-	gap: 24px;
-	padding: 0;
-
-	.zvg-elementor-switcher__link {
-		font-family: inherit;
-		font-size: inherit;
-		font-weight: inherit;
-		letter-spacing: normal;
-		padding: 0;
-		text-transform: none;
-
-		&:hover,
-		&:focus {
-			color: $color-accent;
-		}
-
-		&[aria-current="page"] {
-			background: none;
-			color: $color-accent;
-		}
-	}
-}

@@ -65,7 +65,7 @@
 			border-color: $color-accent;
 		}
 
-		&:has(input:checked) {
+		&:has(:checked) {
 			font-weight: 600;
 			border-color: $color-accent;
 		}
@@ -108,8 +108,7 @@
 		background-color: transparent;
 		border-color: $color-border-strong;
 
-		&:hover,
-		&:focus {
+		&:where(:hover, :focus) {
 			color: $color-accent;
 			border-color: $color-accent;
 			opacity: 1;
@@ -126,7 +125,7 @@
 		border-top: 1px solid $color-border;
 	}
 
-	&__form:has([data-chooser-actions][hidden]) &__result {
+	&__form:where(:has([data-chooser-actions][hidden])) &__result {
 		margin-top: 0;
 		padding-top: 0;
 		border-top: 0;
@@ -153,10 +152,10 @@
 
 	&__verdict[data-role="winner"] {
 		margin-bottom: var(--wp--preset--spacing--40);
+	}
 
-		.wp-block-zvg-fse-build-chooser__verdict-title {
-			font-size: var(--wp--preset--font-size--xx-large);
-		}
+	&__verdict:where([data-role="winner"]) .wp-block-zvg-fse-build-chooser__verdict-title {
+		font-size: var(--wp--preset--font-size--xx-large);
 	}
 
 	&__verdict[data-role="other"] {
@@ -165,7 +164,9 @@
 		background-color: $color-surface-alt;
 		border: 1px solid $color-border;
 		border-radius: $radius-medium;
+	}
 
+	&__verdict:where([data-role="other"]) {
 		.wp-block-zvg-fse-build-chooser__verdict-title {
 			font-family: var(--wp--preset--font-family--mono);
 			font-size: var(--wp--preset--font-size--small);
@@ -214,7 +215,7 @@
 
 }
 
-.zvg-fse-js .wp-block-zvg-fse-build-chooser__form:not([data-chooser-ready]) {
+:where(.zvg-fse-js) :where(.wp-block-zvg-fse-build-chooser__form:not([data-chooser-ready])) {
 	.wp-block-zvg-fse-build-chooser__step:nth-of-type(n + 2),
 	.wp-block-zvg-fse-build-chooser__result {
 		display: none;
@@ -222,13 +223,13 @@
 }
 
 .editor-styles-wrapper {
-	.wp-block-zvg-fse-build-chooser__step:nth-of-type(n + 2),
+	.wp-block-zvg-fse-build-chooser__step:where(:nth-of-type(n + 2)),
 	.wp-block-zvg-fse-build-chooser__result,
 	.wp-block-zvg-fse-build-chooser__button--outline {
 		display: none;
 	}
 
-	.wp-block-zvg-fse-build-chooser__actions[hidden] {
+	.wp-block-zvg-fse-build-chooser__actions:where([hidden]) {
 		display: flex;
 	}
 }

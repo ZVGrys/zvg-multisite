@@ -124,7 +124,7 @@
 		padding-top: 24px;
 	}
 
-	&__form:has([data-chooser-actions][hidden]) &__result {
+	&__form:where(:has([data-chooser-actions][hidden])) &__result {
 		border-top: 0;
 		margin-top: 0;
 		padding-top: 0;
@@ -156,7 +156,7 @@
 		}
 	}
 
-	&__verdict[data-role="winner"] {
+	&__verdict:where([data-role="winner"]) {
 		margin-bottom: 24px;
 
 		.zvg-acf-chooser__verdict-title {
@@ -172,7 +172,7 @@
 		}
 	}
 
-	&__verdict[data-role="other"] {
+	&__verdict:where([data-role="other"]) {
 		background-color: $color-surface-alt;
 		border: 1px solid $color-border;
 		border-radius: 4px;
@@ -236,7 +236,7 @@
 	}
 }
 
-.zvg-acf-js .zvg-acf-chooser__form:not([data-chooser-ready]) {
+:where(.zvg-acf-js) :where(.zvg-acf-chooser__form:not([data-chooser-ready])) {
 	.zvg-acf-chooser__step:nth-of-type(n + 2),
 	.zvg-acf-chooser__result {
 		display: none;

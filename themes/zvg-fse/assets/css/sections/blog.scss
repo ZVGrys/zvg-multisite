@@ -65,8 +65,7 @@
 		font-weight: 600;
 		text-decoration: none;
 
-		&:hover,
-		&:focus {
+		&:where(:hover, :focus) {
 			text-decoration: none;
 		}
 	}

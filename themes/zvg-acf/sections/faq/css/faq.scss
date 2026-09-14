@@ -71,7 +71,7 @@
 .zvg-acf-js .zvg-acf-faq__answer {
 	display: none;
 
-	&:not([hidden]) {
+	&:where(:not([hidden])) {
 		display: block;
 	}
 }

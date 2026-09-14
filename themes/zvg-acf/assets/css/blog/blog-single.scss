@@ -93,13 +93,11 @@
 		transition: transform $transition-fast;
 	}
 
-	&__nav-item--prev a:hover::before,
-	&__nav-item--prev a:focus::before {
+	&__nav-item--prev a:where(:hover, :focus)::before {
 		transform: translateX(-2px);
 	}
 
-	&__nav-item--next a:hover::after,
-	&__nav-item--next a:focus::after {
+	&__nav-item--next a:where(:hover, :focus)::after {
 		transform: translateX(2px);
 	}
 }

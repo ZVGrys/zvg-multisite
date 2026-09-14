@@ -64,7 +64,7 @@
 			}
 		}
 
-		thead td:first-child {
+		thead td:where(:first-child) {
 			@include up($bp-medium) {
 				position: sticky;
 				left: 0;
@@ -136,12 +136,12 @@
 			}
 		}
 
-		tbody tr:last-child th,
-		tbody tr:last-child td {
+		tbody tr:where(:last-child) th,
+		tbody tr:where(:last-child) td {
 			border-bottom: 0;
 		}
 
-		tbody tr:last-child {
+		tbody tr:where(:last-child) {
 			@include down($bp-medium) {
 				margin-bottom: 0;
 			}

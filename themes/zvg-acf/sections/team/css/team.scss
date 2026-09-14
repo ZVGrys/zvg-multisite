@@ -120,7 +120,7 @@
 	}
 }
 
-.zvg-acf-js .zvg-acf-member .zvg-acf-member__profile {
+:where(.zvg-acf-js) :where(.zvg-acf-member) .zvg-acf-member__profile {
 	display: none;
 }
 

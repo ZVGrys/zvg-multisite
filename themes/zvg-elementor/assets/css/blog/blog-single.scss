@@ -100,27 +100,29 @@
 		}
 	}
 
-	&__nav-item--prev a::before {
-		content: "\2190";
-		display: inline-block;
-		margin-right: 0.35em;
-		transition: transform 300ms ease;
+	&__nav-item--prev a {
+		&::before {
+			content: "\2190";
+			display: inline-block;
+			margin-right: 0.35em;
+			transition: transform 300ms ease;
+		}
+
+		&:where(:hover, :focus)::before {
+			transform: translateX(-2px);
+		}
 	}
 
-	&__nav-item--next a::after {
-		content: "\2192";
-		display: inline-block;
-		margin-left: 0.35em;
-		transition: transform 300ms ease;
-	}
+	&__nav-item--next a {
+		&::after {
+			content: "\2192";
+			display: inline-block;
+			margin-left: 0.35em;
+			transition: transform 300ms ease;
+		}
 
-	&__nav-item--prev a:hover::before,
-	&__nav-item--prev a:focus::before {
-		transform: translateX(-2px);
-	}
-
-	&__nav-item--next a:hover::after,
-	&__nav-item--next a:focus::after {
-		transform: translateX(2px);
+		&:where(:hover, :focus)::after {
+			transform: translateX(2px);
+		}
 	}
 }

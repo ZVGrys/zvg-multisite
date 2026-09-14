@@ -24,6 +24,10 @@ $card-gap: 24px;
 	padding: 24px;
 	transition: border-color $transition-base, box-shadow $transition-base;
 
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
+
 	@include up($card-basis * 2 + $card-gap + 24px * 2) {
 		max-width: calc(50% - #{$card-gap * 0.5});
 	}
@@ -86,8 +90,7 @@ $card-gap: 24px;
 				}
 			}
 
-			&:hover::after,
-			&:focus::after {
+			&:where(:hover, :focus)::after {
 				transform: translateX(2px);
 			}
 		}
@@ -139,9 +142,5 @@ $card-gap: 24px;
 		color: $color-muted;
 		font-size: 0.6em;
 		margin-left: 0.12em;
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		transition: none;
 	}
 }

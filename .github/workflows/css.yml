@@ -1,0 +1,45 @@
+name: CSS
+
+on:
+  pull_request:
+    paths:
+      - 'themes/**/*.scss'
+      - 'themes/.stylelintrc.json'
+      - 'themes/package.json'
+      - 'themes/package-lock.json'
+      - '.github/workflows/css.yml'
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  stylelint:
+    name: Stylelint
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: themes
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: themes/package-lock.json
+
+      - run: npm ci
+
+      # One step per theme, so a failure in the first still reports the other two.
+      - name: zvg-fse
+        run: npx stylelint "zvg-fse/**/*.scss"
+
+      - name: zvg-acf
+        if: ${{ !cancelled() }}
+        run: npx stylelint "zvg-acf/**/*.scss"
+
+      - name: zvg-elementor
+        if: ${{ !cancelled() }}
+        run: npx stylelint "zvg-elementor/**/*.scss"

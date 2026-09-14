@@ -134,16 +134,20 @@
 	.zvg-acf-button {
 		cursor: pointer;
 
-		&:active {
+		&:where(:active) {
 			opacity: 0.75;
 		}
 	}
 }
 
+// stylelint-disable-next-line selector-max-specificity -- CF7 sets the box at 0,2,1 and its border-color per form state at 0,3,1.
 .zvg-acf-contact .wpcf7 form .wpcf7-response-output {
 	margin: 16px 0 0;
 	padding: 0;
 	border: 0;
+}
+
+:where(.zvg-acf-contact) :where(.wpcf7) :where(form) .wpcf7-response-output {
 	color: $color-accent;
 	font-size: 15px;
 
@@ -156,10 +160,7 @@
 	}
 }
 
-.zvg-acf-contact .wpcf7 form.invalid .wpcf7-response-output,
-.zvg-acf-contact .wpcf7 form.failed .wpcf7-response-output,
-.zvg-acf-contact .wpcf7 form.aborted .wpcf7-response-output,
-.zvg-acf-contact .wpcf7 form.spam .wpcf7-response-output {
+:where(.zvg-acf-contact) :where(.wpcf7) form:is(.invalid, .failed, .aborted, .spam) .wpcf7-response-output {
 	color: $color-danger;
 }
 

@@ -28,39 +28,38 @@
 		padding: 4px 8px;
 		text-decoration: none;
 		transition: color 300ms ease, border-color 300ms ease;
-
-		&:focus,
-		&:hover {
-			border-color: $color-accent;
-			color: $color-text;
-			text-decoration: none;
-		}
 	}
 
-	.page-numbers.current {
+	a:focus,
+	a:hover {
+		border-color: $color-accent;
+		color: $color-text;
+		text-decoration: none;
+	}
+
+	.current {
 		background-color: $color-accent;
 		border-color: $color-accent;
 		color: $color-accent-ink;
 	}
 
-	.page-numbers.prev,
-	.page-numbers.next {
+	a.prev,
+	a.next {
 		border: 0;
 		color: $color-accent;
 		padding: 0;
 		transition: opacity 300ms ease;
 
-		&:focus,
-		&:hover {
+		&:where(:focus, :hover) {
 			opacity: 0.8;
 		}
 	}
 
-	.page-numbers.prev {
+	.prev {
 		margin-right: 8px;
 	}
 
-	.page-numbers.next {
+	.next {
 		margin-left: 8px;
 	}
 }
