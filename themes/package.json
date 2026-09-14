@@ -11,6 +11,7 @@
     "build:blocks": "wp-scripts build --experimental-modules",
     "start:blocks": "wp-scripts start --experimental-modules",
     "lint:js": "wp-scripts lint-js zvg-fse/blocks/*/src webpack.config.js",
+    "lint:style": "stylelint \"zvg-fse/**/*.scss\" \"zvg-acf/**/*.scss\" \"zvg-elementor/**/*.scss\"",
     "build:acf": "gulp build:zvg-acf",
     "build:elementor": "gulp build:zvg-elementor",
     "watch:fse": "gulp watch:zvg-fse",
@@ -23,6 +24,7 @@
     "@babel/core": "^7.21.4",
     "@babel/preset-env": "^7.21.4",
     "@wordpress/scripts": "^35.0.0",
+    "@wordpress/stylelint-config": "^25.0.0",
     "browser-sync": "^3.0.4",
     "gulp": "^5.0.1",
     "gulp-autoprefixer": "^9.0.0",
@@ -34,7 +36,8 @@
     "gulp-sass": "^6.0.1",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
-    "sass": "^1.77.0"
+    "sass": "^1.77.0",
+    "stylelint": "^17.15.0"
   },
   "dependencies": {
     "@wordpress/block-editor": "^17.1.0",

@@ -14,6 +14,7 @@
 }
 
 [hidden] {
+	// stylelint-disable-next-line declaration-no-important -- must beat component display rules loaded later.
 	display: none !important;
 }
 

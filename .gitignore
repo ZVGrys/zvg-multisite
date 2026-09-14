@@ -19,7 +19,7 @@ debug.log
 
 # But not these files...
 !/.gitignore
-!/.coderabbit.yaml
+!/.editorconfig
 !/README.md
 !/LICENSE
 
@@ -31,6 +31,12 @@ debug.log
 # The fatal-error template. A drop-in, so it has to sit at the wp-content root, but it is ours
 # and it carries the site's identity — it belongs in version control like any other template.
 !/php-error.php
+
+# The security-headers must-use plugin. A site concern rather than a theme one, and CI and review
+# have to see it like any other code.
+!/mu-plugins/
+/mu-plugins/*
+!/mu-plugins/zvg-security-headers.php
 
 # Reopen the folder first — /* above excluded it, and git cannot re-include a
 # file whose parent directory is still excluded.
@@ -51,6 +57,9 @@ debug.log
 !themes/composer.lock
 !themes/phpstan.neon.dist
 !themes/phpstan/
+
+# The stylelint config for the same three themes.
+!themes/.stylelintrc.json
 
 # The workflows that run those standards on every pull request.
 !/.github/

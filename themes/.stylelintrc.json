@@ -1,0 +1,42 @@
+{
+	"extends": "@wordpress/stylelint-config/scss",
+	"ignoreFiles": [ "**/cmb2/**", "**/vendor/**", "**/node_modules/**", "**/build/**" ],
+	"rules": {
+		"at-rule-empty-line-before": [
+			"always",
+			{
+				"except": [ "blockless-after-blockless", "first-nested" ],
+				"ignore": [ "after-comment" ],
+				"ignoreAtRules": [ "else" ]
+			}
+		],
+		"rule-empty-line-before": [
+			"always",
+			{
+				"except": [ "first-nested" ],
+				"ignore": [ "after-comment" ]
+			}
+		],
+		"value-keyword-case": [ "lower", { "ignoreProperties": [ "/^\\$font-/" ] } ],
+		"selector-class-pattern": [
+			"^[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$",
+			{
+				"message": "Expected a kebab-case BEM class: block__element--modifier (selector-class-pattern)"
+			}
+		],
+		"function-url-quotes": "always",
+		"unit-disallowed-list": [ "s" ],
+		"selector-max-specificity": "0,2,1",
+		"selector-max-id": 0,
+		"declaration-no-important": true,
+		"max-nesting-depth": [ 2, { "ignoreAtRules": [ "media", "include", "supports" ] } ]
+	},
+	"overrides": [
+		{
+			"files": [ "zvg-elementor/widgets/**/*.scss" ],
+			"rules": {
+				"selector-max-specificity": "0,3,1"
+			}
+		}
+	]
+}

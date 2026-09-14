@@ -1,0 +1,32 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = tab
+
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+[*.md]
+indent_style = space
+trim_trailing_whitespace = false
+
+[{package.json,package-lock.json,composer.json}]
+indent_style = space
+indent_size = 2
+
+[{composer.lock,*.neon,*.neon.dist,themes/gulpfile.js,themes/zvg-acf/acf-json/*.json}]
+indent_style = space
+indent_size = 4
+
+[themes/zvg-elementor/cmb2/**]
+charset = unset
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+indent_style = unset
+indent_size = unset

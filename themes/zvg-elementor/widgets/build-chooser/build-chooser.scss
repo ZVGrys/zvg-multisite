@@ -112,7 +112,7 @@
 		}
 	}
 
-	& #{$root}__button--outline {
+	#{$root}__button--outline {
 		background-color: transparent;
 		border-color: $color-border-strong;
 		color: $color-text;
