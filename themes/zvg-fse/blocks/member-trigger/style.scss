@@ -2,6 +2,6 @@
 	display: contents;
 }
 
-.zvg-fse-js .wp-block-zvg-fse-member-trigger .zvg-fse-dialog__profile {
+:where(.zvg-fse-js) .wp-block-zvg-fse-member-trigger .zvg-fse-dialog__profile {
 	display: none;
 }

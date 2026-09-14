@@ -97,31 +97,31 @@
 		cursor: pointer;
 		transition: opacity $transition-fast;
 
-		&:hover,
-		&:focus {
+		&:where(:hover, :focus) {
 			opacity: 0.88;
 		}
 
-		&:active {
+		&:where(:active) {
 			opacity: 0.75;
 		}
 	}
 }
 
-.zvg-fse-contact .screen-reader-response:focus-within {
+:where(.zvg-fse-contact) div.screen-reader-response:focus-within {
 	position: static;
 	width: auto;
 	height: auto;
 	margin: 0 0 var(--wp--preset--spacing--30);
 	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
 	overflow: visible;
-	clip: auto;
 	clip-path: none;
 	font-size: var(--wp--preset--font-size--medium);
 	color: $color-danger;
 	border: 1px solid $color-danger;
 	border-radius: $radius-medium;
+}
 
+:where(.zvg-fse-contact) .screen-reader-response:focus-within {
 	p {
 		margin: 0;
 	}
@@ -136,18 +136,19 @@
 	}
 }
 
+// stylelint-disable-next-line selector-max-specificity -- Contact Form 7 prints `.wpcf7 form .wpcf7-response-output` (0,2,1) after this sheet.
 .zvg-fse-contact .wpcf7 form .wpcf7-response-output {
 	margin: var(--wp--preset--spacing--30) 0 0;
 	padding: 0;
-	font-size: var(--wp--preset--font-size--medium);
-	color: $color-accent;
 	border: 0;
 }
 
-.zvg-fse-contact .wpcf7 form.invalid .wpcf7-response-output,
-.zvg-fse-contact .wpcf7 form.failed .wpcf7-response-output,
-.zvg-fse-contact .wpcf7 form.aborted .wpcf7-response-output,
-.zvg-fse-contact .wpcf7 form.spam .wpcf7-response-output {
+:where(.zvg-fse-contact) .wpcf7-response-output {
+	font-size: var(--wp--preset--font-size--medium);
+	color: $color-accent;
+}
+
+:where(.zvg-fse-contact) .wpcf7-form:where(.invalid, .failed, .aborted, .spam) .wpcf7-response-output {
 	color: $color-danger;
 }
 

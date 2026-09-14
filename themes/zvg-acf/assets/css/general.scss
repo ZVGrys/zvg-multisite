@@ -7,9 +7,13 @@
 	box-sizing: border-box;
 
 	@media (prefers-reduced-motion: reduce) {
+		// stylelint-disable-next-line declaration-no-important -- must beat every component transition and animation.
 		transition-duration: 0.01ms !important;
+		// stylelint-disable-next-line declaration-no-important -- must beat every component transition and animation.
 		animation-duration: 0.01ms !important;
+		// stylelint-disable-next-line declaration-no-important -- must beat every component transition and animation.
 		animation-iteration-count: 1 !important;
+		// stylelint-disable-next-line declaration-no-important -- must beat every component transition and animation.
 		scroll-behavior: auto !important;
 	}
 }

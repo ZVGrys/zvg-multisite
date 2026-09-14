@@ -83,8 +83,7 @@ a.is-style-arrow-link {
 		transition: transform $transition-fast;
 	}
 
-	&:hover::after,
-	&:focus::after {
+	&:where(:hover, :focus)::after {
 		transform: translateX(2px);
 	}
 }

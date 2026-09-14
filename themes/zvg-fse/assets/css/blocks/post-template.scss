@@ -68,14 +68,13 @@
 		border-radius: $radius-medium;
 		transition: color $transition-fast, border-color $transition-fast;
 
-		&:hover,
-		&:focus {
+		&:where(:hover, :focus) {
 			color: $color-text;
 			border-color: $color-accent;
 		}
 	}
 
-	.page-numbers.current {
+	.page-numbers:where(.current) {
 		color: $color-accent-ink;
 		background-color: $color-accent;
 		border-color: $color-accent;
@@ -86,8 +85,7 @@
 		text-decoration: none;
 		transition: opacity $transition-fast;
 
-		&:hover,
-		&:focus {
+		&:where(:hover, :focus) {
 			text-decoration: none;
 			opacity: 0.8;
 		}

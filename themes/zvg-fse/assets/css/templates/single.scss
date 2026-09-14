@@ -11,8 +11,7 @@
 		padding-block: 14px;
 		transition: opacity $transition-fast;
 
-		&:hover,
-		&:focus {
+		&:where(:hover, :focus) {
 			text-decoration: none;
 			opacity: 0.8;
 		}
@@ -24,30 +23,30 @@
 		font-weight: 600;
 		text-decoration: none;
 	}
+}
 
-	&__nav .post-navigation-link-previous a::before,
-	&__nav .post-navigation-link-next a::after {
+:where(.zvg-fse-single__nav) {
+	.post-navigation-link-previous a::before,
+	.post-navigation-link-next a::after {
 		display: inline-block;
 		transition: transform $transition-fast;
 	}
 
-	&__nav .post-navigation-link-previous a::before {
+	.post-navigation-link-previous a::before {
 		margin-right: 0.35em;
 		content: "\2190";
 	}
 
-	&__nav .post-navigation-link-next a::after {
+	.post-navigation-link-next a::after {
 		margin-left: 0.35em;
 		content: "\2192";
 	}
 
-	&__nav .post-navigation-link-previous a:hover::before,
-	&__nav .post-navigation-link-previous a:focus::before {
+	.post-navigation-link-previous a:where(:hover, :focus)::before {
 		transform: translateX(-2px);
 	}
 
-	&__nav .post-navigation-link-next a:hover::after,
-	&__nav .post-navigation-link-next a:focus::after {
+	.post-navigation-link-next a:where(:hover, :focus)::after {
 		transform: translateX(2px);
 	}
 }

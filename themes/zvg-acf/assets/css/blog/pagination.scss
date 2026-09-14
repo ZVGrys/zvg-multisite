@@ -29,38 +29,36 @@
 		text-decoration: none;
 		transition: color $transition-fast, border-color $transition-fast;
 
-		&:hover,
-		&:focus {
+		&:where(:hover, :focus) {
 			border-color: $color-accent;
 			color: $color-text;
 			text-decoration: none;
 		}
 	}
+}
 
-	.page-numbers.current {
-		background-color: $color-accent;
-		border-color: $color-accent;
-		color: $color-accent-ink;
+:where(.pagination) .page-numbers.current {
+	background-color: $color-accent;
+	border-color: $color-accent;
+	color: $color-accent-ink;
+}
+
+:where(.pagination) .page-numbers.prev,
+:where(.pagination) .page-numbers.next {
+	border: 0;
+	color: $color-accent;
+	padding: 0;
+	transition: opacity $transition-fast;
+
+	&:where(:hover, :focus) {
+		opacity: 0.8;
 	}
+}
 
-	.page-numbers.prev,
-	.page-numbers.next {
-		border: 0;
-		color: $color-accent;
-		padding: 0;
-		transition: opacity $transition-fast;
+:where(.pagination) .page-numbers.prev {
+	margin-right: 8px;
+}
 
-		&:hover,
-		&:focus {
-			opacity: 0.8;
-		}
-	}
-
-	.page-numbers.prev {
-		margin-right: 8px;
-	}
-
-	.page-numbers.next {
-		margin-left: 8px;
-	}
+:where(.pagination) .page-numbers.next {
+	margin-left: 8px;
 }

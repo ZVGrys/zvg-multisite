@@ -9,12 +9,10 @@
 		transition: color $transition-fast;
 	}
 
-	.wp-block-navigation-item__content.wp-block-navigation-item__content {
-		&:hover,
-		&:focus {
-			color: $color-accent;
-			text-decoration: none;
-		}
+	// stylelint-disable-next-line selector-max-specificity -- core sets `color: inherit` with `.wp-block-navigation .wp-block-navigation-item__content.wp-block-navigation-item__content` (0,3,0).
+	.wp-block-navigation-item__content.wp-block-navigation-item__content:where(:hover, :focus) {
+		color: $color-accent;
+		text-decoration: none;
 	}
 
 	.wp-block-navigation__responsive-container-open,
@@ -26,8 +24,7 @@
 		color: $color-text;
 		transition: color $transition-fast;
 
-		&:hover,
-		&:focus {
+		&:where(:hover, :focus) {
 			color: $color-accent;
 		}
 	}
@@ -37,13 +34,15 @@
 		margin-inline-end: -10px;
 	}
 
-	.wp-block-navigation__responsive-container.is-menu-open {
+	.wp-block-navigation__responsive-container:where(.is-menu-open) {
 		animation: zvg-fse-nav-fade-in 100ms ease-out forwards;
 
 		@media (prefers-reduced-motion: reduce) {
 			animation-duration: 1ms;
 		}
+	}
 
+	:where(.wp-block-navigation__responsive-container.is-menu-open) {
 		.wp-block-navigation-item__content {
 			font-size: var(--wp--preset--font-size--x-large);
 		}
@@ -53,17 +52,19 @@
 		}
 	}
 
-	.wp-block-navigation__responsive-container.is-menu-open:not(.disable-default-overlay) .wp-block-navigation__responsive-container-content {
-		padding-top: 0;
-	}
-
 	.wp-block-navigation__responsive-container-close {
 		top: -2px;
 		margin-inline-end: -10px;
 	}
 }
 
-.wp-block-navigation .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+// stylelint-disable-next-line selector-max-specificity -- core pads it with `.wp-block-navigation__responsive-container.is-menu-open:not(.disable-default-overlay) .wp-block-navigation__responsive-container-content` (0,4,0).
+.wp-block-navigation__responsive-container.is-menu-open:not(.disable-default-overlay) .wp-block-navigation__responsive-container-content {
+	padding-top: 0;
+}
+
+// stylelint-disable-next-line selector-max-specificity -- core shows it from 600px with `.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open)` (0,3,0).
+:where(.zvg-fse-js) .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
 	@media (min-width: $bp-small) and (max-width: $bp-medium) {
 		display: none;
 		position: fixed;
@@ -75,7 +76,7 @@
 	}
 }
 
-.wp-block-navigation .wp-block-navigation__responsive-container-open:not(.always-shown) {
+.wp-block-navigation__responsive-container-open:not(.always-shown) {
 	@media (min-width: $bp-small) and (max-width: $bp-medium) {
 		display: flex;
 	}
@@ -87,23 +88,25 @@
 	}
 }
 
-html:not(.zvg-fse-js) {
-	.wp-block-navigation .wp-block-navigation__responsive-container-open:not(.always-shown),
+:where(html:not(.zvg-fse-js)) {
+	.wp-block-navigation__responsive-container-open:not(.always-shown),
 	.wp-block-navigation .wp-block-navigation__responsive-container-close {
 		display: none;
 	}
 
-	.wp-block-navigation {
-		min-width: 0;
-		max-width: 100%;
-	}
-
-	.wp-block-navigation .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+	.wp-block-navigation__responsive-container:where(:not(.hidden-by-default)):not(.is-menu-open) {
 		position: relative;
 		display: block;
 		width: 100%;
 		padding: 0;
 		background-color: inherit;
+	}
+}
+
+html:not(.zvg-fse-js) {
+	.wp-block-navigation {
+		min-width: 0;
+		max-width: 100%;
 	}
 
 	.wp-block-navigation__responsive-container-content {
