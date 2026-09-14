@@ -22,7 +22,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.21.4",
-    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-env": "^8.0.5",
     "@wordpress/scripts": "^35.0.0",
     "@wordpress/stylelint-config": "^25.0.0",
     "gulp": "^5.0.1",
