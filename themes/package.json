@@ -26,7 +26,7 @@
     "@wordpress/scripts": "^35.0.0",
     "@wordpress/stylelint-config": "^25.0.0",
     "gulp": "^5.0.1",
-    "gulp-autoprefixer": "^9.0.0",
+    "gulp-autoprefixer": "^10.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-notify": "^5.0.0",
