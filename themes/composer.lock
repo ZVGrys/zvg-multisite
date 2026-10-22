@@ -9,16 +9,16 @@
     "packages-dev": [
         {
             "name": "arts/elementor-stubs",
-            "version": "v4.2.4",
+            "version": "v4.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/artkrsk/elementor-stubs.git",
-                "reference": "4345323b7429014d1cd595178d52107bca16696e"
+                "reference": "91dd4da92ab9631314b5b5409cdffdbcd6c62e9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/artkrsk/elementor-stubs/zipball/4345323b7429014d1cd595178d52107bca16696e",
-                "reference": "4345323b7429014d1cd595178d52107bca16696e",
+                "url": "https://api.github.com/repos/artkrsk/elementor-stubs/zipball/91dd4da92ab9631314b5b5409cdffdbcd6c62e9e",
+                "reference": "91dd4da92ab9631314b5b5409cdffdbcd6c62e9e",
                 "shasum": ""
             },
             "require": {
@@ -64,7 +64,7 @@
             ],
             "support": {
                 "issues": "https://github.com/artkrsk/elementor-stubs/issues",
-                "source": "https://github.com/artkrsk/elementor-stubs/tree/v4.2.4"
+                "source": "https://github.com/artkrsk/elementor-stubs/tree/v4.3.5"
             },
             "funding": [
                 {
@@ -72,7 +72,7 @@
                     "type": "buy_me_a_coffee"
                 }
             ],
-            "time": "2026-09-15T04:00:45+00:00"
+            "time": "2026-10-15T03:48:19+00:00"
         },
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
@@ -224,16 +224,16 @@
         },
         {
             "name": "php-stubs/woocommerce-stubs",
-            "version": "v11.1.2",
+            "version": "v11.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-stubs/woocommerce-stubs.git",
-                "reference": "06dfedfe33a46a12db99fd343b80f1f2f11e64f6"
+                "reference": "fb590c1c2a26c47aa5da2c6c51a707130e8a389c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-stubs/woocommerce-stubs/zipball/06dfedfe33a46a12db99fd343b80f1f2f11e64f6",
-                "reference": "06dfedfe33a46a12db99fd343b80f1f2f11e64f6",
+                "url": "https://api.github.com/repos/php-stubs/woocommerce-stubs/zipball/fb590c1c2a26c47aa5da2c6c51a707130e8a389c",
+                "reference": "fb590c1c2a26c47aa5da2c6c51a707130e8a389c",
                 "shasum": ""
             },
             "require": {
@@ -262,9 +262,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-stubs/woocommerce-stubs/issues",
-                "source": "https://github.com/php-stubs/woocommerce-stubs/tree/v11.1.2"
+                "source": "https://github.com/php-stubs/woocommerce-stubs/tree/v11.2.0"
             },
-            "time": "2026-09-22T23:29:58+00:00"
+            "time": "2026-10-07T19:02:59+00:00"
         },
         {
             "name": "php-stubs/wordpress-stubs",
@@ -539,11 +539,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.2.14",
+            "version": "2.3.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9c672e7a8e791dfc3d30e55f683e73fc0b63a3ac",
-                "reference": "9c672e7a8e791dfc3d30e55f683e73fc0b63a3ac",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/6155239b488e95d26d1ebd95c6b4bb294d7f09db",
+                "reference": "6155239b488e95d26d1ebd95c6b4bb294d7f09db",
                 "shasum": ""
             },
             "require": {
@@ -599,7 +599,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-09-12T21:39:33+00:00"
+            "time": "2026-10-08T21:09:11+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
